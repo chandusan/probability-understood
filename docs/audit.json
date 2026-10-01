@@ -1,0 +1,1854 @@
+[
+  {
+    "source_pdf": "01-DataSummary.pdf",
+    "pages_total": 31,
+    "page_by_page": [
+      {
+        "page": 1,
+        "topic": "Title and course attribution",
+        "lesson_anchor": "story",
+        "status": "title",
+        "notes": "Title slide; course and source attribution are retained in the lesson page."
+      },
+      {
+        "page": 2,
+        "topic": "EDA and measures of central tendency",
+        "lesson_anchor": "story",
+        "status": "already-covered",
+        "notes": "Opening narrative explains statistical summaries as compression, with mean and median serving different purposes."
+      },
+      {
+        "page": 3,
+        "topic": "Sample mean formula and notation",
+        "lesson_anchor": "center",
+        "status": "already-covered",
+        "notes": "Equal-share interpretation and mean formula. Independence is not required to compute a descriptive mean."
+      },
+      {
+        "page": 4,
+        "topic": "Mean as least-squares minimizer",
+        "lesson_anchor": "center",
+        "status": "already-covered",
+        "notes": "SSE decomposition supplies a first-principles proof of optimality."
+      },
+      {
+        "page": 5,
+        "topic": "Mean as an orthogonal projection",
+        "lesson_anchor": "center",
+        "status": "already-covered",
+        "notes": "The expandable proof explains the constant-prediction line and orthogonal residual; source 3D artwork is not reproduced."
+      },
+      {
+        "page": 6,
+        "topic": "Ordered data and odd/even median",
+        "lesson_anchor": "median",
+        "status": "already-covered",
+        "notes": "Sort-first rule, odd middle, even average of middle two; all points between middle values minimize absolute loss."
+      },
+      {
+        "page": 7,
+        "topic": "Median robustness, absolute loss, other estimators",
+        "lesson_anchor": "loss-geometry",
+        "status": "expanded",
+        "notes": "Median/robustness were covered. Added answers to the other-loss prompt: midrange under maximum absolute loss and mode under exact-match loss. Finite-sample breakdown boundary remains qualified."
+      },
+      {
+        "page": 8,
+        "topic": "L2 versus L1 geometry",
+        "lesson_anchor": "loss-geometry",
+        "status": "expanded",
+        "notes": "Added explicit norm definitions, source (3,2,4) distances sqrt(29) and 9, circle/diamond visual with sphere/octahedron connection, SSE/MSE equivalence and L1 penalty caveat."
+      },
+      {
+        "page": 9,
+        "topic": "Mean and median for 6,3,9 then 6,3,12",
+        "lesson_anchor": "median",
+        "status": "already-covered",
+        "notes": "Both datasets and resulting means/medians are included in narrative and interactive lab."
+      },
+      {
+        "page": 10,
+        "topic": "Visual comparison of the same center example",
+        "lesson_anchor": "median",
+        "status": "repeated",
+        "notes": "Same example as page 9; interactive outlier lab supplies an alternative visualization rather than reproducing the source animation stills."
+      },
+      {
+        "page": 11,
+        "topic": "Choosing mean versus median; skewed illustration",
+        "lesson_anchor": "median",
+        "status": "already-covered",
+        "notes": "Balance-point versus middle-person explanation and choice by purpose. Source histogram used conceptually; underlying raw data are unavailable."
+      },
+      {
+        "page": 12,
+        "topic": "Three histogram interpretation exercise",
+        "lesson_anchor": "histogram-exercise",
+        "status": "added",
+        "notes": "Added all three explicit answers: shoe sizes approximately equal; car ownership mean above median; winter lows mean below median. Qualitative, not exact reconstructed histogram statistics."
+      },
+      {
+        "page": 13,
+        "topic": "Exam score 88 against mean 76 under two spreads",
+        "lesson_anchor": "exam-spread",
+        "status": "expanded",
+        "notes": "Existing scenario now explicitly explains both plotted cases and why no exact percentile follows from the mean alone."
+      },
+      {
+        "page": 14,
+        "topic": "Need for dispersion and context-dependent metrics",
+        "lesson_anchor": "spread",
+        "status": "already-covered",
+        "notes": "Contrasts equal centers with very different variability and explains robustness tradeoffs."
+      },
+      {
+        "page": 15,
+        "topic": "Range, support, translation and scale properties",
+        "lesson_anchor": "range-scaling",
+        "status": "expanded",
+        "notes": "Added explicit absolute-value scale rule, nonnegativity, and population support distinctions; support need not be one interval or bounded."
+      },
+      {
+        "page": 16,
+        "topic": "Range breakdown and min-max normalization failure",
+        "lesson_anchor": "range-scaling",
+        "status": "expanded",
+        "notes": "Sensor example was included. Added exact normalization formula, worked transformed values, constant-range caveat, and new-data values outside [0,1]."
+      },
+      {
+        "page": 17,
+        "topic": "Percentiles and interpolation",
+        "lesson_anchor": "spread",
+        "status": "already-covered",
+        "notes": "States one consistent interpolation convention and illustrates it; does not perpetuate the slide mixed-rank formulation."
+      },
+      {
+        "page": 18,
+        "topic": "Quartiles as standard quantiles",
+        "lesson_anchor": "spread",
+        "status": "already-covered",
+        "notes": "Defines Q1/Q2/Q3 and handles differing empirical conventions; precision note explains why F(q)=p need not hold at jumps. Source distribution artwork not recreated."
+      },
+      {
+        "page": 19,
+        "topic": "IQR definition and robustness",
+        "lesson_anchor": "spread",
+        "status": "already-covered",
+        "notes": "Middle-half width and Q3-Q1 are explicit; conceptual treatment of source ranked-number illustration."
+      },
+      {
+        "page": 20,
+        "topic": "42 diamonds: compute IQR and range",
+        "lesson_anchor": "spread",
+        "status": "already-covered",
+        "notes": "Interactive five-number-summary visual and worked IQR=1081, range=2738."
+      },
+      {
+        "page": 21,
+        "topic": "44 diamonds with two outliers",
+        "lesson_anchor": "spread",
+        "status": "expanded",
+        "notes": "IQR=1108 and range=8563 already covered; added the supplied SD change from 703 to 1497 alongside center comparisons."
+      },
+      {
+        "page": 22,
+        "topic": "Boxplot anatomy and five-number summary",
+        "lesson_anchor": "spread",
+        "status": "already-covered",
+        "notes": "Distinguishes actual extrema from Tukey whiskers and explains 1.5 IQR fences; corrects source terminology."
+      },
+      {
+        "page": 23,
+        "topic": "Sample variance, Bessel correction, SD",
+        "lesson_anchor": "variance",
+        "status": "already-covered",
+        "notes": "Formula, units, n>=2 and exact expectation proof of Bessel correction are present."
+      },
+      {
+        "page": 24,
+        "topic": "Variance applications in data science",
+        "lesson_anchor": "variance",
+        "status": "expanded",
+        "notes": "Existing PCA/scaling caveats supplemented with constant/rare features and model variance versus feature variance; avoids promising predictive usefulness from variance alone."
+      },
+      {
+        "page": 25,
+        "topic": "Population parameter versus sample statistic notation",
+        "lesson_anchor": "variance",
+        "status": "already-covered",
+        "notes": "All four parameter/statistic pairs shown in table."
+      },
+      {
+        "page": 26,
+        "topic": "SD units, zero-SD condition and non-robustness",
+        "lesson_anchor": "variance",
+        "status": "expanded",
+        "notes": "Added explicit s=0 iff all observations identical and outlier unboundedness; units were present."
+      },
+      {
+        "page": 27,
+        "topic": "Newborn birthweight histogram",
+        "lesson_anchor": "birthweights",
+        "status": "added",
+        "notes": "High-resolution figure checked: n=3226, mean=3.39 kg, SD=0.55 kg. Added numerical ruler example; does not recreate unavailable individual measurements or exact bin counts."
+      },
+      {
+        "page": 28,
+        "topic": "68-95-99.7 empirical rule",
+        "lesson_anchor": "birthweights",
+        "status": "expanded",
+        "notes": "Normal-model conditions were already qualified. Added all three birthweight intervals and approximate tail interpretation."
+      },
+      {
+        "page": 29,
+        "topic": "Heart-rate variance and SD example",
+        "lesson_anchor": "variance",
+        "status": "already-covered",
+        "notes": "All eight observations, mean 65.5, SS=1146, variance 1146/7 and SD~12.795; clarifies that SD is not mean absolute deviation."
+      },
+      {
+        "page": 30,
+        "topic": "Professor ratings dispersion ranking",
+        "lesson_anchor": "practice",
+        "status": "expanded",
+        "notes": "Independently counted dots from source figure. Added A/D/C distributions and squared-deviation totals 12,20,40; B is constant. Ranking B<A<D<C verified."
+      },
+      {
+        "page": 31,
+        "topic": "Four comparisons of standard deviations",
+        "lesson_anchor": "practice",
+        "status": "already-covered",
+        "notes": "All four comparisons and answers are included, with exact sample-variance calculations for appended 9 and 5."
+      }
+    ],
+    "initial_findings": [
+      "All principal summary formulas and central examples were present, but several source prompts and visual exercises were only implicit or absent.",
+      "The other-loss-minimizer prompt and detailed L1/L2 norm geometry were not fully taught.",
+      "No explicit answers were supplied for all three source histogram plots; birthweight figure values and their empirical-rule interpretation were absent.",
+      "Min-max normalization, negative scaling, zero-SD equivalence and some machine-learning qualifications needed explicit treatment.",
+      "The professor ranking was stated correctly but lacked a source-verified breakdown of plotted values."
+    ],
+    "changes": [
+      "Added Euclidean/Manhattan norm comparison, accessible circle/diamond visual and worked answers for midrange/mode under other losses.",
+      "Added all three histogram answers and the two exam-score interpretations.",
+      "Added min-max formula, worked sensor scaling, population support and general affine transformation rules.",
+      "Added zero-SD/outlier conditions, supplied diamond SD comparison, and more precise variance application caveats.",
+      "Added source-verified birthweight values and 1/2/3-SD intervals.",
+      "Independently verified professor dots and expanded the ranking explanation."
+    ],
+    "remaining_limitations": [
+      "Source histogram bin heights, projection artwork and original birthweight measurements are not reproduced; their substantive concepts and requested qualitative interpretations are covered.",
+      "Quantile calculations deliberately use one stated convention rather than repeat inconsistent rank formulas in the source.",
+      "This is a lesson companion with corrected explanations, not a verbatim slide transcription."
+    ]
+  },
+  {
+    "source_pdf": "02-Probability-Part1.pdf",
+    "pages_total": 43,
+    "page_by_page": [
+      {
+        "page": 1,
+        "topic": "Probability title and attribution",
+        "lesson_anchor": "story",
+        "status": "title",
+        "notes": "Course/source attribution retained."
+      },
+      {
+        "page": 2,
+        "topic": "Deterministic rule and temperature conversion",
+        "lesson_anchor": "model-errors",
+        "status": "expanded",
+        "notes": "Added explicit temperature rule and deterministic mapping; clarified a closed-form solution is not required."
+      },
+      {
+        "page": 3,
+        "topic": "Stochastic model and sources of uncertainty",
+        "lesson_anchor": "model-errors",
+        "status": "expanded",
+        "notes": "Added Y=f(x)+epsilon, conditional-mean interpretation and epistemic/aleatoric distinction; qualifies source overclaims that chaos/hidden variables prove inherent randomness."
+      },
+      {
+        "page": 4,
+        "topic": "Deterministic, stochastic and chaotic illustrations",
+        "lesson_anchor": "model-errors",
+        "status": "expanded",
+        "notes": "Explains conceptual contrasts; source decorative illustrations are not reproduced."
+      },
+      {
+        "page": 5,
+        "topic": "Random phenomena and coin long-run regularity",
+        "lesson_anchor": "uncertainty",
+        "status": "already-covered",
+        "notes": "Fair independent model, long-run rather than exact short-run frequencies, and no gambler fallacy."
+      },
+      {
+        "page": 6,
+        "topic": "Two dice and 36 outcomes",
+        "lesson_anchor": "spaces",
+        "status": "already-covered",
+        "notes": "Ordered-pair model and interactive 36-tile grid cover the source diagram."
+      },
+      {
+        "page": 7,
+        "topic": "Ten dice / email clicks binomial analogy",
+        "lesson_anchor": "uncertainty",
+        "status": "already-covered",
+        "notes": "Success count, independence and constant success probability are explicit; analogy is qualified rather than universally assumed."
+      },
+      {
+        "page": 8,
+        "topic": "Buffon needle experiment setup",
+        "lesson_anchor": "spaces",
+        "status": "already-covered",
+        "notes": "Needle length, line spacing, crossing condition and optional derivation are covered."
+      },
+      {
+        "page": 9,
+        "topic": "Stock performance as a random path",
+        "lesson_anchor": "model-errors",
+        "status": "expanded",
+        "notes": "Added exact 100-day/$125.50 context and a path-defined event; illustrative paths are not forecast or reconstructed."
+      },
+      {
+        "page": 10,
+        "topic": "Random chords intersecting",
+        "lesson_anchor": "spaces",
+        "status": "already-covered",
+        "notes": "Explains need to define sampling mechanism and links forward to full Lesson 4 solution. Lesson 2 does not duplicate the later derivation."
+      },
+      {
+        "page": 11,
+        "topic": "Definitions divider",
+        "lesson_anchor": "spaces",
+        "status": "title",
+        "notes": "Section divider introduces no additional substantive content."
+      },
+      {
+        "page": 12,
+        "topic": "Finite, countable and uncountable sample spaces",
+        "lesson_anchor": "spaces",
+        "status": "already-covered",
+        "notes": "Three-way comparison with concrete outcomes."
+      },
+      {
+        "page": 13,
+        "topic": "Countable bijection and count-model applications",
+        "lesson_anchor": "spaces",
+        "status": "expanded",
+        "notes": "Added one-to-one correspondence, geometric/Poisson/negative-binomial context and precise nontermination caveat for first-head space."
+      },
+      {
+        "page": 14,
+        "topic": "Dice sample space and grid-search exercise",
+        "lesson_anchor": "practice",
+        "status": "already-covered",
+        "notes": "36 ordered die outcomes and Cartesian product of grid-search settings, size 24, are explicit."
+      },
+      {
+        "page": 15,
+        "topic": "Repeated Buffon needle setup",
+        "lesson_anchor": "spaces",
+        "status": "repeated",
+        "notes": "Repeats page 8 before coordinate parametrization."
+      },
+      {
+        "page": 16,
+        "topic": "Full midpoint-and-angle needle sample space",
+        "lesson_anchor": "needle-coordinates",
+        "status": "added",
+        "notes": "Added full coordinates and reduction argument; clarifies no uniform probability measure on all real horizontal positions."
+      },
+      {
+        "page": 17,
+        "topic": "Reduced needle and Buffon-Laplace grid coordinates",
+        "lesson_anchor": "needle-coordinates",
+        "status": "expanded",
+        "notes": "Reduced model was covered. Added all grid coordinate ranges, angle convention, crossing union and similar random-dart problem."
+      },
+      {
+        "page": 18,
+        "topic": "Events as subsets",
+        "lesson_anchor": "story",
+        "status": "already-covered",
+        "notes": "Outcome/event distinction explained; formal measurability caveat appears in axioms section."
+      },
+      {
+        "page": 19,
+        "topic": "Membership and non-membership notation",
+        "lesson_anchor": "events",
+        "status": "added",
+        "notes": "Added explicit e in A / e not in A readings and data-filter analogy."
+      },
+      {
+        "page": 20,
+        "topic": "Cars sample-space and event-list exercise",
+        "lesson_anchor": "cars-exercise",
+        "status": "expanded",
+        "notes": "All eight outcomes already listed; added exact A={RLL,LRL,LLR} and C={LLL,RRR} lists."
+      },
+      {
+        "page": 21,
+        "topic": "Empty event and whole-space event",
+        "lesson_anchor": "events",
+        "status": "expanded",
+        "notes": "Added explicit never/always occurrence and empty-set meaning; probabilities were already present."
+      },
+      {
+        "page": 22,
+        "topic": "Union and indexed union",
+        "lesson_anchor": "many-events",
+        "status": "expanded",
+        "notes": "Two-event union already interactive; added formal indexed union and at-least-one membership interpretation."
+      },
+      {
+        "page": 23,
+        "topic": "Intersection and simultaneous occurrence",
+        "lesson_anchor": "events",
+        "status": "already-covered",
+        "notes": "Both/intersection explanation with die filters; P(A intersection B) treated as probability, not density."
+      },
+      {
+        "page": 24,
+        "topic": "Sketch union/intersection of two rectangles",
+        "lesson_anchor": "rectangle-exercise",
+        "status": "expanded",
+        "notes": "Existing boundaries/areas supplemented with coordinate SVG and strict-boundary guidance. Original problem now has a visual solution."
+      },
+      {
+        "page": 25,
+        "topic": "Complement of an event",
+        "lesson_anchor": "events",
+        "status": "already-covered",
+        "notes": "Not-A outcome list and interactive complement."
+      },
+      {
+        "page": 26,
+        "topic": "Language cues or/and/not",
+        "lesson_anchor": "events",
+        "status": "already-covered",
+        "notes": "Parallel phrase/symbol/outcomes table gives all three."
+      },
+      {
+        "page": 27,
+        "topic": "Die even / below-four exercise",
+        "lesson_anchor": "events",
+        "status": "already-covered",
+        "notes": "All requested union/intersection/complement results are worked and interactive."
+      },
+      {
+        "page": 28,
+        "topic": "Set-algebra identities",
+        "lesson_anchor": "events",
+        "status": "already-covered",
+        "notes": "Commutative, associative, distributive, idempotent, double-complement, inverse and De Morgan identities included."
+      },
+      {
+        "page": 29,
+        "topic": "Partition A by B and its complement",
+        "lesson_anchor": "events",
+        "status": "already-covered",
+        "notes": "Explicit disjoint partition identity with outcome-based proof strategy."
+      },
+      {
+        "page": 30,
+        "topic": "Empty-set and whole-space identities",
+        "lesson_anchor": "events",
+        "status": "already-covered",
+        "notes": "All four stated identities included in toolkit."
+      },
+      {
+        "page": 31,
+        "topic": "Disjoint events and cars example",
+        "lesson_anchor": "cars-exercise",
+        "status": "expanded",
+        "notes": "Disjoint definition already included; explicit cars event lists now demonstrate empty intersection."
+      },
+      {
+        "page": 32,
+        "topic": "Subset definition and partial order",
+        "lesson_anchor": "events",
+        "status": "already-covered",
+        "notes": "Definition, incomparable {1}/{2} example and partial-order explanation."
+      },
+      {
+        "page": 33,
+        "topic": "Subset identities and reversed complements",
+        "lesson_anchor": "events",
+        "status": "expanded",
+        "notes": "Identities existed; added explicit two-direction proof and subset-symbol convention."
+      },
+      {
+        "page": 34,
+        "topic": "Subset relationships exercise",
+        "lesson_anchor": "practice",
+        "status": "already-covered",
+        "notes": "All general inclusions among A,B,A union B,A-complement intersection B are listed; no unjustified A/B ordering."
+      },
+      {
+        "page": 35,
+        "topic": "Many-event union/intersection divider",
+        "lesson_anchor": "many-events",
+        "status": "title",
+        "notes": "Divider introduces following indexed operations."
+      },
+      {
+        "page": 36,
+        "topic": "Finite and countably infinite unions",
+        "lesson_anchor": "many-events",
+        "status": "expanded",
+        "notes": "Added indexed notation and at-least-one interpretation for finite/countably infinite lists."
+      },
+      {
+        "page": 37,
+        "topic": "Finite and countably infinite intersections",
+        "lesson_anchor": "many-events",
+        "status": "expanded",
+        "notes": "Added indexed notation and every-event interpretation for finite/countably infinite lists."
+      },
+      {
+        "page": 38,
+        "topic": "Generalized De Morgan identities",
+        "lesson_anchor": "many-events",
+        "status": "expanded",
+        "notes": "Added both indexed formulas, membership proof, and distinction between arbitrary set identities and countable event-closure guarantee."
+      },
+      {
+        "page": 39,
+        "topic": "Probability axioms",
+        "lesson_anchor": "axioms",
+        "status": "already-covered",
+        "notes": "Nonnegativity, normalization and countable additivity, with measurable-event formalism."
+      },
+      {
+        "page": 40,
+        "topic": "Finite equally likely sample spaces",
+        "lesson_anchor": "axioms",
+        "status": "already-covered",
+        "notes": "Favorable/total rule and equal-likelihood requirement explicitly stated."
+      },
+      {
+        "page": 41,
+        "topic": "Cars probabilities",
+        "lesson_anchor": "cars-exercise",
+        "status": "expanded",
+        "notes": "3/8 and 1/4 were already given. Added underlying string weights and unequal p=0.8 counterexample."
+      },
+      {
+        "page": 42,
+        "topic": "Two-dice sum at least 10 exercise",
+        "lesson_anchor": "spaces",
+        "status": "already-covered",
+        "notes": "Six ordered pairs listed; grid highlights them; P=1/6."
+      },
+      {
+        "page": 43,
+        "topic": "Counting-rule recap",
+        "lesson_anchor": "axioms",
+        "status": "repeated",
+        "notes": "Recaps finite/equally-likely assumption and counting rule, then transitions to counting lesson."
+      }
+    ],
+    "initial_findings": [
+      "Core sample spaces, events, axioms and numerical exercises were covered, but formal notation and some source modeling details were compressed.",
+      "The full needle and two-dimensional grid coordinate descriptions were not explicitly given.",
+      "The rectangle problem had algebraic answers but no requested sketch.",
+      "Many-event union/intersection and generalized De Morgan notation were only summarized in prose.",
+      "Car event lists, membership notation, and detailed stochastic-error terminology needed explicit coverage."
+    ],
+    "changes": [
+      "Added deterministic/stochastic formulas, conditional-mean interpretation, uncertainty distinctions and exact stock-path context.",
+      "Added formal countable correspondence and first-head nontermination qualification.",
+      "Added full needle/grid coordinates, finite uniform-model requirements and spatial analogy.",
+      "Added membership/empty/whole-space explanations, indexed set operations and subset proof.",
+      "Added an accessible rectangle union/intersection SVG with strict-boundary explanation.",
+      "Added exact car-event lists and probability weights for both equal and unequal turn models."
+    ],
+    "remaining_limitations": [
+      "The random-chord prompt is introduced here and fully solved in Lesson 4, as already linked; it is not independently rederived in Lesson 2.",
+      "The illustrative stock paths and decorative source images are conceptually explained rather than reconstructed from unavailable raw data.",
+      "Physical PDF page positions are used in this audit because the source printed slide numbers skip values."
+    ]
+  },
+  {
+    "source_pdf": "03-Counting.pdf",
+    "pages_total": 53,
+    "page_by_page": [
+      {
+        "page": 1,
+        "topic": "Title and course attribution",
+        "lesson_anchor": "story",
+        "status": "title",
+        "notes": "Title page; author/course attribution retained by the lesson wrapper."
+      },
+      {
+        "page": 2,
+        "topic": "Kolmogorov probability axioms",
+        "lesson_anchor": "counting-foundations",
+        "status": "added",
+        "notes": "Added all three axioms, including countable additivity; previously only implicit in this lesson, with earlier-course coverage."
+      },
+      {
+        "page": 3,
+        "topic": "Probability space (Ω, ℱ, P)",
+        "lesson_anchor": "counting-foundations",
+        "status": "added",
+        "notes": "Added roles of sample space, sigma-algebra, and measure plus closure meaning."
+      },
+      {
+        "page": 4,
+        "topic": "Finite equally likely sample spaces",
+        "lesson_anchor": "counting-foundations",
+        "status": "added",
+        "notes": "Added derivation of P(E)=|E|/|Ω| and warning that outcomes counted must be equally likely."
+      },
+      {
+        "page": 5,
+        "topic": "Three turning cars: exactly one R, all same direction",
+        "lesson_anchor": "cars-and-dice",
+        "status": "added",
+        "notes": "Added all eight ordered outcomes, favorable sets, 3/8 and 1/4; independence and equal-direction assumptions made explicit."
+      },
+      {
+        "page": 6,
+        "topic": "Two fair dice: sum at least ten",
+        "lesson_anchor": "cars-and-dice",
+        "status": "added",
+        "notes": "Added all six favorable ordered pairs and 6/36=1/6; explains why 3/11 from sums is wrong."
+      },
+      {
+        "page": 7,
+        "topic": "Probability rules recap",
+        "lesson_anchor": "counting-foundations",
+        "status": "added",
+        "notes": "Added compact full recap; complement and overlap proofs developed in Lesson 4."
+      },
+      {
+        "page": 8,
+        "topic": "One card: ace or diamond",
+        "lesson_anchor": "principles",
+        "status": "strengthened",
+        "notes": "Existing 16-card count now explicitly yields 16/52=4/13."
+      },
+      {
+        "page": 9,
+        "topic": "Counting section divider",
+        "lesson_anchor": "principles",
+        "status": "title",
+        "notes": "No additional mathematics."
+      },
+      {
+        "page": 10,
+        "topic": "Addition rule for disjoint counts",
+        "lesson_anchor": "principles",
+        "status": "already_covered",
+        "notes": "Explains adding mutually exclusive alternatives and removing overlap otherwise."
+      },
+      {
+        "page": 11,
+        "topic": "Two-stage multiplication rule",
+        "lesson_anchor": "principles",
+        "status": "already_covered",
+        "notes": "Explains uniform branch counts and when to split unequal branches into cases."
+      },
+      {
+        "page": 12,
+        "topic": "Two-stage counting tree diagram",
+        "lesson_anchor": "principles",
+        "status": "already_covered",
+        "notes": "Tree meaning represented in branch narrative and medal construction; original artwork not copied."
+      },
+      {
+        "page": 13,
+        "topic": "Gold and silver among eight runners",
+        "lesson_anchor": "principles",
+        "status": "already_covered",
+        "notes": "8 choices followed by 7 gives 56; counting multiplication distinguished from independence."
+      },
+      {
+        "page": 14,
+        "topic": "General multiplication principle",
+        "lesson_anchor": "principles",
+        "status": "already_covered",
+        "notes": "Product of sequential continuation counts with conditions stated."
+      },
+      {
+        "page": 15,
+        "topic": "Multistage tree diagram",
+        "lesson_anchor": "principles",
+        "status": "already_covered",
+        "notes": "Equivalent staged construction; original diagram adds no further mathematical statement."
+      },
+      {
+        "page": 16,
+        "topic": "License plates with two letters and five digits",
+        "lesson_anchor": "principles",
+        "status": "already_covered",
+        "notes": "26²10⁵ under fixed letter/digit positions; alternative C(7,2) factor if positions vary explicitly distinguished."
+      },
+      {
+        "page": 17,
+        "topic": "n! permutations and 0!=1",
+        "lesson_anchor": "order",
+        "status": "already_covered",
+        "notes": "Derived by successive choices; empty arrangement explains 0!."
+      },
+      {
+        "page": 18,
+        "topic": "All permutations of four distinct objects",
+        "lesson_anchor": "small-counts",
+        "status": "added",
+        "notes": "Added exact 4!=24 example, all six A-first strings, and grouping the other 18 by first letter; exhaustive 24-string slide list compressed without losing the construction."
+      },
+      {
+        "page": 19,
+        "topic": "Ten books grouped by subject",
+        "lesson_anchor": "applications",
+        "status": "already_covered",
+        "notes": "Block method 4!4!3!2!1!=6912; books assumed distinct."
+      },
+      {
+        "page": 20,
+        "topic": "Ordered selections P(n,k)",
+        "lesson_anchor": "order",
+        "status": "already_covered",
+        "notes": "Derived n!/(n−r)!; notation r instead of k does not change content."
+      },
+      {
+        "page": 21,
+        "topic": "Three committee officer roles from ten people",
+        "lesson_anchor": "order",
+        "status": "already_covered",
+        "notes": "P(10,3)=720 with distinct officeholders."
+      },
+      {
+        "page": 22,
+        "topic": "Constrained three-stage feature pipeline",
+        "lesson_anchor": "applications",
+        "status": "already_covered",
+        "notes": "Counts 2·6·5 minus four pipelines containing both C and D; assumes no feature reuse as suggested by permutation context."
+      },
+      {
+        "page": 23,
+        "topic": "Order matters versus order irrelevant",
+        "lesson_anchor": "order",
+        "status": "already_covered",
+        "notes": "Role assignments contrasted with teams and interactive experiment."
+      },
+      {
+        "page": 24,
+        "topic": "All three committee officers are male",
+        "lesson_anchor": "practice",
+        "status": "already_covered",
+        "notes": "Both ordered and unordered derivations yield 1/6 under uniform distinct selections."
+      },
+      {
+        "page": 25,
+        "topic": "Three-element combinations from five objects",
+        "lesson_anchor": "small-counts",
+        "status": "added",
+        "notes": "Added the exact ten combinations alongside the existing general derivation and lab."
+      },
+      {
+        "page": 26,
+        "topic": "Derivation of combinations from permutations",
+        "lesson_anchor": "order",
+        "status": "already_covered",
+        "notes": "Each unordered team has r! ordered descriptions; divides P(n,r) by r!."
+      },
+      {
+        "page": 27,
+        "topic": "Binomial coefficients and notation",
+        "lesson_anchor": "order",
+        "status": "already_covered",
+        "notes": "Factorial formula and choose notation; algebraic role developed in applications."
+      },
+      {
+        "page": 28,
+        "topic": "Binomial theorem",
+        "lesson_anchor": "applications",
+        "status": "already_covered",
+        "notes": "Equivalent summation with x and y exponents interchanged relative to slide; explained by choosing factors."
+      },
+      {
+        "page": 29,
+        "topic": "Generalized binomial theorem",
+        "lesson_anchor": "applications",
+        "status": "already_covered",
+        "notes": "Real alpha coefficients, infinite expansion, and |x|<1 verified from slide image; includes alpha=0 convention and integer termination."
+      },
+      {
+        "page": 30,
+        "topic": "Summary: addition and two-stage multiplication",
+        "lesson_anchor": "principles",
+        "status": "repeated",
+        "notes": "Summary repeats prior counting principles."
+      },
+      {
+        "page": 31,
+        "topic": "Summary: multistage multiplication",
+        "lesson_anchor": "principles",
+        "status": "repeated",
+        "notes": "Summary repeats product rule."
+      },
+      {
+        "page": 32,
+        "topic": "Permutation formulas with/without replacement and multisets",
+        "lesson_anchor": "replacement",
+        "status": "already_covered",
+        "notes": "Formula table and labeled-then-unlabeled BANANA derivation explain all three."
+      },
+      {
+        "page": 33,
+        "topic": "Combination formulas and five doughnuts/three flavors",
+        "lesson_anchor": "replacement",
+        "status": "already_covered",
+        "notes": "No-replacement combinations and stars-and-bars derivation C(7,5)=21; distribution is not assumed uniform."
+      },
+      {
+        "page": 34,
+        "topic": "Applications section introduction",
+        "lesson_anchor": "applications",
+        "status": "title",
+        "notes": "Transition/encouragement to combine rules; no additional result."
+      },
+      {
+        "page": 35,
+        "topic": "Lotto 6/49 sample space",
+        "lesson_anchor": "applications",
+        "status": "already_covered",
+        "notes": "C(49,6)=13,983,816 with unordered six-number tickets."
+      },
+      {
+        "page": 36,
+        "topic": "Lottery match categories and illustrative payouts",
+        "lesson_anchor": "lottery-details",
+        "status": "strengthened",
+        "notes": "Added 0–2 losing threshold and every slide payout, labeled classroom model rather than current game rules."
+      },
+      {
+        "page": 37,
+        "topic": "Zero lottery matches",
+        "lesson_anchor": "lottery-details",
+        "status": "strengthened",
+        "notes": "Existing count/generic formula now supplemented by explicit C(43,6) and decimal probability."
+      },
+      {
+        "page": 38,
+        "topic": "One lottery match",
+        "lesson_anchor": "lottery-details",
+        "status": "strengthened",
+        "notes": "Existing table and general formula supplemented by explicit 6C(43,5) construction."
+      },
+      {
+        "page": 39,
+        "topic": "Two, three, and four lottery matches",
+        "lesson_anchor": "lottery-details",
+        "status": "strengthened",
+        "notes": "Existing exact counts now paired with individual numerator expressions."
+      },
+      {
+        "page": 40,
+        "topic": "Five and six lottery matches",
+        "lesson_anchor": "lottery-details",
+        "status": "strengthened",
+        "notes": "Counts retained; clarified inconsistency between bonus-exclusion wording and 43 choices. No-bonus model gives 258; excluding a particular bonus gives 252."
+      },
+      {
+        "page": 41,
+        "topic": "Poker sample space",
+        "lesson_anchor": "poker",
+        "status": "already_covered",
+        "notes": "C(52,5)=2,598,960 unordered hands."
+      },
+      {
+        "page": 42,
+        "topic": "Poker categories: high card through flush",
+        "lesson_anchor": "poker-reasoning",
+        "status": "strengthened",
+        "notes": "Added rank patterns/definitions and stage-by-stage explanations for recipes that were previously mostly tabular."
+      },
+      {
+        "page": 43,
+        "topic": "Full house, four of a kind, straight/royal flush",
+        "lesson_anchor": "poker-reasoning",
+        "status": "strengthened",
+        "notes": "Category distinctions explicit; separate royal category matches source partition."
+      },
+      {
+        "page": 44,
+        "topic": "Image: pair and three distinct kickers",
+        "lesson_anchor": "poker",
+        "status": "strengthened",
+        "notes": "Original figure visually inspected. Added concrete two-queens/7/3/10 example and 42.2569% probability; distinct-kicker reasoning was already present."
+      },
+      {
+        "page": 45,
+        "topic": "One pair derivation",
+        "lesson_anchor": "poker",
+        "status": "already_covered",
+        "notes": "13 C(4,2) C(12,3)4³=1,098,240; stages already explained."
+      },
+      {
+        "page": 46,
+        "topic": "Two-pair derivation",
+        "lesson_anchor": "poker-reasoning",
+        "status": "strengthened",
+        "notes": "Recipe previously present; now explains unordered pair ranks and remaining kicker choices."
+      },
+      {
+        "page": 47,
+        "topic": "Three of a kind and full-house derivations",
+        "lesson_anchor": "poker-reasoning",
+        "status": "strengthened",
+        "notes": "Triple explanation expanded. Existing correction retained: 156·4·6=3744, not source 3696."
+      },
+      {
+        "page": 48,
+        "topic": "Four of a kind and straight/royal flush counts",
+        "lesson_anchor": "poker-reasoning",
+        "status": "strengthened",
+        "notes": "Counts already correct; added explanation and source intermediate typo C(12,1)=12, not 1."
+      },
+      {
+        "page": 49,
+        "topic": "Straight excluding straight/royal flushes",
+        "lesson_anchor": "poker-reasoning",
+        "status": "strengthened",
+        "notes": "Recipe already correct; explains ten rank runs and four monochrome suit assignments to exclude."
+      },
+      {
+        "page": 50,
+        "topic": "Flush excluding straight/royal flushes",
+        "lesson_anchor": "poker-reasoning",
+        "status": "strengthened",
+        "notes": "Recipe already correct; explains ranks and removed consecutive sets."
+      },
+      {
+        "page": 51,
+        "topic": "Poker frequencies and probabilities",
+        "lesson_anchor": "poker",
+        "status": "strengthened",
+        "notes": "Added all ten recomputed probabilities. Existing corrections retained: high card 1,302,540 and full house 3744; totals checked."
+      },
+      {
+        "page": 52,
+        "topic": "Ten fair coin tosses: exactly three / at most three heads",
+        "lesson_anchor": "applications",
+        "status": "already_covered",
+        "notes": "120/1024 and 176/1024=11/64; independent fair toss model stated."
+      },
+      {
+        "page": 53,
+        "topic": "Random tennis tournament with byes",
+        "lesson_anchor": "practice",
+        "status": "already_covered",
+        "notes": "2/n from symmetry and n−1 matches; full proof and random-bye mechanics in Lesson 4."
+      }
+    ],
+    "initial_findings": [
+      "The main counting syllabus, all later exercises, and every poker count were present; however, the opening probability-space/axiom recap and exact turning-car/two-dice examples were absent from this standalone lesson.",
+      "The four-object permutation list and exact choose-three-from-five example were replaced by other examples and the interactive lab rather than explicitly worked.",
+      "Lottery match counts used a correct general formula, but individual match constructions and the illustrative payout mapping were compressed.",
+      "Poker category recipes were correct but several categories lacked the first-principles rank/suit explanations shown in the slides. The ten numerical probabilities were absent.",
+      "The prior lesson already corrected full-house and high-card source errors. Further audit identified the intermediate C(12,1)=1 typo and ambiguous bonus-number wording."
+    ],
+    "changes": [
+      "Added a standalone probability refresher and fully worked opening cars/dice problems.",
+      "Added exact small permutation/combination examples and direct lottery formulas/payout interpretation.",
+      "Expanded every poker category explanation and added the full recomputed probability table.",
+      "Kept correct source corrections, added the four-of-a-kind intermediate typo and clarified the bonus-number modeling ambiguity.",
+      "All 53 PDF pages mapped individually after comparing extracted text and slide images."
+    ],
+    "remaining_limitations": [
+      "Repeated title/summary slides and duplicate tree diagrams are mapped to equivalent explanations rather than reproduced as separate lesson sections.",
+      "The feature-pipeline exercise is interpreted without feature reuse, consistent with its placement under permutations; this assumption is stated in the lesson.",
+      "The lottery example is a simplified no-bonus probability model; slide prize amounts are labeled illustrative, not current game information."
+    ]
+  },
+  {
+    "source_pdf": "04-Probability-Part2.pdf",
+    "pages_total": 36,
+    "page_by_page": [
+      {
+        "page": 1,
+        "topic": "Rules of probability title",
+        "lesson_anchor": "story",
+        "status": "title",
+        "notes": "No mathematical statement beyond lesson topic."
+      },
+      {
+        "page": 2,
+        "topic": "Random tennis tournament setup",
+        "lesson_anchor": "symmetry",
+        "status": "strengthened",
+        "notes": "Existing solution now explicitly describes random pairings each round and uniform byes for odd survivor counts."
+      },
+      {
+        "page": 3,
+        "topic": "Tournament solution 2/n",
+        "lesson_anchor": "symmetry",
+        "status": "strengthened",
+        "notes": "Invariant/indicator symmetry proof already correct; added n≥2, byes explanation, and n=2,3 checks."
+      },
+      {
+        "page": 4,
+        "topic": "Probability two random chords cross",
+        "lesson_anchor": "symmetry",
+        "status": "already_covered",
+        "notes": "All six cyclic orders, two alternating orders, probability 1/3; independent uniform endpoint sampling explicit."
+      },
+      {
+        "page": 5,
+        "topic": "Complement proof and empty-event corollary",
+        "lesson_anchor": "complements",
+        "status": "strengthened",
+        "notes": "Complement derived already; now adds P(empty)=0 explicitly."
+      },
+      {
+        "page": 6,
+        "topic": "Lottery tickets, 0/1/2 matches, and no prize",
+        "lesson_anchor": "practice",
+        "status": "already_covered",
+        "notes": "No-prize exact numerator and probability present; other subparts have full counts in Lesson 3, now also explicit individual formulas there."
+      },
+      {
+        "page": 7,
+        "topic": "Six incidents in six districts",
+        "lesson_anchor": "complements",
+        "status": "already_covered",
+        "notes": "Complement of one-per-district gives 1−6!/6⁶≈0.984568 with uniform independent assignments."
+      },
+      {
+        "page": 8,
+        "topic": "Exactly k balls in specified bin: question",
+        "lesson_anchor": "bins",
+        "status": "already_covered",
+        "notes": "Setup explicit for m distinct balls, n bins, specified bin."
+      },
+      {
+        "page": 9,
+        "topic": "Ball/bin count derivation",
+        "lesson_anchor": "bins",
+        "status": "already_covered",
+        "notes": "Choose k balls and forbid chosen bin for remainder: C(m,k)(n−1)^(m−k)."
+      },
+      {
+        "page": 10,
+        "topic": "Ball/bin probability and binomial form",
+        "lesson_anchor": "bins",
+        "status": "already_covered",
+        "notes": "Both counting and binomial forms; independence across balls versus dependence between occupancies distinguished."
+      },
+      {
+        "page": 11,
+        "topic": "Birthday complement construction",
+        "lesson_anchor": "complements",
+        "status": "already_covered",
+        "notes": "Independent uniform 365-day model; staged avoidance derivation."
+      },
+      {
+        "page": 12,
+        "topic": "Birthday permutation/factorial equivalents",
+        "lesson_anchor": "birthday-forms",
+        "status": "added",
+        "notes": "Original lesson had equivalent product but omitted permutation, combination-times-factorial, and factorial forms; all now shown."
+      },
+      {
+        "page": 13,
+        "topic": "Birthday probability table and 23-person threshold",
+        "lesson_anchor": "birthday-forms",
+        "status": "strengthened",
+        "notes": "Interactive lab already covered values and threshold; exact six-row slide table now included for direct reference."
+      },
+      {
+        "page": 14,
+        "topic": "Multiset permutation theorem",
+        "lesson_anchor": "poem",
+        "status": "strengthened",
+        "notes": "General repeated-letter formula already present; now explicitly derives equal multiplicity and uses source counts."
+      },
+      {
+        "page": 15,
+        "topic": "Image-only 59-tile poem question",
+        "lesson_anchor": "poem",
+        "status": "strengthened",
+        "notes": "Inspected image; transcribed all 26 letter counts, checked total59 and target letter multiset. Previous lesson gave generic n_j formula only."
+      },
+      {
+        "page": 16,
+        "topic": "Image-only poem solution and tiny probability",
+        "lesson_anchor": "poem",
+        "status": "strengthened",
+        "notes": "Added exact grouped-factorial expression, 1.68014e−61 numerical value, and brief explanation of mentioned Stirling approximation."
+      },
+      {
+        "page": 17,
+        "topic": "Two-event addition and disjoint special case",
+        "lesson_anchor": "addition-proof",
+        "status": "strengthened",
+        "notes": "Formula already present; added disjoint special case explicitly."
+      },
+      {
+        "page": 18,
+        "topic": "Disjoint-region proof of addition",
+        "lesson_anchor": "addition-proof",
+        "status": "strengthened",
+        "notes": "Prior explanation was compressed; now names and adds the three disjoint regions."
+      },
+      {
+        "page": 19,
+        "topic": "Algebraic proof of addition",
+        "lesson_anchor": "addition-proof",
+        "status": "strengthened",
+        "notes": "Substitutes A-only/B-only expressions to derive one overlap subtraction."
+      },
+      {
+        "page": 20,
+        "topic": "Olympic-host finalist city example",
+        "lesson_anchor": "overlap",
+        "status": "already_covered",
+        "notes": "Supplied 0.20,0.35,0.08 example gives0.47; no independence inferred."
+      },
+      {
+        "page": 21,
+        "topic": "Olympic-host example solution",
+        "lesson_anchor": "overlap",
+        "status": "already_covered",
+        "notes": "Inclusive union/intersection interpretation and arithmetic present."
+      },
+      {
+        "page": 22,
+        "topic": "Bridge sample space",
+        "lesson_anchor": "overlap",
+        "status": "already_covered",
+        "notes": "C(52,13)=635,013,559,600."
+      },
+      {
+        "page": 23,
+        "topic": "Bridge questions: two marginals, intersection, union",
+        "lesson_anchor": "overlap",
+        "status": "strengthened",
+        "notes": "All four represented before by symmetry; now each marginal explicitly named/evaluated."
+      },
+      {
+        "page": 24,
+        "topic": "Exactly five spades",
+        "lesson_anchor": "overlap",
+        "status": "strengthened",
+        "notes": "Existing symbolic formula expanded to exact marginal count and probability with choice-stage explanation."
+      },
+      {
+        "page": 25,
+        "topic": "Exactly five hearts",
+        "lesson_anchor": "overlap",
+        "status": "strengthened",
+        "notes": "P(B)=P(A) explicitly stated and evaluated."
+      },
+      {
+        "page": 26,
+        "topic": "Exactly five spades AND five hearts",
+        "lesson_anchor": "overlap",
+        "status": "strengthened",
+        "notes": "Existing correct count/formula and correction retained; added decimal probability. Source repeated factor61,523,748 should be2600."
+      },
+      {
+        "page": 27,
+        "topic": "Exactly five spades OR five hearts",
+        "lesson_anchor": "overlap",
+        "status": "already_covered",
+        "notes": "2P(A)−P(A∩B)≈0.242602; clarified exactly five versus at least five."
+      },
+      {
+        "page": 28,
+        "topic": "Three-event addition and disjoint special case",
+        "lesson_anchor": "general-inclusion",
+        "status": "strengthened",
+        "notes": "Formula and counting reason already present; explicit disjoint simplification added."
+      },
+      {
+        "page": 29,
+        "topic": "Seven-region Venn diagram",
+        "lesson_anchor": "general-inclusion",
+        "status": "strengthened",
+        "notes": "Existing membership lab embodies same partition; now names all seven regions in prose."
+      },
+      {
+        "page": 30,
+        "topic": "Three-event inclusion-exclusion proof by regions",
+        "lesson_anchor": "general-inclusion",
+        "status": "strengthened",
+        "notes": "Existing copy-counting argument retained; identifies source duplicated E5/omitted E6 union-list typo."
+      },
+      {
+        "page": 31,
+        "topic": "At least one six on three dice; alternative method",
+        "lesson_anchor": "three-dice",
+        "status": "added",
+        "notes": "Complement answer existed; added the requested inclusion-exclusion construction and equality to complement."
+      },
+      {
+        "page": 32,
+        "topic": "All six faces among ten dice",
+        "lesson_anchor": "advanced",
+        "status": "strengthened",
+        "notes": "Correct sum and count existed; added expanded six-term arithmetic 16,435,440/6¹⁰≈0.271812."
+      },
+      {
+        "page": 33,
+        "topic": "Divisibility and seven-digit run exercises",
+        "lesson_anchor": "advanced",
+        "status": "strengthened",
+        "notes": "Both worked answers already correct; clarified floor/lcm counting and 10³ factors for digit windows. Leading zeroes permitted as strings."
+      },
+      {
+        "page": 34,
+        "topic": "General inclusion-exclusion formula",
+        "lesson_anchor": "general-inclusion",
+        "status": "strengthened",
+        "notes": "Previously described alternating intersections and binomial coefficient proof; now adds full compact subset-index formula and disjoint case."
+      },
+      {
+        "page": 35,
+        "topic": "Name drawing: self-match probability and limit",
+        "lesson_anchor": "derangement-proof",
+        "status": "strengthened",
+        "notes": "Correct formula and limit existed; adds full derangement count, e-series link, error bound, and nonmonotone convergence examples."
+      },
+      {
+        "page": 36,
+        "topic": "Specified m avoid own names; no-repeat word uses 26 letters",
+        "lesson_anchor": "advanced",
+        "status": "strengthened",
+        "notes": "Both correct formulas existed; adds m=2 derivation, m=0 edge case, and quantitative e-series remainder justification."
+      }
+    ],
+    "initial_findings": [
+      "All major topics and end-of-deck exercises were already represented, but some source proofs and exact worked examples were too compressed to call the coverage fully explicit.",
+      "The image-only poem example had its general formula but not the 26 actual letter counts, grouped factorial expression, or numerical answer.",
+      "The three-dice exercise was solved only by complement; the source inclusion-exclusion derivation was missing.",
+      "Birthday factorial equivalents, the general inclusion-exclusion formula, the full two-event proof, and the empty-event corollary were not explicitly displayed.",
+      "The prior bridge typo correction was correct. The source seven-region union also contains a duplicated E5 and missing E6."
+    ],
+    "changes": [
+      "Added explicit birthday count equivalents and all six table values.",
+      "Completed the image-only poem example with verified letter counts and 1.68014e−61 result.",
+      "Added full two-event proof, general inclusion-exclusion formula, seven-region interpretation, and both three-dice methods.",
+      "Expanded bridge marginals, tournament bye mechanics, ten-dice arithmetic, derangement limit reasoning, and end-exercise justifications.",
+      "Added source typo note for the Venn union and retained bridge correction.",
+      "All 36 PDF pages mapped individually after comparing extracted text and slide images.",
+      "Root independently verified numeric outputs and repaired a shared combinatorial helper that exposed floating-point artifacts in displayed integer counts."
+    ],
+    "remaining_limitations": [
+      "The chord answer assumes independently uniform endpoints; other definitions of random chords can change the model, and this assumption is explicit.",
+      "Original diagrams and repeated formula slides are represented by equivalent explanations, worked steps, and existing interactive experiments.",
+      "No substantive source exercise remains omitted under the stated classroom models."
+    ]
+  },
+  {
+    "source_pdf": "05-Probability-Part3.pdf",
+    "pages_total": 44,
+    "page_by_page": [
+      {
+        "page": 1,
+        "topic": "Title: conditional probability and Bayes",
+        "lesson_anchor": "story",
+        "status": "title",
+        "notes": "Title; mapped to the lesson introduction."
+      },
+      {
+        "page": 2,
+        "topic": "Covered die and conditional probability intuition",
+        "lesson_anchor": "story",
+        "status": "already-covered",
+        "notes": "Same fair-die example, with probabilities 1/6 and 1/3 and information-based interpretation."
+      },
+      {
+        "page": 3,
+        "topic": "Listening-history recommendation application",
+        "lesson_anchor": "story",
+        "status": "added",
+        "notes": "Added listening-history example, clarifying that information can reweight tastes without making other songs impossible."
+      },
+      {
+        "page": 4,
+        "topic": "Conditional probability definition and positive denominator",
+        "lesson_anchor": "conditional",
+        "status": "already-covered",
+        "notes": "P(A|B)=P(A∩B)/P(B), P(B)>0, plus clarification that conditioning is not necessarily temporal."
+      },
+      {
+        "page": 5,
+        "topic": "Restriction and normalization intuition",
+        "lesson_anchor": "conditional",
+        "status": "already-covered",
+        "notes": "Crop-and-rescale derivation preserves the Venn-diagram meaning."
+      },
+      {
+        "page": 6,
+        "topic": "Streaming subscriptions: neither given at most one",
+        "lesson_anchor": "conditional",
+        "status": "already-covered",
+        "notes": "All four disjoint groups given; ratio 0.20/0.75=4/15."
+      },
+      {
+        "page": 7,
+        "topic": "Independence: product definition and both conditional directions",
+        "lesson_anchor": "independence",
+        "status": "expanded",
+        "notes": "Added symmetric conditional statement and separated the valid product definition from zero-denominator conditionals."
+      },
+      {
+        "page": 8,
+        "topic": "Independence as unchanged proportions: 100-cell grid",
+        "lesson_anchor": "independence",
+        "status": "expanded",
+        "notes": "Added the source grid’s 50, 40 and 20 cells explicitly, with 20/40=50/100."
+      },
+      {
+        "page": 9,
+        "topic": "Mutually exclusive versus independent, including zero-probability exception",
+        "lesson_anchor": "independence",
+        "status": "expanded",
+        "notes": "Positive-probability incompatibility already explained; now explicitly covers the probability-zero exception."
+      },
+      {
+        "page": 10,
+        "topic": "Mutual independence for every subcollection and checking procedure",
+        "lesson_anchor": "independence",
+        "status": "expanded",
+        "notes": "Every-subcollection rule already covered; added a clear probability/intersection/product checking procedure."
+      },
+      {
+        "page": 11,
+        "topic": "Three independent 0.1-probability events: two unions and exactly one",
+        "lesson_anchor": "independence",
+        "status": "expanded",
+        "notes": "All answers already correct; added complement-independence justification and the three disjoint exactly-one routes."
+      },
+      {
+        "page": 12,
+        "topic": "Four-coin pairwise but not mutually independent events",
+        "lesson_anchor": "independence",
+        "status": "already-covered",
+        "notes": "All 16 outcomes available in interactive lab; pair intersections 1/4 and triple intersection zero."
+      },
+      {
+        "page": 13,
+        "topic": "Fox ear tags conditional exercise",
+        "lesson_anchor": "trees",
+        "status": "already-covered",
+        "notes": "Worked ratio 2p(1-p)/(1-p²)=2p/(1+p), with p=1 conditioning undefined."
+      },
+      {
+        "page": 14,
+        "topic": "Multiplication rule and general chain rule",
+        "lesson_anchor": "trees",
+        "status": "expanded",
+        "notes": "Two- and three-event rules already shown; added general nth-factor pattern and positive-history conditions."
+      },
+      {
+        "page": 15,
+        "topic": "King, queen, jack in fixed and arbitrary order",
+        "lesson_anchor": "trees",
+        "status": "already-covered",
+        "notes": "Both parts solved: product (4/52)(4/51)(4/50), multiplied by 3! for any order."
+      },
+      {
+        "page": 16,
+        "topic": "Urn without replacement: black then red and second red",
+        "lesson_anchor": "trees",
+        "status": "already-covered",
+        "notes": "Both requested probabilities derived from branches."
+      },
+      {
+        "page": 17,
+        "topic": "Urn solution: multiply first-black and conditional second-red",
+        "lesson_anchor": "trees",
+        "status": "already-covered",
+        "notes": "Covered in the step-by-step branch explanation."
+      },
+      {
+        "page": 18,
+        "topic": "Urn solution: br/[(r+b)(r+b−1)]",
+        "lesson_anchor": "trees",
+        "status": "already-covered",
+        "notes": "Uses correct remaining denominator r+b−1."
+      },
+      {
+        "page": 19,
+        "topic": "Urn solution: total probability for second-red",
+        "lesson_anchor": "trees",
+        "status": "already-covered",
+        "notes": "RR and BR sum simplified to r/(r+b)."
+      },
+      {
+        "page": 20,
+        "topic": "Urn extensions: exactly one red and final ball red",
+        "lesson_anchor": "trees",
+        "status": "already-covered",
+        "notes": "Both questions answered, with exchangeability/random-order reasoning for the last ball."
+      },
+      {
+        "page": 21,
+        "topic": "Law of total probability over a partition",
+        "lesson_anchor": "trees",
+        "status": "already-covered",
+        "notes": "Disjoint exhaustive cases, weighting, and zero-probability cases stated."
+      },
+      {
+        "page": 22,
+        "topic": "Sports example: win and scored-first given win",
+        "lesson_anchor": "prediction",
+        "status": "already-covered",
+        "notes": "Forward answer 0.802 appears in trees; reverse answer 387/401 appears in prediction. Historical inputs are labelled exercise assumptions."
+      },
+      {
+        "page": 23,
+        "topic": "Two-case Bayes rule",
+        "lesson_anchor": "bayes",
+        "status": "already-covered",
+        "notes": "General formula includes this two-case special case; detector example displays its full numerator and denominator."
+      },
+      {
+        "page": 24,
+        "topic": "Bayes proof: conditional probability definition",
+        "lesson_anchor": "bayes",
+        "status": "already-covered",
+        "notes": "Derivation begins from the conditional-probability definition."
+      },
+      {
+        "page": 25,
+        "topic": "Bayes proof: multiplication rule in numerator",
+        "lesson_anchor": "bayes",
+        "status": "already-covered",
+        "notes": "Explicitly describes expanding the intersection via multiplication."
+      },
+      {
+        "page": 26,
+        "topic": "Bayes proof: total-probability denominator",
+        "lesson_anchor": "bayes",
+        "status": "already-covered",
+        "notes": "Explicitly describes all possible causes in denominator."
+      },
+      {
+        "page": 27,
+        "topic": "Disease-test example, sensitivity and specificity",
+        "lesson_anchor": "bayes",
+        "status": "expanded",
+        "notes": "Numerical solution already correct; added missing specificity term and 0.98 complement relation."
+      },
+      {
+        "page": 28,
+        "topic": "Disease-test event definitions and reverse conditioning",
+        "lesson_anchor": "bayes",
+        "status": "already-covered",
+        "notes": "Condition-present and absent groups clearly separated; lab uses all stated inputs."
+      },
+      {
+        "page": 29,
+        "topic": "Disease-test posterior and source sensitivity inconsistency",
+        "lesson_anchor": "bayes",
+        "status": "already-covered",
+        "notes": "Existing correction retained: source says 0.96 but substitutes 0.95; lesson consistently uses 0.96, yielding 4.5845%."
+      },
+      {
+        "page": 30,
+        "topic": "General Bayes for countably many cases and prior/posterior interpretation",
+        "lesson_anchor": "bayes",
+        "status": "expanded",
+        "notes": "Prior/likelihood/posterior already explained; now explicitly permits countably infinite partitions and requires a positive evidence probability."
+      },
+      {
+        "page": 31,
+        "topic": "Unknown-urn posterior and third-draw prediction",
+        "lesson_anchor": "prediction",
+        "status": "already-covered",
+        "notes": "Both parts worked with the correct updated contents."
+      },
+      {
+        "page": 32,
+        "topic": "Unknown-urn likelihoods",
+        "lesson_anchor": "prediction",
+        "status": "already-covered",
+        "notes": "132/380 and 12/380 explicitly shown."
+      },
+      {
+        "page": 33,
+        "topic": "Unknown-urn evidence probability and posterior",
+        "lesson_anchor": "prediction",
+        "status": "expanded",
+        "notes": "Posterior 11/12 shown by cancelling equal priors; denominator route calculation added explicitly during audit."
+      },
+      {
+        "page": 34,
+        "topic": "Remaining contents after two red draws",
+        "lesson_anchor": "prediction",
+        "status": "already-covered",
+        "notes": "10/18 and 2/18 stated with reasons."
+      },
+      {
+        "page": 35,
+        "topic": "Posterior predictive third-red probability",
+        "lesson_anchor": "prediction",
+        "status": "already-covered",
+        "notes": "Posterior-weighted total 14/27 explicitly shown."
+      },
+      {
+        "page": 36,
+        "topic": "Fraud flag and unconfirmed SMS conditional-independence exercise",
+        "lesson_anchor": "prediction",
+        "status": "already-covered",
+        "notes": "Both requested answers given, including conditional independence within true-status groups."
+      },
+      {
+        "page": 37,
+        "topic": "Gambler’s ruin problem assumptions",
+        "lesson_anchor": "ruin",
+        "status": "expanded",
+        "notes": "Added 0<p<1, integer boundaries, and the opponent’s k−i fortune to the existing model."
+      },
+      {
+        "page": 38,
+        "topic": "Pólya random-walk aside",
+        "lesson_anchor": "ruin",
+        "status": "corrected-and-expanded",
+        "notes": "Previously only a caveat; now states symmetric lattice recurrence precisely, adds primary academic reference, distinguishes simultaneous meetings by checkerboard parity, and gives a 1D connection to ruin. Does not repeat the slide’s unconditional meeting guarantee."
+      },
+      {
+        "page": 39,
+        "topic": "Gambler’s ruin boundary conditions",
+        "lesson_anchor": "ruin",
+        "status": "already-covered",
+        "notes": "h0=0 and hk=1 already explicit."
+      },
+      {
+        "page": 40,
+        "topic": "Gambler’s ruin first-step recurrence and increments",
+        "lesson_anchor": "ruin",
+        "status": "expanded",
+        "notes": "Recurrence and increment ratio already present; now linked to an explicit telescoping derivation."
+      },
+      {
+        "page": 41,
+        "topic": "Geometric increments and telescoping sum",
+        "lesson_anchor": "ruin",
+        "status": "expanded",
+        "notes": "Previously compressed to a sentence; added full d_j=ρ^(j−1)h1 and summed/boundary-normalized equations."
+      },
+      {
+        "page": 42,
+        "topic": "Characteristic-root alternative recurrence solution",
+        "lesson_anchor": "ruin",
+        "status": "already-covered",
+        "notes": "Characteristic polynomial, roots 1 and q/p, general solution and repeated-root fair case retained."
+      },
+      {
+        "page": 43,
+        "topic": "Biased-game geometric-sum solution",
+        "lesson_anchor": "ruin",
+        "status": "expanded",
+        "notes": "Formula already correct; now shows normalization by the two finite geometric sums."
+      },
+      {
+        "page": 44,
+        "topic": "Fair-game solution and combined answer",
+        "lesson_anchor": "ruin",
+        "status": "expanded",
+        "notes": "Linear i/k argument already covered; added sum interpretation, 0/0 explanation, and probability-one absorption proof."
+      }
+    ],
+    "initial_findings": [
+      "All main numerical exercises already had correct answers; the lesson was not missing an entire core chapter topic.",
+      "Specificity, the listening-history application, the zero-probability independence exception, and an explicit countably infinite Bayes statement were missing or implicit.",
+      "The gambler’s-ruin telescoping derivation was compressed; the Pólya aside gave warnings but did not state the actual theorem.",
+      "The slides use sensitivity 0.96 in the question and 0.95 in a later substitution; the existing lesson correctly used 0.96.",
+      "The source’s unrestricted claim that two synchronous random walkers are guaranteed to meet is false without movement/parity assumptions."
+    ],
+    "changes": [
+      "Added or expanded source applications, specificity, symmetric/zero-case independence, full chain-rule conditions, and countable Bayes cases.",
+      "Expanded independence exercises with complement and route reasoning.",
+      "Added full geometric-increment/telescoping gambler’s-ruin derivation, model domain, fair-case limit explanation and absorption argument.",
+      "Replaced the vague random-walk aside with a precise theorem, academic source, parity counterexample and a 1D connection to the ruin formula."
+    ],
+    "remaining_limitations": [
+      "The full proof of Pólya’s 2D recurrence theorem is not in the slides and is not developed here; the theorem and its assumptions are explained.",
+      "The sports percentages are treated as hypothetical inputs from the slides, not verified historical statistics."
+    ]
+  },
+  {
+    "source_pdf": "06-RandomVariables.pdf",
+    "pages_total": 36,
+    "page_by_page": [
+      {
+        "page": 1,
+        "topic": "Random variables title",
+        "lesson_anchor": "story",
+        "status": "title",
+        "notes": "Mapped to introductory narrative."
+      },
+      {
+        "page": 2,
+        "topic": "Random-variable definition and dice, earthquake, index examples",
+        "lesson_anchor": "story",
+        "status": "expanded",
+        "notes": "Function interpretation already present; added support/type terminology and the count/index examples without presenting an old quote as current."
+      },
+      {
+        "page": 3,
+        "topic": "Dependent three-ad clicks: outcome-to-value map and probabilities",
+        "lesson_anchor": "dependent",
+        "status": "expanded",
+        "notes": "All eight paths and grouped PMF already shown; added branch products for the remaining groups."
+      },
+      {
+        "page": 4,
+        "topic": "Distance of a uniform point in the unit square",
+        "lesson_anchor": "geometry",
+        "status": "already-covered",
+        "notes": "Same experiment, distance formula and support [0,√2]."
+      },
+      {
+        "page": 5,
+        "topic": "Early-stopping exercise: smallest three values and all exact paths",
+        "lesson_anchor": "dependent",
+        "status": "already-covered",
+        "notes": "Lists all 1, 3 and 8 valid paths for N=2,3,4; excludes earlier stopping and explains baseline-epoch ambiguity."
+      },
+      {
+        "page": 6,
+        "topic": "Discrete PMF definition, random variable versus value",
+        "lesson_anchor": "pmf",
+        "status": "corrected-and-expanded",
+        "notes": "Original singleton-sum statement was too broad for an uncountable underlying sample space. Replaced with general preimage-event definition, retaining singleton summation only in the countable case."
+      },
+      {
+        "page": 7,
+        "topic": "Ordinary dice sample space and sum map",
+        "lesson_anchor": "pmf",
+        "status": "expanded",
+        "notes": "36 equally likely ordered pairs already described; now gives explicit Cartesian-product sample-space notation."
+      },
+      {
+        "page": 8,
+        "topic": "Ordinary dice complete PMF",
+        "lesson_anchor": "pmf",
+        "status": "already-covered",
+        "notes": "All counts 1,2,3,4,5,6,5,4,3,2,1 over 36 provided, with zero outside support now explicit."
+      },
+      {
+        "page": 9,
+        "topic": "Ordinary dice PMF graph",
+        "lesson_anchor": "pmf",
+        "status": "already-covered",
+        "notes": "Interactive mass plot represents all source values."
+      },
+      {
+        "page": 10,
+        "topic": "CDF definition, bounds, limits, monotonicity and right continuity",
+        "lesson_anchor": "cdf",
+        "status": "expanded",
+        "notes": "Definition, limits and shape already explained; bounds and set-based right-continuity proof now explicit. Avoids source’s potentially misleading point-probability wording for a density."
+      },
+      {
+        "page": 11,
+        "topic": "Two-dice step CDF graph",
+        "lesson_anchor": "pmf",
+        "status": "already-covered",
+        "notes": "Interactive CDF includes threshold changes at and between jumps."
+      },
+      {
+        "page": 12,
+        "topic": "Uniform square: probability equals area",
+        "lesson_anchor": "geometry",
+        "status": "already-covered",
+        "notes": "Uniform area-to-probability argument explicitly given."
+      },
+      {
+        "page": 13,
+        "topic": "Distance CDF as disk-square overlap with three regimes",
+        "lesson_anchor": "geometry",
+        "status": "already-covered",
+        "notes": "Interactive growing circle and support regimes all present."
+      },
+      {
+        "page": 14,
+        "topic": "Piecewise distance CDF and middle area A",
+        "lesson_anchor": "geometry",
+        "status": "already-covered",
+        "notes": "Piecewise regimes and middle formula provided."
+      },
+      {
+        "page": 15,
+        "topic": "Middle area using triangles and circular sector",
+        "lesson_anchor": "geometry",
+        "status": "expanded",
+        "notes": "Equivalent cap-subtraction proof already present; added source’s triangle-plus-sector derivation and arctan angle."
+      },
+      {
+        "page": 16,
+        "topic": "Complete square-distance CDF and graph",
+        "lesson_anchor": "geometry",
+        "status": "already-covered",
+        "notes": "Complete formula, lab and checks at 1 and √2 already present."
+      },
+      {
+        "page": 17,
+        "topic": "PDF definition: nonnegative, integral one, interval area",
+        "lesson_anchor": "density",
+        "status": "already-covered",
+        "notes": "All three properties explicitly stated; density versus point probability explained."
+      },
+      {
+        "page": 18,
+        "topic": "PDF total and interval area illustrations",
+        "lesson_anchor": "density",
+        "status": "already-covered",
+        "notes": "Paint/area interpretation and formulas cover the two shaded areas."
+      },
+      {
+        "page": 19,
+        "topic": "CDF as accumulated density area",
+        "lesson_anchor": "density",
+        "status": "already-covered",
+        "notes": "Integral from −∞ to threshold and accumulation explanation present."
+      },
+      {
+        "page": 20,
+        "topic": "CDF integral and differentiation relation",
+        "lesson_anchor": "density",
+        "status": "already-covered",
+        "notes": "Both directions shown, with almost-everywhere qualification."
+      },
+      {
+        "page": 21,
+        "topic": "Continuous CDF, density existence and nondifferentiable corners",
+        "lesson_anchor": "density",
+        "status": "already-covered",
+        "notes": "Existing distinction between continuous CDF and absolute continuity retained; corners do not invalidate a density."
+      },
+      {
+        "page": 22,
+        "topic": "Polynomial CDF differentiation exercise",
+        "lesson_anchor": "density",
+        "status": "already-covered",
+        "notes": "Density (2x+3x²)/12 on (0,2), zero outside; full CDF extension, total-one and endpoint checks given."
+      },
+      {
+        "page": 23,
+        "topic": "Square-distance PDF via differentiation",
+        "lesson_anchor": "geometry",
+        "status": "expanded",
+        "notes": "Correct piecewise PDF already present; derivative working now included."
+      },
+      {
+        "page": 24,
+        "topic": "Product and chain rule for the middle-distance CDF",
+        "lesson_anchor": "geometry",
+        "status": "expanded",
+        "notes": "Added derivatives of s=√(r²−1) and φ=arctan(s), then product-rule expansion."
+      },
+      {
+        "page": 25,
+        "topic": "Cancellation of derivative terms and final distance PDF",
+        "lesson_anchor": "geometry",
+        "status": "expanded",
+        "notes": "Added explicit cancellation of r/s terms and endpoint/join explanation; source support √2 visually verified."
+      },
+      {
+        "page": 26,
+        "topic": "Mixed spending distribution: CDF and P(X≥1)",
+        "lesson_anchor": "mixed",
+        "status": "already-covered",
+        "notes": "Jump 0.4, continuous mass 0.6, CDF, conditional density and answer 0.45 all correct."
+      },
+      {
+        "page": 27,
+        "topic": "Discrete PMF properties and endpoint-sensitive interval sums",
+        "lesson_anchor": "pmf",
+        "status": "expanded",
+        "notes": "Added explicit interval-sum formula, 0≤p≤1 and support statement; endpoint contrast explained in CDF section."
+      },
+      {
+        "page": 28,
+        "topic": "Four-point PMF normalization and three interval probabilities",
+        "lesson_anchor": "cdf",
+        "status": "already-covered",
+        "notes": "Missing mass 0.2 and answers 0.7, 0.5, 0.5 all given."
+      },
+      {
+        "page": 29,
+        "topic": "Universal CDF and limits at infinity",
+        "lesson_anchor": "cdf",
+        "status": "already-covered",
+        "notes": "CDF applies to every type; limits described properly as limits, not finite values."
+      },
+      {
+        "page": 30,
+        "topic": "CDF monotonicity and interval identity proofs",
+        "lesson_anchor": "cdf",
+        "status": "expanded",
+        "notes": "Previously intuitive; added the disjoint event decomposition proving both rules."
+      },
+      {
+        "page": 31,
+        "topic": "Jump equals atom; no atoms implies continuous CDF",
+        "lesson_anchor": "cdf",
+        "status": "expanded",
+        "notes": "Jump formula already present; now proves relation to F(x−), right continuity, and no-atoms equivalence."
+      },
+      {
+        "page": 32,
+        "topic": "Discrete CDF as cumulative PMF sum and step graph",
+        "lesson_anchor": "cdf",
+        "status": "expanded",
+        "notes": "Step behavior already visualized; added explicit F(x)=∑u≤x p(u)."
+      },
+      {
+        "page": 33,
+        "topic": "Infinite PMF normalization and tail exercise",
+        "lesson_anchor": "practice",
+        "status": "already-covered",
+        "notes": "Geometric-series derivative gives c=4/3, P(X>2)=7/27; both parts correct."
+      },
+      {
+        "page": 34,
+        "topic": "Unusual dice sample space and PMF exercise",
+        "lesson_anchor": "pmf",
+        "status": "expanded",
+        "notes": "Complete PMF already correct; added explicit 36-outcome face-labelled sample space and full 6×6 sum table."
+      },
+      {
+        "page": 35,
+        "topic": "Repeated unusual-dice exercise with partial handwritten PMF",
+        "lesson_anchor": "pmf",
+        "status": "repeated",
+        "notes": "Same problem as p. 34; completed face-labelled table and PMF now cover the repeated/partial solution."
+      },
+      {
+        "page": 36,
+        "topic": "Lottery net-gain distribution exercise",
+        "lesson_anchor": "practice",
+        "status": "already-covered",
+        "notes": "All four net gains and counts correct; total probability and optional expected net gain −$0.40 checked."
+      }
+    ],
+    "initial_findings": [
+      "All assigned numerical exercises already had answers, including early stopping, mixed spending, infinite PMF, unusual dice and lottery.",
+      "The PMF formula as a sum of singleton sample-outcome probabilities was overgeneralized; a discrete variable can be defined on an uncountable sample space.",
+      "The unusual-dice sample space was described but not fully constructed as the question requested.",
+      "The source’s set-based CDF proofs and square-distance derivative/sector steps were compressed or absent, despite the final formulas being correct."
+    ],
+    "changes": [
+      "Corrected PMF definition with preimage-event formulation and a continuous-sample-space counterexample; explicitly stated support, bounds and interval sums.",
+      "Added the unusual-dice 36-outcome sample space and full sum grid, retaining repeated physical faces.",
+      "Expanded all dependent-click path calculations.",
+      "Added CDF set proofs, one-sided limits, no-atoms/continuity relationship and strict versus non-strict tail identities.",
+      "Added source-style triangle/sector area calculation, full square-distance chain/product-rule differentiation and boundary checks.",
+      "Added source’s count and future-index examples with historical-quote caveat."
+    ],
+    "remaining_limitations": [
+      "The early-stopping slide does not specify whether a baseline epoch is counted; the lesson explicitly gives N as recorded comparisons, and explains adding one if baseline is included.",
+      "As in the source, a proof of the general measure-theoretic distinction between continuity and absolute continuity is not developed; the distinction is stated to avoid a false generalization."
+    ]
+  }
+]

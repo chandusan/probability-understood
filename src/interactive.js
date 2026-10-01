@@ -3,7 +3,7 @@ const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelect
 const fmt=(x,d=3)=>Number(x.toFixed(d)).toLocaleString('en-US',{maximumFractionDigits:d});
 const pct=(x,d=2)=>(100*x).toFixed(d)+'%';
 const fact=n=>{let a=1;for(let j=2;j<=n;j++)a*=j;return a};
-const choose=(n,k)=>k<0||k>n?0:fact(n)/fact(k)/fact(n-k);
+const choose=(n,k)=>{if(k<0||k>n)return 0;k=Math.min(k,n-k);let count=1;for(let j=1;j<=k;j++)count=count*(n-k+j)/j;return Math.round(count)};
 const C={teal:'#006b68',gold:'#b44d20',blue:'#335c9e',light:'#e0f0e9',line:'#d4ded7',ink:'#183039'};
 const el=(tag,attrs={},content='')=>`<${tag} ${Object.entries(attrs).map(([k,v])=>`${k}="${v}"`).join(' ')}>${content}</${tag}>`;
 const text=(x,y,t,attrs={})=>el('text',{x,y,...attrs},t);
@@ -45,3 +45,13 @@ $$('[data-lab]').forEach(setup);
 $$('.quiz').forEach(q=>{$$('.options button',q).forEach((b,i)=>{b.addEventListener('click',()=>{let ok=i===+q.dataset.answer;$$('.options button',q).forEach(x=>x.setAttribute('aria-pressed',String(x===b)));$('.feedback',q).textContent=(ok?'Correct. ':'Not quite. ')+q.dataset.explain})})});
 const printButton=$('[data-print]');if(printButton)printButton.addEventListener('click',()=>{const details=$$('details'),before=details.map(d=>d.open);details.forEach(d=>d.open=true);const restore=()=>details.forEach((d,i)=>d.open=before[i]);window.addEventListener('afterprint',restore,{once:true});window.print()});
 window.CourseMath={birthday,ruin,squareCDF,mixedCDF,dicePMF,choose};
+function revealLinkedSection(){
+ let id;try{id=decodeURIComponent(location.hash.slice(1))}catch{return}
+ if(!id)return;
+ const target=document.getElementById(id);if(!target)return;
+ let panel=target.matches('details')?target:target.closest('details');
+ while(panel){panel.open=true;panel=panel.parentElement?.closest('details')}
+ requestAnimationFrame(()=>target.scrollIntoView({block:'start'}));
+}
+window.addEventListener('hashchange',revealLinkedSection);
+revealLinkedSection();

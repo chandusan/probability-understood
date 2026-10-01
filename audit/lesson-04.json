@@ -1,0 +1,279 @@
+{
+  "source_pdf": "04-Probability-Part2.pdf",
+  "pages_total": 36,
+  "page_by_page": [
+    {
+      "page": 1,
+      "topic": "Rules of probability title",
+      "lesson_anchor": "story",
+      "status": "title",
+      "notes": "No mathematical statement beyond lesson topic."
+    },
+    {
+      "page": 2,
+      "topic": "Random tennis tournament setup",
+      "lesson_anchor": "symmetry",
+      "status": "strengthened",
+      "notes": "Existing solution now explicitly describes random pairings each round and uniform byes for odd survivor counts."
+    },
+    {
+      "page": 3,
+      "topic": "Tournament solution 2/n",
+      "lesson_anchor": "symmetry",
+      "status": "strengthened",
+      "notes": "Invariant/indicator symmetry proof already correct; added n≥2, byes explanation, and n=2,3 checks."
+    },
+    {
+      "page": 4,
+      "topic": "Probability two random chords cross",
+      "lesson_anchor": "symmetry",
+      "status": "already_covered",
+      "notes": "All six cyclic orders, two alternating orders, probability 1/3; independent uniform endpoint sampling explicit."
+    },
+    {
+      "page": 5,
+      "topic": "Complement proof and empty-event corollary",
+      "lesson_anchor": "complements",
+      "status": "strengthened",
+      "notes": "Complement derived already; now adds P(empty)=0 explicitly."
+    },
+    {
+      "page": 6,
+      "topic": "Lottery tickets, 0/1/2 matches, and no prize",
+      "lesson_anchor": "practice",
+      "status": "already_covered",
+      "notes": "No-prize exact numerator and probability present; other subparts have full counts in Lesson 3, now also explicit individual formulas there."
+    },
+    {
+      "page": 7,
+      "topic": "Six incidents in six districts",
+      "lesson_anchor": "complements",
+      "status": "already_covered",
+      "notes": "Complement of one-per-district gives 1−6!/6⁶≈0.984568 with uniform independent assignments."
+    },
+    {
+      "page": 8,
+      "topic": "Exactly k balls in specified bin: question",
+      "lesson_anchor": "bins",
+      "status": "already_covered",
+      "notes": "Setup explicit for m distinct balls, n bins, specified bin."
+    },
+    {
+      "page": 9,
+      "topic": "Ball/bin count derivation",
+      "lesson_anchor": "bins",
+      "status": "already_covered",
+      "notes": "Choose k balls and forbid chosen bin for remainder: C(m,k)(n−1)^(m−k)."
+    },
+    {
+      "page": 10,
+      "topic": "Ball/bin probability and binomial form",
+      "lesson_anchor": "bins",
+      "status": "already_covered",
+      "notes": "Both counting and binomial forms; independence across balls versus dependence between occupancies distinguished."
+    },
+    {
+      "page": 11,
+      "topic": "Birthday complement construction",
+      "lesson_anchor": "complements",
+      "status": "already_covered",
+      "notes": "Independent uniform 365-day model; staged avoidance derivation."
+    },
+    {
+      "page": 12,
+      "topic": "Birthday permutation/factorial equivalents",
+      "lesson_anchor": "birthday-forms",
+      "status": "added",
+      "notes": "Original lesson had equivalent product but omitted permutation, combination-times-factorial, and factorial forms; all now shown."
+    },
+    {
+      "page": 13,
+      "topic": "Birthday probability table and 23-person threshold",
+      "lesson_anchor": "birthday-forms",
+      "status": "strengthened",
+      "notes": "Interactive lab already covered values and threshold; exact six-row slide table now included for direct reference."
+    },
+    {
+      "page": 14,
+      "topic": "Multiset permutation theorem",
+      "lesson_anchor": "poem",
+      "status": "strengthened",
+      "notes": "General repeated-letter formula already present; now explicitly derives equal multiplicity and uses source counts."
+    },
+    {
+      "page": 15,
+      "topic": "Image-only 59-tile poem question",
+      "lesson_anchor": "poem",
+      "status": "strengthened",
+      "notes": "Inspected image; transcribed all 26 letter counts, checked total59 and target letter multiset. Previous lesson gave generic n_j formula only."
+    },
+    {
+      "page": 16,
+      "topic": "Image-only poem solution and tiny probability",
+      "lesson_anchor": "poem",
+      "status": "strengthened",
+      "notes": "Added exact grouped-factorial expression, 1.68014e−61 numerical value, and brief explanation of mentioned Stirling approximation."
+    },
+    {
+      "page": 17,
+      "topic": "Two-event addition and disjoint special case",
+      "lesson_anchor": "addition-proof",
+      "status": "strengthened",
+      "notes": "Formula already present; added disjoint special case explicitly."
+    },
+    {
+      "page": 18,
+      "topic": "Disjoint-region proof of addition",
+      "lesson_anchor": "addition-proof",
+      "status": "strengthened",
+      "notes": "Prior explanation was compressed; now names and adds the three disjoint regions."
+    },
+    {
+      "page": 19,
+      "topic": "Algebraic proof of addition",
+      "lesson_anchor": "addition-proof",
+      "status": "strengthened",
+      "notes": "Substitutes A-only/B-only expressions to derive one overlap subtraction."
+    },
+    {
+      "page": 20,
+      "topic": "Olympic-host finalist city example",
+      "lesson_anchor": "overlap",
+      "status": "already_covered",
+      "notes": "Supplied 0.20,0.35,0.08 example gives0.47; no independence inferred."
+    },
+    {
+      "page": 21,
+      "topic": "Olympic-host example solution",
+      "lesson_anchor": "overlap",
+      "status": "already_covered",
+      "notes": "Inclusive union/intersection interpretation and arithmetic present."
+    },
+    {
+      "page": 22,
+      "topic": "Bridge sample space",
+      "lesson_anchor": "overlap",
+      "status": "already_covered",
+      "notes": "C(52,13)=635,013,559,600."
+    },
+    {
+      "page": 23,
+      "topic": "Bridge questions: two marginals, intersection, union",
+      "lesson_anchor": "overlap",
+      "status": "strengthened",
+      "notes": "All four represented before by symmetry; now each marginal explicitly named/evaluated."
+    },
+    {
+      "page": 24,
+      "topic": "Exactly five spades",
+      "lesson_anchor": "overlap",
+      "status": "strengthened",
+      "notes": "Existing symbolic formula expanded to exact marginal count and probability with choice-stage explanation."
+    },
+    {
+      "page": 25,
+      "topic": "Exactly five hearts",
+      "lesson_anchor": "overlap",
+      "status": "strengthened",
+      "notes": "P(B)=P(A) explicitly stated and evaluated."
+    },
+    {
+      "page": 26,
+      "topic": "Exactly five spades AND five hearts",
+      "lesson_anchor": "overlap",
+      "status": "strengthened",
+      "notes": "Existing correct count/formula and correction retained; added decimal probability. Source repeated factor61,523,748 should be2600."
+    },
+    {
+      "page": 27,
+      "topic": "Exactly five spades OR five hearts",
+      "lesson_anchor": "overlap",
+      "status": "already_covered",
+      "notes": "2P(A)−P(A∩B)≈0.242602; clarified exactly five versus at least five."
+    },
+    {
+      "page": 28,
+      "topic": "Three-event addition and disjoint special case",
+      "lesson_anchor": "general-inclusion",
+      "status": "strengthened",
+      "notes": "Formula and counting reason already present; explicit disjoint simplification added."
+    },
+    {
+      "page": 29,
+      "topic": "Seven-region Venn diagram",
+      "lesson_anchor": "general-inclusion",
+      "status": "strengthened",
+      "notes": "Existing membership lab embodies same partition; now names all seven regions in prose."
+    },
+    {
+      "page": 30,
+      "topic": "Three-event inclusion-exclusion proof by regions",
+      "lesson_anchor": "general-inclusion",
+      "status": "strengthened",
+      "notes": "Existing copy-counting argument retained; identifies source duplicated E5/omitted E6 union-list typo."
+    },
+    {
+      "page": 31,
+      "topic": "At least one six on three dice; alternative method",
+      "lesson_anchor": "three-dice",
+      "status": "added",
+      "notes": "Complement answer existed; added the requested inclusion-exclusion construction and equality to complement."
+    },
+    {
+      "page": 32,
+      "topic": "All six faces among ten dice",
+      "lesson_anchor": "advanced",
+      "status": "strengthened",
+      "notes": "Correct sum and count existed; added expanded six-term arithmetic 16,435,440/6¹⁰≈0.271812."
+    },
+    {
+      "page": 33,
+      "topic": "Divisibility and seven-digit run exercises",
+      "lesson_anchor": "advanced",
+      "status": "strengthened",
+      "notes": "Both worked answers already correct; clarified floor/lcm counting and 10³ factors for digit windows. Leading zeroes permitted as strings."
+    },
+    {
+      "page": 34,
+      "topic": "General inclusion-exclusion formula",
+      "lesson_anchor": "general-inclusion",
+      "status": "strengthened",
+      "notes": "Previously described alternating intersections and binomial coefficient proof; now adds full compact subset-index formula and disjoint case."
+    },
+    {
+      "page": 35,
+      "topic": "Name drawing: self-match probability and limit",
+      "lesson_anchor": "derangement-proof",
+      "status": "strengthened",
+      "notes": "Correct formula and limit existed; adds full derangement count, e-series link, error bound, and nonmonotone convergence examples."
+    },
+    {
+      "page": 36,
+      "topic": "Specified m avoid own names; no-repeat word uses 26 letters",
+      "lesson_anchor": "advanced",
+      "status": "strengthened",
+      "notes": "Both correct formulas existed; adds m=2 derivation, m=0 edge case, and quantitative e-series remainder justification."
+    }
+  ],
+  "initial_findings": [
+    "All major topics and end-of-deck exercises were already represented, but some source proofs and exact worked examples were too compressed to call the coverage fully explicit.",
+    "The image-only poem example had its general formula but not the 26 actual letter counts, grouped factorial expression, or numerical answer.",
+    "The three-dice exercise was solved only by complement; the source inclusion-exclusion derivation was missing.",
+    "Birthday factorial equivalents, the general inclusion-exclusion formula, the full two-event proof, and the empty-event corollary were not explicitly displayed.",
+    "The prior bridge typo correction was correct. The source seven-region union also contains a duplicated E5 and missing E6."
+  ],
+  "changes": [
+    "Added explicit birthday count equivalents and all six table values.",
+    "Completed the image-only poem example with verified letter counts and 1.68014e−61 result.",
+    "Added full two-event proof, general inclusion-exclusion formula, seven-region interpretation, and both three-dice methods.",
+    "Expanded bridge marginals, tournament bye mechanics, ten-dice arithmetic, derangement limit reasoning, and end-exercise justifications.",
+    "Added source typo note for the Venn union and retained bridge correction.",
+    "All 36 PDF pages mapped individually after comparing extracted text and slide images.",
+    "Root independently verified numeric outputs and repaired a shared combinatorial helper that exposed floating-point artifacts in displayed integer counts."
+  ],
+  "remaining_limitations": [
+    "The chord answer assumes independently uniform endpoints; other definitions of random chords can change the model, and this assumption is explicit.",
+    "Original diagrams and repeated formula slides are represented by equivalent explanations, worked steps, and existing interactive experiments.",
+    "No substantive source exercise remains omitted under the stated classroom models."
+  ]
+}

@@ -15,6 +15,12 @@ Six visual, interactive lessons that build probability and statistics from first
 
 Includes 13 interactive experiments, 13 concept checks, worked solutions, visual memory cues, and a source-page coverage map for each lesson. Each HTML lesson is self-contained and works offline. Use **Print lesson** for a reading copy with solutions expanded.
 
+## Coverage audit
+
+**[Read the page-by-page audit](https://chandusan.github.io/probability-understood/audit.html)**, completed October 1, 2026. It maps all 243 source pages to lesson sections, records gaps found in the initial version, and explains what was expanded or clarified. The structured records live in `audit/`.
+
+Coverage includes the mathematical ideas, examples, exercises, and proof steps; source wording and decorative slide art are not duplicated. Expand the worked-example panels for the full treatment. The estimated lesson times describe the core path; completing all source exercises takes additional time.
+
 ## Edit and build
 
 Edit lesson fragments in `src/01.html` through `src/06.html`, shared styling in `src/style.css`, and experiments in `src/interactive.js`. Course metadata and page assembly are in `build.py`.

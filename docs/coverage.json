@@ -8,7 +8,7 @@
     "pages_reviewed": 31,
     "labs": 2,
     "checks": 2,
-    "words_approx": 2041
+    "words_approx": 3002
   },
   {
     "lesson": "02",
@@ -19,7 +19,7 @@
     "pages_reviewed": 43,
     "labs": 2,
     "checks": 2,
-    "words_approx": 1791
+    "words_approx": 2793
   },
   {
     "lesson": "03",
@@ -30,7 +30,7 @@
     "pages_reviewed": 53,
     "labs": 1,
     "checks": 2,
-    "words_approx": 1762
+    "words_approx": 2800
   },
   {
     "lesson": "04",
@@ -41,7 +41,7 @@
     "pages_reviewed": 36,
     "labs": 2,
     "checks": 2,
-    "words_approx": 1812
+    "words_approx": 2876
   },
   {
     "lesson": "05",
@@ -52,7 +52,7 @@
     "pages_reviewed": 44,
     "labs": 3,
     "checks": 2,
-    "words_approx": 1948
+    "words_approx": 2659
   },
   {
     "lesson": "06",
@@ -63,6 +63,6 @@
     "pages_reviewed": 36,
     "labs": 3,
     "checks": 3,
-    "words_approx": 1874
+    "words_approx": 2597
   }
 ]

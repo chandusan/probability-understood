@@ -1,0 +1,327 @@
+{
+  "source_pdf": "02-Probability-Part1.pdf",
+  "pages_total": 43,
+  "page_by_page": [
+    {
+      "page": 1,
+      "topic": "Probability title and attribution",
+      "lesson_anchor": "story",
+      "status": "title",
+      "notes": "Course/source attribution retained."
+    },
+    {
+      "page": 2,
+      "topic": "Deterministic rule and temperature conversion",
+      "lesson_anchor": "model-errors",
+      "status": "expanded",
+      "notes": "Added explicit temperature rule and deterministic mapping; clarified a closed-form solution is not required."
+    },
+    {
+      "page": 3,
+      "topic": "Stochastic model and sources of uncertainty",
+      "lesson_anchor": "model-errors",
+      "status": "expanded",
+      "notes": "Added Y=f(x)+epsilon, conditional-mean interpretation and epistemic/aleatoric distinction; qualifies source overclaims that chaos/hidden variables prove inherent randomness."
+    },
+    {
+      "page": 4,
+      "topic": "Deterministic, stochastic and chaotic illustrations",
+      "lesson_anchor": "model-errors",
+      "status": "expanded",
+      "notes": "Explains conceptual contrasts; source decorative illustrations are not reproduced."
+    },
+    {
+      "page": 5,
+      "topic": "Random phenomena and coin long-run regularity",
+      "lesson_anchor": "uncertainty",
+      "status": "already-covered",
+      "notes": "Fair independent model, long-run rather than exact short-run frequencies, and no gambler fallacy."
+    },
+    {
+      "page": 6,
+      "topic": "Two dice and 36 outcomes",
+      "lesson_anchor": "spaces",
+      "status": "already-covered",
+      "notes": "Ordered-pair model and interactive 36-tile grid cover the source diagram."
+    },
+    {
+      "page": 7,
+      "topic": "Ten dice / email clicks binomial analogy",
+      "lesson_anchor": "uncertainty",
+      "status": "already-covered",
+      "notes": "Success count, independence and constant success probability are explicit; analogy is qualified rather than universally assumed."
+    },
+    {
+      "page": 8,
+      "topic": "Buffon needle experiment setup",
+      "lesson_anchor": "spaces",
+      "status": "already-covered",
+      "notes": "Needle length, line spacing, crossing condition and optional derivation are covered."
+    },
+    {
+      "page": 9,
+      "topic": "Stock performance as a random path",
+      "lesson_anchor": "model-errors",
+      "status": "expanded",
+      "notes": "Added exact 100-day/$125.50 context and a path-defined event; illustrative paths are not forecast or reconstructed."
+    },
+    {
+      "page": 10,
+      "topic": "Random chords intersecting",
+      "lesson_anchor": "spaces",
+      "status": "already-covered",
+      "notes": "Explains need to define sampling mechanism and links forward to full Lesson 4 solution. Lesson 2 does not duplicate the later derivation."
+    },
+    {
+      "page": 11,
+      "topic": "Definitions divider",
+      "lesson_anchor": "spaces",
+      "status": "title",
+      "notes": "Section divider introduces no additional substantive content."
+    },
+    {
+      "page": 12,
+      "topic": "Finite, countable and uncountable sample spaces",
+      "lesson_anchor": "spaces",
+      "status": "already-covered",
+      "notes": "Three-way comparison with concrete outcomes."
+    },
+    {
+      "page": 13,
+      "topic": "Countable bijection and count-model applications",
+      "lesson_anchor": "spaces",
+      "status": "expanded",
+      "notes": "Added one-to-one correspondence, geometric/Poisson/negative-binomial context and precise nontermination caveat for first-head space."
+    },
+    {
+      "page": 14,
+      "topic": "Dice sample space and grid-search exercise",
+      "lesson_anchor": "practice",
+      "status": "already-covered",
+      "notes": "36 ordered die outcomes and Cartesian product of grid-search settings, size 24, are explicit."
+    },
+    {
+      "page": 15,
+      "topic": "Repeated Buffon needle setup",
+      "lesson_anchor": "spaces",
+      "status": "repeated",
+      "notes": "Repeats page 8 before coordinate parametrization."
+    },
+    {
+      "page": 16,
+      "topic": "Full midpoint-and-angle needle sample space",
+      "lesson_anchor": "needle-coordinates",
+      "status": "added",
+      "notes": "Added full coordinates and reduction argument; clarifies no uniform probability measure on all real horizontal positions."
+    },
+    {
+      "page": 17,
+      "topic": "Reduced needle and Buffon-Laplace grid coordinates",
+      "lesson_anchor": "needle-coordinates",
+      "status": "expanded",
+      "notes": "Reduced model was covered. Added all grid coordinate ranges, angle convention, crossing union and similar random-dart problem."
+    },
+    {
+      "page": 18,
+      "topic": "Events as subsets",
+      "lesson_anchor": "story",
+      "status": "already-covered",
+      "notes": "Outcome/event distinction explained; formal measurability caveat appears in axioms section."
+    },
+    {
+      "page": 19,
+      "topic": "Membership and non-membership notation",
+      "lesson_anchor": "events",
+      "status": "added",
+      "notes": "Added explicit e in A / e not in A readings and data-filter analogy."
+    },
+    {
+      "page": 20,
+      "topic": "Cars sample-space and event-list exercise",
+      "lesson_anchor": "cars-exercise",
+      "status": "expanded",
+      "notes": "All eight outcomes already listed; added exact A={RLL,LRL,LLR} and C={LLL,RRR} lists."
+    },
+    {
+      "page": 21,
+      "topic": "Empty event and whole-space event",
+      "lesson_anchor": "events",
+      "status": "expanded",
+      "notes": "Added explicit never/always occurrence and empty-set meaning; probabilities were already present."
+    },
+    {
+      "page": 22,
+      "topic": "Union and indexed union",
+      "lesson_anchor": "many-events",
+      "status": "expanded",
+      "notes": "Two-event union already interactive; added formal indexed union and at-least-one membership interpretation."
+    },
+    {
+      "page": 23,
+      "topic": "Intersection and simultaneous occurrence",
+      "lesson_anchor": "events",
+      "status": "already-covered",
+      "notes": "Both/intersection explanation with die filters; P(A intersection B) treated as probability, not density."
+    },
+    {
+      "page": 24,
+      "topic": "Sketch union/intersection of two rectangles",
+      "lesson_anchor": "rectangle-exercise",
+      "status": "expanded",
+      "notes": "Existing boundaries/areas supplemented with coordinate SVG and strict-boundary guidance. Original problem now has a visual solution."
+    },
+    {
+      "page": 25,
+      "topic": "Complement of an event",
+      "lesson_anchor": "events",
+      "status": "already-covered",
+      "notes": "Not-A outcome list and interactive complement."
+    },
+    {
+      "page": 26,
+      "topic": "Language cues or/and/not",
+      "lesson_anchor": "events",
+      "status": "already-covered",
+      "notes": "Parallel phrase/symbol/outcomes table gives all three."
+    },
+    {
+      "page": 27,
+      "topic": "Die even / below-four exercise",
+      "lesson_anchor": "events",
+      "status": "already-covered",
+      "notes": "All requested union/intersection/complement results are worked and interactive."
+    },
+    {
+      "page": 28,
+      "topic": "Set-algebra identities",
+      "lesson_anchor": "events",
+      "status": "already-covered",
+      "notes": "Commutative, associative, distributive, idempotent, double-complement, inverse and De Morgan identities included."
+    },
+    {
+      "page": 29,
+      "topic": "Partition A by B and its complement",
+      "lesson_anchor": "events",
+      "status": "already-covered",
+      "notes": "Explicit disjoint partition identity with outcome-based proof strategy."
+    },
+    {
+      "page": 30,
+      "topic": "Empty-set and whole-space identities",
+      "lesson_anchor": "events",
+      "status": "already-covered",
+      "notes": "All four stated identities included in toolkit."
+    },
+    {
+      "page": 31,
+      "topic": "Disjoint events and cars example",
+      "lesson_anchor": "cars-exercise",
+      "status": "expanded",
+      "notes": "Disjoint definition already included; explicit cars event lists now demonstrate empty intersection."
+    },
+    {
+      "page": 32,
+      "topic": "Subset definition and partial order",
+      "lesson_anchor": "events",
+      "status": "already-covered",
+      "notes": "Definition, incomparable {1}/{2} example and partial-order explanation."
+    },
+    {
+      "page": 33,
+      "topic": "Subset identities and reversed complements",
+      "lesson_anchor": "events",
+      "status": "expanded",
+      "notes": "Identities existed; added explicit two-direction proof and subset-symbol convention."
+    },
+    {
+      "page": 34,
+      "topic": "Subset relationships exercise",
+      "lesson_anchor": "practice",
+      "status": "already-covered",
+      "notes": "All general inclusions among A,B,A union B,A-complement intersection B are listed; no unjustified A/B ordering."
+    },
+    {
+      "page": 35,
+      "topic": "Many-event union/intersection divider",
+      "lesson_anchor": "many-events",
+      "status": "title",
+      "notes": "Divider introduces following indexed operations."
+    },
+    {
+      "page": 36,
+      "topic": "Finite and countably infinite unions",
+      "lesson_anchor": "many-events",
+      "status": "expanded",
+      "notes": "Added indexed notation and at-least-one interpretation for finite/countably infinite lists."
+    },
+    {
+      "page": 37,
+      "topic": "Finite and countably infinite intersections",
+      "lesson_anchor": "many-events",
+      "status": "expanded",
+      "notes": "Added indexed notation and every-event interpretation for finite/countably infinite lists."
+    },
+    {
+      "page": 38,
+      "topic": "Generalized De Morgan identities",
+      "lesson_anchor": "many-events",
+      "status": "expanded",
+      "notes": "Added both indexed formulas, membership proof, and distinction between arbitrary set identities and countable event-closure guarantee."
+    },
+    {
+      "page": 39,
+      "topic": "Probability axioms",
+      "lesson_anchor": "axioms",
+      "status": "already-covered",
+      "notes": "Nonnegativity, normalization and countable additivity, with measurable-event formalism."
+    },
+    {
+      "page": 40,
+      "topic": "Finite equally likely sample spaces",
+      "lesson_anchor": "axioms",
+      "status": "already-covered",
+      "notes": "Favorable/total rule and equal-likelihood requirement explicitly stated."
+    },
+    {
+      "page": 41,
+      "topic": "Cars probabilities",
+      "lesson_anchor": "cars-exercise",
+      "status": "expanded",
+      "notes": "3/8 and 1/4 were already given. Added underlying string weights and unequal p=0.8 counterexample."
+    },
+    {
+      "page": 42,
+      "topic": "Two-dice sum at least 10 exercise",
+      "lesson_anchor": "spaces",
+      "status": "already-covered",
+      "notes": "Six ordered pairs listed; grid highlights them; P=1/6."
+    },
+    {
+      "page": 43,
+      "topic": "Counting-rule recap",
+      "lesson_anchor": "axioms",
+      "status": "repeated",
+      "notes": "Recaps finite/equally-likely assumption and counting rule, then transitions to counting lesson."
+    }
+  ],
+  "initial_findings": [
+    "Core sample spaces, events, axioms and numerical exercises were covered, but formal notation and some source modeling details were compressed.",
+    "The full needle and two-dimensional grid coordinate descriptions were not explicitly given.",
+    "The rectangle problem had algebraic answers but no requested sketch.",
+    "Many-event union/intersection and generalized De Morgan notation were only summarized in prose.",
+    "Car event lists, membership notation, and detailed stochastic-error terminology needed explicit coverage."
+  ],
+  "changes": [
+    "Added deterministic/stochastic formulas, conditional-mean interpretation, uncertainty distinctions and exact stock-path context.",
+    "Added formal countable correspondence and first-head nontermination qualification.",
+    "Added full needle/grid coordinates, finite uniform-model requirements and spatial analogy.",
+    "Added membership/empty/whole-space explanations, indexed set operations and subset proof.",
+    "Added an accessible rectangle union/intersection SVG with strict-boundary explanation.",
+    "Added exact car-event lists and probability weights for both equal and unequal turn models."
+  ],
+  "remaining_limitations": [
+    "The random-chord prompt is introduced here and fully solved in Lesson 4, as already linked; it is not independently rederived in Lesson 2.",
+    "The illustrative stock paths and decorative source images are conceptually explained rather than reconstructed from unavailable raw data.",
+    "Physical PDF page positions are used in this audit because the source printed slide numbers skip values."
+  ]
+}
