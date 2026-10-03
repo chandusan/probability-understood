@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Slide 30 of Data Summary: Which professor varies most?. Original slide, first-principles explanation, examples and worked practice."><title>30 · Which professor varies most? — Probability, understood</title><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/site.css"><link rel="stylesheet" href="../assets/vendor/katex/katex.min.css"><script defer src="../assets/vendor/katex/katex.min.js"></script><script defer src="../assets/vendor/katex/contrib/auto-render.min.js"></script><script defer src="../assets/site.js"></script></head>
+<body data-slide="30" data-slide-prefix=""><a class="skip" href="#lesson">Skip to the lesson</a>
+<aside class="sidebar" aria-label="Course navigation"><a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>Probability,<br>understood.</span></a><button class="nav-close" data-close-nav aria-label="Close slide navigation">×</button><p class="course-label">Chapter 01 / Your study companion</p><p class="course-title">Data Summary</p><label class="sr-only" for="slide-search">Find a slide</label><input class="nav-search" id="slide-search" type="search" placeholder="Find a slide…" autocomplete="off"><nav class="slide-nav" aria-label="All 31 slides"><div class="nav-group"><div class="nav-group-title">The starting point</div><a class="slide-link" data-slide="1" data-search="01 why one number is not enough a story inside the data" href="01.html"><span class="slide-num">01</span><span>A story inside the data</span></a><a class="slide-link" data-slide="2" data-search="02 two meanings of the center what does “centre” mean?" href="02.html"><span class="slide-num">02</span><span>What does “centre” mean?</span></a></div><div class="nav-group"><div class="nav-group-title">Finding the centre</div><a class="slide-link" data-slide="3" data-search="03 the mean preserves the total the mean: equal shares" href="03.html"><span class="slide-num">03</span><span>The mean: equal shares</span></a><a class="slide-link" data-slide="4" data-search="04 why squared errors choose the mean why squared error finds the mean" href="04.html"><span class="slide-num">04</span><span>Why squared error finds the mean</span></a><a class="slide-link" data-slide="5" data-search="05 the mean is the closest constant point the geometry of the mean" href="05.html"><span class="slide-num">05</span><span>The geometry of the mean</span></a><a class="slide-link" data-slide="6" data-search="06 the median finds the middle finding the median" href="06.html"><span class="slide-num">06</span><span>Finding the median</span></a><a class="slide-link" data-slide="7" data-search="07 why absolute errors choose the median why absolute error finds the median" href="07.html"><span class="slide-num">07</span><span>Why absolute error finds the median</span></a><a class="slide-link" data-slide="8" data-search="08 two distances, two shapes spheres, diamonds &amp; octahedra" href="08.html"><span class="slide-num">08</span><span>Spheres, diamonds &amp; octahedra</span></a><a class="slide-link" data-slide="9" data-search="09 one changing observation, two centers one observation changes" href="09.html"><span class="slide-num">09</span><span>One observation changes</span></a><a class="slide-link" data-slide="10" data-search="10 read the three-dimensional comparison reading the geometric picture" href="10.html"><span class="slide-num">10</span><span>Reading the geometric picture</span></a><a class="slide-link" data-slide="11" data-search="11 choose the center your question needs which centre should we use?" href="11.html"><span class="slide-num">11</span><span>Which centre should we use?</span></a><a class="slide-link" data-slide="12" data-search="12 follow the tail of the histogram skewness &amp; the long tail" href="12.html"><span class="slide-num">12</span><span>Skewness &amp; the long tail</span></a></div><div class="nav-group"><div class="nav-group-title">Understanding spread</div><a class="slide-link" data-slide="13" data-search="13 an 88 needs a comparison scale why an 88 needs context" href="13.html"><span class="slide-num">13</span><span>Why an 88 needs context</span></a><a class="slide-link" data-slide="14" data-search="14 choose the kind of spread you need what spread tells us" href="14.html"><span class="slide-num">14</span><span>What spread tells us</span></a><a class="slide-link" data-slide="15" data-search="15 range: observed endpoints and possible values range &amp; population support" href="15.html"><span class="slide-num">15</span><span>Range &amp; population support</span></a><a class="slide-link" data-slide="16" data-search="16 one faulty reading can squeeze the scale min–max scaling &amp; outliers" href="16.html"><span class="slide-num">16</span><span>Min–max scaling &amp; outliers</span></a><a class="slide-link" data-slide="17" data-search="17 a fractional rank is a position, not a value percentiles &amp; interpolation" href="17.html"><span class="slide-num">17</span><span>Percentiles &amp; interpolation</span></a><a class="slide-link" data-slide="18" data-search="18 quartiles divide probability, not distance quartiles &amp; probability" href="18.html"><span class="slide-num">18</span><span>Quartiles &amp; probability</span></a><a class="slide-link" data-slide="19" data-search="19 iqr protects the middle of the story the middle half: iqr" href="19.html"><span class="slide-num">19</span><span>The middle half: IQR</span></a><a class="slide-link" data-slide="20" data-search="20 diamonds: measure the middle and the endpoints diamonds: the first sample" href="20.html"><span class="slide-num">20</span><span>Diamonds: the first sample</span></a><a class="slide-link" data-slide="21" data-search="21 two expensive diamonds change the story add two expensive diamonds" href="21.html"><span class="slide-num">21</span><span>Add two expensive diamonds</span></a><a class="slide-link" data-slide="22" data-search="22 boxplots: endpoints are not always whiskers reading a boxplot" href="22.html"><span class="slide-num">22</span><span>Reading a boxplot</span></a></div><div class="nav-group"><div class="nav-group-title">Variance & its uses</div><a class="slide-link" data-slide="23" data-search="23 why sample variance divides by n − 1 variance, estimation &amp; n − 1" href="23.html"><span class="slide-num">23</span><span>Variance, estimation &amp; n − 1</span></a><a class="slide-link" data-slide="24" data-search="24 give features a common ruler, then find their main direction pca, scaling &amp; model variance" href="24.html"><span class="slide-num">24</span><span>PCA, scaling &amp; model variance</span></a><a class="slide-link" data-slide="25" data-search="25 the population target and the sample in your hand population versus sample" href="25.html"><span class="slide-num">25</span><span>Population versus sample</span></a><a class="slide-link" data-slide="26" data-search="26 standard deviation is a ruler for spread interpreting standard deviation" href="26.html"><span class="slide-num">26</span><span>Interpreting standard deviation</span></a></div><div class="nav-group"><div class="nav-group-title">Normal models & practice</div><a class="slide-link" data-slide="27" data-search="27 read a bell-shaped distribution with a spread ruler birth weights &amp; the bell curve" href="27.html"><span class="slide-num">27</span><span>Birth weights &amp; the bell curve</span></a><a class="slide-link" data-slide="28" data-search="28 the 68–95–99.7 rule the 68–95–99.7 rule" href="28.html"><span class="slide-num">28</span><span>The 68–95–99.7 rule</span></a><a class="slide-link" data-slide="29" data-search="29 calculate spread from eight heart rates heart rates: every calculation" href="29.html"><span class="slide-num">29</span><span>Heart rates: every calculation</span></a><a class="slide-link" data-slide="30" data-search="30 equal average ratings, very different agreement which professor varies most?" href="30.html" aria-current="page"><span class="slide-num">30</span><span>Which professor varies most?</span></a><a class="slide-link" data-slide="31" data-search="31 see what changed before calculating sd four ways to change the spread" href="31.html"><span class="slide-num">31</span><span>Four ways to change the spread</span></a></div><p class="no-results" hidden>No matching slides.</p></nav><div class="nav-footer"><span><strong data-completed-count>0</strong> of 31 slides understood</span><div class="progress-track" aria-hidden="true"><i data-course-progress></i></div><span>One idea at a time.</span><br><a data-resume hidden></a></div></aside>
+<button class="scrim" data-close-nav aria-label="Close navigation"></button><div class="site-body"><header class="topbar"><button class="menu-button" aria-expanded="false" aria-label="Open slide navigation">☰ Slides</button><div class="breadcrumb"><span class="crumb-course">Data Summary <span aria-hidden="true">/</span> </span><strong>Slide 30 of 31</strong></div><div class="top-tools"><a href="../assets/source/01-data-summary.pdf#page=30" target="_blank" rel="noopener">Original PDF ↗</a><button class="plain-button print-button" data-print>Print this slide</button></div></header><div class="reading-progress" aria-hidden="true"><i data-reading-progress></i></div>
+<div class="page-layout"><main class="lesson" id="lesson"><p class="eyebrow">Normal models &amp; practice · Slide 30</p><h1>Equal average ratings, very different agreement</h1><p class="lead">All four professors have average rating 3. That shared center hides a crucial difference: some students agree, while others are divided. Standard deviation distinguishes those patterns by measuring distances from the common mean.</p><div class="lesson-meta"><span>~3 min reading</span><span class="meta-sep">/</span><span>Source + intuition + practice</span></div>
+<figure class="slide-figure" id="source-slide"><button class="slide-image-button" data-zoom-slide aria-label="Enlarge original slide 30"><img class="slide-image" src="../assets/slides/30.webp" alt="Original slide 30: Which professor varies most?. The concepts and figures are explained below." width="2000" height="1125" fetchpriority="high"></button><figcaption class="slide-caption"><span>Original slide · STAT 5701 · Dobrin Marchev</span><button data-zoom-slide>Enlarge slide ↗</button></figcaption></figure>
+<div class="teaching-heading">Let’s understand it</div><article class="prose"><h2 id="read-the-dot-plots-as-counts">Read the dot plots as counts</h2>
+<p>The slide describes end-of-semester Student-Instructional Rating System responses on a 1–5 scale. It asks you to arrange four hypothetical professors from <strong>smallest to largest variability</strong>.</p>
+<p>Counting the source dots gives:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Professor</th>
+<th style="text-align: right;">Rating 1</th>
+<th style="text-align: right;">Rating 2</th>
+<th style="text-align: right;">Rating 3</th>
+<th style="text-align: right;">Rating 4</th>
+<th style="text-align: right;">Rating 5</th>
+<th style="text-align: right;">Total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">10</td>
+</tr>
+<tr>
+<td>B</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">6</td>
+</tr>
+<tr>
+<td>C</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">10</td>
+</tr>
+<tr>
+<td>D</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">10</td>
+</tr>
+</tbody>
+</table></div>
+<p>B has <strong>six</strong> dots at 3; A, C, and D each have ten observations. Every distribution is centered at 3.</p>
+<h2 id="rank-the-pictures-before-calculating">Rank the pictures before calculating</h2>
+<p><strong>B:</strong> everyone gives 3. There is no variation.</p>
+<p><strong>A:</strong> four ratings are exactly at the mean, four are one point away, and only two are two points away. Most of the mass is near the center.</p>
+<p><strong>D:</strong> ratings are spread evenly across all five values. Compared with A, more are at the extremes and fewer at the center.</p>
+<p><strong>C:</strong> every rating is two points away from the mean. Half give 1 and half give 5: complete polarization.</p>
+<p>Therefore the source's ranking is</p>
+<p>$$
+\boxed{B&lt;A&lt;D&lt;C},
+$$</p>
+<p>or, in variance notation,</p>
+<p>$$
+0=\operatorname{Var}(B)&lt;\operatorname{Var}(A)
+&lt;\operatorname{Var}(D)&lt;\operatorname{Var}(C).
+$$</p>
+<p>This describes spread, not which professor has the highest average. Their averages are equal.</p>
+<h2 id="verify-the-ranking-with-exact-sample-variances">Verify the ranking with exact sample variances</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Professor</th>
+<th style="text-align: right;">Mean</th>
+<th style="text-align: right;">Sum of squared deviations</th>
+<th style="text-align: right;">Sample variance</th>
+<th style="text-align: right;">Sample SD</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>B</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td>A</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">$4/3$</td>
+<td style="text-align: right;">$\approx1.1547$</td>
+</tr>
+<tr>
+<td>D</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">$20/9$</td>
+<td style="text-align: right;">$\approx1.4907$</td>
+</tr>
+<tr>
+<td>C</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">40</td>
+<td style="text-align: right;">$40/9$</td>
+<td style="text-align: right;">$\approx2.1082$</td>
+</tr>
+</tbody>
+</table></div>
+<details>
+<summary>Work through every squared-deviation total</summary>
+<p>For A,</p>
+<p>$$
+SS_A=1(1-3)^2+2(2-3)^2+4(3-3)^2
++2(4-3)^2+1(5-3)^2
+=4+2+0+2+4=12.
+$$</p>
+<p>Thus $s_A^2=12/9=4/3$ and $s_A=2/\sqrt3\approx1.1547$.</p>
+<p>For B,</p>
+<p>$$
+SS_B=6(3-3)^2=0,
+\qquad s_B^2=\frac0{6-1}=0,
+\qquad s_B=0.
+$$</p>
+<p>For C,</p>
+<p>$$
+SS_C=5(1-3)^2+5(5-3)^2=20+20=40.
+$$</p>
+<p>Thus $s_C^2=40/9$ and $s_C=\sqrt{40}/3\approx2.1082$.</p>
+<p>For D,</p>
+<p>$$
+SS_D=2\big[(1-3)^2+(2-3)^2+(3-3)^2+(4-3)^2+(5-3)^2\big]=20.
+$$</p>
+<p>Thus $s_D^2=20/9$ and $s_D=\sqrt{20}/3\approx1.4907$.</p>
+<p>A, C, and D share the divisor 9, so their squared-deviation totals already establish their order. B uses divisor 5 because its sample size is six, but zero divided by either positive divisor remains zero.</p>
+<p>If these ratings are instead treated as each professor's entire finite population, divide A, C, and D by 10 and B by 6. The population variances are $1.2$, $4$, $2$, and $0$, respectively. The same ranking holds.</p>
+</details>
+<p><strong>Memory image:</strong> B is agreement at the middle; C is disagreement between two extremes. A single average cannot distinguish them.</p>
+<h2 id="check-your-understanding">Check your understanding</h2>
+<p>A and C have the same mean, minimum, and maximum. Why do their standard deviations differ?</p>
+<details>
+<summary>Show the answer</summary>
+<p>Those three summaries do not say where the remaining observations lie. A puts most ratings near the mean. C puts every rating at an extreme. SD uses all squared distances, so C's total is 40 while A's is only 12.</p>
+</details></article>
+<section class="lesson-end" aria-label="Study progress"><button class="complete-button" data-complete aria-pressed="false">Mark this slide as understood</button><p class="completion-note">Your reading progress stays in this browser. Revisit any idea whenever you need.</p><nav class="page-turn" aria-label="Previous and next slides"><a href="29.html"><span>← Previous slide</span>Heart rates: every calculation</a><a href="31.html"><span>Next slide →</span>Four ways to change the spread</a></nav></section>
+<footer class="footer"><p>A personal teaching companion built from our questions, examples and explanations.</p><p>Original slides: Dobrin Marchev · STAT 5701. Slide images remain attributed to their author. This is an independent study resource.</p></footer></main>
+<aside class="page-toc" aria-label="On this slide"><p class="toc-label">On this slide</p><a class="toc-source" href="#source-slide">The original slide</a><a href="#read-the-dot-plots-as-counts">Read the dot plots as counts</a><a href="#rank-the-pictures-before-calculating">Rank the pictures before calculating</a><a href="#verify-the-ranking-with-exact-sample-variances">Verify the ranking with exact sample variances</a><a href="#check-your-understanding">Check your understanding</a><a href="#lesson">Back to the top ↑</a></aside></div></div>
+<dialog class="image-dialog" aria-label="Original slide 30, enlarged"><div class="dialog-tools"><span>Slide 30 / 31</span><button data-close-dialog>Close ×</button></div><img src="../assets/slides/30.webp" alt="Enlarged original slide 30: Which professor varies most?"><div class="dialog-tools"><a href="../assets/source/01-data-summary.pdf#page=30" target="_blank" rel="noopener">Read the source PDF ↗</a></div></dialog></body></html>

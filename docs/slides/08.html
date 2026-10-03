@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Slide 8 of Data Summary: Spheres, diamonds &amp; octahedra. Original slide, first-principles explanation, examples and worked practice."><title>08 · Spheres, diamonds &amp; octahedra — Probability, understood</title><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/site.css"><link rel="stylesheet" href="../assets/vendor/katex/katex.min.css"><script defer src="../assets/vendor/katex/katex.min.js"></script><script defer src="../assets/vendor/katex/contrib/auto-render.min.js"></script><script defer src="../assets/site.js"></script></head>
+<body data-slide="8" data-slide-prefix=""><a class="skip" href="#lesson">Skip to the lesson</a>
+<aside class="sidebar" aria-label="Course navigation"><a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>Probability,<br>understood.</span></a><button class="nav-close" data-close-nav aria-label="Close slide navigation">×</button><p class="course-label">Chapter 01 / Your study companion</p><p class="course-title">Data Summary</p><label class="sr-only" for="slide-search">Find a slide</label><input class="nav-search" id="slide-search" type="search" placeholder="Find a slide…" autocomplete="off"><nav class="slide-nav" aria-label="All 31 slides"><div class="nav-group"><div class="nav-group-title">The starting point</div><a class="slide-link" data-slide="1" data-search="01 why one number is not enough a story inside the data" href="01.html"><span class="slide-num">01</span><span>A story inside the data</span></a><a class="slide-link" data-slide="2" data-search="02 two meanings of the center what does “centre” mean?" href="02.html"><span class="slide-num">02</span><span>What does “centre” mean?</span></a></div><div class="nav-group"><div class="nav-group-title">Finding the centre</div><a class="slide-link" data-slide="3" data-search="03 the mean preserves the total the mean: equal shares" href="03.html"><span class="slide-num">03</span><span>The mean: equal shares</span></a><a class="slide-link" data-slide="4" data-search="04 why squared errors choose the mean why squared error finds the mean" href="04.html"><span class="slide-num">04</span><span>Why squared error finds the mean</span></a><a class="slide-link" data-slide="5" data-search="05 the mean is the closest constant point the geometry of the mean" href="05.html"><span class="slide-num">05</span><span>The geometry of the mean</span></a><a class="slide-link" data-slide="6" data-search="06 the median finds the middle finding the median" href="06.html"><span class="slide-num">06</span><span>Finding the median</span></a><a class="slide-link" data-slide="7" data-search="07 why absolute errors choose the median why absolute error finds the median" href="07.html"><span class="slide-num">07</span><span>Why absolute error finds the median</span></a><a class="slide-link" data-slide="8" data-search="08 two distances, two shapes spheres, diamonds &amp; octahedra" href="08.html" aria-current="page"><span class="slide-num">08</span><span>Spheres, diamonds &amp; octahedra</span></a><a class="slide-link" data-slide="9" data-search="09 one changing observation, two centers one observation changes" href="09.html"><span class="slide-num">09</span><span>One observation changes</span></a><a class="slide-link" data-slide="10" data-search="10 read the three-dimensional comparison reading the geometric picture" href="10.html"><span class="slide-num">10</span><span>Reading the geometric picture</span></a><a class="slide-link" data-slide="11" data-search="11 choose the center your question needs which centre should we use?" href="11.html"><span class="slide-num">11</span><span>Which centre should we use?</span></a><a class="slide-link" data-slide="12" data-search="12 follow the tail of the histogram skewness &amp; the long tail" href="12.html"><span class="slide-num">12</span><span>Skewness &amp; the long tail</span></a></div><div class="nav-group"><div class="nav-group-title">Understanding spread</div><a class="slide-link" data-slide="13" data-search="13 an 88 needs a comparison scale why an 88 needs context" href="13.html"><span class="slide-num">13</span><span>Why an 88 needs context</span></a><a class="slide-link" data-slide="14" data-search="14 choose the kind of spread you need what spread tells us" href="14.html"><span class="slide-num">14</span><span>What spread tells us</span></a><a class="slide-link" data-slide="15" data-search="15 range: observed endpoints and possible values range &amp; population support" href="15.html"><span class="slide-num">15</span><span>Range &amp; population support</span></a><a class="slide-link" data-slide="16" data-search="16 one faulty reading can squeeze the scale min–max scaling &amp; outliers" href="16.html"><span class="slide-num">16</span><span>Min–max scaling &amp; outliers</span></a><a class="slide-link" data-slide="17" data-search="17 a fractional rank is a position, not a value percentiles &amp; interpolation" href="17.html"><span class="slide-num">17</span><span>Percentiles &amp; interpolation</span></a><a class="slide-link" data-slide="18" data-search="18 quartiles divide probability, not distance quartiles &amp; probability" href="18.html"><span class="slide-num">18</span><span>Quartiles &amp; probability</span></a><a class="slide-link" data-slide="19" data-search="19 iqr protects the middle of the story the middle half: iqr" href="19.html"><span class="slide-num">19</span><span>The middle half: IQR</span></a><a class="slide-link" data-slide="20" data-search="20 diamonds: measure the middle and the endpoints diamonds: the first sample" href="20.html"><span class="slide-num">20</span><span>Diamonds: the first sample</span></a><a class="slide-link" data-slide="21" data-search="21 two expensive diamonds change the story add two expensive diamonds" href="21.html"><span class="slide-num">21</span><span>Add two expensive diamonds</span></a><a class="slide-link" data-slide="22" data-search="22 boxplots: endpoints are not always whiskers reading a boxplot" href="22.html"><span class="slide-num">22</span><span>Reading a boxplot</span></a></div><div class="nav-group"><div class="nav-group-title">Variance & its uses</div><a class="slide-link" data-slide="23" data-search="23 why sample variance divides by n − 1 variance, estimation &amp; n − 1" href="23.html"><span class="slide-num">23</span><span>Variance, estimation &amp; n − 1</span></a><a class="slide-link" data-slide="24" data-search="24 give features a common ruler, then find their main direction pca, scaling &amp; model variance" href="24.html"><span class="slide-num">24</span><span>PCA, scaling &amp; model variance</span></a><a class="slide-link" data-slide="25" data-search="25 the population target and the sample in your hand population versus sample" href="25.html"><span class="slide-num">25</span><span>Population versus sample</span></a><a class="slide-link" data-slide="26" data-search="26 standard deviation is a ruler for spread interpreting standard deviation" href="26.html"><span class="slide-num">26</span><span>Interpreting standard deviation</span></a></div><div class="nav-group"><div class="nav-group-title">Normal models & practice</div><a class="slide-link" data-slide="27" data-search="27 read a bell-shaped distribution with a spread ruler birth weights &amp; the bell curve" href="27.html"><span class="slide-num">27</span><span>Birth weights &amp; the bell curve</span></a><a class="slide-link" data-slide="28" data-search="28 the 68–95–99.7 rule the 68–95–99.7 rule" href="28.html"><span class="slide-num">28</span><span>The 68–95–99.7 rule</span></a><a class="slide-link" data-slide="29" data-search="29 calculate spread from eight heart rates heart rates: every calculation" href="29.html"><span class="slide-num">29</span><span>Heart rates: every calculation</span></a><a class="slide-link" data-slide="30" data-search="30 equal average ratings, very different agreement which professor varies most?" href="30.html"><span class="slide-num">30</span><span>Which professor varies most?</span></a><a class="slide-link" data-slide="31" data-search="31 see what changed before calculating sd four ways to change the spread" href="31.html"><span class="slide-num">31</span><span>Four ways to change the spread</span></a></div><p class="no-results" hidden>No matching slides.</p></nav><div class="nav-footer"><span><strong data-completed-count>0</strong> of 31 slides understood</span><div class="progress-track" aria-hidden="true"><i data-course-progress></i></div><span>One idea at a time.</span><br><a data-resume hidden></a></div></aside>
+<button class="scrim" data-close-nav aria-label="Close navigation"></button><div class="site-body"><header class="topbar"><button class="menu-button" aria-expanded="false" aria-label="Open slide navigation">☰ Slides</button><div class="breadcrumb"><span class="crumb-course">Data Summary <span aria-hidden="true">/</span> </span><strong>Slide 08 of 31</strong></div><div class="top-tools"><a href="../assets/source/01-data-summary.pdf#page=8" target="_blank" rel="noopener">Original PDF ↗</a><button class="plain-button print-button" data-print>Print this slide</button></div></header><div class="reading-progress" aria-hidden="true"><i data-reading-progress></i></div>
+<div class="page-layout"><main class="lesson" id="lesson"><p class="eyebrow">Finding the centre · Slide 08</p><h1>Two distances, two shapes</h1><p class="lead">“Distance” depends on the rule you use to measure it. Straight-line distance gives round balls; adding coordinate-by-coordinate distances gives diamond-shaped or octahedral balls. Growing these shapes around the data reveals why different error rules choose different centers.</p><div class="lesson-meta"><span>~9 min reading</span><span class="meta-sep">/</span><span>Source + intuition + practice</span><span class="meta-sep">/</span><span>2 interactive experiments</span></div>
+<figure class="slide-figure" id="source-slide"><button class="slide-image-button" data-zoom-slide aria-label="Enlarge original slide 8"><img class="slide-image" src="../assets/slides/08.webp" alt="Original slide 8: Spheres, diamonds &amp; octahedra. The concepts and figures are explained below." width="2000" height="1125" fetchpriority="high"></button><figcaption class="slide-caption"><span>Original slide · STAT 5701 · Dobrin Marchev</span><button data-zoom-slide>Enlarge slide ↗</button></figcaption></figure>
+<div class="teaching-heading">Let’s understand it</div><article class="prose"><h2 id="the-same-endpoints-can-have-different-distances">The same endpoints can have different distances</h2>
+<p>If you can travel straight through space from the origin to $(3,2,4)$, Pythagoras gives distance $\sqrt{3^2+2^2+4^2}=\sqrt{29}\approx5.39$.</p>
+<p>If movement must follow the coordinate directions, you need three units along one axis, two along another, and four along the third. The shortest total is $3+2+4=9$. You can perform these movements in different orders without changing their total.</p>
+<p>This is not a disagreement about where the points are. It is a change in the <strong>rule used to measure separation</strong>.</p>
+<p>For a vector $\mathbf{v}=(v_1,\ldots,v_n)$:</p>
+<p>$$
+\|\mathbf{v}\|_2=\sqrt{\sum_{i=1}^{n}v_i^2},
+\qquad
+\|\mathbf{v}\|_1=\sum_{i=1}^{n}|v_i|.
+$$</p>
+<p>When $\mathbf{v}$ is the vector of prediction errors $\mathbf{x}-c\mathbf{1}_n$, these become the losses from slides 4 and 7:</p>
+<p>$$
+\|\mathbf{x}-c\mathbf{1}_n\|_2^2
+=\sum_{i=1}^{n}(x_i-c)^2,
+$$</p>
+<p>$$
+\|\mathbf{x}-c\mathbf{1}_n\|_1
+=\sum_{i=1}^{n}|x_i-c|.
+$$</p>
+<h2 id="why-a-circle-becomes-a-diamond">Why a circle becomes a diamond</h2>
+<p>A distance ball is the set of points within a chosen distance budget $r$ from its center.</p>
+<p>In two dimensions, centered at the origin:</p>
+<p>$$
+B_2(r)=\{(u,v):u^2+v^2\le r^2\},
+$$</p>
+<p>which is a filled circle, while</p>
+<p>$$
+B_1(r)=\{(u,v):|u|+|v|\le r\},
+$$</p>
+<p>which is a filled diamond with vertices $(r,0),(0,r),(-r,0),(0,-r)$.</p>
+<p>In three dimensions, the Euclidean ball is a filled sphere and the Manhattan ball is a filled octahedron. The octahedron has six vertices, one in each positive or negative coordinate-axis direction. The <strong>unit</strong> shapes in the original picture are the special case $r=1$.</p>
+<p>A <strong>sphere</strong> strictly means the boundary at distance exactly $r$; a <strong>ball</strong> includes the interior at distances at most $r$. Illustrations often use “sphere” loosely for both.</p>
+<h2 id="try-two-rulers-on-the-same-space">Try two rulers on the same space</h2>
+<p>Compare the two distance rules before looking at the answer. From the origin to $(3,2,4)$, a direct route has length about $5.39$, while the shortest route along coordinate directions has length $9$. As you change the distance budget, predict why the allowed region is round under $L_2$ and pointed under $L_1$.</p>
+<section class="experiment" aria-label="Interactive: L1 and L2 distance boundaries"><div class="experiment-label"><span>Explore the idea</span><a href="../assets/labs/norms.html" target="_blank" rel="noopener">Open larger ↗</a></div><iframe src="../assets/labs/norms.html" title="L1 and L2 distance boundaries" loading="lazy"></iframe></section>
+
+<h2 id="grow-an-octahedron-around-the-data">Grow an octahedron around the data</h2>
+<p>To connect this shape to the median, use</p>
+<p>$$
+\mathbf{x}=(3,6,12)
+$$</p>
+<p>as the center, and keep the candidate constant line</p>
+<p>$$
+L=\{(c,c,c):c\in\mathbb{R}\}.
+$$</p>
+<p>The growing $L_1$ ball is</p>
+<p>$$
+B_1(\mathbf{x},r)
+=\{(u,v,w):|u-3|+|v-6|+|w-12|\le r\}.
+$$</p>
+<p>Its six vertices are</p>
+<p>$$
+(3\pm r,6,12),\quad
+(3,6\pm r,12),\quad
+(3,6,12\pm r).
+$$</p>
+<p>Here $r$ means <strong>total absolute-error budget</strong>. It is not the Euclidean length of a straight line drawn from the center to every point on the octahedron.</p>
+<p>A candidate point $(c,c,c)$ is inside the ball exactly when</p>
+<p>$$
+|3-c|+|6-c|+|12-c|\le r.
+$$</p>
+<p>Thus growing the ball asks: “How large must the allowed total error become before at least one constant prediction is affordable?”</p>
+<h2 id="find-the-first-affordable-constant">Find the first affordable constant</h2>
+<p>Start below radius $9$ and grow the $L_1$ ball. Predict whether the constant line can enter at radius $8$. Watch the first contact at $9$, then keep growing to $10$: the mean point $(7,7,7)$ becomes affordable only after the median point. Rotate the view to distinguish actual 3D contact from apparent overlap on the screen.</p>
+<section class="experiment" aria-label="Interactive: Grow an octahedron toward the median"><div class="experiment-label"><span>Explore the idea</span><a href="../assets/labs/octahedron.html" target="_blank" rel="noopener">Open larger ↗</a></div><iframe src="../assets/labs/octahedron.html" title="Grow an octahedron toward the median" loading="lazy"></iframe></section>
+
+<h2 id="why-first-contact-means-minimum-error">Why first contact means minimum error</h2>
+<p>These balls are nested: increasing $r$ retains all previously affordable points and adds more.</p>
+<ul>
+<li>Before the ball meets $L$, no constant has an error that small.</li>
+<li>At the first contact, at least one constant becomes affordable.</li>
+<li>A smaller error cannot be possible, or the line would have met an earlier ball.</li>
+</ul>
+<p>Therefore, <strong>the first-contact radius is the minimum error, and the contact point identifies a minimizing constant</strong>. This logic applies to either distance rule. The shape of the ball determines which constant is reached first.</p>
+<h2 id="why-the-first-contact-occurs-at-radius-mathplaceholder00037end">Why the first contact occurs at radius $9$</h2>
+<p>From the preceding slide:</p>
+<p>$$
+|3-c|+|6-c|+|12-c|\ge9+|6-c|\ge9.
+$$</p>
+<p>No ball of radius less than $9$ can contain any constant point. At $c=6$:</p>
+<p>$$
+|3-6|+|6-6|+|12-6|=3+0+6=9.
+$$</p>
+<p>So the radius-$9$ octahedron first touches the constant line at</p>
+<p>$$
+(6,6,6).
+$$</p>
+<p>The median appears because this point has the smallest total absolute deviation—not because we assumed the answer in advance.</p>
+<h2 id="where-on-the-octahedron-does-the-contact-occur">Where on the octahedron does the contact occur?</h2>
+<p>At radius $9$, two vertices are</p>
+<p>$$
+(12,6,12)
+\quad\text{and}\quad
+(3,6,3).
+$$</p>
+<p>Their connecting edge is</p>
+<p>$$
+\{(t,6,t):3\le t\le12\}.
+$$</p>
+<p>The point $(6,6,6)$ lies on this edge. It is <strong>not</strong> a vertex of the octahedron.</p>
+<p>The constant line requires all three coordinates to be equal. On this edge, the second coordinate is already fixed at $6$, so the only point satisfying that requirement is $(6,6,6)$.</p>
+<p>This is a concrete way to see why an absolute-error optimum can have a coordinate error equal to zero: the middle observation is matched exactly. It does not mean every $L_1$ optimization must touch a vertex.</p>
+<details>
+<summary>Prove the contact geometrically with a supporting plane</summary>
+<h3 id="a-supporting-plane-proof-of-the-same-contact">A supporting-plane proof of the same contact</h3>
+<p>A supporting plane touches a convex shape while leaving the entire shape on one side. In this example, use the plane</p>
+<p>$$
+u=w.
+$$</p>
+<p>Every point on the constant line lies in this plane.</p>
+<p>For a point $(u,v,w)$ in the radius-$r$ octahedron,</p>
+<p>$$
+\begin{aligned}
+u-w
+&amp;=(u-3)-(w-12)-9\\
+&amp;\le |u-3|+|w-12|-9\\
+&amp;\le r-|v-6|-9\\
+&amp;\le r-9.
+\end{aligned}
+$$</p>
+<p>If $r&lt;9$, then $u-w&lt;0$ for every point in the ball. It cannot meet the plane $u=w$, and therefore cannot meet the constant line either.</p>
+<p>At $r=9$, equality $u=w$ requires:</p>
+<ul>
+<li>$v=6$;</li>
+<li>$u\ge3$ and $w\le12$;</li>
+<li>$u=w$.</li>
+</ul>
+<p>Those conditions describe exactly the edge $(t,6,t)$ for $3\le t\le12$. Its unique intersection with the constant line is $(6,6,6)$.</p>
+</details>
+<details>
+<summary>Which constants are inside after first contact?</summary>
+<h3 id="what-happens-after-first-contact">What happens after first contact?</h3>
+<p>For radii from zero through twelve:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Radius</th>
+<th>Intersection with the constant line</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$0\le r&lt;9$</td>
+<td>None</td>
+</tr>
+<tr>
+<td>$r=9$</td>
+<td>The single point $(6,6,6)$</td>
+</tr>
+<tr>
+<td>$9\le r\le12$</td>
+<td>All $(c,c,c)$ with $15-r\le c\le r-3$</td>
+</tr>
+</tbody>
+</table></div>
+<p>For example, at $r=12$, the affordable constants are $3\le c\le9$.</p>
+<p>The interval comes from the two relevant branches of the piecewise absolute-error function: $15-c\le r$ to the left of $6$, and $c+3\le r$ to its right.</p>
+</details>
+<h2 id="contrast-this-with-a-growing-euclidean-sphere">Contrast this with a growing Euclidean sphere</h2>
+<p>For the same data point, the Euclidean sphere first meets the constant line at the mean:</p>
+<p>$$
+(7,7,7).
+$$</p>
+<p>Its radius there is</p>
+<p>$$
+\sqrt{(3-7)^2+(6-7)^2+(12-7)^2}
+=\sqrt{42}\approx6.48.
+$$</p>
+<p>At the median point, the Euclidean distance is $\sqrt{45}$, which is larger. But the mean point has Manhattan distance</p>
+<p>$$
+|3-7|+|6-7|+|12-7|=10,
+$$</p>
+<p>which is larger than the median's Manhattan distance $9$.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Distance/cost rule</th>
+<th>First constant point reached</th>
+<th style="text-align: right;">Minimum</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Euclidean distance</td>
+<td>$(7,7,7)$</td>
+<td style="text-align: right;">$\sqrt{42}$</td>
+</tr>
+<tr>
+<td>Squared Euclidean distance / SSE</td>
+<td>$(7,7,7)$</td>
+<td style="text-align: right;">$42$</td>
+</tr>
+<tr>
+<td>Manhattan distance / total absolute error</td>
+<td>$(6,6,6)$</td>
+<td style="text-align: right;">$9$</td>
+</tr>
+</tbody>
+</table></div>
+<p>The numerical radii $\sqrt{42}$ and $9$ use different distance rules. Their magnitudes are not a contest between “better” and “worse” fits across losses.</p>
+<h2 id="why-the-euclidean-perpendicular-rule-does-not-transfer-to-mathplaceholder00091end">Why the Euclidean perpendicular rule does not transfer to $L_1$</h2>
+<p>For a sphere, the center-to-contact direction is normal to its tangent plane. At first contact with a line, the line lies in that tangent plane, so the radius is perpendicular to the line.</p>
+<p>For the octahedron, the first-contact point can lie on an edge. A supporting plane still exists, but the center-to-contact vector need not be perpendicular to it or to the candidate line.</p>
+<p>At the median point, the residual is</p>
+<p>$$
+(3,6,12)-(6,6,6)=(-3,0,6).
+$$</p>
+<p>Its dot product with $(1,1,1)$ is $3$, not zero. Nevertheless, it is the correct $L_1$ minimizer. We have changed the geometry of the error budget, so Euclidean perpendicularity is no longer the optimality test.</p>
+<h2 id="a-caution-when-viewing-a-3d-object-on-a-2d-screen">A caution when viewing a 3D object on a 2D screen</h2>
+<p>The screen shows a projection of the three-dimensional scene. Two objects may appear to overlap on the screen while lying at different depths.</p>
+<p>Actual contact must be determined by the distance equation, not merely by whether the projected silhouettes overlap. In our example, the mathematical test is $|3-c|+|6-c|+|12-c|\le r$.</p>
+<h2 id="important-distinctions">Important distinctions</h2>
+<ul>
+<li>The original inset's “L2 (Octahedron)” label is a typo. In three dimensions, the $L_2$ ball is spherical and the $L_1$ ball is an octahedron.</li>
+<li>“All grid-aligned paths are equal length” needs a qualification: <strong>shortest monotone grid-aligned paths without backtracking</strong> have the same length. Taking a detour increases the length.</li>
+<li>Euclidean distance treats directions equally under rotations; Manhattan distance depends on the chosen coordinate axes.</li>
+<li>The squared $L_2$ loss is smooth everywhere. The raw Euclidean norm is not differentiable at the origin. Ridge regression normally uses a <strong>squared $L_2$ penalty</strong>, so that context matters for the slide's “smooth gradient” claim. That penalty typically shrinks coefficients continuously; it does not have the same mechanism for selecting many exact zeros as an $L_1$ penalty.</li>
+<li>An $L_1$ <strong>penalty on model coefficients</strong> can encourage zero coefficients, as in lasso regression. This does not mean that every absolute-error loss produces sparse coefficients, or that all residuals automatically become zero. The vector to which the norm is applied matters.</li>
+<li>The median example concerns $L_1$ loss on residuals. The regression sparsity comparison is a related application, not the explanation required to establish the median's optimality.</li>
+</ul>
+<h2 id="check-your-understanding">Check your understanding</h2>
+<p>For an $L_1$ ball centered at $(3,6,12)$, can radius 8 reach the constant line? At what radius does $(7,7,7)$ enter the ball?</p>
+<details>
+<summary>Work through the answer</summary>
+<p>Radius $8$ cannot reach the line because every constant has total absolute error at least $9$. The first point reached is $(6,6,6)$ at radius $9$. The mean point $(7,7,7)$ enters only at radius $|3-7|+|6-7|+|12-7|=10$. It is best under the Euclidean rule, but not under the $L_1$ rule.</p>
+</details></article>
+<section class="lesson-end" aria-label="Study progress"><button class="complete-button" data-complete aria-pressed="false">Mark this slide as understood</button><p class="completion-note">Your reading progress stays in this browser. Revisit any idea whenever you need.</p><nav class="page-turn" aria-label="Previous and next slides"><a href="07.html"><span>← Previous slide</span>Why absolute error finds the median</a><a href="09.html"><span>Next slide →</span>One observation changes</a></nav></section>
+<footer class="footer"><p>A personal teaching companion built from our questions, examples and explanations.</p><p>Original slides: Dobrin Marchev · STAT 5701. Slide images remain attributed to their author. This is an independent study resource.</p></footer></main>
+<aside class="page-toc" aria-label="On this slide"><p class="toc-label">On this slide</p><a class="toc-source" href="#source-slide">The original slide</a><a href="#the-same-endpoints-can-have-different-distances">The same endpoints can have different distances</a><a href="#why-a-circle-becomes-a-diamond">Why a circle becomes a diamond</a><a href="#try-two-rulers-on-the-same-space">Try two rulers on the same space</a><a href="#grow-an-octahedron-around-the-data">Grow an octahedron around the data</a><a href="#find-the-first-affordable-constant">Find the first affordable constant</a><a href="#why-first-contact-means-minimum-error">Why first contact means minimum error</a><a href="#why-the-first-contact-occurs-at-radius-mathplaceholder00037end">Why the first contact occurs at radius $9$</a><a href="#where-on-the-octahedron-does-the-contact-occur">Where on the octahedron does the contact occur?</a><a href="#contrast-this-with-a-growing-euclidean-sphere">Contrast this with a growing Euclidean sphere</a><a href="#why-the-euclidean-perpendicular-rule-does-not-transfer-to-mathplaceholder00091end">Why the Euclidean perpendicular rule does not transfer to $L_1$</a><a href="#a-caution-when-viewing-a-3d-object-on-a-2d-screen">A caution when viewing a 3D object on a 2D screen</a><a href="#important-distinctions">Important distinctions</a><a href="#check-your-understanding">Check your understanding</a><a href="#lesson">Back to the top ↑</a></aside></div></div>
+<dialog class="image-dialog" aria-label="Original slide 8, enlarged"><div class="dialog-tools"><span>Slide 08 / 31</span><button data-close-dialog>Close ×</button></div><img src="../assets/slides/08.webp" alt="Enlarged original slide 8: Spheres, diamonds &amp; octahedra"><div class="dialog-tools"><a href="../assets/source/01-data-summary.pdf#page=8" target="_blank" rel="noopener">Read the source PDF ↗</a></div></dialog></body></html>

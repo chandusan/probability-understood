@@ -1,0 +1,67 @@
+<div id="mean-closest-point">
+  <h3>The mean is the closest shared estimate</h3>
+  <div class="viz-row">
+    <label class="form-label" for="mean-c">Shared estimate c: <output id="mean-value" class="tabular-nums">3</output> minutes</label>
+  </div>
+  <input id="mean-c" class="form-range" type="range" min="0" max="10" step="0.1" value="3">
+  <div class="mean-plot"></div>
+  <div class="viz-row text-small mean-key">
+    <span><span class="data-mark">●</span> Data (2, 8)</span>
+    <span><span class="chosen-mark">■</span> Your summary (c, c)</span>
+    <span><span class="best-mark">◇</span> Mean (5, 5)</span>
+  </div>
+  <div id="mean-result" class="tabular-nums" aria-live="polite"></div>
+  <style>
+    #mean-closest-point .mean-plot{width:100%;max-width:480px;margin:0 auto}
+    #mean-closest-point .mean-key{margin-bottom:12px}
+    #mean-closest-point .chosen-mark{color:var(--viz-series-1)}
+    #mean-closest-point .best-mark{color:var(--viz-series-2)}
+    #mean-closest-point .mean-chart{display:block;width:100%;height:auto}
+    #mean-closest-point .mean-chart text{fill:var(--foreground);font-size:12px}
+    #mean-closest-point .mean-chart .frame{fill:none;stroke:var(--border);stroke-width:1}
+    #mean-closest-point .mean-chart .grid{stroke:var(--border);stroke-width:1}
+    #mean-closest-point .mean-chart .diagonal{stroke:var(--muted-foreground);stroke-width:1.5}
+    #mean-closest-point .mean-chart .best-path{stroke:var(--viz-series-2);stroke-width:2;stroke-dasharray:5 4;fill:none}
+    #mean-closest-point .mean-chart .chosen-path{stroke:var(--viz-series-1);stroke-width:2.5;fill:none}
+    #mean-closest-point .mean-chart .data-dot{fill:var(--foreground)}
+    #mean-closest-point .mean-chart .chosen-dot{fill:var(--viz-series-1)}
+    #mean-closest-point .mean-chart .best-dot{stroke:var(--viz-series-2);stroke-width:2;fill:var(--background)}
+  </style>
+  <script>
+    (()=>{
+      const root=document.getElementById('mean-closest-point');
+      const input=root.querySelector('#mean-c');
+      const value=root.querySelector('#mean-value');
+      const result=root.querySelector('#mean-result');
+      const plot=root.querySelector('.mean-plot');
+      const num=x=>Number(x.toFixed(2)).toString();
+      let c=3;
+      function restore(state){const n=state?.modelContent?.c;if(typeof n==='number'&&n>=0&&n<=10)c=n;input.value=String(c)}
+      restore(window.openai?.widgetState);
+      function draw(){
+        const w=Math.round(plot.getBoundingClientRect().width);if(!w)return;
+        const margin={l:64,r:24,t:42,b:60},side=w-margin.l-margin.r,h=side+margin.t+margin.b;
+        const coordinates=[0,2,5,8,10],lo=Math.min(...coordinates)-.5,hi=Math.max(...coordinates)+.5;
+        const X=x=>margin.l+(x-lo)/(hi-lo)*side,Y=y=>margin.t+side-(y-lo)/(hi-lo)*side;
+        let chart=`<svg class="mean-chart" viewBox="0 0 ${w} ${h}" role="img" aria-label="The data point is (2,8). Shared estimates (c,c) lie on the diagonal. The shortest connecting segment meets it at the mean (5,5)."><title>Distance from data to a shared estimate</title><rect class="frame" data-chart-frame x="${margin.l}" y="${margin.t}" width="${side}" height="${side}"/>`;
+        for(const t of [0,5,10]){
+          chart+=`<path class="grid" d="M${X(t)},${margin.t}V${margin.t+side}M${margin.l},${Y(t)}H${margin.l+side}"/><text x="${X(t)}" y="${margin.t+side+23}" text-anchor="middle">${t}</text><text x="${margin.l-12}" y="${Y(t)+4}" text-anchor="end">${t}</text>`;
+        }
+        chart+=`<text class="axis-title" data-axis="y" x="${margin.l}" y="18">Second coordinate (minutes)</text><text class="axis-title" data-axis="x" x="${margin.l+side/2}" y="${h-8}" text-anchor="middle">First coordinate (minutes)</text>`;
+        chart+=`<path class="diagonal" d="M${X(0)},${Y(0)}L${X(10)},${Y(10)}"/><path class="best-path" d="M${X(2)},${Y(8)}L${X(5)},${Y(5)}"/><path class="chosen-path" d="M${X(2)},${Y(8)}L${X(c)},${Y(c)}"/>`;
+        const t=8*11/side;
+        chart+=`<path class="best-path" style="stroke-dasharray:none;stroke-width:1" d="M${X(5-t)},${Y(5+t)}L${X(5)},${Y(5+2*t)}L${X(5+t)},${Y(5+t)}"/><path class="best-dot" d="M${X(5)},${Y(5)-7}l7 7 -7 7 -7 -7Z"/><rect class="chosen-dot" x="${X(c)-4}" y="${Y(c)-4}" width="8" height="8"/><circle class="data-dot" cx="${X(2)}" cy="${Y(8)}" r="5"/><text x="${X(2)+10}" y="${Y(8)-12}">Data (2, 8)</text></svg>`;
+        plot.innerHTML=chart;
+        const labels=[...plot.querySelectorAll('text')].map(e=>e.getBBox());
+        if(labels.some(b=>b.x<0||b.y<0||b.x+b.width>w||b.y+b.height>h))plot.querySelector('text:not(.axis-title):last-child')?.remove();
+        value.textContent=num(c);
+        const sse=(2-c)**2+(8-c)**2;
+        result.textContent=`Squared distance: ${num(sse)} min² · Minimum: 18 min²${Math.abs(c-5)<.001?' · Closest point reached':''}`;
+      }
+      input.addEventListener('input',()=>{c=+input.value;draw()});
+      input.addEventListener('change',()=>{window.openai?.setWidgetState?.({modelContent:{c,data:[2,8]},privateContent:null})?.catch(()=>{})});
+      window.addEventListener('openai:set_globals',event=>{const state=event.detail?.globals?.widgetState;if(state){restore(state);draw()}});
+      new ResizeObserver(draw).observe(plot);draw();
+    })();
+  </script>
+</div>

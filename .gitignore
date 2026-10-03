@@ -2,3 +2,6 @@
 __pycache__/
 *.pyc
 /probability-lessons.zip
+.venv/
+.playwright-cli/
+__pycache__/

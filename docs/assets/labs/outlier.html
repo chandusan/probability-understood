@@ -1,0 +1,41 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Move an outlier: mean versus median</title><link rel="icon" href="data:,"><link rel="stylesheet" href="../lab.css"><script src="../lab-frame.js"></script></head><body data-lab="outlier"><main class="lab-root"><div id="outlier-centers">
+  <h3>Move one value. Watch two centers.</h3>
+  <label class="form-label" for="outlier-last">Last observation: <output id="outlier-last-value">12 min</output><input id="outlier-last" class="form-range" type="range" min="9" max="60" step="1" value="12"></label>
+  <p id="outlier-data" class="text-small">Observations: 3, 6, 12 minutes.</p>
+  <div class="outlier-chart"></div>
+  <div class="stats outlier-stats" aria-live="polite" aria-atomic="true">
+    <div class="stat"><span>Mean · square marker</span><strong id="outlier-mean">7 min</strong></div>
+    <div class="stat"><span>Median · diamond marker</span><strong id="outlier-median">6 min</strong></div>
+  </div>
+  <p class="text-small">The mean moves by one third of the added wait. The middle observation stays at 6.</p>
+  <style>
+    #outlier-centers{min-width:0}#outlier-centers .form-label{display:block}#outlier-centers .form-range{display:block;width:100%;margin-top:9px}#outlier-centers output{font-variant-numeric:tabular-nums;font-weight:600}#outlier-centers .outlier-chart{width:100%;min-width:0}#outlier-centers svg{display:block;width:100%;height:auto}#outlier-centers svg text{fill:var(--foreground);font-family:inherit;font-size:12px;font-variant-numeric:tabular-nums}
+    #outlier-centers .outlier-stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}#outlier-centers .stat{min-width:0}#outlier-centers .stat span{display:block;font-size:12px;color:var(--muted-foreground)}#outlier-centers .stat strong{display:block;font-size:24px;font-variant-numeric:tabular-nums}#outlier-centers #outlier-mean{color:var(--viz-series-1)}#outlier-centers #outlier-median{color:var(--viz-series-2)}
+  </style>
+  <script>
+    (()=>{
+      const root=document.getElementById('outlier-centers'),holder=root.querySelector('.outlier-chart'),input=root.querySelector('#outlier-last'),NS='http://www.w3.org/2000/svg';
+      const fmt=n=>Number(n.toFixed(2)).toString();
+      function el(tag,attrs={},text){const e=document.createElementNS(NS,tag);for(const[k,v]of Object.entries(attrs))e.setAttribute(k,v);if(text!==undefined)e.textContent=text;return e}
+      function draw(){
+        const last=Number(input.value),mean=(9+last)/3,data=[3,6,last];
+        root.querySelector('#outlier-last-value').textContent=`${last} min`;root.querySelector('#outlier-data').textContent=`Observations: 3, 6, ${last} minutes.`;root.querySelector('#outlier-mean').textContent=`${fmt(mean)} min`;root.querySelector('#outlier-median').textContent='6 min';
+        const width=Math.max(220,Math.round(holder.getBoundingClientRect().width)),height=237,left=22,right=22,x=v=>left+v/60*(width-left-right);
+        const svg=el('svg',{viewBox:`0 0 ${width} ${height}`,role:'img','aria-label':`Observations 3, 6, ${last} minutes. Mean ${fmt(mean)} minutes; median 6 minutes. All three rows share a fixed zero-to-sixty-minute scale.`});
+        svg.append(el('title',{},'A fixed number scale shows the outlier pulling the mean while the median stays at six'));
+        for(const tick of [0,15,30,45,60]){
+          svg.append(el('line',{x1:x(tick),x2:x(tick),y1:33,y2:190,stroke:'var(--border)','stroke-dasharray':'2 5','stroke-opacity':.6}));
+          svg.append(el('text',{x:x(tick),y:207,'text-anchor':'middle'},String(tick)));
+        }
+        const rows=[{label:'Observations',y:47},{label:'Mean',y:111},{label:'Median',y:175}];
+        for(const row of rows){svg.append(el('text',{x:left,y:row.y-19,'font-weight':'600'},row.label));svg.append(el('line',{x1:left,x2:width-right,y1:row.y,y2:row.y,stroke:'var(--border)','stroke-width':1.2}))}
+        for(const v of data)svg.append(el('circle',{cx:x(v),cy:47,r:4,fill:'var(--foreground)'}));
+        svg.append(el('rect',{x:x(mean)-6,y:105,width:12,height:12,rx:1,fill:'var(--viz-series-1)'}));
+        svg.append(el('path',{d:`M ${x(6)} 168 l 7 7 -7 7 -7 -7 Z`,fill:'var(--viz-series-2)'}));
+        svg.append(el('text',{x:width/2,y:232,'text-anchor':'middle'},'Minutes · same fixed scale on all rows'));holder.replaceChildren(svg);
+      }
+      input.addEventListener('input',draw);new ResizeObserver(draw).observe(holder);draw();
+    })();
+  </script>
+</div>
+</main></body></html>

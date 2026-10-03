@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Slide 5 of Data Summary: The geometry of the mean. Original slide, first-principles explanation, examples and worked practice."><title>05 · The geometry of the mean — Probability, understood</title><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/site.css"><link rel="stylesheet" href="../assets/vendor/katex/katex.min.css"><script defer src="../assets/vendor/katex/katex.min.js"></script><script defer src="../assets/vendor/katex/contrib/auto-render.min.js"></script><script defer src="../assets/site.js"></script></head>
+<body data-slide="5" data-slide-prefix=""><a class="skip" href="#lesson">Skip to the lesson</a>
+<aside class="sidebar" aria-label="Course navigation"><a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>Probability,<br>understood.</span></a><button class="nav-close" data-close-nav aria-label="Close slide navigation">×</button><p class="course-label">Chapter 01 / Your study companion</p><p class="course-title">Data Summary</p><label class="sr-only" for="slide-search">Find a slide</label><input class="nav-search" id="slide-search" type="search" placeholder="Find a slide…" autocomplete="off"><nav class="slide-nav" aria-label="All 31 slides"><div class="nav-group"><div class="nav-group-title">The starting point</div><a class="slide-link" data-slide="1" data-search="01 why one number is not enough a story inside the data" href="01.html"><span class="slide-num">01</span><span>A story inside the data</span></a><a class="slide-link" data-slide="2" data-search="02 two meanings of the center what does “centre” mean?" href="02.html"><span class="slide-num">02</span><span>What does “centre” mean?</span></a></div><div class="nav-group"><div class="nav-group-title">Finding the centre</div><a class="slide-link" data-slide="3" data-search="03 the mean preserves the total the mean: equal shares" href="03.html"><span class="slide-num">03</span><span>The mean: equal shares</span></a><a class="slide-link" data-slide="4" data-search="04 why squared errors choose the mean why squared error finds the mean" href="04.html"><span class="slide-num">04</span><span>Why squared error finds the mean</span></a><a class="slide-link" data-slide="5" data-search="05 the mean is the closest constant point the geometry of the mean" href="05.html" aria-current="page"><span class="slide-num">05</span><span>The geometry of the mean</span></a><a class="slide-link" data-slide="6" data-search="06 the median finds the middle finding the median" href="06.html"><span class="slide-num">06</span><span>Finding the median</span></a><a class="slide-link" data-slide="7" data-search="07 why absolute errors choose the median why absolute error finds the median" href="07.html"><span class="slide-num">07</span><span>Why absolute error finds the median</span></a><a class="slide-link" data-slide="8" data-search="08 two distances, two shapes spheres, diamonds &amp; octahedra" href="08.html"><span class="slide-num">08</span><span>Spheres, diamonds &amp; octahedra</span></a><a class="slide-link" data-slide="9" data-search="09 one changing observation, two centers one observation changes" href="09.html"><span class="slide-num">09</span><span>One observation changes</span></a><a class="slide-link" data-slide="10" data-search="10 read the three-dimensional comparison reading the geometric picture" href="10.html"><span class="slide-num">10</span><span>Reading the geometric picture</span></a><a class="slide-link" data-slide="11" data-search="11 choose the center your question needs which centre should we use?" href="11.html"><span class="slide-num">11</span><span>Which centre should we use?</span></a><a class="slide-link" data-slide="12" data-search="12 follow the tail of the histogram skewness &amp; the long tail" href="12.html"><span class="slide-num">12</span><span>Skewness &amp; the long tail</span></a></div><div class="nav-group"><div class="nav-group-title">Understanding spread</div><a class="slide-link" data-slide="13" data-search="13 an 88 needs a comparison scale why an 88 needs context" href="13.html"><span class="slide-num">13</span><span>Why an 88 needs context</span></a><a class="slide-link" data-slide="14" data-search="14 choose the kind of spread you need what spread tells us" href="14.html"><span class="slide-num">14</span><span>What spread tells us</span></a><a class="slide-link" data-slide="15" data-search="15 range: observed endpoints and possible values range &amp; population support" href="15.html"><span class="slide-num">15</span><span>Range &amp; population support</span></a><a class="slide-link" data-slide="16" data-search="16 one faulty reading can squeeze the scale min–max scaling &amp; outliers" href="16.html"><span class="slide-num">16</span><span>Min–max scaling &amp; outliers</span></a><a class="slide-link" data-slide="17" data-search="17 a fractional rank is a position, not a value percentiles &amp; interpolation" href="17.html"><span class="slide-num">17</span><span>Percentiles &amp; interpolation</span></a><a class="slide-link" data-slide="18" data-search="18 quartiles divide probability, not distance quartiles &amp; probability" href="18.html"><span class="slide-num">18</span><span>Quartiles &amp; probability</span></a><a class="slide-link" data-slide="19" data-search="19 iqr protects the middle of the story the middle half: iqr" href="19.html"><span class="slide-num">19</span><span>The middle half: IQR</span></a><a class="slide-link" data-slide="20" data-search="20 diamonds: measure the middle and the endpoints diamonds: the first sample" href="20.html"><span class="slide-num">20</span><span>Diamonds: the first sample</span></a><a class="slide-link" data-slide="21" data-search="21 two expensive diamonds change the story add two expensive diamonds" href="21.html"><span class="slide-num">21</span><span>Add two expensive diamonds</span></a><a class="slide-link" data-slide="22" data-search="22 boxplots: endpoints are not always whiskers reading a boxplot" href="22.html"><span class="slide-num">22</span><span>Reading a boxplot</span></a></div><div class="nav-group"><div class="nav-group-title">Variance & its uses</div><a class="slide-link" data-slide="23" data-search="23 why sample variance divides by n − 1 variance, estimation &amp; n − 1" href="23.html"><span class="slide-num">23</span><span>Variance, estimation &amp; n − 1</span></a><a class="slide-link" data-slide="24" data-search="24 give features a common ruler, then find their main direction pca, scaling &amp; model variance" href="24.html"><span class="slide-num">24</span><span>PCA, scaling &amp; model variance</span></a><a class="slide-link" data-slide="25" data-search="25 the population target and the sample in your hand population versus sample" href="25.html"><span class="slide-num">25</span><span>Population versus sample</span></a><a class="slide-link" data-slide="26" data-search="26 standard deviation is a ruler for spread interpreting standard deviation" href="26.html"><span class="slide-num">26</span><span>Interpreting standard deviation</span></a></div><div class="nav-group"><div class="nav-group-title">Normal models & practice</div><a class="slide-link" data-slide="27" data-search="27 read a bell-shaped distribution with a spread ruler birth weights &amp; the bell curve" href="27.html"><span class="slide-num">27</span><span>Birth weights &amp; the bell curve</span></a><a class="slide-link" data-slide="28" data-search="28 the 68–95–99.7 rule the 68–95–99.7 rule" href="28.html"><span class="slide-num">28</span><span>The 68–95–99.7 rule</span></a><a class="slide-link" data-slide="29" data-search="29 calculate spread from eight heart rates heart rates: every calculation" href="29.html"><span class="slide-num">29</span><span>Heart rates: every calculation</span></a><a class="slide-link" data-slide="30" data-search="30 equal average ratings, very different agreement which professor varies most?" href="30.html"><span class="slide-num">30</span><span>Which professor varies most?</span></a><a class="slide-link" data-slide="31" data-search="31 see what changed before calculating sd four ways to change the spread" href="31.html"><span class="slide-num">31</span><span>Four ways to change the spread</span></a></div><p class="no-results" hidden>No matching slides.</p></nav><div class="nav-footer"><span><strong data-completed-count>0</strong> of 31 slides understood</span><div class="progress-track" aria-hidden="true"><i data-course-progress></i></div><span>One idea at a time.</span><br><a data-resume hidden></a></div></aside>
+<button class="scrim" data-close-nav aria-label="Close navigation"></button><div class="site-body"><header class="topbar"><button class="menu-button" aria-expanded="false" aria-label="Open slide navigation">☰ Slides</button><div class="breadcrumb"><span class="crumb-course">Data Summary <span aria-hidden="true">/</span> </span><strong>Slide 05 of 31</strong></div><div class="top-tools"><a href="../assets/source/01-data-summary.pdf#page=5" target="_blank" rel="noopener">Original PDF ↗</a><button class="plain-button print-button" data-print>Print this slide</button></div></header><div class="reading-progress" aria-hidden="true"><i data-reading-progress></i></div>
+<div class="page-layout"><main class="lesson" id="lesson"><p class="eyebrow">Finding the centre · Slide 05</p><h1>The mean is the closest constant point</h1><p class="lead">The whole dataset can be represented as one point. Every prediction that gives all observations the same value lies on a particular line. The mean appears where that line comes closest to the data point under ordinary straight-line distance.</p><div class="lesson-meta"><span>~6 min reading</span><span class="meta-sep">/</span><span>Source + intuition + practice</span><span class="meta-sep">/</span><span>1 interactive experiment</span></div>
+<figure class="slide-figure" id="source-slide"><button class="slide-image-button" data-zoom-slide aria-label="Enlarge original slide 5"><img class="slide-image" src="../assets/slides/05.webp" alt="Original slide 5: The geometry of the mean. The concepts and figures are explained below." width="2000" height="1125" fetchpriority="high"></button><figcaption class="slide-caption"><span>Original slide · STAT 5701 · Dobrin Marchev</span><button data-zoom-slide>Enlarge slide ↗</button></figcaption></figure>
+<div class="teaching-heading">Let’s understand it</div><article class="prose"><h2 id="the-crucial-change-of-viewpoint">The crucial change of viewpoint</h2>
+<p>We usually picture observations as separate dots on a number line. The diagram uses a different construction:</p>
+<blockquote>
+<p><strong>A dataset with $n$ observations becomes one point with $n$ coordinates.</strong></p>
+</blockquote>
+<p>For data $2,8$, the whole dataset becomes the single point</p>
+<p>$$
+\mathbf{x}=(2,8).
+$$</p>
+<p>The horizontal coordinate records the first observation. The vertical coordinate records the second observation. We are not plotting a relationship between two measured variables here; we are packaging the two entries of one dataset into a geometric object.</p>
+<p>For three observations, the dataset is one point in three-dimensional space. For $n$ observations, it is a point in $n$-dimensional space.</p>
+<h2 id="1-what-does-one-constant-prediction-look-like">1. What does one constant prediction look like?</h2>
+<p>If we use the same prediction $c$ for both observations, its geometric point is</p>
+<p>$$
+\mathbf{q}(c)=(c,c).
+$$</p>
+<p>Examples are $(0,0)$, $(3,3)$, $(5,5)$, and $(8,8)$. All of these points lie on the diagonal line $y=x$.</p>
+<p>That diagonal is the <strong>constant line</strong>. Its defining feature is not a particular slope in a drawing; it is that <strong>all coordinates are equal</strong>.</p>
+<h2 id="2-connect-geometric-distance-to-prediction-error">2. Connect geometric distance to prediction error</h2>
+<p>The horizontal difference between $(2,8)$ and $(c,c)$ is $2-c$. The vertical difference is $8-c$.</p>
+<p>Pythagoras gives the squared distance:</p>
+<p>$$
+\|\mathbf{x}-\mathbf{q}(c)\|_2^2
+=(2-c)^2+(8-c)^2.
+$$</p>
+<p>That is exactly the sum of squared prediction errors. Therefore:</p>
+<blockquote>
+<p>Finding the best constant under squared error is the same problem as finding the nearest point on the diagonal.</p>
+</blockquote>
+<h2 id="3-find-the-nearest-point-in-the-two-observation-example">3. Find the nearest point in the two-observation example</h2>
+<p>The mean of $2$ and $8$ is $5$, so the nearest constant point is</p>
+<p>$$
+(5,5).
+$$</p>
+<p>The error vector is</p>
+<p>$$
+(2,8)-(5,5)=(-3,3).
+$$</p>
+<p>The squared distance is</p>
+<p>$$
+(-3)^2+3^2=18.
+$$</p>
+<p>For every other candidate:</p>
+<p>$$
+(2-c)^2+(8-c)^2=18+2(c-5)^2.
+$$</p>
+<p>The second term measures the additional cost of choosing a constant other than $5$.</p>
+<p>For example, choosing $c=4$ gives a squared distance of $4+16=20$, larger than $18$.</p>
+<h2 id="try-the-closest-point-picture">Try the closest-point picture</h2>
+<p>Start with the data point $(2,8)$. Before moving the candidate along the constant line, predict which $c$ will minimize squared error. Compare $c=4$, $c=5$, and $c=6$. At the winner, look for the right angle and check that the two signed errors add to zero.</p>
+<section class="experiment" aria-label="Interactive: The mean as an orthogonal projection"><div class="experiment-label"><span>Explore the idea</span><a href="../assets/labs/mean-projection.html" target="_blank" rel="noopener">Open larger ↗</a></div><iframe src="../assets/labs/mean-projection.html" title="The mean as an orthogonal projection" loading="lazy"></iframe></section>
+
+<h2 id="4-why-is-the-shortest-segment-perpendicular">4. Why is the shortest segment perpendicular?</h2>
+<p>Let $P=(5,5)$ be the perpendicular foot from the data point to the diagonal. Any other point $Q$ on the diagonal forms a right triangle with $P$ and the data point.</p>
+<p>Its squared distance satisfies</p>
+<p>$$
+\|\mathbf{x}-Q\|_2^2
+=\|\mathbf{x}-P\|_2^2+\|P-Q\|_2^2.
+$$</p>
+<p>Moving away from $P$ adds a nonnegative squared length. That makes $P$ the closest point.</p>
+<p>The diagonal has direction $(1,1)$. Its dot product with the residual is</p>
+<p>$$
+(-3,3)\cdot(1,1)=-3+3=0.
+$$</p>
+<p>A zero dot product means the directions are perpendicular.</p>
+<h2 id="5-carry-the-same-idea-into-three-dimensions">5. Carry the same idea into three dimensions</h2>
+<p>For observations $3,6,12$, the data point is</p>
+<p>$$
+\mathbf{x}=(3,6,12).
+$$</p>
+<p>A constant prediction becomes</p>
+<p>$$
+\mathbf{q}(c)=(c,c,c).
+$$</p>
+<p>All such points lie on the line through the origin in direction</p>
+<p>$$
+\mathbf{1}_3=(1,1,1).
+$$</p>
+<p>The mean is $7$, so its closest point is</p>
+<p>$$
+P_L(\mathbf{x})=(7,7,7).
+$$</p>
+<p>Its residual is</p>
+<p>$$
+(3,6,12)-(7,7,7)=(-4,-1,5).
+$$</p>
+<p>Again,</p>
+<p>$$
+(-4,-1,5)\cdot(1,1,1)=-4-1+5=0.
+$$</p>
+<p>The residual is perpendicular to the constant line. The geometry is the same as the two-dimensional example; only the number of coordinates has changed.</p>
+<details>
+<summary>Derive the result for any number of observations</summary>
+<h3 id="step-6-derive-the-mean-directly-from-perpendicularity">Step 6: derive the mean directly from perpendicularity</h3>
+<p>For general $n$, a point on the constant line has the form $c\mathbf{1}_n$. At the Euclidean projection, the residual is perpendicular to the line:</p>
+<p>$$
+(\mathbf{x}-c\mathbf{1}_n)\cdot\mathbf{1}_n=0.
+$$</p>
+<p>Expanding:</p>
+<p>$$
+\sum_{i=1}^{n}x_i-cn=0.
+$$</p>
+<p>Therefore,</p>
+<p>$$
+c=\frac{1}{n}\sum_{i=1}^{n}x_i=\bar{x}.
+$$</p>
+<p>This is the arithmetic-mean formula obtained from a geometric condition.</p>
+<h3 id="step-7-understand-the-general-projection-formula">Step 7: understand the general projection formula</h3>
+<p>For any nonzero direction vector $\mathbf{u}$, the Euclidean projection onto its span is</p>
+<p>$$
+P_{\operatorname{span}(\mathbf{u})}(\mathbf{x})
+=\frac{\mathbf{x}\cdot\mathbf{u}}{\mathbf{u}\cdot\mathbf{u}}\mathbf{u}.
+$$</p>
+<p>Here $\mathbf{u}=\mathbf{1}_n$, so</p>
+<p>$$
+\mathbf{x}\cdot\mathbf{1}_n=\sum_{i=1}^{n}x_i,
+\qquad
+\mathbf{1}_n\cdot\mathbf{1}_n=n.
+$$</p>
+<p>The coefficient multiplying $\mathbf{1}_n$ is therefore $\bar{x}$.</p>
+<p><strong>The scalar mean and the projected point are not the same type of object:</strong> for the two-observation example, the mean is the number $5$, while the projected point is $(5,5)$.</p>
+</details>
+<h2 id="decode-the-labels-in-the-original-picture">Decode the labels in the original picture</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Diagram label</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$\mathbf{x}$, “Data Vector”</td>
+<td>The entire dataset as one point/vector</td>
+</tr>
+<tr>
+<td>$\mathbf{1}_n$ (drawn as $(1,1,1)^T$)</td>
+<td>Direction of the line of equal coordinates</td>
+</tr>
+<tr>
+<td>$L$</td>
+<td>The constant line: every coordinate has the same value</td>
+</tr>
+<tr>
+<td>$c\mathbf{1}_n$</td>
+<td>A candidate point on the constant line</td>
+</tr>
+<tr>
+<td>$P_L(\mathbf{x})=\bar{x}\mathbf{1}_n$</td>
+<td>Orthogonal projection of the data point onto that line</td>
+</tr>
+<tr>
+<td>$\mathbf{e}=\mathbf{x}-P_L(\mathbf{x})$</td>
+<td>Residual/error vector</td>
+</tr>
+<tr>
+<td>“Greater Error Path”</td>
+<td>A larger squared error at another candidate constant</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="important-distinctions">Important distinctions</h2>
+<ul>
+<li>The constant line contains every real $c$, including negative values, even if the illustration shows only part of it.</li>
+<li>The direction $\mathbf{1}_n$ is not a unit-length vector: its Euclidean length is $\sqrt{n}$. That is why the projection denominator is $n$.</li>
+<li>This denominator $n$ comes from $\mathbf{1}_n\cdot\mathbf{1}_n$. It is separate from the later $n-1$ in sample variance.</li>
+<li>The drawn segment's actual Euclidean length is $\|\mathbf{x}-c\mathbf{1}_n\|_2$. The slide labels its squared error, $\|\mathbf{x}-c\mathbf{1}_n\|_2^2$. Both are minimized at the same point.</li>
+<li>Orthogonality is part of the <strong>Euclidean</strong> projection result. When we change the distance rule to $L_1$, the best point need not be reached by a perpendicular center-to-point segment.</li>
+</ul>
+<h2 id="check-your-understanding">Check your understanding</h2>
+<p>For the data point $(2,8)$, why is $(4,6)$ not an admissible constant prediction, even though it lies close to the data? What is the best admissible point?</p>
+<details>
+<summary>Work through the answer</summary>
+<p>A constant prediction must use the same value in both coordinates, so it must have the form $(c,c)$. The coordinates of $(4,6)$ differ, so it is outside the allowed line. The best allowed point is $(5,5)$. Its residual $(-3,3)$ is perpendicular to the line direction $(1,1)$, and its squared length is $18$. The mean is the scalar $5$, while the fitted point is the vector $(5,5)$.</p>
+</details></article>
+<section class="lesson-end" aria-label="Study progress"><button class="complete-button" data-complete aria-pressed="false">Mark this slide as understood</button><p class="completion-note">Your reading progress stays in this browser. Revisit any idea whenever you need.</p><nav class="page-turn" aria-label="Previous and next slides"><a href="04.html"><span>← Previous slide</span>Why squared error finds the mean</a><a href="06.html"><span>Next slide →</span>Finding the median</a></nav></section>
+<footer class="footer"><p>A personal teaching companion built from our questions, examples and explanations.</p><p>Original slides: Dobrin Marchev · STAT 5701. Slide images remain attributed to their author. This is an independent study resource.</p></footer></main>
+<aside class="page-toc" aria-label="On this slide"><p class="toc-label">On this slide</p><a class="toc-source" href="#source-slide">The original slide</a><a href="#the-crucial-change-of-viewpoint">The crucial change of viewpoint</a><a href="#1-what-does-one-constant-prediction-look-like">1. What does one constant prediction look like?</a><a href="#2-connect-geometric-distance-to-prediction-error">2. Connect geometric distance to prediction error</a><a href="#3-find-the-nearest-point-in-the-two-observation-example">3. Find the nearest point in the two-observation example</a><a href="#try-the-closest-point-picture">Try the closest-point picture</a><a href="#4-why-is-the-shortest-segment-perpendicular">4. Why is the shortest segment perpendicular?</a><a href="#5-carry-the-same-idea-into-three-dimensions">5. Carry the same idea into three dimensions</a><a href="#decode-the-labels-in-the-original-picture">Decode the labels in the original picture</a><a href="#important-distinctions">Important distinctions</a><a href="#check-your-understanding">Check your understanding</a><a href="#lesson">Back to the top ↑</a></aside></div></div>
+<dialog class="image-dialog" aria-label="Original slide 5, enlarged"><div class="dialog-tools"><span>Slide 05 / 31</span><button data-close-dialog>Close ×</button></div><img src="../assets/slides/05.webp" alt="Enlarged original slide 5: The geometry of the mean"><div class="dialog-tools"><a href="../assets/source/01-data-summary.pdf#page=5" target="_blank" rel="noopener">Read the source PDF ↗</a></div></dialog></body></html>

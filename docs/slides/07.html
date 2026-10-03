@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Slide 7 of Data Summary: Why absolute error finds the median. Original slide, first-principles explanation, examples and worked practice."><title>07 · Why absolute error finds the median — Probability, understood</title><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/site.css"><link rel="stylesheet" href="../assets/vendor/katex/katex.min.css"><script defer src="../assets/vendor/katex/katex.min.js"></script><script defer src="../assets/vendor/katex/contrib/auto-render.min.js"></script><script defer src="../assets/site.js"></script></head>
+<body data-slide="7" data-slide-prefix=""><a class="skip" href="#lesson">Skip to the lesson</a>
+<aside class="sidebar" aria-label="Course navigation"><a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>Probability,<br>understood.</span></a><button class="nav-close" data-close-nav aria-label="Close slide navigation">×</button><p class="course-label">Chapter 01 / Your study companion</p><p class="course-title">Data Summary</p><label class="sr-only" for="slide-search">Find a slide</label><input class="nav-search" id="slide-search" type="search" placeholder="Find a slide…" autocomplete="off"><nav class="slide-nav" aria-label="All 31 slides"><div class="nav-group"><div class="nav-group-title">The starting point</div><a class="slide-link" data-slide="1" data-search="01 why one number is not enough a story inside the data" href="01.html"><span class="slide-num">01</span><span>A story inside the data</span></a><a class="slide-link" data-slide="2" data-search="02 two meanings of the center what does “centre” mean?" href="02.html"><span class="slide-num">02</span><span>What does “centre” mean?</span></a></div><div class="nav-group"><div class="nav-group-title">Finding the centre</div><a class="slide-link" data-slide="3" data-search="03 the mean preserves the total the mean: equal shares" href="03.html"><span class="slide-num">03</span><span>The mean: equal shares</span></a><a class="slide-link" data-slide="4" data-search="04 why squared errors choose the mean why squared error finds the mean" href="04.html"><span class="slide-num">04</span><span>Why squared error finds the mean</span></a><a class="slide-link" data-slide="5" data-search="05 the mean is the closest constant point the geometry of the mean" href="05.html"><span class="slide-num">05</span><span>The geometry of the mean</span></a><a class="slide-link" data-slide="6" data-search="06 the median finds the middle finding the median" href="06.html"><span class="slide-num">06</span><span>Finding the median</span></a><a class="slide-link" data-slide="7" data-search="07 why absolute errors choose the median why absolute error finds the median" href="07.html" aria-current="page"><span class="slide-num">07</span><span>Why absolute error finds the median</span></a><a class="slide-link" data-slide="8" data-search="08 two distances, two shapes spheres, diamonds &amp; octahedra" href="08.html"><span class="slide-num">08</span><span>Spheres, diamonds &amp; octahedra</span></a><a class="slide-link" data-slide="9" data-search="09 one changing observation, two centers one observation changes" href="09.html"><span class="slide-num">09</span><span>One observation changes</span></a><a class="slide-link" data-slide="10" data-search="10 read the three-dimensional comparison reading the geometric picture" href="10.html"><span class="slide-num">10</span><span>Reading the geometric picture</span></a><a class="slide-link" data-slide="11" data-search="11 choose the center your question needs which centre should we use?" href="11.html"><span class="slide-num">11</span><span>Which centre should we use?</span></a><a class="slide-link" data-slide="12" data-search="12 follow the tail of the histogram skewness &amp; the long tail" href="12.html"><span class="slide-num">12</span><span>Skewness &amp; the long tail</span></a></div><div class="nav-group"><div class="nav-group-title">Understanding spread</div><a class="slide-link" data-slide="13" data-search="13 an 88 needs a comparison scale why an 88 needs context" href="13.html"><span class="slide-num">13</span><span>Why an 88 needs context</span></a><a class="slide-link" data-slide="14" data-search="14 choose the kind of spread you need what spread tells us" href="14.html"><span class="slide-num">14</span><span>What spread tells us</span></a><a class="slide-link" data-slide="15" data-search="15 range: observed endpoints and possible values range &amp; population support" href="15.html"><span class="slide-num">15</span><span>Range &amp; population support</span></a><a class="slide-link" data-slide="16" data-search="16 one faulty reading can squeeze the scale min–max scaling &amp; outliers" href="16.html"><span class="slide-num">16</span><span>Min–max scaling &amp; outliers</span></a><a class="slide-link" data-slide="17" data-search="17 a fractional rank is a position, not a value percentiles &amp; interpolation" href="17.html"><span class="slide-num">17</span><span>Percentiles &amp; interpolation</span></a><a class="slide-link" data-slide="18" data-search="18 quartiles divide probability, not distance quartiles &amp; probability" href="18.html"><span class="slide-num">18</span><span>Quartiles &amp; probability</span></a><a class="slide-link" data-slide="19" data-search="19 iqr protects the middle of the story the middle half: iqr" href="19.html"><span class="slide-num">19</span><span>The middle half: IQR</span></a><a class="slide-link" data-slide="20" data-search="20 diamonds: measure the middle and the endpoints diamonds: the first sample" href="20.html"><span class="slide-num">20</span><span>Diamonds: the first sample</span></a><a class="slide-link" data-slide="21" data-search="21 two expensive diamonds change the story add two expensive diamonds" href="21.html"><span class="slide-num">21</span><span>Add two expensive diamonds</span></a><a class="slide-link" data-slide="22" data-search="22 boxplots: endpoints are not always whiskers reading a boxplot" href="22.html"><span class="slide-num">22</span><span>Reading a boxplot</span></a></div><div class="nav-group"><div class="nav-group-title">Variance & its uses</div><a class="slide-link" data-slide="23" data-search="23 why sample variance divides by n − 1 variance, estimation &amp; n − 1" href="23.html"><span class="slide-num">23</span><span>Variance, estimation &amp; n − 1</span></a><a class="slide-link" data-slide="24" data-search="24 give features a common ruler, then find their main direction pca, scaling &amp; model variance" href="24.html"><span class="slide-num">24</span><span>PCA, scaling &amp; model variance</span></a><a class="slide-link" data-slide="25" data-search="25 the population target and the sample in your hand population versus sample" href="25.html"><span class="slide-num">25</span><span>Population versus sample</span></a><a class="slide-link" data-slide="26" data-search="26 standard deviation is a ruler for spread interpreting standard deviation" href="26.html"><span class="slide-num">26</span><span>Interpreting standard deviation</span></a></div><div class="nav-group"><div class="nav-group-title">Normal models & practice</div><a class="slide-link" data-slide="27" data-search="27 read a bell-shaped distribution with a spread ruler birth weights &amp; the bell curve" href="27.html"><span class="slide-num">27</span><span>Birth weights &amp; the bell curve</span></a><a class="slide-link" data-slide="28" data-search="28 the 68–95–99.7 rule the 68–95–99.7 rule" href="28.html"><span class="slide-num">28</span><span>The 68–95–99.7 rule</span></a><a class="slide-link" data-slide="29" data-search="29 calculate spread from eight heart rates heart rates: every calculation" href="29.html"><span class="slide-num">29</span><span>Heart rates: every calculation</span></a><a class="slide-link" data-slide="30" data-search="30 equal average ratings, very different agreement which professor varies most?" href="30.html"><span class="slide-num">30</span><span>Which professor varies most?</span></a><a class="slide-link" data-slide="31" data-search="31 see what changed before calculating sd four ways to change the spread" href="31.html"><span class="slide-num">31</span><span>Four ways to change the spread</span></a></div><p class="no-results" hidden>No matching slides.</p></nav><div class="nav-footer"><span><strong data-completed-count>0</strong> of 31 slides understood</span><div class="progress-track" aria-hidden="true"><i data-course-progress></i></div><span>One idea at a time.</span><br><a data-resume hidden></a></div></aside>
+<button class="scrim" data-close-nav aria-label="Close navigation"></button><div class="site-body"><header class="topbar"><button class="menu-button" aria-expanded="false" aria-label="Open slide navigation">☰ Slides</button><div class="breadcrumb"><span class="crumb-course">Data Summary <span aria-hidden="true">/</span> </span><strong>Slide 07 of 31</strong></div><div class="top-tools"><a href="../assets/source/01-data-summary.pdf#page=7" target="_blank" rel="noopener">Original PDF ↗</a><button class="plain-button print-button" data-print>Print this slide</button></div></header><div class="reading-progress" aria-hidden="true"><i data-reading-progress></i></div>
+<div class="page-layout"><main class="lesson" id="lesson"><p class="eyebrow">Finding the centre · Slide 07</p><h1>Why absolute errors choose the median</h1><p class="lead">The median minimizes total walking distance to the observations. Moving the proposed center a little helps everyone on one side and hurts everyone on the other by the same amount, so the balance of counts determines where to stop.</p><div class="lesson-meta"><span>~7 min reading</span><span class="meta-sep">/</span><span>Source + intuition + practice</span><span class="meta-sep">/</span><span>1 interactive experiment</span></div>
+<figure class="slide-figure" id="source-slide"><button class="slide-image-button" data-zoom-slide aria-label="Enlarge original slide 7"><img class="slide-image" src="../assets/slides/07.webp" alt="Original slide 7: Why absolute error finds the median. The concepts and figures are explained below." width="2000" height="1125" fetchpriority="high"></button><figcaption class="slide-caption"><span>Original slide · STAT 5701 · Dobrin Marchev</span><button data-zoom-slide>Enlarge slide ↗</button></figcaption></figure>
+<div class="teaching-heading">Let’s understand it</div><article class="prose"><h2 id="the-help-desk-picture">The help-desk picture</h2>
+<p>Imagine people living at different points along a straight road. You need to place one help desk at $c$. Each person's cost is the distance they must walk:</p>
+<p>$$
+|x_i-c|.
+$$</p>
+<p>The total walking cost is</p>
+<p>$$
+A(c)=\sum_{i=1}^{n}|x_i-c|.
+$$</p>
+<p>A compact statement of the result is</p>
+<p>$$
+\widetilde{x}\in\operatorname*{arg\,min}_{c\in\mathbb{R}}\sum_{i=1}^{n}|x_i-c|.
+$$</p>
+<p>The symbol $\in$ matters: the median is one minimizing value, and an even-sized sample can have a whole interval of minimizers. Dividing this total by $n$ gives mean absolute error; it selects exactly the same constants.</p>
+<p>Move the desk slightly to the right without passing anyone:</p>
+<ul>
+<li>Every person to the left must walk that extra distance.</li>
+<li>Every person to the right walks that much less.</li>
+</ul>
+<p>If more people are to the right than to the left, moving right improves the total. If more are to the left, moving left improves it. The improvement stops when the counts balance around the middle.</p>
+<p><strong>A faraway person does not get an extra vote because of how far away they are.</strong> Their distance still contributes to the total cost, but moving the desk one small unit changes that cost by only one unit. This is different from squared error, whose sensitivity grows with the size of the error.</p>
+<details>
+<summary>Why pairing the outer observations proves the result</summary>
+<h3 id="proof-1-pair-the-outer-observations">Proof 1: pair the outer observations</h3>
+<p>For any two values $a\le b$,</p>
+<p>$$
+|a-c|+|b-c|\ge b-a.
+$$</p>
+<p>The least total distance to both endpoints is their separation. Equality holds whenever $c\in[a,b]$.</p>
+<p>Now sort the data and pair the smallest with the largest, the second-smallest with the second-largest, and so on.</p>
+<p>For an odd sample, every pair achieves its minimum at the middle observation, and the unpaired middle observation contributes zero there. Hence the middle observation minimizes total absolute error.</p>
+<p>For an even sample, all the paired intervals overlap on the interval between the two middle observations. Every point in that interval minimizes the sum. This explains the nonuniqueness noted on slide 6.</p>
+</details>
+<details>
+<summary>A calculus view: count the observations on each side</summary>
+<h3 id="proof-2-the-slope-changes-according-to-counts">Proof 2: the slope changes according to counts</h3>
+<p>Away from an observation value, the derivative of $|x_i-c|$ with respect to $c$ is:</p>
+<p>$$
+\frac{d}{dc}|x_i-c|=
+\begin{cases}
+-1,&amp;c&lt;x_i,\\
++1,&amp;c&gt;x_i.
+\end{cases}
+$$</p>
+<p>Therefore,</p>
+<p>$$
+A'(c)=\#\{x_i&lt;c\}-\#\{x_i&gt;c\}
+$$</p>
+<p>whenever $c$ is not equal to an observation.</p>
+<p>The loss decreases while more observations lie to the right, and increases once more lie to the left. At an observation, the absolute-value function has a corner, so an ordinary derivative may not exist there. A minimum can occur at that corner; it does not require an ordinary derivative of zero.</p>
+</details>
+<h2 id="exact-worked-proof-for-mathplaceholder00014end">Exact worked proof for $3,6,12$</h2>
+<p>Let</p>
+<p>$$
+A(c)=|3-c|+|6-c|+|12-c|.
+$$</p>
+<p>The outer pair gives</p>
+<p>$$
+|3-c|+|12-c|\ge 9.
+$$</p>
+<p>Therefore,</p>
+<p>$$
+\boxed{A(c)\ge 9+|6-c|\ge 9.}
+$$</p>
+<p>At $c=6$:</p>
+<p>$$
+A(6)=3+0+6=9.
+$$</p>
+<p>The lower bound is achieved, so $6$ is optimal. Achieving the overall minimum $9$ also requires $|6-c|=0$, making $c=6$ the unique minimizer.</p>
+<p>The entire piecewise function is:</p>
+<p>$$
+A(c)=
+\begin{cases}
+21-3c,&amp;c\le3,\\
+15-c,&amp;3\le c\le6,\\
+c+3,&amp;6\le c\le12,\\
+3c-21,&amp;c\ge12.
+\end{cases}
+$$</p>
+<p>Its successive slopes are $-3,-1,+1,+3$. The change from a negative slope to a positive slope occurs at $6$.</p>
+<p>The first inequality $|3-c|+|12-c|\ge9$ is an equality throughout $[3,12]$. It is the additional middle term $|6-c|$ that selects $6$.</p>
+<h2 id="compare-the-two-losses-without-changing-the-data">Compare the two losses without changing the data</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Candidate $c$</th>
+<th style="text-align: right;">Total absolute error</th>
+<th style="text-align: right;">Sum of squared errors</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$6$</td>
+<td style="text-align: right;">$3+0+6=9$</td>
+<td style="text-align: right;">$9+0+36=45$</td>
+</tr>
+<tr>
+<td>$7$</td>
+<td style="text-align: right;">$4+1+5=10$</td>
+<td style="text-align: right;">$16+1+25=42$</td>
+</tr>
+</tbody>
+</table></div>
+<p>The median wins under absolute error. The mean wins under squared error. They optimize different costs.</p>
+<h2 id="compare-the-two-costs-yourself">Compare the two costs yourself</h2>
+<p>Keep the data at $3,6,12$. Predict which cost will favor $c=6$ and which will favor $c=7$, then move the candidate. Notice that the absolute-error graph has a corner at its minimum, while the squared-error graph is smooth. Neither graph is wrong: they price mistakes differently.</p>
+<section class="experiment" aria-label="Interactive: Mean and median loss functions"><div class="experiment-label"><span>Explore the idea</span><a href="../assets/labs/loss.html" target="_blank" rel="noopener">Open larger ↗</a></div><iframe src="../assets/labs/loss.html" title="Mean and median loss functions" loading="lazy"></iframe></section>
+
+<h2 id="what-robustness-doesand-does-notsay">What robustness does—and does not—say</h2>
+<p>For $3,6,9$, replace the largest observation by a much larger value $M\ge6$:</p>
+<p>$$
+3,6,M.
+$$</p>
+<p>The median remains $6$, but the mean is $(9+M)/3$ and can become arbitrarily large.</p>
+<p>This does <strong>not</strong> mean the median never moves when one observation changes. For example, changing $3$ to $100$ in $3,6,9$ gives $6,9,100$, whose median is $9$.</p>
+<p>Robustness means resistance to being driven arbitrarily far by a small fraction of replacements. It does not mean complete insensitivity.</p>
+<details>
+<summary>What “50% breakdown” really guarantees</summary>
+<h3 id="the-precise-50-breakdown-qualification">The precise “50% breakdown” qualification</h3>
+<p>For the usual sample median, the smallest number of arbitrary replacements that can send it without bound is</p>
+<p>$$
+\left\lceil\frac{n}{2}\right\rceil.
+$$</p>
+<p>The corresponding finite-sample replacement-breakdown fraction is</p>
+<p>$$
+\frac{\lceil n/2\rceil}{n}.
+$$</p>
+<p>It approaches $1/2$ as the sample grows. For even $n$, exactly half can already be enough to break the usual midpoint median.</p>
+<p>Example: start with $1,2,3,4$ and replace two observations to obtain $1,2,M,M$. Its median is</p>
+<p>$$
+\frac{2+M}{2},
+$$</p>
+<p>which grows without bound as $M$ grows. Thus the source's wording “up to half ... without shifting ... to infinity” is too strong at the boundary.</p>
+<p>For three observations, one replacement cannot drive the median without bound while the other two remain fixed, but two replacements can. The breaking fraction is $2/3$ for this small sample; the familiar 50% is the limiting description, not an exact safe-fraction guarantee for every $n$.</p>
+<p>The mean can be driven arbitrarily far by one replacement, so its replacement-breakdown fraction is $1/n$.</p>
+</details>
+<details>
+<summary>Do other losses choose other summaries?</summary>
+<h3 id="answers-to-the-slides-other-losses-prompt">Answers to the slide's “other losses” prompt</h3>
+<p>The selected summary depends on the cost assigned to mistakes.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Loss for choosing $c$</th>
+<th>A minimizing summary</th>
+<th>Reason</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$\sum_i(x_i-c)^2$</td>
+<td>Mean</td>
+<td>Balances all squared deviations</td>
+</tr>
+<tr>
+<td>$\sum_i\lvert x_i-c\rvert$</td>
+<td>Median(s)</td>
+<td>Balances counts on either side</td>
+</tr>
+<tr>
+<td>$\max_i\lvert x_i-c\rvert$</td>
+<td>Midrange: $(\min x_i+\max x_i)/2$</td>
+<td>Balances the two worst endpoint errors</td>
+</tr>
+<tr>
+<td>$\sum_i\mathbf{1}\{x_i\ne c\}$</td>
+<td>Mode(s)</td>
+<td>Matches as many observations as possible</td>
+</tr>
+</tbody>
+</table></div>
+<p>For the midrange, moving toward one endpoint makes the distance to the opposite endpoint worse; centering between the endpoints equalizes the two largest misses.</p>
+<p>For the exact-match loss, each nonmatching observation costs one, so any most frequent value minimizes the count of mismatches. If several values share the largest frequency, there are multiple modes.</p>
+</details>
+<h2 id="important-distinctions">Important distinctions</h2>
+<ul>
+<li>MAE ordinarily means <strong>mean</strong> absolute error, $n^{-1}\sum|x_i-c|$. The expression on the slide is the sum. They differ by a positive constant factor and have the same minimizers.</li>
+<li>With even samples, say the usual median <strong>belongs to</strong> the arg-min set, because that set can be an interval.</li>
+<li>Prefer the median when a middle experience or resistance to extremes is the goal. Skewness alone does not make the median universally preferable; the mean may be the relevant quantity when totals or expected cost matter.</li>
+<li>Robustness does not establish that an unusual observation is erroneous or should be removed.</li>
+</ul>
+<h2 id="check-your-understanding">Check your understanding</h2>
+<p>Change $3,6,12$ to $3,6,120$. Does the unchanged median imply that its total absolute error is unchanged?</p>
+<details>
+<summary>Work through the answer</summary>
+<p>No. The median is still $6$, but the total absolute error becomes $|3-6|+|6-6|+|120-6|=3+0+114=117$, up from $9$. The location of the best constant can stay fixed while the error and the spread increase greatly. The mean changes to $(3+6+120)/3=43$.</p>
+</details></article>
+<section class="lesson-end" aria-label="Study progress"><button class="complete-button" data-complete aria-pressed="false">Mark this slide as understood</button><p class="completion-note">Your reading progress stays in this browser. Revisit any idea whenever you need.</p><nav class="page-turn" aria-label="Previous and next slides"><a href="06.html"><span>← Previous slide</span>Finding the median</a><a href="08.html"><span>Next slide →</span>Spheres, diamonds &amp; octahedra</a></nav></section>
+<footer class="footer"><p>A personal teaching companion built from our questions, examples and explanations.</p><p>Original slides: Dobrin Marchev · STAT 5701. Slide images remain attributed to their author. This is an independent study resource.</p></footer></main>
+<aside class="page-toc" aria-label="On this slide"><p class="toc-label">On this slide</p><a class="toc-source" href="#source-slide">The original slide</a><a href="#the-help-desk-picture">The help-desk picture</a><a href="#exact-worked-proof-for-mathplaceholder00014end">Exact worked proof for $3,6,12$</a><a href="#compare-the-two-losses-without-changing-the-data">Compare the two losses without changing the data</a><a href="#compare-the-two-costs-yourself">Compare the two costs yourself</a><a href="#what-robustness-doesand-does-notsay">What robustness does—and does not—say</a><a href="#important-distinctions">Important distinctions</a><a href="#check-your-understanding">Check your understanding</a><a href="#lesson">Back to the top ↑</a></aside></div></div>
+<dialog class="image-dialog" aria-label="Original slide 7, enlarged"><div class="dialog-tools"><span>Slide 07 / 31</span><button data-close-dialog>Close ×</button></div><img src="../assets/slides/07.webp" alt="Enlarged original slide 7: Why absolute error finds the median"><div class="dialog-tools"><a href="../assets/source/01-data-summary.pdf#page=7" target="_blank" rel="noopener">Read the source PDF ↗</a></div></dialog></body></html>

@@ -1,0 +1,45 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>L1 and L2 distance boundaries</title><link rel="icon" href="data:,"><link rel="stylesheet" href="../lab.css"><script src="../lab-frame.js"></script></head><body data-lab="norms"><main class="lab-root"><div id="norm-unit-boundaries">
+  <h3>One unit from the origin</h3>
+  <label class="form-label" for="norm-angle">Direction: <output id="norm-angle-value">45°</output><input id="norm-angle" class="form-range" type="range" min="0" max="90" step="1" value="45"></label>
+  <div class="norm-plot"></div>
+  <div class="viz-row text-small">
+    <span><span class="norm-l2">●</span> L₂ circle</span>
+    <span><span class="norm-l1">◇</span> L₁ diamond</span>
+    <span id="norm-result" aria-live="polite">Point (0.5, 0.5): L₁ = 1; L₂ ≈ 0.707</span>
+  </div>
+  <style>
+    #norm-unit-boundaries .norm-plot{max-width:440px;width:100%;margin:0 auto}
+    #norm-unit-boundaries .norm-l2{color:var(--viz-series-1)}
+    #norm-unit-boundaries .norm-l1{color:var(--viz-series-2)}
+    #norm-unit-boundaries .norm-chart{display:block;width:100%;height:auto}
+    #norm-unit-boundaries .norm-chart text{fill:var(--foreground);font-size:12px}
+  </style>
+  <script>
+    (()=>{
+      const root=document.getElementById('norm-unit-boundaries'),plot=root.querySelector('.norm-plot');
+      const angleInput=root.querySelector('#norm-angle');
+      function draw(){
+        const angle=Number(angleInput.value),rad=angle*Math.PI/180;
+        const px=Math.cos(rad)/(Math.cos(rad)+Math.sin(rad)),py=Math.sin(rad)/(Math.cos(rad)+Math.sin(rad));
+        root.querySelector('#norm-angle-value').textContent=angle+'°';
+        root.querySelector('#norm-result').textContent=`Point (${Number(px.toFixed(3))}, ${Number(py.toFixed(3))}): L₁ = 1; L₂ ≈ ${Math.hypot(px,py).toFixed(3)}`;
+        const w=Math.round(plot.getBoundingClientRect().width);if(!w)return;
+        const left=64,right=24,top=38,bottom=58,side=w-left-right,h=side+top+bottom;
+        const refs=[-1,0,.5,1],pad=(Math.max(...refs)-Math.min(...refs))*.075;
+        const lo=Math.min(...refs)-pad,hi=Math.max(...refs)+pad;
+        const X=x=>left+(x-lo)/(hi-lo)*side,Y=y=>top+side-(y-lo)/(hi-lo)*side;
+        let content=`<svg class="norm-chart" viewBox="0 0 ${w} ${h}" role="img" aria-label="A circle and an inscribed diamond centered at zero. The circle is the L2 unit boundary. The diamond is the L1 unit boundary. Point (0.5,0.5) is on the diamond but inside the circle."><title>L1 and L2 unit boundaries</title><rect data-chart-frame x="${left}" y="${top}" width="${side}" height="${side}" fill="none" stroke="var(--border)"/>`;
+        content+=`<path d="M${left},${Y(0)}H${w-right}M${X(0)},${top}V${top+side}" fill="none" stroke="var(--muted-foreground)" stroke-width="1"/>`;
+        for(const t of [-1,0,1])content+=`<text x="${X(t)}" y="${top+side+23}" text-anchor="middle">${t}</text><text x="${left-10}" y="${Y(t)+4}" text-anchor="end">${t}</text>`;
+        content+=`<circle cx="${X(0)}" cy="${Y(0)}" r="${X(1)-X(0)}" fill="var(--viz-series-1)" fill-opacity=".06" stroke="var(--viz-series-1)" stroke-width="2"/><path d="M${X(0)},${Y(1)}L${X(1)},${Y(0)}L${X(0)},${Y(-1)}L${X(-1)},${Y(0)}Z" fill="var(--viz-series-2)" fill-opacity=".08" stroke="var(--viz-series-2)" stroke-width="2"/>`;
+        content+=`<path d="M${X(0)},${Y(0)}L${X(px)},${Y(py)}" stroke="var(--foreground)" stroke-dasharray="3 4" fill="none"/><circle cx="${X(px)}" cy="${Y(py)}" r="5" fill="var(--foreground)"/><text class="axis-title" data-axis="y" x="${left}" y="17">Second coordinate</text><text class="axis-title" data-axis="x" x="${left+side/2}" y="${h-8}" text-anchor="middle">First coordinate</text></svg>`;
+        plot.innerHTML=content;
+        plot.querySelector('svg').setAttribute('aria-label',`L1 diamond and L2 circle of radius one. The moving point stays on the diamond. At ${angle} degrees its L1 distance is 1 and L2 distance is ${Math.hypot(px,py).toFixed(3)}.`);
+        const labels=[...plot.querySelectorAll('text')];
+        for(const label of labels){const b=label.getBBox();if(b.x+b.width>w-4)label.setAttribute('text-anchor','end')}
+      }
+      angleInput.addEventListener('input',draw);new ResizeObserver(draw).observe(plot);draw();
+    })();
+  </script>
+</div>
+</main></body></html>

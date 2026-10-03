@@ -1,0 +1,121 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Grow an octahedron toward the median</title><link rel="icon" href="data:,"><link rel="stylesheet" href="../lab.css"><script src="../lab-frame.js"></script></head><body data-lab="octahedron"><main class="lab-root"><div id="growing-l1-octahedron">
+  <h3>Growing toward the median</h3>
+  <div class="viz-controls">
+    <label class="form-label" for="oct-radius"><span>Radius (total absolute error): <output id="oct-radius-value" class="tabular-nums">2</output></span><input id="oct-radius" class="form-range" type="range" min="0" max="12" step="0.1" value="2"></label>
+    <label class="form-label" for="oct-angle"><span>Rotate view: <output id="oct-angle-value" class="tabular-nums">16°</output></span><input id="oct-angle" class="form-range" type="range" min="-180" max="180" step="1" value="16"></label>
+  </div>
+  <div class="oct-scene"></div>
+  <div class="viz-row text-small">
+    <span><span class="oct-key dot"></span> Data (3, 6, 12)</span>
+    <span><span class="oct-key line"></span> Shared estimates (c, c, c)</span>
+    <span><span class="oct-key shell"></span> Equal absolute error</span>
+  </div>
+  <p id="oct-status" aria-live="polite" class="tabular-nums"></p>
+  <style>
+    #growing-l1-octahedron .oct-scene{width:100%;margin:4px 0 12px}
+    #growing-l1-octahedron .oct-svg{display:block;width:100%;height:auto}
+    #growing-l1-octahedron .oct-svg text{fill:var(--foreground);font-size:12px;font-weight:400;paint-order:stroke;stroke:var(--background);stroke-width:4px;stroke-linejoin:round}
+    #growing-l1-octahedron .oct-key{display:inline-block;vertical-align:middle;margin-right:4px}
+    #growing-l1-octahedron .oct-key.dot{width:7px;height:7px;background:var(--foreground);border-radius:50%}
+    #growing-l1-octahedron .oct-key.line{width:18px;height:2px;background:var(--foreground)}
+    #growing-l1-octahedron .oct-key.shell{width:10px;height:10px;background:var(--viz-series-1);opacity:.6;transform:rotate(45deg)}
+  </style>
+  <script>
+    (()=>{
+      const root=document.getElementById('growing-l1-octahedron');
+      const plot=root.querySelector('.oct-scene');
+      const radiusInput=root.querySelector('#oct-radius');
+      const angleInput=root.querySelector('#oct-angle');
+      const radiusOutput=root.querySelector('#oct-radius-value');
+      const angleOutput=root.querySelector('#oct-angle-value');
+      const status=root.querySelector('#oct-status');
+      const center=[3,6,12], median=[6,6,6];
+      let radius=2, angle=16;
+      const num=n=>Number(n.toFixed(1)).toString();
+      const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
+      const minus=(a,b)=>a.map((v,i)=>v-b[i]);
+      const dot=(a,b)=>a.reduce((s,v,i)=>s+v*b[i],0);
+      const directions=[[1,0,0],[-1,0,0],[0,1,0],[0,-1,0],[0,0,1],[0,0,-1]];
+      const vertices=r=>directions.map(v=>v.map((n,i)=>center[i]+r*n));
+      function restore(state){
+        const r=state?.modelContent?.radius, a=state?.privateContent?.angle;
+        if(typeof r==='number'&&Number.isFinite(r))radius=clamp(r,0,12);
+        if(typeof a==='number'&&Number.isFinite(a))angle=clamp(a,-180,180);
+        radiusInput.value=String(radius);angleInput.value=String(angle);
+      }
+      function save(){window.openai?.setWidgetState?.({modelContent:{radius:Number(radius.toFixed(1)),data:center,firstContactRadius:9,intersects:radius>=9},privateContent:{angle}})?.catch(()=>{})}
+      function draw(announce=true){
+        const width=Math.round(plot.getBoundingClientRect().width);if(!width)return;
+        const height=width<440?330:370;
+        const yaw=angle*Math.PI/180, pitch=15*Math.PI/180;
+        const right=[Math.cos(yaw),-Math.sin(yaw),0];
+        const down=[Math.sin(pitch)*Math.sin(yaw),Math.sin(pitch)*Math.cos(yaw),-Math.cos(pitch)];
+        const toward=[Math.cos(pitch)*Math.sin(yaw),Math.cos(pitch)*Math.cos(yaw),Math.sin(pitch)];
+        const raw=p=>{const d=minus(p,center);return [dot(d,right),dot(d,down),dot(d,toward)]};
+        const lineStart=[0,0,0],lineEnd=[14,14,14];
+        const bounds=vertices(12).map(raw);
+        const xmin=Math.min(...bounds.map(p=>p[0])), xmax=Math.max(...bounds.map(p=>p[0]));
+        const ymin=Math.min(...bounds.map(p=>p[1])), ymax=Math.max(...bounds.map(p=>p[1]));
+        const scale=Math.min((width-64)/(xmax-xmin),(height-100)/(ymax-ymin));
+        const project=p=>{const v=raw(p);return [width/2+(v[0]-(xmin+xmax)/2)*scale,height/2-8+(v[1]-(ymin+ymax)/2)*scale,v[2]]};
+        const point=p=>{const q=project(p);return `${q[0]},${q[1]}`};
+        const segment=(a,b,attributes)=>`<path d="M${point(a)}L${point(b)}" fill="none" ${attributes}/>`;
+        const verts=vertices(radius);
+        const faces=[];
+        for(let x=0;x<2;x++)for(let y=2;y<4;y++)for(let z=4;z<6;z++){
+          const ids=[x,y,z],depth=ids.reduce((s,i)=>s+raw(verts[i])[2],0)/3;
+          faces.push({ids,depth});
+        }
+        faces.sort((a,b)=>a.depth-b.depth);
+        let svg=`<svg class="oct-svg" viewBox="0 0 ${width} ${height}" role="img" aria-labelledby="oct-title oct-desc"><title id="oct-title">A growing L1 octahedron</title><desc id="oct-desc">The octahedron stays centered at (3,6,12). Its six tips extend equally along the three coordinate directions. At radius 9 it first touches the line of shared estimates at (6,6,6). Current radius ${num(radius)}. Rotate the view to see its three-dimensional shape.</desc>`;
+        const ls=project(lineStart),le=project(lineEnd),dx=le[0]-ls[0],dy=le[1]-ls[1];
+        const limits=[];
+        for(const x of [24,width-24])if(Math.abs(dx)>1e-8){const t=(x-ls[0])/dx,y=ls[1]+t*dy;if(y>=28&&y<=height-60)limits.push({t,p:[x,y]})}
+        for(const y of [28,height-60])if(Math.abs(dy)>1e-8){const t=(y-ls[1])/dy,x=ls[0]+t*dx;if(x>=24&&x<=width-24)limits.push({t,p:[x,y]})}
+        limits.sort((a,b)=>a.t-b.t);
+        let lineLabel=le;
+        if(limits.length>=2){const a=limits[0].p,b=limits[limits.length-1].p;svg+=`<path d="M${a.join(',')}L${b.join(',')}" stroke="var(--foreground)" stroke-width="1.5" fill="none"/>`;lineLabel=b}
+        if(radius>0){
+          for(const face of faces)svg+=`<polygon points="${face.ids.map(i=>point(verts[i])).join(' ')}" fill="var(--viz-series-1)" fill-opacity="${face.depth>0?.11:.045}" stroke="none"/>`;
+          for(let i=0;i<6;i++)for(let j=i+1;j<6;j++)if(Math.floor(i/2)!==Math.floor(j/2)){
+            const front=(raw(verts[i])[2]+raw(verts[j])[2])>0;
+            svg+=segment(verts[i],verts[j],`stroke="var(--viz-series-1)" stroke-width="${front?1.6:1}" stroke-opacity="${front?.85:.35}"`);
+          }
+          for(const v of verts){const p=project(v);svg+=`<circle cx="${p[0]}" cy="${p[1]}" r="2.5" fill="var(--viz-series-1)"/>`}
+        }
+        const cp=project(center), mp=project(median);
+        const intervals=radius>=9?[15-radius,radius-3]:null;
+        if(intervals){
+          svg+=segment(Array(3).fill(intervals[0]),Array(3).fill(intervals[1]),'stroke="var(--viz-series-2)" stroke-width="5" stroke-linecap="round"');
+          svg+=`<circle cx="${mp[0]}" cy="${mp[1]}" r="7" fill="var(--background)" stroke="var(--viz-series-2)" stroke-width="2.5"/><circle cx="${mp[0]}" cy="${mp[1]}" r="2" fill="var(--viz-series-2)"/>`;
+        }
+        svg+=`<circle cx="${cp[0]}" cy="${cp[1]}" r="4.5" fill="var(--foreground)"/>`;
+        const textLabel=(text,x,y,anchor='start')=>`<text x="${x}" y="${y}" text-anchor="${anchor}">${text}</text>`;
+        svg+=textLabel('Data (3, 6, 12)',clamp(cp[0]+11,12,width-112),clamp(cp[1]-13,18,height-20));
+        if(intervals)svg+=textLabel('Median (6, 6, 6)',clamp(mp[0],64,width-64),clamp(mp[1]+25,20,height-48),'middle');
+        svg+=textLabel('(c, c, c)',clamp(lineLabel[0],35,width-35),clamp(lineLabel[1]-14,18,height-35),'middle');
+        const origin=[36,height-30], length=22;
+        for(let i=0;i<3;i++){
+          const dx=right[i]*length,dy=down[i]*length;
+          svg+=`<path d="M${origin[0]},${origin[1]}l${dx},${dy}" stroke="var(--muted-foreground)" stroke-width="1" fill="none"/>`;
+          svg+=textLabel(['x₁','x₂','x₃'][i],origin[0]+dx*1.4,origin[1]+dy*1.4+4,'middle');
+        }
+        svg+='</svg>';
+        plot.innerHTML=svg;
+        radiusOutput.textContent=num(radius);angleOutput.textContent=`${angle}°`;
+        const detail=radius<9?'No shared estimate reached yet.':Math.abs(radius-9)<.001?'First touch: (6, 6, 6) — median = 6.':`Shared estimates inside: c from ${num(intervals[0])} to ${num(intervals[1])}.`;
+        if(announce)status.textContent=detail;
+        for(const el of plot.querySelectorAll('text')){
+          const b=el.getBBox();if(b.x<3)el.setAttribute('x',+el.getAttribute('x')+3-b.x);else if(b.x+b.width>width-3)el.setAttribute('x',+el.getAttribute('x')+width-3-b.x-b.width);
+        }
+      }
+      restore(window.openai?.widgetState);
+      radiusInput.addEventListener('input',()=>{radius=+radiusInput.value;draw()});
+      angleInput.addEventListener('input',()=>{angle=+angleInput.value;draw(false)});
+      radiusInput.addEventListener('change',save);angleInput.addEventListener('change',save);
+      window.addEventListener('openai:set_globals',event=>{const state=event.detail?.globals?.widgetState;if(state){restore(state);draw()}});
+      new ResizeObserver(()=>draw()).observe(plot);draw();
+    })();
+  </script>
+</div>
+</main></body></html>

@@ -1,0 +1,74 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Min–max scaling with an extreme value</title><link rel="icon" href="data:,"><link rel="stylesheet" href="../lab.css"><script src="../lab-frame.js"></script></head><body data-lab="minmax"><main class="lab-root"><section id="minmax-lab" aria-label="Min–max normalization experiment">
+  <style>
+    #minmax-lab { color:var(--foreground,#263d35); min-width:0; }
+    #minmax-lab h3 { margin:0 0 .75rem; font-size:1rem; }
+    #minmax-lab .viz-controls { display:grid; gap:.65rem; }
+    #minmax-lab .form-label { display:flex; justify-content:space-between; gap:.6rem; flex-wrap:wrap; }
+    #minmax-lab input { width:100%; }
+    #minmax-lab .quick-actions { display:flex; gap:.5rem; flex-wrap:wrap; }
+    #minmax-lab button { color:inherit; font:inherit; font-size:.8rem; padding:.4rem .65rem; border:1px solid var(--border,#c7d2cc); border-radius:.4rem; background:transparent; cursor:pointer; }
+    #minmax-lab button:focus-visible { outline:2px solid var(--viz-series-1,#177e68); outline-offset:3px; }
+    #minmax-lab .plot { width:100%; min-width:0; margin-top:.6rem; }
+    #minmax-lab svg { display:block; width:100%; height:auto; overflow:visible; }
+    #minmax-lab svg text { fill:var(--foreground,#263d35); font-family:inherit; font-size:12px; }
+    #minmax-lab .stats { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.5rem; margin-top:.65rem; }
+    #minmax-lab .stat { min-width:0; border:1px solid var(--border,#c7d2cc); border-radius:.45rem; padding:.6rem; }
+    #minmax-lab .stat span { display:block; color:var(--muted-foreground,#64746d); font-size:.75rem; }
+    #minmax-lab .stat output { display:block; font-size:1.2rem; font-weight:650; margin-top:.15rem; }
+    #minmax-lab .status { font-size:.8rem; line-height:1.5; margin:.6rem 0 0; min-height:2.6em; overflow-wrap:anywhere; }
+  </style>
+  <h3>Where do the healthy readings land?</h3>
+  <div class="viz-controls">
+    <label class="form-label" for="minmax-maximum">Maximum used for scaling <output id="minmax-maximum-label" for="minmax-maximum">46.5°C</output></label>
+    <input class="form-range" id="minmax-maximum" type="range" min="46.5" max="110" step="0.1" value="46.5">
+    <div class="quick-actions"><button type="button" data-max="105.3">Use fault: 105.3°C</button><button type="button" data-max="46.5">Reset healthy scale</button></div>
+  </div>
+  <div class="plot"></div>
+  <div class="stats" aria-live="polite">
+    <div class="stat"><span>Range used</span><output data-output="range">1.7°C</output></div>
+    <div class="stat"><span>45.9°C after scaling</span><output data-output="selected">0.6471</output></div>
+  </div>
+  <p class="text-small status" role="status"></p>
+  <script>
+  (() => {
+    const root=document.getElementById('minmax-lab');
+    const input=root.querySelector('#minmax-maximum');
+    const plot=root.querySelector('.plot');
+    const readings=[44.8,45.2,45.9,46.1,46.5], minimum=44.8;
+    const teal='var(--viz-series-1, #177e68)', copper='var(--viz-series-2, #b56532)', border='var(--border, #c7d2cc)';
+    const line=(x1,y1,x2,y2,extra='')=>`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" ${extra}/>`;
+    const text=(x,y,value,extra='')=>`<text x="${x}" y="${y}" ${extra}>${value}</text>`;
+    function render(){
+      const maximum=Number(input.value), range=maximum-minimum;
+      const width=Math.max(260,plot.clientWidth||320), left=55,right=20, y0=44,gap=27, bottom=207;
+      const scale=v=>left+v*(width-left-right);
+      let shapes=text(left-10,20,'°C',`text-anchor="end"`);
+      [0,.25,.5,.75,1].forEach(t=>{
+        shapes+=line(scale(t),31,scale(t),bottom,`stroke="${border}" stroke-dasharray="3 4"`);
+        shapes+=text(scale(t),20,String(t),`text-anchor="middle"`);
+      });
+      readings.forEach((value,i)=>{
+        const y=y0+i*gap, v=(value-minimum)/range, selected=value===45.9;
+        shapes+=text(left-10,y+4,value.toFixed(1),`text-anchor="end" ${selected?'font-weight="700"':''}`);
+        shapes+=line(left,y,scale(v),y,`stroke="${teal}" stroke-opacity=".5" stroke-width="2"`);
+        shapes+=`<circle cx="${scale(v)}" cy="${y}" r="${selected?6:4}" fill="${selected?copper:teal}" stroke="var(--background,#faf8f2)" stroke-width="1.5"><title>${value.toFixed(1)}°C → ${v.toFixed(4)}</title></circle>`;
+      });
+      shapes+=text(left-10,183,'Max',`text-anchor="end" font-weight="600"`);
+      shapes+=`<path d="M${scale(1)} 174l5 6-5 6-5-6Z" fill="${copper}"><title>Scale maximum ${maximum.toFixed(1)}°C → 1</title></path>`;
+      shapes+=text(width/2,230,'Fixed normalized scale: 0 to 1',`text-anchor="middle" style="font-size:11px"`);
+      plot.innerHTML=`<svg viewBox="0 0 ${width} 244" role="img" aria-label="Five healthy temperatures on a fixed zero-to-one normalized scale. Increasing the maximum compresses them toward zero.">${shapes}</svg>`;
+      root.querySelector('#minmax-maximum-label').textContent=maximum.toFixed(1)+'°C';
+      root.querySelector('[data-output="range"]').textContent=range.toFixed(1)+'°C';
+      root.querySelector('[data-output="selected"]').textContent=((45.9-minimum)/range).toFixed(4);
+      const span=(46.5-minimum)/range;
+      root.querySelector('.status').textContent=`Healthy readings occupy ${(span*100).toFixed(2)}% of the scale. Selected: (45.9 − 44.8) ÷ ${range.toFixed(1)} = ${((45.9-minimum)/range).toFixed(4)}.`;
+    }
+    input.addEventListener('input',render);
+    root.querySelectorAll('[data-max]').forEach(button=>button.addEventListener('click',()=>{input.value=button.dataset.max;render();}));
+    if(typeof ResizeObserver!=='undefined')new ResizeObserver(render).observe(plot);
+    else window.addEventListener('resize',render);
+    render();
+  })();
+  </script>
+</section>
+</main></body></html>

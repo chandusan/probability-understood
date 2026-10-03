@@ -1,46 +1,54 @@
 # Probability, understood
 
-Six visual, interactive lessons that build probability and statistics from first principles.
+A slide-by-slide teaching companion to **01 Data Summary**. Each of the 31 pages starts with the original slide image, then develops its ideas through intuition, worked examples, proofs, and questions from our study sessions.
 
-**[Start learning →](https://chandusan.github.io/probability-understood/)**
+**[Open the Data Summary companion](https://chandusan.github.io/probability-understood/)**
 
-| Lesson | Explore |
-| --- | --- |
-| 1 · The story inside the data | Center, spread, variance, and the shape of data |
-| 2 · A language for uncertainty | Sample spaces, events, and probability axioms |
-| 3 · Count without counting twice | Permutations, combinations, and poker |
-| 4 · Find the easier question | Complements, birthdays, and inclusion–exclusion |
-| 5 · Let evidence change your mind | Conditioning, independence, Bayes, and random walks |
-| 6 · Turn chance into a number | Random variables, PMFs, CDFs, and densities |
+The site focuses entirely on this chapter. The previous six-lesson site is preserved in Git at `archive/before-slide-rebuild-2026-10-03`.
 
-Includes 13 interactive experiments, 13 concept checks, worked solutions, visual memory cues, and a source-page coverage map for each lesson. Each HTML lesson is self-contained and works offline. Use **Print lesson** for a reading copy with solutions expanded.
+## What is included
 
-## Coverage audit
+- All 31 original slides, rendered at 2,000 pixels wide and expandable for reading.
+- Rich explanations of every slide, including the full exercise solutions and qualifications where the source wording is imprecise.
+- 12 experiments: projection, absolute/squared loss, L1/L2 boundaries, a growing octahedron, outlier sensitivity, min–max scaling, percentile interpolation, boxplots, Bessel's correction, standardization, PCA, and the empirical rule.
+- Expandable proofs and worked understanding checks.
+- Slide search, previous/next navigation, a local section outline, and browser-local study progress.
+- Local math rendering and chart dependencies. Reading and experiments do not require an account or an external service.
 
-**[Read the page-by-page audit](https://chandusan.github.io/probability-understood/audit.html)**, completed October 1, 2026. It maps all 243 source pages to lesson sections, records gaps found in the initial version, and explains what was expanded or clarified. The structured records live in `audit/`.
+## Preview locally
 
-Coverage includes the mathematical ideas, examples, exercises, and proof steps; source wording and decorative slide art are not duplicated. Expand the worked-example panels for the full treatment. The estimated lesson times describe the core path; completing all source exercises takes additional time.
-
-## Edit and build
-
-Edit lesson fragments in `src/01.html` through `src/06.html`, shared styling in `src/style.css`, and experiments in `src/interactive.js`. Course metadata and page assembly are in `build.py`.
-
-Rebuild with Python 3 (standard library only):
+The built site is already in `docs/`. From this repository:
 
 ```sh
-python3 build.py
+python3 -m http.server 8765 --bind 127.0.0.1 --directory docs
 ```
 
-This produces the publishable files in `docs/` and an offline `probability-lessons.zip`. Open `docs/index.html` directly, or preview with:
+Open <http://127.0.0.1:8765/>. Everything uses relative paths, including slide images and experiments, so this preview uses the same output as GitHub Pages.
+
+## Edit and rebuild
 
 ```sh
-python3 -m http.server 8000 --directory docs
+python3 -m venv .venv
+.venv/bin/python -m pip install -r requirements.txt
+.venv/bin/python build.py
 ```
 
-GitHub Pages publishes the committed `docs/` folder on the `main` branch. After editing, rebuild and commit both the source and generated pages; pushing to `main` updates the site.
+Edit explanations in `content/slides/01.md` through `31.md`. Each file starts with a title and an introductory paragraph. Standard Markdown, TeX math, tables, and `<details markdown="1">` sections are supported.
+
+The page layout and slide navigation are assembled in `build.py`; the reading interface is in `src/site.css` and `src/site.js`. Experiments are authored in `src/labs/`, with shared styles and local state/height handling in `src/lab.css` and `src/lab-frame.js`.
+
+The builder recreates `docs/` from these sources. Do not edit generated pages directly. It validates the 31 expected source files, slide images, and experiment references before replacing the generated directory.
+
+The preserved PDF lives in `assets/source/01-data-summary.pdf`. Images are in `assets/slides/`. To regenerate the images, use `scripts/render_slides.py` with Poppler and Pillow available; image regeneration is not part of the normal build.
+
+## Publishing
+
+GitHub Pages serves `docs/` from `main`. After editing and rebuilding, commit both the source and generated pages; pushing to `main` publishes the update. The historical `01-data.html` link redirects to the first slide. Other chapters and the former audit pages are deliberately absent from this rebuild.
 
 ## Sources and attribution
 
-An original teaching companion to six STAT 5701 slide PDFs by Dobrin Marchev, covering 243 PDF pages. Each lesson links to its source and identifies the corresponding page ranges. This is not an official course publication. New analogies, diagrams, and interactive experiments supplement the slides; precision notes explain corrections where needed.
+Original slides: **Dobrin Marchev, STAT 5701, Numerical Summaries of Data**, from the supplied `01-DataSummary.pdf`. Slide images and source material remain attributed to their author. Explanations, examples, proofs, corrections, and experiments are an independent personal study companion, not an official course publication.
 
-The original PDFs are not included. Their Google Drive links retain their existing access permissions.
+Original source: <https://drive.google.com/file/d/10qzlEP0KcW0O1Prun81YHoZrWd50y3OY/view>.
+
+Vendored dependencies: KaTeX 0.16.22 (MIT) and D3 7.9.0 (ISC). Their licenses are included under `assets/vendor/`. The build dependency is Python-Markdown 3.8.2.

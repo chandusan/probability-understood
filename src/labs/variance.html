@@ -1,0 +1,60 @@
+<div id="variance-pairs">
+  <h3>Count comparisons, not guaranteed zeros</h3>
+  <div class="viz-controls variance-inputs">
+    <label class="form-label" for="variance-a">Reading A<input id="variance-a" type="number" inputmode="decimal" step="any" value="3"></label>
+    <label class="form-label" for="variance-b">Reading B<input id="variance-b" type="number" inputmode="decimal" step="any" value="6"></label>
+    <label class="form-label" for="variance-c">Reading C<input id="variance-c" type="number" inputmode="decimal" step="any" value="12"></label>
+  </div>
+  <label class="form-check variance-check"><input id="variance-self" type="checkbox"> Include the 3 self-comparisons</label>
+  <p class="text-small">Each cell is the squared gap between its row and column readings. Crossed-out diagonal cells compare a reading with itself.</p>
+  <div class="variance-matrix"></div>
+  <div class="stats variance-stats" aria-live="polite" aria-atomic="true">
+    <div class="stat"><span>Mean</span><strong id="variance-mean">7</strong></div>
+    <div class="stat"><span>Squared deviations (SSE)</span><strong id="variance-sse">42</strong></div>
+    <div class="stat variance-primary"><span id="variance-choice">Half-average of 6 gaps</span><strong id="variance-result">21</strong></div>
+  </div>
+  <p id="variance-comparison" class="text-small" aria-live="polite">All 9 entries: 14. Distinct-index entries only: 21.</p>
+  <p class="text-small">Try A = B. Their two off-diagonal zero gaps still count: two separate readings can legitimately have the same value.</p>
+  <p id="variance-error" class="text-small" role="status"></p>
+  <style>
+    #variance-pairs{min-width:0}#variance-pairs .variance-inputs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+    #variance-pairs .variance-inputs label{min-width:0}#variance-pairs input[type=number]{display:block;box-sizing:border-box;width:100%;min-width:0;margin-top:6px;padding:9px 8px;color:var(--foreground);background:var(--background);border:1px solid var(--border);border-radius:6px;font:inherit;font-variant-numeric:tabular-nums}
+    #variance-pairs .variance-check{display:flex;align-items:center;gap:9px;margin:16px 0 8px}#variance-pairs .variance-check input{flex:0 0 auto}
+    #variance-pairs .variance-matrix{width:100%;min-width:0;max-width:520px;margin:4px auto 12px}#variance-pairs svg{display:block;width:100%;height:auto}#variance-pairs svg text{fill:var(--foreground);font-family:inherit;font-variant-numeric:tabular-nums}
+    #variance-pairs .variance-stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}#variance-pairs .stat{min-width:0}#variance-pairs .stat span{display:block;font-size:12px;color:var(--muted-foreground)}#variance-pairs .stat strong{display:block;font-size:23px;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}#variance-pairs .variance-primary{grid-column:1/-1;padding-top:10px;border-top:1px solid var(--border)}#variance-pairs .variance-primary strong{color:var(--viz-series-1)}#variance-pairs #variance-error:empty{display:none}
+  </style>
+  <script>
+    (()=>{
+      const root=document.getElementById('variance-pairs'),holder=root.querySelector('.variance-matrix');
+      const inputs=['a','b','c'].map(id=>root.querySelector('#variance-'+id)),check=root.querySelector('#variance-self');
+      const NS='http://www.w3.org/2000/svg',fmt=n=>Math.abs(n)>=1e7?n.toExponential(3):Number(n.toFixed(4)).toString();
+      function el(tag,attrs={},text){const e=document.createElementNS(NS,tag);for(const[k,v]of Object.entries(attrs))e.setAttribute(k,v);if(text!==undefined)e.textContent=text;return e}
+      function draw(){
+        const values=inputs.map(i=>i.valueAsNumber),mean=values.reduce((a,b)=>a+b,0)/3,sse=values.reduce((a,b)=>a+(b-mean)**2,0);
+        if(values.some(x=>!Number.isFinite(x))||!Number.isFinite(sse)){root.querySelector('#variance-error').textContent='Enter three finite numbers small enough to calculate their squared gaps.';return}
+        root.querySelector('#variance-error').textContent='';
+        const gaps=values.map(a=>values.map(b=>(a-b)**2)),total=gaps.flat().reduce((a,b)=>a+b,0),entries=check.checked?9:6;
+        if(!Number.isFinite(total)){root.querySelector('#variance-error').textContent='These numbers are too large to calculate the squared-gap total. Try smaller values.';return}
+        root.querySelector('#variance-mean').textContent=fmt(mean);root.querySelector('#variance-sse').textContent=fmt(sse);
+        root.querySelector('#variance-choice').textContent=`Half-average of ${entries} gaps`;
+        root.querySelector('#variance-result').textContent=fmt(total/(2*entries));
+        root.querySelector('#variance-comparison').textContent=`All 9 entries: ½ × ${fmt(total)} ÷ 9 = ${fmt(total/18)}. Distinct-index entries: ½ × ${fmt(total)} ÷ 6 = ${fmt(total/12)}.`;
+        const width=Math.max(200,Math.round(holder.getBoundingClientRect().width)),left=36,top=34,cell=(width-left-8)/3,height=top+3*cell+8;
+        const svg=el('svg',{viewBox:`0 0 ${width} ${height}`,role:'img','aria-label':`Squared pair-gap matrix for readings ${values.map(fmt).join(', ')}. ${check.checked?'All nine entries included.':'Three diagonal self-comparisons excluded.'}`});
+        svg.append(el('title',{},`Squared gaps: ${gaps.map(row=>row.map(fmt).join(', ')).join('; ')}`));
+        for(let i=0;i<3;i++){
+          svg.append(el('text',{x:left+(i+.5)*cell,y:20,'text-anchor':'middle','font-size':13},String.fromCharCode(65+i)));
+          svg.append(el('text',{x:14,y:top+(i+.5)*cell+5,'text-anchor':'middle','font-size':13},String.fromCharCode(65+i)));
+          for(let j=0;j<3;j++){
+            const excluded=i===j&&!check.checked,x=left+j*cell,y=top+i*cell;
+            svg.append(el('rect',{x:x+2,y:y+2,width:cell-4,height:cell-4,rx:5,fill:excluded?'var(--muted-foreground)':'var(--viz-series-1)','fill-opacity':excluded?.06:.12,stroke:'var(--border)'}));
+            if(excluded)svg.append(el('line',{x1:x+10,y1:y+cell-10,x2:x+cell-10,y2:y+10,stroke:'var(--muted-foreground)','stroke-width':1,'stroke-opacity':.35}));
+            const text=fmt(gaps[i][j]);svg.append(el('text',{x:x+cell/2,y:y+cell/2+6,'text-anchor':'middle','font-size':text.length>7?12:Math.min(22,cell*.28)},text));
+          }
+        }
+        holder.replaceChildren(svg);
+      }
+      inputs.forEach(i=>i.addEventListener('input',draw));check.addEventListener('change',draw);new ResizeObserver(draw).observe(holder);draw();
+    })();
+  </script>
+</div>

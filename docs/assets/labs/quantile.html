@@ -1,0 +1,83 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Interpolate a percentile rank</title><link rel="icon" href="data:,"><link rel="stylesheet" href="../lab.css"><script src="../lab-frame.js"></script></head><body data-lab="quantile"><main class="lab-root"><section id="quantile-lab" aria-label="Percentile interpolation experiment">
+  <style>
+    #quantile-lab { color:var(--foreground,#263d35); min-width:0; }
+    #quantile-lab h3 { margin:0 0 .75rem; font-size:1rem; }
+    #quantile-lab .viz-controls { display:grid; gap:.5rem; }
+    #quantile-lab .form-label { display:flex; justify-content:space-between; gap:.5rem; flex-wrap:wrap; }
+    #quantile-lab input,#quantile-lab select { width:100%; min-width:0; font:inherit; }
+    #quantile-lab select { color:inherit; border:1px solid var(--border,#c7d2cc); border-radius:.4rem; background:var(--background,#faf8f2); padding:.5rem; }
+    #quantile-lab .boundary-note { margin:.45rem 0 .15rem; font-size:.75rem; line-height:1.4; color:var(--muted-foreground,#64746d); }
+    #quantile-lab .plot { width:100%; min-width:0; margin-top:.55rem; }
+    #quantile-lab svg { display:block; width:100%; height:auto; }
+    #quantile-lab svg text { fill:var(--foreground,#263d35); font-family:inherit; font-size:12px; }
+    #quantile-lab .stats { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:.4rem; }
+    #quantile-lab .stat { border:1px solid var(--border,#c7d2cc); border-radius:.4rem; min-width:0; padding:.5rem; }
+    #quantile-lab .stat span { display:block; color:var(--muted-foreground,#64746d); font-size:.72rem; }
+    #quantile-lab .stat output { display:block; font-size:1.1rem; font-weight:650; margin-top:.1rem; }
+    #quantile-lab .status { margin:.65rem 0 0; font-size:.8rem; line-height:1.5; min-height:3em; overflow-wrap:anywhere; }
+  </style>
+  <h3>From a fractional rank to a value</h3>
+  <div class="viz-controls">
+    <label class="form-label" for="quantile-percent">Percentile <output id="quantile-percent-label" for="quantile-percent">45%</output></label>
+    <input class="form-range" id="quantile-percent" type="range" min="20" max="100" step="1" value="45">
+    <label class="form-label" for="quantile-rule">Rank convention</label>
+    <select class="form-select" id="quantile-rule"><option value="slide">Slide: n × p / 100</option><option value="linear">Linear: 1 + (n − 1) × p / 100</option></select>
+  </div>
+  <p class="text-small boundary-note">Starts at 20% so the slide rule stays at rank 1 or above.</p>
+  <div class="plot"></div>
+  <div class="stats" aria-live="polite">
+    <div class="stat"><span>Rank</span><output data-output="rank">2.25</output></div>
+    <div class="stat"><span>Fraction</span><output data-output="fraction">25%</output></div>
+    <div class="stat"><span>Value</span><output data-output="value">30</output></div>
+  </div>
+  <p class="text-small status" role="status"></p>
+  <script>
+  (()=>{
+    const root=document.getElementById('quantile-lab'), plot=root.querySelector('.plot');
+    const percent=root.querySelector('#quantile-percent'),rule=root.querySelector('#quantile-rule');
+    const values=[10,20,60,80,100],teal='var(--viz-series-1,#177e68)',copper='var(--viz-series-2,#b56532)',border='var(--border,#c7d2cc)';
+    const fmt=x=>Number(x.toFixed(4)).toString();
+    function calculate(p,kind){
+      const rank=kind==='slide'?values.length*p/100:1+(values.length-1)*p/100;
+      const lo=Math.max(1,Math.floor(rank+1e-10)),hi=Math.min(values.length,Math.ceil(rank-1e-10));
+      const fraction=hi===lo?0:rank-lo;
+      return{rank,lo,hi,fraction,value:values[lo-1]+fraction*(values[hi-1]-values[lo-1])};
+    }
+    function render(){
+      const p=Number(percent.value),r=calculate(p,rule.value),other=calculate(p,rule.value==='slide'?'linear':'slide');
+      const width=Math.max(260,plot.clientWidth||320),left=24,right=25;
+      const xRank=i=>left+(i-1)/4*(width-left-right),xValue=v=>left+(v-10)/90*(width-left-right);
+      const txt=(x,y,t,extra='')=>`<text x="${x}" y="${y}" ${extra}>${t}</text>`;
+      let marks=txt(left,16,'Rank positions',`font-weight="600"`);
+      marks+=`<line x1="${left}" y1="64" x2="${width-right}" y2="64" stroke="${border}" stroke-width="2"/>`;
+      marks+=`<line x1="${xRank(r.lo)}" y1="64" x2="${xRank(r.hi)}" y2="64" stroke="${teal}" stroke-width="6" stroke-linecap="round"/>`;
+      values.forEach((v,i)=>{
+        marks+=txt(xRank(i+1),44,fmt(v),`text-anchor="middle"`);
+        marks+=`<circle cx="${xRank(i+1)}" cy="64" r="4" fill="${teal}"/>`;
+        marks+=txt(xRank(i+1),91,String(i+1),`text-anchor="middle" style="font-size:11px"`);
+      });
+      marks+=`<path d="M${xRank(r.rank)} 55l6 9-6 9-6-9Z" fill="${copper}" stroke="var(--background,#faf8f2)" stroke-width="1.5"><title>Rank ${fmt(r.rank)}</title></path>`;
+      marks+=txt(width-right,109,'Numbers below are ranks',`text-anchor="end" style="font-size:10px"`);
+      marks+=txt(left,139,'Data-value scale',`font-weight="600"`);
+      marks+=`<line x1="${left}" y1="167" x2="${width-right}" y2="167" stroke="${border}" stroke-width="2"/>`;
+      values.forEach(v=>{
+        marks+=`<line x1="${xValue(v)}" y1="162" x2="${xValue(v)}" y2="172" stroke="${teal}" stroke-width="2"/>`;
+        marks+=txt(xValue(v),190,fmt(v),`text-anchor="middle"`);
+      });
+      marks+=`<path d="M${xValue(r.value)} 170l-6-12h12Z" fill="${copper}"><title>Interpolated value ${fmt(r.value)}</title></path>`;
+      plot.innerHTML=`<svg viewBox="0 0 ${width} 208" role="img" aria-label="Sorted values 10, 20, 60, 80, 100. The upper ruler shows equally spaced ranks; the lower ruler shows the unequal gaps between data values.">${marks}</svg>`;
+      root.querySelector('#quantile-percent-label').textContent=p+'%';
+      root.querySelector('[data-output="rank"]').textContent=fmt(r.rank);
+      root.querySelector('[data-output="fraction"]').textContent=fmt(r.fraction*100)+'%';
+      root.querySelector('[data-output="value"]').textContent=fmt(r.value);
+      const interpolation=r.lo===r.hi?`Exact rank ${r.lo}: value ${fmt(r.value)}.`:`${values[r.lo-1]} + ${fmt(r.fraction)} × (${values[r.hi-1]} − ${values[r.lo-1]}) = ${fmt(r.value)}.`;
+      root.querySelector('.status').textContent=interpolation+` Other convention at ${p}%: ${fmt(other.value)}.`;
+    }
+    percent.addEventListener('input',render);rule.addEventListener('change',render);
+    if(typeof ResizeObserver!=='undefined')new ResizeObserver(render).observe(plot);
+    else window.addEventListener('resize',render);
+    render();
+  })();
+  </script>
+</section>
+</main></body></html>

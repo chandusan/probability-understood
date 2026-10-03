@@ -1,0 +1,85 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Rotate a PCA direction</title><link rel="icon" href="data:,"><link rel="stylesheet" href="../lab.css"><script src="../lab-frame.js"></script></head><body data-lab="pca"><main class="lab-root"><div id="pca-one-coordinate">
+  <h3>Two exam scores → one position on a line</h3>
+  <div class="viz-row">
+    <label class="form-label" for="pca-angle">Measuring direction: <span data-angle class="tabular-nums">0°</span></label>
+    <span class="text-small">PCA direction: 45°</span>
+  </div>
+  <input class="form-range" id="pca-angle" type="range" min="0" max="180" step="1" value="0" aria-label="Measuring direction in degrees">
+  <div class="pca-plot"><svg role="img" aria-label="Exam scores and their perpendicular projections onto a rotating line"></svg></div>
+  <div class="viz-row text-small" aria-label="Legend"><span>● Student</span><span>◇ Projected position</span><span>Dashed segment: discarded difference</span></div>
+  <div class="viz-row" aria-live="polite"><span>Variation retained: <span data-retained class="tabular-nums">50.0%</span></span></div>
+</div>
+<style>
+#pca-one-coordinate .pca-plot { width:100%; max-width:500px; margin:0 auto; }
+#pca-one-coordinate svg { display:block; width:100%; overflow:visible; }
+#pca-one-coordinate svg text { fill:var(--foreground); font-size:12px; font-weight:400; }
+#pca-one-coordinate .domain,#pca-one-coordinate .tick line { stroke:var(--border); }
+</style>
+<script src="../vendor/d3.min.js"></script>
+<script>
+(() => {
+  const root=document.getElementById('pca-one-coordinate');
+  const input=root.querySelector('input');
+  const plot=root.querySelector('.pca-plot');
+  const svg=d3.select(root.querySelector('svg'));
+  const points=[{x:40,y:40},{x:55,y:65},{x:65,y:55},{x:80,y:80}];
+  const total=d3.sum(points,p=>(p.x-60)**2+(p.y-60)**2);
+  const maxRadius=d3.max(points,p=>Math.hypot(p.x-60,p.y-60));
+  const bound=maxRadius*1.16;
+  const domain=d3.extent([60-bound,60+bound,...points.flatMap(p=>[p.x,p.y])]);
+  let angle=0;
+  let retained=50;
+  function restore(state){
+    const s=state?.modelContent||state;
+    if(s && Number.isFinite(s.angle)) angle=Math.max(0,Math.min(180,s.angle));
+  }
+  restore(window.openai?.widgetState);
+  function draw(){
+    const width=Math.max(220,plot.clientWidth);
+    const left=64, top=14, side=width-left-18, bottom=52, height=top+side+bottom;
+    const x=d3.scaleLinear().domain(domain).range([left,left+side]);
+    const y=d3.scaleLinear().domain(domain).range([top+side,top]);
+    svg.attr('viewBox',`0 0 ${width} ${height}`).attr('height',height);
+    svg.selectAll('*').remove();
+    svg.append('title').text('Student scores projected onto a rotating measuring line');
+    const a=angle*Math.PI/180, u={x:Math.cos(a),y:Math.sin(a)};
+    const projected=points.map(p=>{const t=(p.x-60)*u.x+(p.y-60)*u.y;return {p,t,x:60+t*u.x,y:60+t*u.y};});
+    retained=100*d3.sum(projected,p=>p.t*p.t)/total;
+    svg.append('desc').text(`Each circle is a student. Diamonds are perpendicular projections onto the line at ${angle} degrees. This direction retains ${retained.toFixed(1)} percent of the total squared spread. At 45 degrees the line retains the most variation.`);
+    svg.append('rect').attr('data-chart-frame','').attr('x',left).attr('y',top).attr('width',side).attr('height',side).attr('fill','none').attr('stroke','var(--border)');
+    svg.append('g').attr('transform',`translate(0,${top+side})`).call(d3.axisBottom(x).ticks(3).tickSizeOuter(0));
+    svg.append('g').attr('transform',`translate(${left},0)`).call(d3.axisLeft(y).ticks(3).tickSizeOuter(0));
+    svg.append('text').attr('class','axis-title').attr('data-axis','x').attr('x',left+side/2).attr('y',height-8).attr('text-anchor','middle').text('Math score (points)');
+    svg.append('text').attr('class','axis-title').attr('data-axis','y').attr('transform',`translate(17,${top+side/2}) rotate(-90)`).attr('text-anchor','middle').text('Physics score (points)');
+    [40,60,80].filter(v=>v>domain[0]&&v<domain[1]).forEach(v=>{
+      svg.append('line').attr('x1',x(v)).attr('x2',x(v)).attr('y1',top).attr('y2',top+side).attr('stroke','var(--border)').attr('opacity',0.5);
+      svg.append('line').attr('x1',left).attr('x2',left+side).attr('y1',y(v)).attr('y2',y(v)).attr('stroke','var(--border)').attr('opacity',0.5);
+    });
+    const radius=maxRadius*1.08;
+    svg.append('line').attr('x1',x(60-radius*u.x)).attr('y1',y(60-radius*u.y)).attr('x2',x(60+radius*u.x)).attr('y2',y(60+radius*u.y)).attr('stroke','var(--foreground)').attr('stroke-width',1.5);
+    projected.forEach(q=>{
+      svg.append('line').attr('x1',x(q.p.x)).attr('y1',y(q.p.y)).attr('x2',x(q.x)).attr('y2',y(q.y)).attr('stroke','var(--muted-foreground)').attr('stroke-dasharray','3 4').attr('opacity',0.65);
+    });
+    projected.forEach(q=>{
+      svg.append('circle').attr('cx',x(q.p.x)).attr('cy',y(q.p.y)).attr('r',5).attr('fill','var(--viz-series-1)');
+      svg.append('path').attr('d',d3.symbol().type(d3.symbolDiamond).size(58)()).attr('transform',`translate(${x(q.x)},${y(q.y)})`).attr('fill','var(--background)').attr('stroke','var(--foreground)').attr('stroke-width',1.5);
+    });
+    input.value=angle;
+    root.querySelector('[data-angle]').textContent=`${angle}°`;
+    root.querySelector('[data-retained]').textContent=`${retained.toFixed(1)}%`;
+    input.setAttribute('aria-valuetext',`${angle} degrees; ${retained.toFixed(1)} percent of variation retained`);
+    const bounds=Array.from(svg.node().querySelectorAll('text')).map(e=>e.getBoundingClientRect());
+    root.dataset.labelBoundsChecked=String(bounds.every(b=>b.width>0&&b.height>0));
+  }
+  input.addEventListener('input',()=>{angle=Number(input.value);draw();});
+  input.addEventListener('change',()=>{
+    window.openai?.setWidgetState?.({modelContent:{angle,pcaAngle:45,retainedPercent:Number(retained.toFixed(1))},privateContent:null})?.catch(()=>{});
+  });
+  window.addEventListener('openai:set_globals',event=>{
+    if(event.detail?.globals?.widgetState){restore(event.detail.globals.widgetState);draw();}
+  });
+  new ResizeObserver(draw).observe(plot);
+  draw();
+})();
+</script>
+</main></body></html>

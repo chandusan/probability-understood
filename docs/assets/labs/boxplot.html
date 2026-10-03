@@ -1,0 +1,74 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>The diamonds boxplot</title><link rel="icon" href="data:,"><link rel="stylesheet" href="../lab.css"><script src="../lab-frame.js"></script></head><body data-lab="boxplot"><main class="lab-root"><section id="boxplot-lab" aria-label="Diamond price boxplot experiment">
+  <style>
+    #boxplot-lab { color:var(--foreground,#263d35); min-width:0; }
+    #boxplot-lab h3 { margin:0 0 .75rem; font-size:1rem; }
+    #boxplot-lab .viz-controls { display:grid; gap:.4rem; }
+    #boxplot-lab select { color:inherit; width:100%; min-width:0; border:1px solid var(--border,#c7d2cc); border-radius:.4rem; background:var(--background,#faf8f2); padding:.5rem; font:inherit; }
+    #boxplot-lab .plot { width:100%; min-width:0; margin-top:.5rem; }
+    #boxplot-lab svg { display:block; width:100%; height:auto; }
+    #boxplot-lab svg text { fill:var(--foreground,#263d35); font-family:inherit; font-size:11px; }
+    #boxplot-lab .quartiles { font-size:.8rem; line-height:1.6; margin:.15rem 0 .65rem; }
+    #boxplot-lab .stats { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:.4rem; }
+    #boxplot-lab .stat { min-width:0; border:1px solid var(--border,#c7d2cc); border-radius:.4rem; padding:.45rem; }
+    #boxplot-lab .stat span { color:var(--muted-foreground,#64746d); display:block; font-size:.7rem; }
+    #boxplot-lab .stat output { display:block; font-weight:650; font-size:.95rem; margin-top:.1rem; }
+    #boxplot-lab .status { font-size:.78rem; line-height:1.55; min-height:3em; margin:.65rem 0 0; overflow-wrap:anywhere; }
+  </style>
+  <h3>The middle stays steady; the extremes move</h3>
+  <div class="viz-controls">
+    <label class="form-label" for="boxplot-dataset">Diamond sample</label>
+    <select class="form-select" id="boxplot-dataset"><option value="original">42 original diamonds</option><option value="mixed">44: +2 expensive diamonds</option></select>
+  </div>
+  <div class="plot"></div>
+  <div class="quartiles" aria-live="polite"></div>
+  <div class="stats" aria-live="polite">
+    <div class="stat"><span>Actual min</span><output data-output="min"></output></div>
+    <div class="stat"><span>Actual max</span><output data-output="max"></output></div>
+    <div class="stat"><span>Mean</span><output data-output="mean"></output></div>
+    <div class="stat"><span>Sample SD</span><output data-output="sd"></output></div>
+    <div class="stat"><span>IQR</span><output data-output="iqr"></output></div>
+    <div class="stat"><span>Range</span><output data-output="range"></output></div>
+  </div>
+  <p class="text-small status" role="status"></p>
+  <script>
+  (()=>{
+    const root=document.getElementById('boxplot-lab'),plot=root.querySelector('.plot'),select=root.querySelector('#boxplot-dataset');
+    const samples={original:{n:42,min:416,q1:1416,median:1882,mean:1924,q3:2497,max:3154,sd:703,outliers:[]},mixed:{n:44,min:416,q1:1429,median:1899,mean:2209,q3:2537,max:8979,sd:1497,outliers:[7393,8979]}};
+    const teal='var(--viz-series-1,#177e68)',copper='var(--viz-series-2,#b56532)',border='var(--border,#c7d2cc)';
+    const fmt=x=>x.toLocaleString('en-US',{maximumFractionDigits:1});
+    function render(){
+      const s=samples[select.value],iqr=s.q3-s.q1,lower=s.q1-1.5*iqr,upper=s.q3+1.5*iqr;
+      const width=Math.max(260,plot.clientWidth||320),left=18,right=18,x=v=>left+v/10000*(width-left-right);
+      const txt=(xx,y,t,extra='')=>`<text x="${xx}" y="${y}" ${extra}>${t}</text>`;
+      let marks='';
+      marks+=`<line x1="${x(s.min)}" y1="68" x2="${x(3154)}" y2="68" stroke="${teal}" stroke-width="2"/>`;
+      [s.min,3154].forEach(v=>{marks+=`<line x1="${x(v)}" y1="52" x2="${x(v)}" y2="84" stroke="${teal}" stroke-width="2"><title>Whisker $${fmt(v)}</title></line>`;});
+      marks+=`<rect x="${x(s.q1)}" y="44" width="${x(s.q3)-x(s.q1)}" height="48" fill="${teal}" fill-opacity=".16" stroke="${teal}" stroke-width="2"><title>Middle half: $${fmt(s.q1)} to $${fmt(s.q3)}</title></rect>`;
+      marks+=`<line x1="${x(s.median)}" y1="44" x2="${x(s.median)}" y2="92" stroke="${teal}" stroke-width="3"><title>Median $${fmt(s.median)}</title></line>`;
+      marks+=txt(x(s.min),29,fmt(s.min),`text-anchor="middle"`);
+      marks+=txt(x(3154),29,'3,154',`text-anchor="middle"`);
+      s.outliers.forEach(v=>{
+        marks+=`<circle cx="${x(v)}" cy="68" r="5" fill="${copper}"><title>Beyond the upper fence: $${fmt(v)}</title></circle>`;
+        marks+=txt(x(v),48,fmt(v),`text-anchor="middle"`);
+      });
+      marks+=`<line x1="${left}" y1="121" x2="${width-right}" y2="121" stroke="${border}"/>`;
+      [0,2500,5000,7500,10000].forEach(v=>{
+        marks+=`<line x1="${x(v)}" y1="118" x2="${x(v)}" y2="125" stroke="${border}"/>`;
+        marks+=txt(x(v),143,fmt(v),`text-anchor="${v===0?'start':v===10000?'end':'middle'}"`);
+      });
+      marks+=txt(left,169,'Price ($) · fixed axis',`style="font-size:11px"`);
+      marks+=`<circle cx="${width-right-47}" cy="166" r="4" fill="${copper}"/>`+txt(width-right,169,'Outlier',`text-anchor="end"`);
+      plot.innerHTML=`<svg viewBox="0 0 ${width} 188" role="img" aria-label="${s.n} diamond prices. Box from ${s.q1} to ${s.q3}, median ${s.median}. Whiskers at 416 and 3154.${s.outliers.length?' Two high outlier points at 7393 and 8979.':' No points beyond the fences.'}">${marks}</svg>`;
+      root.querySelector('.quartiles').textContent=`Q1 $${fmt(s.q1)} · Median $${fmt(s.median)} · Q3 $${fmt(s.q3)}`;
+      const summary={min:s.min,max:s.max,mean:s.mean,sd:s.sd,iqr,range:s.max-s.min};
+      Object.entries(summary).forEach(([key,value])=>root.querySelector(`[data-output="${key}"]`).textContent='$'+fmt(value));
+      root.querySelector('.status').textContent=`1.5×IQR fences: $${fmt(lower)} to $${fmt(upper)}. Whiskers stop at $416 and $3,154.${s.outliers.length?' Actual maximum: $8,979.':' No observations exceed the fences.'}`;
+    }
+    select.addEventListener('change',render);
+    if(typeof ResizeObserver!=='undefined')new ResizeObserver(render).observe(plot);
+    else window.addEventListener('resize',render);
+    render();
+  })();
+  </script>
+</section>
+</main></body></html>

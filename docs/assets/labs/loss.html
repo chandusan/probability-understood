@@ -1,0 +1,77 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Mean and median loss functions</title><link rel="icon" href="data:,"><link rel="stylesheet" href="../lab.css"><script src="../lab-frame.js"></script></head><body data-lab="loss"><main class="lab-root"><div id="median-loss-explorer">
+  <h3>Same observations, two definitions of “best”</h3>
+  <div class="viz-controls">
+    <label class="form-label" for="loss-outlier"><span>Last observation: <output id="loss-z-value" class="tabular-nums">12</output> min</span>
+      <input id="loss-outlier" class="form-range" type="range" min="9" max="45" step="1" value="12">
+    </label>
+    <label class="form-label" for="loss-center"><span>Your shared estimate c: <output id="loss-c-value" class="tabular-nums">6</output> min</span>
+      <input id="loss-center" class="form-range" type="range" min="0" max="15" step="0.1" value="6">
+    </label>
+  </div>
+  <div id="loss-data" class="tabular-nums" aria-live="polite"></div>
+  <div class="loss-panels">
+    <div><div class="loss-plot" data-loss="absolute"></div><div id="loss-absolute-min" class="text-small tabular-nums"></div></div>
+    <div><div class="loss-plot" data-loss="squared"></div><div id="loss-squared-min" class="text-small tabular-nums"></div></div>
+  </div>
+  <div class="viz-row text-small loss-key"><span>● Minimum</span><span>■ Your estimate</span></div>
+  <div id="loss-values" class="tabular-nums" aria-live="polite"></div>
+  <style>
+    #median-loss-explorer .loss-panels{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin-top:16px}
+    #median-loss-explorer .loss-plot{width:100%;min-width:0}
+    #median-loss-explorer .loss-chart{display:block;width:100%;height:auto}
+    #median-loss-explorer .loss-key{margin-top:12px;margin-bottom:8px}
+    #median-loss-explorer .loss-chart text{fill:var(--foreground);font-size:12px}
+    #median-loss-explorer .loss-chart .axis path,#median-loss-explorer .loss-chart .axis line{stroke:var(--border)}
+    @media(max-width:600px){#median-loss-explorer .loss-panels{grid-template-columns:1fr}}
+  </style>
+  <script src="../vendor/d3.min.js"></script>
+  <script>
+    (()=>{
+      const root=document.getElementById('median-loss-explorer');
+      const zInput=root.querySelector('#loss-outlier'),cInput=root.querySelector('#loss-center');
+      const plots=[...root.querySelectorAll('.loss-plot')];
+      let z=12,c=6;
+      const fmt=n=>Number(n.toFixed(2)).toString();
+      function restore(state){const v=state?.modelContent;if(v&&Number.isFinite(v.last)&&Number.isFinite(v.c)){z=Math.max(9,Math.min(45,v.last));c=Math.max(0,Math.min(z+3,v.c))}zInput.value=z;cInput.max=z+3;cInput.value=c}
+      restore(window.openai?.widgetState);
+      function cost(t,squared){return [3,6,z].reduce((total,x)=>total+(squared?(x-t)**2:Math.abs(x-t)),0)}
+      function draw(){
+        const mean=(9+z)/3;
+        root.querySelector('#loss-z-value').textContent=fmt(z);
+        root.querySelector('#loss-c-value').textContent=fmt(c);
+        root.querySelector('#loss-data').textContent=`Data: 3, 6, ${fmt(z)} min · Mean: ${fmt(mean)} · Median: 6`;
+        for(const node of plots){
+          const squared=node.dataset.loss==='squared',opt=squared?mean:6,color=squared?'var(--viz-series-2)':'var(--viz-series-1)';
+          const width=Math.round(node.getBoundingClientRect().width);if(!width)continue;
+          const height=256,m={l:64,r:24,t:38,b:56},maxC=z+3;
+          const ts=Array.from(new Set([...d3.range(161).map(i=>maxC*i/160),3,6,z,opt,c])).sort((a,b)=>a-b);
+          const values=ts.map(t=>({x:t,y:cost(t,squared)}));
+          const [xMin,xMax]=d3.extent(values,d=>d.x),[yMin,yMax]=d3.extent([{x:0,y:0},...values],d=>d.y);
+          const pad=(xMax-xMin)*.035,x=d3.scaleLinear().domain([xMin-pad,xMax+pad]).range([m.l,width-m.r]);
+          const y=d3.scaleLinear().domain([yMin-(yMax-yMin)*.035,yMax+(yMax-yMin)*.08]).range([height-m.b,m.t]);
+          const svg=d3.select(node).selectAll('svg').data([null]).join('svg').attr('class','loss-chart').attr('viewBox',`0 0 ${width} ${height}`).attr('role','img').attr('aria-label',`${squared?'Squared':'Absolute'} error versus shared estimate; minimum at ${fmt(opt)} minutes.`);
+          svg.selectAll('*').remove();svg.append('title').text(`${squared?'Squared':'Absolute'} error; best estimate ${fmt(opt)}`);
+          svg.append('rect').attr('data-chart-frame','').attr('x',m.l).attr('y',m.t).attr('width',width-m.l-m.r).attr('height',height-m.t-m.b).attr('fill','none').attr('stroke','var(--border)');
+          svg.append('g').attr('class','axis').attr('transform',`translate(0,${height-m.b})`).call(d3.axisBottom(x).tickValues(d3.ticks(xMin,xMax,3)).tickSizeOuter(0));
+          svg.append('g').attr('class','axis').attr('transform',`translate(${m.l},0)`).call(d3.axisLeft(y).tickValues(d3.ticks(yMin,yMax,3)).tickSizeOuter(0));
+          svg.append('text').attr('class','axis-title').attr('data-axis','y').attr('x',0).attr('y',17).text(squared?'Total squared error (min²)':'Total absolute error (min)');
+          svg.append('text').attr('class','axis-title').attr('data-axis','x').attr('x',(m.l+width-m.r)/2).attr('y',height-8).attr('text-anchor','middle').text('Shared estimate c (minutes)');
+          svg.append('path').datum(values).attr('d',d3.line().x(d=>x(d.x)).y(d=>y(d.y))).attr('fill','none').attr('stroke',color).attr('stroke-width',2.5);
+          svg.append('circle').attr('cx',x(opt)).attr('cy',y(cost(opt,squared))).attr('r',5).attr('fill',color);
+          svg.append('rect').attr('x',x(c)-3.5).attr('y',y(cost(c,squared))-3.5).attr('width',7).attr('height',7).attr('fill','var(--foreground)');
+          const boxes=[...node.querySelectorAll('text')].map(e=>e.getBBox());
+          if(boxes.some(b=>b.width>width))svg.select('.axis-title[data-axis="y"]').text(squared?'Squared error (min²)':'Absolute error (min)');
+          root.querySelector(squared?'#loss-squared-min':'#loss-absolute-min').textContent=`Minimum: ${fmt(cost(opt,squared))} ${squared?'min²':'min'} at c = ${fmt(opt)}`;
+        }
+        root.querySelector('#loss-values').textContent=`At your c: absolute error ${fmt(cost(c,false))} min · squared error ${fmt(cost(c,true))} min²`;
+      }
+      function save(){window.openai?.setWidgetState?.({modelContent:{last:z,c,data:[3,6,z]},privateContent:null})?.catch(()=>{})}
+      zInput.addEventListener('input',()=>{z=+zInput.value;cInput.max=z+3;c=Math.min(c,z+3);cInput.value=c;draw()});
+      cInput.addEventListener('input',()=>{c=+cInput.value;draw()});
+      zInput.addEventListener('change',save);cInput.addEventListener('change',save);
+      window.addEventListener('openai:set_globals',e=>{const state=e.detail?.globals?.widgetState;if(state){restore(state);draw()}});
+      const observer=new ResizeObserver(draw);plots.forEach(p=>observer.observe(p));draw();
+    })();
+  </script>
+</div>
+</main></body></html>

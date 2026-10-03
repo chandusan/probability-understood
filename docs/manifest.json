@@ -1,0 +1,272 @@
+[
+  {
+    "slide": 1,
+    "title": "A story inside the data",
+    "file": "slides/01.html",
+    "image": "assets/slides/01.webp",
+    "words": 416,
+    "interactives": []
+  },
+  {
+    "slide": 2,
+    "title": "What does “centre” mean?",
+    "file": "slides/02.html",
+    "image": "assets/slides/02.webp",
+    "words": 414,
+    "interactives": []
+  },
+  {
+    "slide": 3,
+    "title": "The mean: equal shares",
+    "file": "slides/03.html",
+    "image": "assets/slides/03.webp",
+    "words": 440,
+    "interactives": []
+  },
+  {
+    "slide": 4,
+    "title": "Why squared error finds the mean",
+    "file": "slides/04.html",
+    "image": "assets/slides/04.webp",
+    "words": 556,
+    "interactives": []
+  },
+  {
+    "slide": 5,
+    "title": "The geometry of the mean",
+    "file": "slides/05.html",
+    "image": "assets/slides/05.webp",
+    "words": 956,
+    "interactives": [
+      "mean-projection"
+    ]
+  },
+  {
+    "slide": 6,
+    "title": "Finding the median",
+    "file": "slides/06.html",
+    "image": "assets/slides/06.webp",
+    "words": 421,
+    "interactives": []
+  },
+  {
+    "slide": 7,
+    "title": "Why absolute error finds the median",
+    "file": "slides/07.html",
+    "image": "assets/slides/07.webp",
+    "words": 1172,
+    "interactives": [
+      "loss"
+    ]
+  },
+  {
+    "slide": 8,
+    "title": "Spheres, diamonds & octahedra",
+    "file": "slides/08.html",
+    "image": "assets/slides/08.webp",
+    "words": 1485,
+    "interactives": [
+      "norms",
+      "octahedron"
+    ]
+  },
+  {
+    "slide": 9,
+    "title": "One observation changes",
+    "file": "slides/09.html",
+    "image": "assets/slides/09.webp",
+    "words": 444,
+    "interactives": [
+      "outlier"
+    ]
+  },
+  {
+    "slide": 10,
+    "title": "Reading the geometric picture",
+    "file": "slides/10.html",
+    "image": "assets/slides/10.webp",
+    "words": 471,
+    "interactives": []
+  },
+  {
+    "slide": 11,
+    "title": "Which centre should we use?",
+    "file": "slides/11.html",
+    "image": "assets/slides/11.webp",
+    "words": 500,
+    "interactives": []
+  },
+  {
+    "slide": 12,
+    "title": "Skewness & the long tail",
+    "file": "slides/12.html",
+    "image": "assets/slides/12.webp",
+    "words": 294,
+    "interactives": []
+  },
+  {
+    "slide": 13,
+    "title": "Why an 88 needs context",
+    "file": "slides/13.html",
+    "image": "assets/slides/13.webp",
+    "words": 447,
+    "interactives": []
+  },
+  {
+    "slide": 14,
+    "title": "What spread tells us",
+    "file": "slides/14.html",
+    "image": "assets/slides/14.webp",
+    "words": 504,
+    "interactives": []
+  },
+  {
+    "slide": 15,
+    "title": "Range & population support",
+    "file": "slides/15.html",
+    "image": "assets/slides/15.webp",
+    "words": 523,
+    "interactives": []
+  },
+  {
+    "slide": 16,
+    "title": "Min–max scaling & outliers",
+    "file": "slides/16.html",
+    "image": "assets/slides/16.webp",
+    "words": 618,
+    "interactives": [
+      "minmax"
+    ]
+  },
+  {
+    "slide": 17,
+    "title": "Percentiles & interpolation",
+    "file": "slides/17.html",
+    "image": "assets/slides/17.webp",
+    "words": 605,
+    "interactives": [
+      "quantile"
+    ]
+  },
+  {
+    "slide": 18,
+    "title": "Quartiles & probability",
+    "file": "slides/18.html",
+    "image": "assets/slides/18.webp",
+    "words": 504,
+    "interactives": []
+  },
+  {
+    "slide": 19,
+    "title": "The middle half: IQR",
+    "file": "slides/19.html",
+    "image": "assets/slides/19.webp",
+    "words": 502,
+    "interactives": []
+  },
+  {
+    "slide": 20,
+    "title": "Diamonds: the first sample",
+    "file": "slides/20.html",
+    "image": "assets/slides/20.webp",
+    "words": 263,
+    "interactives": []
+  },
+  {
+    "slide": 21,
+    "title": "Add two expensive diamonds",
+    "file": "slides/21.html",
+    "image": "assets/slides/21.webp",
+    "words": 390,
+    "interactives": []
+  },
+  {
+    "slide": 22,
+    "title": "Reading a boxplot",
+    "file": "slides/22.html",
+    "image": "assets/slides/22.webp",
+    "words": 641,
+    "interactives": [
+      "boxplot"
+    ]
+  },
+  {
+    "slide": 23,
+    "title": "Variance, estimation & n − 1",
+    "file": "slides/23.html",
+    "image": "assets/slides/23.webp",
+    "words": 1533,
+    "interactives": [
+      "variance"
+    ]
+  },
+  {
+    "slide": 24,
+    "title": "PCA, scaling & model variance",
+    "file": "slides/24.html",
+    "image": "assets/slides/24.webp",
+    "words": 1151,
+    "interactives": [
+      "standardize",
+      "pca"
+    ]
+  },
+  {
+    "slide": 25,
+    "title": "Population versus sample",
+    "file": "slides/25.html",
+    "image": "assets/slides/25.webp",
+    "words": 380,
+    "interactives": []
+  },
+  {
+    "slide": 26,
+    "title": "Interpreting standard deviation",
+    "file": "slides/26.html",
+    "image": "assets/slides/26.webp",
+    "words": 527,
+    "interactives": []
+  },
+  {
+    "slide": 27,
+    "title": "Birth weights & the bell curve",
+    "file": "slides/27.html",
+    "image": "assets/slides/27.webp",
+    "words": 402,
+    "interactives": []
+  },
+  {
+    "slide": 28,
+    "title": "The 68–95–99.7 rule",
+    "file": "slides/28.html",
+    "image": "assets/slides/28.webp",
+    "words": 447,
+    "interactives": [
+      "normal"
+    ]
+  },
+  {
+    "slide": 29,
+    "title": "Heart rates: every calculation",
+    "file": "slides/29.html",
+    "image": "assets/slides/29.webp",
+    "words": 476,
+    "interactives": []
+  },
+  {
+    "slide": 30,
+    "title": "Which professor varies most?",
+    "file": "slides/30.html",
+    "image": "assets/slides/30.webp",
+    "words": 454,
+    "interactives": []
+  },
+  {
+    "slide": 31,
+    "title": "Four ways to change the spread",
+    "file": "slides/31.html",
+    "image": "assets/slides/31.webp",
+    "words": 700,
+    "interactives": []
+  }
+]

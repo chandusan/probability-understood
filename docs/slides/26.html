@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Slide 26 of Data Summary: Interpreting standard deviation. Original slide, first-principles explanation, examples and worked practice."><title>26 · Interpreting standard deviation — Probability, understood</title><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/site.css"><link rel="stylesheet" href="../assets/vendor/katex/katex.min.css"><script defer src="../assets/vendor/katex/katex.min.js"></script><script defer src="../assets/vendor/katex/contrib/auto-render.min.js"></script><script defer src="../assets/site.js"></script></head>
+<body data-slide="26" data-slide-prefix=""><a class="skip" href="#lesson">Skip to the lesson</a>
+<aside class="sidebar" aria-label="Course navigation"><a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>Probability,<br>understood.</span></a><button class="nav-close" data-close-nav aria-label="Close slide navigation">×</button><p class="course-label">Chapter 01 / Your study companion</p><p class="course-title">Data Summary</p><label class="sr-only" for="slide-search">Find a slide</label><input class="nav-search" id="slide-search" type="search" placeholder="Find a slide…" autocomplete="off"><nav class="slide-nav" aria-label="All 31 slides"><div class="nav-group"><div class="nav-group-title">The starting point</div><a class="slide-link" data-slide="1" data-search="01 why one number is not enough a story inside the data" href="01.html"><span class="slide-num">01</span><span>A story inside the data</span></a><a class="slide-link" data-slide="2" data-search="02 two meanings of the center what does “centre” mean?" href="02.html"><span class="slide-num">02</span><span>What does “centre” mean?</span></a></div><div class="nav-group"><div class="nav-group-title">Finding the centre</div><a class="slide-link" data-slide="3" data-search="03 the mean preserves the total the mean: equal shares" href="03.html"><span class="slide-num">03</span><span>The mean: equal shares</span></a><a class="slide-link" data-slide="4" data-search="04 why squared errors choose the mean why squared error finds the mean" href="04.html"><span class="slide-num">04</span><span>Why squared error finds the mean</span></a><a class="slide-link" data-slide="5" data-search="05 the mean is the closest constant point the geometry of the mean" href="05.html"><span class="slide-num">05</span><span>The geometry of the mean</span></a><a class="slide-link" data-slide="6" data-search="06 the median finds the middle finding the median" href="06.html"><span class="slide-num">06</span><span>Finding the median</span></a><a class="slide-link" data-slide="7" data-search="07 why absolute errors choose the median why absolute error finds the median" href="07.html"><span class="slide-num">07</span><span>Why absolute error finds the median</span></a><a class="slide-link" data-slide="8" data-search="08 two distances, two shapes spheres, diamonds &amp; octahedra" href="08.html"><span class="slide-num">08</span><span>Spheres, diamonds &amp; octahedra</span></a><a class="slide-link" data-slide="9" data-search="09 one changing observation, two centers one observation changes" href="09.html"><span class="slide-num">09</span><span>One observation changes</span></a><a class="slide-link" data-slide="10" data-search="10 read the three-dimensional comparison reading the geometric picture" href="10.html"><span class="slide-num">10</span><span>Reading the geometric picture</span></a><a class="slide-link" data-slide="11" data-search="11 choose the center your question needs which centre should we use?" href="11.html"><span class="slide-num">11</span><span>Which centre should we use?</span></a><a class="slide-link" data-slide="12" data-search="12 follow the tail of the histogram skewness &amp; the long tail" href="12.html"><span class="slide-num">12</span><span>Skewness &amp; the long tail</span></a></div><div class="nav-group"><div class="nav-group-title">Understanding spread</div><a class="slide-link" data-slide="13" data-search="13 an 88 needs a comparison scale why an 88 needs context" href="13.html"><span class="slide-num">13</span><span>Why an 88 needs context</span></a><a class="slide-link" data-slide="14" data-search="14 choose the kind of spread you need what spread tells us" href="14.html"><span class="slide-num">14</span><span>What spread tells us</span></a><a class="slide-link" data-slide="15" data-search="15 range: observed endpoints and possible values range &amp; population support" href="15.html"><span class="slide-num">15</span><span>Range &amp; population support</span></a><a class="slide-link" data-slide="16" data-search="16 one faulty reading can squeeze the scale min–max scaling &amp; outliers" href="16.html"><span class="slide-num">16</span><span>Min–max scaling &amp; outliers</span></a><a class="slide-link" data-slide="17" data-search="17 a fractional rank is a position, not a value percentiles &amp; interpolation" href="17.html"><span class="slide-num">17</span><span>Percentiles &amp; interpolation</span></a><a class="slide-link" data-slide="18" data-search="18 quartiles divide probability, not distance quartiles &amp; probability" href="18.html"><span class="slide-num">18</span><span>Quartiles &amp; probability</span></a><a class="slide-link" data-slide="19" data-search="19 iqr protects the middle of the story the middle half: iqr" href="19.html"><span class="slide-num">19</span><span>The middle half: IQR</span></a><a class="slide-link" data-slide="20" data-search="20 diamonds: measure the middle and the endpoints diamonds: the first sample" href="20.html"><span class="slide-num">20</span><span>Diamonds: the first sample</span></a><a class="slide-link" data-slide="21" data-search="21 two expensive diamonds change the story add two expensive diamonds" href="21.html"><span class="slide-num">21</span><span>Add two expensive diamonds</span></a><a class="slide-link" data-slide="22" data-search="22 boxplots: endpoints are not always whiskers reading a boxplot" href="22.html"><span class="slide-num">22</span><span>Reading a boxplot</span></a></div><div class="nav-group"><div class="nav-group-title">Variance & its uses</div><a class="slide-link" data-slide="23" data-search="23 why sample variance divides by n − 1 variance, estimation &amp; n − 1" href="23.html"><span class="slide-num">23</span><span>Variance, estimation &amp; n − 1</span></a><a class="slide-link" data-slide="24" data-search="24 give features a common ruler, then find their main direction pca, scaling &amp; model variance" href="24.html"><span class="slide-num">24</span><span>PCA, scaling &amp; model variance</span></a><a class="slide-link" data-slide="25" data-search="25 the population target and the sample in your hand population versus sample" href="25.html"><span class="slide-num">25</span><span>Population versus sample</span></a><a class="slide-link" data-slide="26" data-search="26 standard deviation is a ruler for spread interpreting standard deviation" href="26.html" aria-current="page"><span class="slide-num">26</span><span>Interpreting standard deviation</span></a></div><div class="nav-group"><div class="nav-group-title">Normal models & practice</div><a class="slide-link" data-slide="27" data-search="27 read a bell-shaped distribution with a spread ruler birth weights &amp; the bell curve" href="27.html"><span class="slide-num">27</span><span>Birth weights &amp; the bell curve</span></a><a class="slide-link" data-slide="28" data-search="28 the 68–95–99.7 rule the 68–95–99.7 rule" href="28.html"><span class="slide-num">28</span><span>The 68–95–99.7 rule</span></a><a class="slide-link" data-slide="29" data-search="29 calculate spread from eight heart rates heart rates: every calculation" href="29.html"><span class="slide-num">29</span><span>Heart rates: every calculation</span></a><a class="slide-link" data-slide="30" data-search="30 equal average ratings, very different agreement which professor varies most?" href="30.html"><span class="slide-num">30</span><span>Which professor varies most?</span></a><a class="slide-link" data-slide="31" data-search="31 see what changed before calculating sd four ways to change the spread" href="31.html"><span class="slide-num">31</span><span>Four ways to change the spread</span></a></div><p class="no-results" hidden>No matching slides.</p></nav><div class="nav-footer"><span><strong data-completed-count>0</strong> of 31 slides understood</span><div class="progress-track" aria-hidden="true"><i data-course-progress></i></div><span>One idea at a time.</span><br><a data-resume hidden></a></div></aside>
+<button class="scrim" data-close-nav aria-label="Close navigation"></button><div class="site-body"><header class="topbar"><button class="menu-button" aria-expanded="false" aria-label="Open slide navigation">☰ Slides</button><div class="breadcrumb"><span class="crumb-course">Data Summary <span aria-hidden="true">/</span> </span><strong>Slide 26 of 31</strong></div><div class="top-tools"><a href="../assets/source/01-data-summary.pdf#page=26" target="_blank" rel="noopener">Original PDF ↗</a><button class="plain-button print-button" data-print>Print this slide</button></div></header><div class="reading-progress" aria-hidden="true"><i data-reading-progress></i></div>
+<div class="page-layout"><main class="lesson" id="lesson"><p class="eyebrow">Variance &amp; its uses · Slide 26</p><h1>Standard deviation is a ruler for spread</h1><p class="lead">Variance measures squared distance from the mean. Taking its square root brings the answer back to the data's original units, giving us a ruler we can compare with individual observations.</p><div class="lesson-meta"><span>~3 min reading</span><span class="meta-sep">/</span><span>Source + intuition + practice</span></div>
+<figure class="slide-figure" id="source-slide"><button class="slide-image-button" data-zoom-slide aria-label="Enlarge original slide 26"><img class="slide-image" src="../assets/slides/26.webp" alt="Original slide 26: Interpreting standard deviation. The concepts and figures are explained below." width="2000" height="1125" fetchpriority="high"></button><figcaption class="slide-caption"><span>Original slide · STAT 5701 · Dobrin Marchev</span><button data-zoom-slide>Enlarge slide ↗</button></figcaption></figure>
+<div class="teaching-heading">Let’s understand it</div><article class="prose"><h2 id="square-the-units-then-return-to-them">Square the units, then return to them</h2>
+<p>If the observations are in minutes, deviations are in minutes and squared deviations are in minutes squared:</p>
+<p>$$
+\underbrace{s^2}_{\text{minutes}^2}
+=\frac{\sum_i(x_i-\bar x)^2}{n-1},
+\qquad
+\underbrace{s}_{\text{minutes}}=\sqrt{s^2}.
+$$</p>
+<p>SD describes the scale of variation around the mean. It is not the arithmetic average of absolute distances. We will calculate both measures for heart rates shortly.</p>
+<h2 id="zero-sd-means-every-observed-value-is-identical">Zero SD means every observed value is identical</h2>
+<p>For $n\ge2$, every term $(x_i-\bar x)^2$ is nonnegative. Their sum can equal zero only if every term is zero:</p>
+<p>$$
+s=0
+\iff x_i=\bar x\text{ for every }i
+\iff x_1=x_2=\cdots=x_n.
+$$</p>
+<p>A constant column cannot distinguish the observed rows. That is the useful meaning behind the slide's “no informational entropy” wording. A constant sample does not prove that the feature is constant in the population or scientifically irrelevant elsewhere.</p>
+<h2 id="an-extreme-observation-can-dominate">An extreme observation can dominate</h2>
+<p>Move one observation farther and farther from the rest. Its squared distance grows, and sample SD can grow without bound. Like the mean, SD is <strong>non-robust</strong>: one sufficiently extreme replacement can drive it arbitrarily far. Middle-rank summaries such as the IQR respond less strongly to a few extremes.</p>
+<p>This does not mean every outlier should be deleted. It may be a measurement error, a rare real event, or the observation that matters most. Investigate its meaning.</p>
+<h2 id="shift-location-stretch-spread">Shift location; stretch spread</h2>
+<p>Reordering values changes none of these summaries. Adding the same constant to all values moves the mean but leaves distances unchanged. Multiplication stretches or reflects those distances.</p>
+<p>Under $y_i=ax_i+b$,</p>
+<p>$$
+\bar y=a\bar x+b,
+\qquad
+s_y^2=a^2s_x^2,
+\qquad
+s_y=|a|s_x.
+$$</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Transformation</th>
+<th>Mean</th>
+<th>Variance</th>
+<th>SD</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Add 10</td>
+<td>Increases by 10</td>
+<td>Unchanged</td>
+<td>Unchanged</td>
+</tr>
+<tr>
+<td>Multiply by 10</td>
+<td>Multiplied by 10</td>
+<td>Multiplied by 100</td>
+<td>Multiplied by 10</td>
+</tr>
+<tr>
+<td>Multiply by $-2$</td>
+<td>Multiplied by $-2$</td>
+<td>Multiplied by 4</td>
+<td>Multiplied by 2</td>
+</tr>
+<tr>
+<td>Replace $x$ with $3x+10$</td>
+<td>$3\bar x+10$</td>
+<td>$9s^2$</td>
+<td>$3s$</td>
+</tr>
+</tbody>
+</table></div>
+<p>The absolute value matters: multiplying by $-2$ reverses the number line and doubles distances. Spread cannot become negative. Range and IQR have the same absolute scale factor $|a|$ under consistent, transformation-respecting definitions.</p>
+<details>
+<summary>Derive the transformation rules</summary>
+<p>Averaging $y_i=ax_i+b$ gives $\bar y=a\bar x+b$. Therefore</p>
+<p>$$
+y_i-\bar y=(ax_i+b)-(a\bar x+b)=a(x_i-\bar x).
+$$</p>
+<p>Squaring multiplies each contribution by $a^2$. The common translation $b$ disappears. The divisor is unchanged because the number of observations is unchanged, so $s_y^2=a^2s_x^2$. Taking square roots gives $s_y=|a|s_x$.</p>
+</details>
+<h2 id="what-can-you-do-with-the-answer">What can you do with the answer?</h2>
+<p>Use SD to describe spread in the original units, compare variability in comparable datasets, calculate standardized distances, and interpret approximately normal data with the empirical rule. SD alone does not reveal the full shape, prove normality, or establish a percentile.</p>
+<h2 id="check-your-understanding">Check your understanding</h2>
+<p>A dataset has mean 20 and SD 4. You replace each value by $-2x+10$. What are the new mean, SD, and variance?</p>
+<details>
+<summary>Show the answer</summary>
+<p>The mean is $-2(20)+10=-30$. SD is $|-2|(4)=8$. The original variance is $4^2=16$, so the new variance is $(-2)^2(16)=64$. The shift changes the center; the scale factor changes spread.</p>
+</details></article>
+<section class="lesson-end" aria-label="Study progress"><button class="complete-button" data-complete aria-pressed="false">Mark this slide as understood</button><p class="completion-note">Your reading progress stays in this browser. Revisit any idea whenever you need.</p><nav class="page-turn" aria-label="Previous and next slides"><a href="25.html"><span>← Previous slide</span>Population versus sample</a><a href="27.html"><span>Next slide →</span>Birth weights &amp; the bell curve</a></nav></section>
+<footer class="footer"><p>A personal teaching companion built from our questions, examples and explanations.</p><p>Original slides: Dobrin Marchev · STAT 5701. Slide images remain attributed to their author. This is an independent study resource.</p></footer></main>
+<aside class="page-toc" aria-label="On this slide"><p class="toc-label">On this slide</p><a class="toc-source" href="#source-slide">The original slide</a><a href="#square-the-units-then-return-to-them">Square the units, then return to them</a><a href="#zero-sd-means-every-observed-value-is-identical">Zero SD means every observed value is identical</a><a href="#an-extreme-observation-can-dominate">An extreme observation can dominate</a><a href="#shift-location-stretch-spread">Shift location; stretch spread</a><a href="#what-can-you-do-with-the-answer">What can you do with the answer?</a><a href="#check-your-understanding">Check your understanding</a><a href="#lesson">Back to the top ↑</a></aside></div></div>
+<dialog class="image-dialog" aria-label="Original slide 26, enlarged"><div class="dialog-tools"><span>Slide 26 / 31</span><button data-close-dialog>Close ×</button></div><img src="../assets/slides/26.webp" alt="Enlarged original slide 26: Interpreting standard deviation"><div class="dialog-tools"><a href="../assets/source/01-data-summary.pdf#page=26" target="_blank" rel="noopener">Read the source PDF ↗</a></div></dialog></body></html>

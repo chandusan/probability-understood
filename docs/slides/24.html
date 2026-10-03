@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Slide 24 of Data Summary: PCA, scaling &amp; model variance. Original slide, first-principles explanation, examples and worked practice."><title>24 · PCA, scaling &amp; model variance — Probability, understood</title><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/site.css"><link rel="stylesheet" href="../assets/vendor/katex/katex.min.css"><script defer src="../assets/vendor/katex/katex.min.js"></script><script defer src="../assets/vendor/katex/contrib/auto-render.min.js"></script><script defer src="../assets/site.js"></script></head>
+<body data-slide="24" data-slide-prefix=""><a class="skip" href="#lesson">Skip to the lesson</a>
+<aside class="sidebar" aria-label="Course navigation"><a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>Probability,<br>understood.</span></a><button class="nav-close" data-close-nav aria-label="Close slide navigation">×</button><p class="course-label">Chapter 01 / Your study companion</p><p class="course-title">Data Summary</p><label class="sr-only" for="slide-search">Find a slide</label><input class="nav-search" id="slide-search" type="search" placeholder="Find a slide…" autocomplete="off"><nav class="slide-nav" aria-label="All 31 slides"><div class="nav-group"><div class="nav-group-title">The starting point</div><a class="slide-link" data-slide="1" data-search="01 why one number is not enough a story inside the data" href="01.html"><span class="slide-num">01</span><span>A story inside the data</span></a><a class="slide-link" data-slide="2" data-search="02 two meanings of the center what does “centre” mean?" href="02.html"><span class="slide-num">02</span><span>What does “centre” mean?</span></a></div><div class="nav-group"><div class="nav-group-title">Finding the centre</div><a class="slide-link" data-slide="3" data-search="03 the mean preserves the total the mean: equal shares" href="03.html"><span class="slide-num">03</span><span>The mean: equal shares</span></a><a class="slide-link" data-slide="4" data-search="04 why squared errors choose the mean why squared error finds the mean" href="04.html"><span class="slide-num">04</span><span>Why squared error finds the mean</span></a><a class="slide-link" data-slide="5" data-search="05 the mean is the closest constant point the geometry of the mean" href="05.html"><span class="slide-num">05</span><span>The geometry of the mean</span></a><a class="slide-link" data-slide="6" data-search="06 the median finds the middle finding the median" href="06.html"><span class="slide-num">06</span><span>Finding the median</span></a><a class="slide-link" data-slide="7" data-search="07 why absolute errors choose the median why absolute error finds the median" href="07.html"><span class="slide-num">07</span><span>Why absolute error finds the median</span></a><a class="slide-link" data-slide="8" data-search="08 two distances, two shapes spheres, diamonds &amp; octahedra" href="08.html"><span class="slide-num">08</span><span>Spheres, diamonds &amp; octahedra</span></a><a class="slide-link" data-slide="9" data-search="09 one changing observation, two centers one observation changes" href="09.html"><span class="slide-num">09</span><span>One observation changes</span></a><a class="slide-link" data-slide="10" data-search="10 read the three-dimensional comparison reading the geometric picture" href="10.html"><span class="slide-num">10</span><span>Reading the geometric picture</span></a><a class="slide-link" data-slide="11" data-search="11 choose the center your question needs which centre should we use?" href="11.html"><span class="slide-num">11</span><span>Which centre should we use?</span></a><a class="slide-link" data-slide="12" data-search="12 follow the tail of the histogram skewness &amp; the long tail" href="12.html"><span class="slide-num">12</span><span>Skewness &amp; the long tail</span></a></div><div class="nav-group"><div class="nav-group-title">Understanding spread</div><a class="slide-link" data-slide="13" data-search="13 an 88 needs a comparison scale why an 88 needs context" href="13.html"><span class="slide-num">13</span><span>Why an 88 needs context</span></a><a class="slide-link" data-slide="14" data-search="14 choose the kind of spread you need what spread tells us" href="14.html"><span class="slide-num">14</span><span>What spread tells us</span></a><a class="slide-link" data-slide="15" data-search="15 range: observed endpoints and possible values range &amp; population support" href="15.html"><span class="slide-num">15</span><span>Range &amp; population support</span></a><a class="slide-link" data-slide="16" data-search="16 one faulty reading can squeeze the scale min–max scaling &amp; outliers" href="16.html"><span class="slide-num">16</span><span>Min–max scaling &amp; outliers</span></a><a class="slide-link" data-slide="17" data-search="17 a fractional rank is a position, not a value percentiles &amp; interpolation" href="17.html"><span class="slide-num">17</span><span>Percentiles &amp; interpolation</span></a><a class="slide-link" data-slide="18" data-search="18 quartiles divide probability, not distance quartiles &amp; probability" href="18.html"><span class="slide-num">18</span><span>Quartiles &amp; probability</span></a><a class="slide-link" data-slide="19" data-search="19 iqr protects the middle of the story the middle half: iqr" href="19.html"><span class="slide-num">19</span><span>The middle half: IQR</span></a><a class="slide-link" data-slide="20" data-search="20 diamonds: measure the middle and the endpoints diamonds: the first sample" href="20.html"><span class="slide-num">20</span><span>Diamonds: the first sample</span></a><a class="slide-link" data-slide="21" data-search="21 two expensive diamonds change the story add two expensive diamonds" href="21.html"><span class="slide-num">21</span><span>Add two expensive diamonds</span></a><a class="slide-link" data-slide="22" data-search="22 boxplots: endpoints are not always whiskers reading a boxplot" href="22.html"><span class="slide-num">22</span><span>Reading a boxplot</span></a></div><div class="nav-group"><div class="nav-group-title">Variance & its uses</div><a class="slide-link" data-slide="23" data-search="23 why sample variance divides by n − 1 variance, estimation &amp; n − 1" href="23.html"><span class="slide-num">23</span><span>Variance, estimation &amp; n − 1</span></a><a class="slide-link" data-slide="24" data-search="24 give features a common ruler, then find their main direction pca, scaling &amp; model variance" href="24.html" aria-current="page"><span class="slide-num">24</span><span>PCA, scaling &amp; model variance</span></a><a class="slide-link" data-slide="25" data-search="25 the population target and the sample in your hand population versus sample" href="25.html"><span class="slide-num">25</span><span>Population versus sample</span></a><a class="slide-link" data-slide="26" data-search="26 standard deviation is a ruler for spread interpreting standard deviation" href="26.html"><span class="slide-num">26</span><span>Interpreting standard deviation</span></a></div><div class="nav-group"><div class="nav-group-title">Normal models & practice</div><a class="slide-link" data-slide="27" data-search="27 read a bell-shaped distribution with a spread ruler birth weights &amp; the bell curve" href="27.html"><span class="slide-num">27</span><span>Birth weights &amp; the bell curve</span></a><a class="slide-link" data-slide="28" data-search="28 the 68–95–99.7 rule the 68–95–99.7 rule" href="28.html"><span class="slide-num">28</span><span>The 68–95–99.7 rule</span></a><a class="slide-link" data-slide="29" data-search="29 calculate spread from eight heart rates heart rates: every calculation" href="29.html"><span class="slide-num">29</span><span>Heart rates: every calculation</span></a><a class="slide-link" data-slide="30" data-search="30 equal average ratings, very different agreement which professor varies most?" href="30.html"><span class="slide-num">30</span><span>Which professor varies most?</span></a><a class="slide-link" data-slide="31" data-search="31 see what changed before calculating sd four ways to change the spread" href="31.html"><span class="slide-num">31</span><span>Four ways to change the spread</span></a></div><p class="no-results" hidden>No matching slides.</p></nav><div class="nav-footer"><span><strong data-completed-count>0</strong> of 31 slides understood</span><div class="progress-track" aria-hidden="true"><i data-course-progress></i></div><span>One idea at a time.</span><br><a data-resume hidden></a></div></aside>
+<button class="scrim" data-close-nav aria-label="Close navigation"></button><div class="site-body"><header class="topbar"><button class="menu-button" aria-expanded="false" aria-label="Open slide navigation">☰ Slides</button><div class="breadcrumb"><span class="crumb-course">Data Summary <span aria-hidden="true">/</span> </span><strong>Slide 24 of 31</strong></div><div class="top-tools"><a href="../assets/source/01-data-summary.pdf#page=24" target="_blank" rel="noopener">Original PDF ↗</a><button class="plain-button print-button" data-print>Print this slide</button></div></header><div class="reading-progress" aria-hidden="true"><i data-reading-progress></i></div>
+<div class="page-layout"><main class="lesson" id="lesson"><p class="eyebrow">Variance &amp; its uses · Slide 24</p><h1>Give features a common ruler, then find their main direction</h1><p class="lead">Scaling and PCA solve different problems. <strong>Scaling changes the ruler used for each feature. PCA changes the directions in which we describe the data.</strong> Variance connects them, but a large variance is not automatically useful predictive information.</p><div class="lesson-meta"><span>~7 min reading</span><span class="meta-sep">/</span><span>Source + intuition + practice</span><span class="meta-sep">/</span><span>2 interactive experiments</span></div>
+<figure class="slide-figure" id="source-slide"><button class="slide-image-button" data-zoom-slide aria-label="Enlarge original slide 24"><img class="slide-image" src="../assets/slides/24.webp" alt="Original slide 24: PCA, scaling &amp; model variance. The concepts and figures are explained below." width="2000" height="1125" fetchpriority="high"></button><figcaption class="slide-caption"><span>Original slide · STAT 5701 · Dobrin Marchev</span><button data-zoom-slide>Enlarge slide ↗</button></figcaption></figure>
+<div class="teaching-heading">Let’s understand it</div><article class="prose"><h2 id="scaling-compare-differences-in-standard-deviation-units">Scaling: compare differences in standard-deviation units</h2>
+<p>Suppose age has mean 30 years and SD 10 years, while annual income has mean 50,000 rupees and SD 10,000 rupees. A person aged 40 earning 60,000 rupees is equally far above the two means when measured using each feature's own spread:</p>
+<p>$$
+z_{\text{age}}=\frac{40-30}{10}=1,
+\qquad
+z_{\text{income}}=\frac{60000-50000}{10000}=1.
+$$</p>
+<p>Each value is <strong>one standard deviation above its mean</strong>. Standardization converts years and rupees to the same dimensionless language: “how many SDs from the center?”</p>
+<p>Without scaling, the raw differences are 10 and 10,000. In a Euclidean squared-distance calculation their contributions are $10^2=100$ and $10000^2=100{,}000{,}000$. Income dominates because of its numerical scale, not because we established that it matters more.</p>
+<p>For sample observations, the rule is</p>
+<p>$$
+z_i=\frac{x_i-\bar x}{s}.
+$$</p>
+<p>For the same sample used to calculate $\bar x$ and $s$, standardized values have sample mean 0 and sample SD 1, provided $n\ge2$ and $s&gt;0$. A constant feature has $s=0$, so this formula is undefined.</p>
+<section class="experiment" aria-label="Interactive: Measure age and income in standard deviations"><div class="experiment-label"><span>Explore the idea</span><a href="../assets/labs/standardize.html" target="_blank" rel="noopener">Open larger ↗</a></div><iframe src="../assets/labs/standardize.html" title="Measure age and income in standard deviations" loading="lazy"></iframe></section>
+
+<p>Standardization can help distance-based methods, gradient optimization, and scale-sensitive penalties. It is not mandatory for every algorithm, nor is min–max scaling the only alternative. The choice depends on what the features mean and how the method uses them.</p>
+<h2 id="pca-turn-a-two-coordinate-story-into-one-score">PCA: turn a two-coordinate story into one score</h2>
+<p>Consider four students with scores in two subjects:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Student</th>
+<th style="text-align: right;">Math</th>
+<th style="text-align: right;">Physics</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td style="text-align: right;">40</td>
+<td style="text-align: right;">40</td>
+</tr>
+<tr>
+<td>B</td>
+<td style="text-align: right;">55</td>
+<td style="text-align: right;">65</td>
+</tr>
+<tr>
+<td>C</td>
+<td style="text-align: right;">65</td>
+<td style="text-align: right;">55</td>
+</tr>
+<tr>
+<td>D</td>
+<td style="text-align: right;">80</td>
+<td style="text-align: right;">80</td>
+</tr>
+</tbody>
+</table></div>
+<p>Both subject means are 60. Centering therefore gives the points</p>
+<p>$$
+(-20,-20),\quad(-5,5),\quad(5,-5),\quad(20,20).
+$$</p>
+<p>The main pattern is that students who score higher in one subject generally score higher in the other. A line at 45° runs along that pattern. A perpendicular line at 135° describes the smaller differences between the two subjects.</p>
+<p><strong>Projection is a shadow.</strong> Drop each point perpendicularly onto a candidate line and keep its signed coordinate along that line. You now have one number per student instead of two. PCA chooses the first direction whose projected coordinates retain the most variance.</p>
+<section class="experiment" aria-label="Interactive: Rotate a PCA direction"><div class="experiment-label"><span>Explore the idea</span><a href="../assets/labs/pca.html" target="_blank" rel="noopener">Open larger ↗</a></div><iframe src="../assets/labs/pca.html" title="Rotate a PCA direction" loading="lazy"></iframe></section>
+
+<h2 id="measure-how-much-spread-each-direction-keeps">Measure how much spread each direction keeps</h2>
+<p>The total squared distance from the center is</p>
+<p>$$
+\underbrace{850}_{\text{Math}}+
+\underbrace{850}_{\text{Physics}}=1700.
+$$</p>
+<p>The two perpendicular unit directions are</p>
+<p>$$
+u_{45}=\frac{(1,1)}{\sqrt2},
+\qquad
+u_{135}=\frac{(-1,1)}{\sqrt2}.
+$$</p>
+<p>Dotting a centered point with each unit direction gives its projected score:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Student</th>
+<th>Centered point</th>
+<th style="text-align: right;">45° score</th>
+<th style="text-align: right;">Squared 45° score</th>
+<th style="text-align: right;">135° score</th>
+<th style="text-align: right;">Squared 135° score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>$(-20,-20)$</td>
+<td style="text-align: right;">$-20\sqrt2$</td>
+<td style="text-align: right;">800</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td>B</td>
+<td>$(-5,5)$</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">$5\sqrt2$</td>
+<td style="text-align: right;">50</td>
+</tr>
+<tr>
+<td>C</td>
+<td>$(5,-5)$</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">$-5\sqrt2$</td>
+<td style="text-align: right;">50</td>
+</tr>
+<tr>
+<td>D</td>
+<td>$(20,20)$</td>
+<td style="text-align: right;">$20\sqrt2$</td>
+<td style="text-align: right;">800</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td>—</td>
+<td style="text-align: right;">—</td>
+<td style="text-align: right;"><strong>1600</strong></td>
+<td style="text-align: right;">—</td>
+<td style="text-align: right;"><strong>100</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>Thus the first direction keeps</p>
+<p>$$
+\frac{1600}{1700}=\frac{16}{17}\approx94.1\%
+$$</p>
+<p>of the total squared spread. Its perpendicular direction keeps</p>
+<p>$$
+\frac{100}{1700}=\frac1{17}\approx5.9\%.
+$$</p>
+<p>These shares total 100%. The 45° direction preserves much more of this cloud's variation.</p>
+<details>
+<summary>Why dividing variances gives the same percentages</summary>
+<p>Each original subject has sample variance $850/(4-1)=850/3$. Their sum is $1700/3$. The first projected coordinate has sample variance $1600/3$; the second has $100/3$.</p>
+<p>The fraction explained by the first component is therefore</p>
+<p>$$
+\frac{\text{variance of first projected coordinate}}
+{\text{sum of original feature variances}}
+=\frac{1600/3}{850/3+850/3}
+=\frac{1600}{1700}.
+$$</p>
+<p>The common divisor cancels. If we describe these four points using population divisors, the numerator and denominator both divide by 4 instead, and the ratio stays the same.</p>
+<p>The denominator is the <strong>sum</strong> of original coordinate variances, not the variance of either subject alone. A projected coordinate can have more variance than either original coordinate because it combines their shared variation.</p>
+<p>For this symmetric example, the sample covariance matrix is</p>
+<p>$$
+\frac13
+\begin{pmatrix}
+850&amp;750\\
+750&amp;850
+\end{pmatrix}.
+$$</p>
+<p>Its eigenvectors are the 45° and 135° directions, with eigenvalues $1600/3$ and $100/3$. More generally, PCA obtains its principal directions as eigenvectors of the covariance matrix. Each eigenvalue is the variance along its direction.</p>
+</details>
+<h2 id="compression-preserves-a-pattern-and-loses-a-difference">Compression preserves a pattern and loses a difference</h2>
+<p>Keep only the 45° score. A and D retain their low-versus-high overall performance. But B and C both receive score 0, even though their strengths are reversed.</p>
+<p>Reconstructing from this one score puts both B and C at $(60,60)$. The difference between $(55,65)$ and $(65,55)$ has been discarded. Retaining 94.1% of variance therefore does <strong>not</strong> mean retaining every important fact about each student.</p>
+<p>PCA's objective is geometric: retain variance, or equivalently minimize squared reconstruction error for a fixed-dimensional linear projection. It does not ask which difference predicts a target or answers your practical question. A small subject imbalance could matter greatly for choosing a specialized course even though it accounts for only 5.9% of the variation here.</p>
+<h2 id="how-scaling-and-pca-fit-together">How scaling and PCA fit together</h2>
+<p>Scaling happens before PCA when a common SD ruler is appropriate. PCA then looks for high-variance directions in that chosen coordinate system. Running PCA on unscaled age and income could mostly follow income's dollar scale. Standardizing first can prevent that particular units effect, but it changes the question to variation measured in SD units.</p>
+<p>Neither choice is automatically correct. If raw units already encode meaningful comparable differences, preserve that meaning. If units differ arbitrarily, standardization may make the comparison more useful. PCA does not remove the need to choose a sensible measurement scale.</p>
+<h2 id="two-other-variance-applications">Two other variance applications</h2>
+<p><strong>Feature selection:</strong> a feature constant across the observed rows cannot distinguish those rows. A nearly constant feature, however, can still identify a rare important case. Low variance is a reason to inspect it, not automatic proof of irrelevance. High variance may just be noise; multiplying a column by 1,000 multiplies its variance by 1,000,000 without adding information.</p>
+<p><strong>Bias–variance tradeoff:</strong> model variance concerns how fitted predictions change when the training sample changes. It is different from variation within one feature:</p>
+<p>$$
+\operatorname{Var}(X)
+\quad\text{versus}\quad
+\operatorname{Var}_{D}[\widehat f_D(x)].
+$$</p>
+<p>A high-variance learning procedure can react strongly to accidental features of its training data, which can be a sign of overfitting. It is not a complete diagnosis on its own.</p>
+<p>The slide's applications—feature selection, PCA, model variance, and standardized values—are useful once these meanings are kept separate. “Large variance” does not universally mean “large information value,” and PCA does not guarantee that predictive signal survives compression.</p>
+<h2 id="check-your-understanding">Check your understanding</h2>
+<p>Why do age 40 and income 60,000 both standardize to 1 in the example? If PCA retains 94.1% of the students' variance, does it retain which subject B and C are stronger in?</p>
+<details>
+<summary>Show the answer</summary>
+<p>Each is one feature-specific SD above its mean: $10/10=1$ and $10000/10000=1$. The first PCA score loses B's and C's relative subject strengths: both project to 0 along 45°, so both reconstruct as $(60,60)$. A large explained-variance percentage does not guarantee that a particular useful distinction survives.</p>
+</details></article>
+<section class="lesson-end" aria-label="Study progress"><button class="complete-button" data-complete aria-pressed="false">Mark this slide as understood</button><p class="completion-note">Your reading progress stays in this browser. Revisit any idea whenever you need.</p><nav class="page-turn" aria-label="Previous and next slides"><a href="23.html"><span>← Previous slide</span>Variance, estimation &amp; n − 1</a><a href="25.html"><span>Next slide →</span>Population versus sample</a></nav></section>
+<footer class="footer"><p>A personal teaching companion built from our questions, examples and explanations.</p><p>Original slides: Dobrin Marchev · STAT 5701. Slide images remain attributed to their author. This is an independent study resource.</p></footer></main>
+<aside class="page-toc" aria-label="On this slide"><p class="toc-label">On this slide</p><a class="toc-source" href="#source-slide">The original slide</a><a href="#scaling-compare-differences-in-standard-deviation-units">Scaling: compare differences in standard-deviation units</a><a href="#pca-turn-a-two-coordinate-story-into-one-score">PCA: turn a two-coordinate story into one score</a><a href="#measure-how-much-spread-each-direction-keeps">Measure how much spread each direction keeps</a><a href="#compression-preserves-a-pattern-and-loses-a-difference">Compression preserves a pattern and loses a difference</a><a href="#how-scaling-and-pca-fit-together">How scaling and PCA fit together</a><a href="#two-other-variance-applications">Two other variance applications</a><a href="#check-your-understanding">Check your understanding</a><a href="#lesson">Back to the top ↑</a></aside></div></div>
+<dialog class="image-dialog" aria-label="Original slide 24, enlarged"><div class="dialog-tools"><span>Slide 24 / 31</span><button data-close-dialog>Close ×</button></div><img src="../assets/slides/24.webp" alt="Enlarged original slide 24: PCA, scaling &amp; model variance"><div class="dialog-tools"><a href="../assets/source/01-data-summary.pdf#page=24" target="_blank" rel="noopener">Read the source PDF ↗</a></div></dialog></body></html>

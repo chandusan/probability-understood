@@ -1,0 +1,47 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Measure age and income in standard deviations</title><link rel="icon" href="data:,"><link rel="stylesheet" href="../lab.css"><script src="../lab-frame.js"></script></head><body data-lab="standardize"><main class="lab-root"><div id="standardize-ruler">
+  <h3>Different units, the same standard-deviation ruler</h3>
+  <div class="viz-controls">
+    <label class="form-label" for="standard-age">Age: <output id="standard-age-value">40 years</output><input id="standard-age" class="form-range" type="range" min="20" max="60" step="1" value="40"></label>
+    <p class="text-small">Age reference: mean 30 years, standard deviation 10 years.</p>
+    <label class="form-label" for="standard-income">Income: <output id="standard-income-value">₹60,000</output><input id="standard-income" class="form-range" type="range" min="0" max="100000" step="1000" value="60000"></label>
+    <p class="text-small">Income reference: mean ₹50,000, standard deviation ₹10,000.</p>
+  </div>
+  <div class="standard-chart"></div>
+  <div id="standard-status" class="text-small" aria-live="polite" aria-atomic="true">Both values are one standard deviation above their reference mean: z = +1.</div>
+  <style>
+    #standardize-ruler{min-width:0}#standardize-ruler .form-label{display:block}#standardize-ruler .form-range{display:block;width:100%;margin-top:9px}#standardize-ruler .viz-controls p{margin-top:4px;margin-bottom:18px}#standardize-ruler output{font-variant-numeric:tabular-nums;font-weight:600}
+    #standardize-ruler .standard-chart{width:100%;min-width:0}#standardize-ruler svg{display:block;width:100%;height:auto}#standardize-ruler svg text{fill:var(--foreground);font-family:inherit;font-size:12px;font-variant-numeric:tabular-nums}#standardize-ruler #standard-status{margin-top:8px}
+  </style>
+  <script>
+    (()=>{
+      const root=document.getElementById('standardize-ruler'),holder=root.querySelector('.standard-chart'),age=root.querySelector('#standard-age'),income=root.querySelector('#standard-income');
+      const NS='http://www.w3.org/2000/svg',signed=n=>(n>0?'+':'')+Number(n.toFixed(2)).toString();
+      function el(tag,attrs={},text){const e=document.createElementNS(NS,tag);for(const[k,v]of Object.entries(attrs))e.setAttribute(k,v);if(text!==undefined)e.textContent=text;return e}
+      function draw(){
+        const a=Number(age.value),d=Number(income.value),za=(a-30)/10,zi=(d-50000)/10000;
+        root.querySelector('#standard-age-value').textContent=`${a} years`;root.querySelector('#standard-income-value').textContent='₹'+d.toLocaleString('en-US');
+        const width=Math.max(220,Math.round(holder.getBoundingClientRect().width)),height=238,left=24,right=24,x=v=>left+(v+5)/10*(width-left-right);
+        const svg=el('svg',{viewBox:`0 0 ${width} ${height}`,role:'img','aria-label':`Age z-score ${signed(za)}, income z-score ${signed(zi)}, on the same minus-five to plus-five standard-deviation scale.`});
+        svg.append(el('title',{},'Z = (value − mean) / standard deviation'));
+        for(let t=-5;t<=5;t++){
+          svg.append(el('line',{x1:x(t),x2:x(t),y1:38,y2:186,stroke:t===0?'var(--muted-foreground)':'var(--border)','stroke-dasharray':t===0?'4 4':'2 6','stroke-opacity':t===0?.8:.5}));
+          svg.append(el('text',{x:x(t),y:206,'text-anchor':'middle'},String(t)));
+        }
+        const rows=[{name:'Age',z:za,y:66,color:'var(--viz-series-1)',shape:'circle'},{name:'Income',z:zi,y:156,color:'var(--viz-series-2)',shape:'diamond'}];
+        for(const r of rows){
+          svg.append(el('text',{x:left,y:r.y-35,'font-weight':'600'},r.name));
+          svg.append(el('line',{x1:left,x2:width-right,y1:r.y,y2:r.y,stroke:'var(--border)','stroke-width':1.5}));
+          svg.append(el('line',{x1:x(0),x2:x(r.z),y1:r.y,y2:r.y,stroke:r.color,'stroke-width':3}));
+          if(r.shape==='circle')svg.append(el('circle',{cx:x(r.z),cy:r.y,r:6,fill:r.color}));
+          else svg.append(el('path',{d:`M ${x(r.z)} ${r.y-7} l 7 7 -7 7 -7 -7 Z`,fill:r.color}));
+          const anchor=r.z>3?'end':r.z< -3?'start':'middle';
+          svg.append(el('text',{x:x(r.z),y:r.y+24,'text-anchor':anchor,'font-weight':'600'},`z = ${signed(r.z)}`));
+        }
+        svg.append(el('text',{x:width/2,y:232,'text-anchor':'middle'},'Distance from mean (standard deviations)'));holder.replaceChildren(svg);
+        root.querySelector('#standard-status').textContent=`Age: (${a} − 30) ÷ 10 = ${signed(za)}. Income: (${d.toLocaleString('en-US')} − 50,000) ÷ 10,000 = ${signed(zi)}.${Math.abs(za-zi)<1e-10?' The standardized positions match.':''}`;
+      }
+      age.addEventListener('input',draw);income.addEventListener('input',draw);new ResizeObserver(draw).observe(holder);draw();
+    })();
+  </script>
+</div>
+</main></body></html>

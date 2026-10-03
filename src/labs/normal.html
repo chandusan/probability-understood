@@ -1,0 +1,43 @@
+<div id="normal-interval">
+  <h3>How much of a normal model lies within k standard deviations?</h3>
+  <p class="text-small">Model mean: 3.39 kg. Model standard deviation: 0.55 kg.</p>
+  <label class="form-label" for="normal-k">Distance on each side: <output id="normal-k-value">1 SD</output><input id="normal-k" class="form-range" type="range" min="0.5" max="3" step="0.5" value="1"></label>
+  <div class="normal-chart"></div>
+  <div class="stats normal-stats" aria-live="polite" aria-atomic="true">
+    <div class="stat"><span>Interval around the mean</span><strong id="normal-bounds">2.84–3.94 kg</strong></div>
+    <div class="stat"><span>Probability under the normal model</span><strong id="normal-mass">68.3%</strong></div>
+  </div>
+  <p class="text-small">Shaded area is model probability. These are not exact proportions measured in the newborn sample.</p>
+  <style>
+    #normal-interval{min-width:0}#normal-interval .form-label{display:block}#normal-interval .form-range{display:block;width:100%;margin-top:9px}#normal-interval output{font-variant-numeric:tabular-nums;font-weight:600}#normal-interval .normal-chart{width:100%;min-width:0;margin-top:12px}#normal-interval svg{display:block;width:100%;height:auto}#normal-interval svg text{fill:var(--foreground);font-family:inherit;font-size:12px;font-variant-numeric:tabular-nums}
+    #normal-interval .normal-stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}#normal-interval .stat{min-width:0}#normal-interval .stat span{display:block;font-size:12px;color:var(--muted-foreground)}#normal-interval .stat strong{display:block;font-size:22px;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}#normal-interval #normal-mass{color:var(--viz-series-1)}
+    @media(max-width:370px){#normal-interval .normal-stats{grid-template-columns:1fr}}
+  </style>
+  <script>
+    (()=>{
+      const root=document.getElementById('normal-interval'),holder=root.querySelector('.normal-chart'),input=root.querySelector('#normal-k'),mu=3.39,sigma=.55,NS='http://www.w3.org/2000/svg';
+      const fmt=n=>Number(n.toFixed(3)).toString();
+      function el(tag,attrs={},text){const e=document.createElementNS(NS,tag);for(const[k,v]of Object.entries(attrs))e.setAttribute(k,v);if(text!==undefined)e.textContent=text;return e}
+      function erf(v){const sign=v<0?-1:1,a=Math.abs(v),t=1/(1+.3275911*a);return sign*(1-(((((1.061405429*t-1.453152027)*t+1.421413741)*t-.284496736)*t+.254829592)*t)*Math.exp(-a*a))}
+      const density=v=>Math.exp(-.5*((v-mu)/sigma)**2)/(sigma*Math.sqrt(2*Math.PI));
+      function draw(){
+        const k=Number(input.value),low=mu-k*sigma,high=mu+k*sigma,mass=100*erf(k/Math.sqrt(2));
+        root.querySelector('#normal-k-value').textContent=`${fmt(k)} SD${k===1?'':'s'}`;root.querySelector('#normal-bounds').textContent=`${fmt(low)}–${fmt(high)} kg`;root.querySelector('#normal-mass').textContent=mass.toFixed(1)+'%';
+        const width=Math.max(220,Math.round(holder.getBoundingClientRect().width)),height=252,m={l:38,r:16,t:26,b:54},xmin=mu-3.6*sigma,xmax=mu+3.6*sigma;
+        const x=v=>m.l+(v-xmin)/(xmax-xmin)*(width-m.l-m.r),y=v=>height-m.b-v/(density(mu)*1.1)*(height-m.t-m.b),baseline=y(0);
+        const svg=el('svg',{viewBox:`0 0 ${width} ${height}`,role:'img','aria-label':`Normal model: ${mass.toFixed(1)} percent lies from ${fmt(low)} to ${fmt(high)} kilograms, within ${fmt(k)} standard deviations of 3.39 kilograms.`});
+        svg.append(el('title',{},'Area under the normal density within the chosen interval'));
+        for(const t of [0,.3,.6]){svg.append(el('line',{x1:m.l,x2:width-m.r,y1:y(t),y2:y(t),stroke:'var(--border)','stroke-opacity':.6}));svg.append(el('text',{x:m.l-7,y:y(t)+4,'text-anchor':'end'},t===0?'0':t.toFixed(1)))}
+        const shade=Array.from({length:101},(_,i)=>low+(high-low)*i/100),curve=Array.from({length:181},(_,i)=>xmin+(xmax-xmin)*i/180);
+        svg.append(el('path',{d:`M ${x(low)} ${baseline} `+shade.map(v=>`L ${x(v)} ${y(density(v))}`).join(' ')+` L ${x(high)} ${baseline} Z`,fill:'var(--viz-series-1)','fill-opacity':.23}));
+        svg.append(el('path',{d:curve.map((v,i)=>`${i?'L':'M'} ${x(v)} ${y(density(v))}`).join(' '),fill:'none',stroke:'var(--viz-series-1)','stroke-width':2.5}));
+        for(const endpoint of [low,high])svg.append(el('line',{x1:x(endpoint),x2:x(endpoint),y1:baseline,y2:y(density(endpoint)),stroke:'var(--viz-series-2)','stroke-width':1.5,'stroke-dasharray':'4 3'}));
+        svg.append(el('line',{x1:x(mu),x2:x(mu),y1:baseline,y2:y(density(mu)),stroke:'var(--muted-foreground)','stroke-dasharray':'3 4'}));
+        for(const t of [mu-3*sigma,mu,mu+3*sigma]){svg.append(el('line',{x1:x(t),x2:x(t),y1:baseline,y2:baseline+5,stroke:'var(--foreground)'}));svg.append(el('text',{x:x(t),y:baseline+21,'text-anchor':'middle'},fmt(t)))}
+        svg.append(el('text',{x:m.l,y:15},'Probability density (per kg)'));
+        svg.append(el('text',{x:(m.l+width-m.r)/2,y:height-6,'text-anchor':'middle'},'Birth weight (kg)'));holder.replaceChildren(svg);
+      }
+      input.addEventListener('input',draw);new ResizeObserver(draw).observe(holder);draw();
+    })();
+  </script>
+</div>
