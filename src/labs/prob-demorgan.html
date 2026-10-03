@@ -1,0 +1,48 @@
+<div id="prob-demorgan">
+  <h3>Build events, then negate their union or intersection</h3>
+  <p class="text-small">The sample space is {1, 2, 3, 4, 5, 6, 7, 8}. Tick A, B, or C to put an outcome in that event. Every card stays in the sample space, even if no boxes are ticked.</p>
+  <label class="form-label" for="demorgan-law">Which law? <select class="form-select" id="demorgan-law"><option value="union">Complement of a union</option><option value="intersection">Complement of an intersection</option></select></label>
+  <div class="demorgan-outcomes" aria-label="Choose event memberships"></div>
+  <div class="demorgan-comparison" aria-live="polite" aria-atomic="true">
+    <div class="card"><strong id="demorgan-left-label"></strong><div id="demorgan-left"></div></div>
+    <div class="card"><strong id="demorgan-right-label"></strong><div id="demorgan-right"></div></div>
+    <p id="demorgan-verdict"></p>
+  </div>
+  <p class="text-small">A thick border and “included” label mark the outcomes in both resulting sets. The two sides always agree; they are different descriptions of the same membership rule.</p>
+  <button class="btn" type="button" id="demorgan-reset">Reset example</button>
+  <style>
+    #prob-demorgan{min-width:0}#prob-demorgan .form-select{display:block;width:100%;margin-top:5px;font-size:12px}#prob-demorgan .demorgan-outcomes{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:10px;margin:18px 0}#prob-demorgan .demorgan-outcome{min-width:0;border:1px solid var(--border);border-radius:8px;padding:10px 8px;background:var(--background)}#prob-demorgan .demorgan-outcome[data-included=true]{border-color:var(--primary);box-shadow:inset 0 0 0 2px var(--primary);background:var(--card)}#prob-demorgan .demorgan-outcome>strong{font-size:13px;display:block}#prob-demorgan .demorgan-memberships{display:flex;flex-wrap:wrap;gap:8px;margin-top:9px}#prob-demorgan .demorgan-memberships label{display:flex;align-items:center;gap:3px;font-size:12px;cursor:pointer}#prob-demorgan input[type=checkbox]{width:17px;height:17px;margin:0;accent-color:var(--primary)}#prob-demorgan .demorgan-membership-status{display:block;font-size:11px;margin-top:8px}#prob-demorgan .demorgan-comparison{display:grid;gap:10px}#prob-demorgan .demorgan-comparison strong{display:block;font-size:12px}#prob-demorgan .demorgan-comparison .card>div{font-size:15px;margin-top:5px;overflow-wrap:anywhere}#prob-demorgan #demorgan-verdict{margin:0;font-size:13px;font-weight:600}
+  </style>
+  <script>
+    (()=>{
+      const root=document.getElementById('prob-demorgan'),law=root.querySelector('#demorgan-law'),grid=root.querySelector('.demorgan-outcomes');
+      const defaults=[1,5,3,7,2,6,0,4];let memberships=defaults.slice();
+      const stored=window.openai?.widgetState;if(stored&&Array.isArray(stored.memberships)&&stored.memberships.length===8&&stored.memberships.every(x=>Number.isInteger(x)&&x>=0&&x<=7)){memberships=stored.memberships.slice();if(['union','intersection'].includes(stored.law))law.value=stored.law;}
+      for(let i=0;i<8;i++){
+        const card=document.createElement('div');card.className='demorgan-outcome';card.dataset.outcome=i+1;
+        const name=document.createElement('strong');name.textContent=`Outcome ${i+1}`;card.append(name);
+        const row=document.createElement('div');row.className='demorgan-memberships';
+        ['A','B','C'].forEach((event,j)=>{const label=document.createElement('label'),check=document.createElement('input');check.type='checkbox';check.checked=Boolean(memberships[i]&(1<<j));check.setAttribute('aria-label',`Outcome ${i+1} belongs to event ${event}`);check.dataset.event=j;check.addEventListener('change',()=>{memberships[i]=check.checked?memberships[i]|(1<<j):memberships[i]&~(1<<j);draw();save();});label.append(check,document.createTextNode(event));row.append(label);});
+        card.append(row);const status=document.createElement('span');status.className='demorgan-membership-status';card.append(status);grid.append(card);
+      }
+      const fmt=a=>a.length?'{'+a.join(', ')+'}':'∅';
+      function save(){window.openai?.setWidgetState({memberships,law:law.value});}
+      function draw(){
+        const union=law.value==='union',left=[],right=[];
+        memberships.forEach((mask,i)=>{
+          const inEvents=[0,1,2].map(j=>Boolean(mask&(1<<j)));
+          const l=union?!inEvents.some(Boolean):!inEvents.every(Boolean);
+          const complements=inEvents.map(v=>!v),r=union?complements.every(Boolean):complements.some(Boolean);
+          if(l)left.push(i+1);if(r)right.push(i+1);
+          const card=grid.children[i];card.dataset.included=l?'true':'false';card.querySelector('.demorgan-membership-status').textContent=l?'✓ Included in result':'Outside result';
+          card.querySelectorAll('input').forEach((c,j)=>c.checked=inEvents[j]);
+        });
+        root.querySelector('#demorgan-left-label').textContent=union?'Left: (A ∪ B ∪ C)ᶜ':'Left: (A ∩ B ∩ C)ᶜ';
+        root.querySelector('#demorgan-right-label').textContent=union?'Right: Aᶜ ∩ Bᶜ ∩ Cᶜ':'Right: Aᶜ ∪ Bᶜ ∪ Cᶜ';
+        root.querySelector('#demorgan-left').textContent=fmt(left);root.querySelector('#demorgan-right').textContent=fmt(right);
+        root.querySelector('#demorgan-verdict').textContent=`Both sides agree on all 8 outcomes. ${union?'Keep an outcome only when it is in none of A, B, C.':'Keep an outcome when at least one of A, B, C is missing it.'}`;
+      }
+      law.addEventListener('change',()=>{draw();save();});root.querySelector('#demorgan-reset').addEventListener('click',()=>{memberships=defaults.slice();law.value='union';draw();save();});draw();
+    })();
+  </script>
+</div>

@@ -1,0 +1,72 @@
+<section id="pu-lab">
+  <h3>Probability is height × width</h3>
+  <p class="text-small text-muted">Choose an interval of needle angles. Its shaded area is its probability. Switch units to see why density height alone is not a probability.</p>
+  <div class="pu-top">
+    <label class="form-label" for="pu-unit">Angle units
+      <select class="form-select" id="pu-unit"><option value="degrees">Degrees</option><option value="radians">Radians</option></select>
+    </label>
+    <button class="btn" id="pu-reset" type="button">Reset to 25°–35°</button>
+  </div>
+  <div class="viz-controls">
+    <label class="form-label" for="pu-center">Interval center <output id="pu-center-value"></output>
+      <input class="form-range" id="pu-center" type="range" min="0" max="90" step="any" value="30">
+    </label>
+    <label class="form-label" for="pu-width">Interval width <output id="pu-width-value"></output>
+      <input class="form-range" id="pu-width" type="range" min="0" max="90" step="any" value="10">
+    </label>
+  </div>
+  <div class="pu-presets" aria-label="Choose an interval width">
+    <button class="btn" data-width="10" type="button">10° wide</button>
+    <button class="btn" data-width="1" type="button">1° wide</button>
+    <button class="btn" data-width="0.01" type="button">0.01° wide</button>
+    <button class="btn" data-width="0" type="button">One exact angle</button>
+    <button class="btn" data-width="90" type="button">Whole range</button>
+  </div>
+  <svg id="pu-chart" role="img" aria-label="Flat density with the selected interval shaded"></svg>
+  <div class="pu-stats" aria-live="polite">
+    <div class="card"><span>Density height</span><strong id="pu-density"></strong><small id="pu-density-unit"></small></div>
+    <div class="card"><span>Interval width</span><strong id="pu-interval-width"></strong><small id="pu-width-unit"></small></div>
+    <div class="card"><span>Probability</span><strong id="pu-probability"></strong><small id="pu-product"></small></div>
+  </div>
+  <p class="text-small" id="pu-explain" aria-live="polite"></p>
+  <p class="text-small text-muted">Model: the folded angle is uniform from 0° to 90° (0 to π/2 radians). The density axis uses the selected angle unit; the total area is always 1.</p>
+</section>
+<style>
+#pu-lab .pu-top{display:flex;gap:12px;align-items:end;flex-wrap:wrap;margin:18px 0}#pu-lab .pu-top label{display:grid;gap:5px}#pu-lab .pu-presets{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:12px}#pu-lab .pu-presets .btn{font-size:11px;padding:7px 9px}#pu-lab .pu-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin-top:10px}#pu-lab .pu-stats span,#pu-lab .pu-stats small{display:block;font-size:11px;line-height:1.5}#pu-lab .pu-stats strong{display:block;font-size:19px;font-weight:600;margin:5px 0;font-variant-numeric:tabular-nums}#pu-lab .pu-stats .card{padding:11px}#pu-lab svg{display:block;width:100%;height:240px}#pu-lab output{font-weight:600;margin-left:5px}@media(max-width:470px){#pu-lab .pu-stats{grid-template-columns:1fr}#pu-lab .pu-stats .card{display:grid;grid-template-columns:1fr 1fr;align-items:center;column-gap:8px}#pu-lab .pu-stats small{grid-column:1/-1}#pu-lab .pu-stats strong{text-align:right;font-size:18px}#pu-lab .pu-top{align-items:start}}
+</style>
+<script>
+(()=>{
+ const root=document.getElementById('pu-lab'),$=s=>root.querySelector(s);
+ const state={center:30,width:10,unit:'degrees'};
+ const saved=window.openai?.widgetState;
+ if(saved&&['degrees','radians'].includes(saved.unit)&&Number.isFinite(saved.center)&&Number.isFinite(saved.width))Object.assign(state,saved);
+ const clamp=()=>{state.width=Math.max(0,Math.min(90,state.width));state.center=Math.max(state.width/2,Math.min(90-state.width/2,state.center));};
+ const factor=()=>state.unit==='degrees'?1:Math.PI/180;
+ const num=(v,d=4)=>Number(v.toFixed(d)).toString();
+ const save=()=>window.openai?.setWidgetState({...state});
+ function draw(){
+  clamp();const radians=state.unit==='radians',f=factor(),limit=90*f,density=1/limit,lo=(state.center-state.width/2)*f,hi=(state.center+state.width/2)*f,span=state.width*f,p=state.width/90,unit=radians?'rad':'°';
+  $('#pu-unit').value=state.unit;
+  $('#pu-center').min=String(state.width/2*f);$('#pu-center').max=String((90-state.width/2)*f);$('#pu-center').value=String(state.center*f);$('#pu-center').disabled=state.width===90;
+  $('#pu-width').max=String(limit);$('#pu-width').value=String(span);
+  $('#pu-center-value').textContent=`${num(state.center*f)} ${unit}`;$('#pu-width-value').textContent=`${num(span,6)} ${unit}`;
+  $('#pu-center').setAttribute('aria-valuetext',`${num(state.center*f)} ${radians?'radians':'degrees'}`);
+  $('#pu-width').setAttribute('aria-valuetext',`${num(span,6)} ${radians?'radians':'degrees'}`);
+  $('#pu-density').textContent=radians?'2/π ≈ 0.63662':'1/90 ≈ 0.01111';$('#pu-density-unit').textContent=radians?'per radian':'per degree';
+  $('#pu-interval-width').textContent=num(span,6);$('#pu-width-unit').textContent=radians?'radians':'degrees';
+  $('#pu-probability').textContent=`${num(p*100,6)}%`;$('#pu-product').textContent=`${num(density,6)} × ${num(span,6)} ≈ ${num(p,8)}`;
+  $('#pu-explain').textContent=state.width===0?`The exact angle ${num(state.center*f)} ${unit} is a possible outcome. Its interval width is zero, so its probability is zero. The density stays positive.`:state.width===90?'Every allowed angle is included. Density × the whole width = 1: probability 100%.':`From ${num(lo,6)} to ${num(hi,6)} ${unit}, the probability is ${num(p*100,6)}%. A different interval of the same width has the same probability. Changing units preserves this area.`;
+  const svg=$('#pu-chart'),w=Math.max(210,svg.getBoundingClientRect().width),h=240,left=52,right=19,top=36,bottom=44,plotW=w-left-right,base=h-bottom,level=top+45,x=t=>left+t/limit*plotW;
+  const ticks=radians?[[0,'0'],[limit/2,'π/4'],[limit,'π/2']]:[[0,'0°'],[30,'30°'],[60,'60°'],[90,'90°']];
+  svg.setAttribute('viewBox',`0 0 ${w} ${h}`);
+  svg.setAttribute('aria-label',`Uniform density ${radians?'2 over pi per radian':'1 over 90 per degree'}. Selected interval ${num(lo,6)} to ${num(hi,6)} ${radians?'radians':'degrees'}, probability ${num(p*100,6)} percent.`);
+  svg.innerHTML=`<text x="${left}" y="17" font-size="12" fill="var(--muted-foreground)">Density / ${radians?'radian':'degree'}</text><rect x="${left}" y="${level}" width="${plotW}" height="${base-level}" fill="var(--muted)"/><rect x="${x(lo)}" y="${level}" width="${Math.max(0,x(hi)-x(lo))}" height="${base-level}" fill="var(--viz-series-1)" opacity=".4"/><path d="M${left} ${top}V${base}H${w-right}" fill="none" stroke="var(--muted-foreground)"/><path d="M${left} ${level}H${w-right}" stroke="var(--viz-series-1)" stroke-width="2.5"/><text x="${left-7}" y="${level+4}" text-anchor="end" font-size="12" fill="var(--foreground)">${radians?'2/π':'1/90'}</text><text x="${left-8}" y="${base+4}" text-anchor="end" font-size="12" fill="var(--foreground)">0</text>${ticks.map(([v,label])=>`<path d="M${x(v)} ${base}v5" stroke="var(--muted-foreground)"/><text x="${x(v)}" y="${base+20}" text-anchor="middle" font-size="12" fill="var(--foreground)">${label}</text>`).join('')}<text x="${left+plotW/2}" y="${h-3}" text-anchor="middle" font-size="12" fill="var(--muted-foreground)">Folded angle θ</text>${state.width===0?`<line x1="${x(lo)}" x2="${x(lo)}" y1="${level}" y2="${base}" stroke="var(--viz-series-2)" stroke-width="2" stroke-dasharray="4 3"/><text x="${left+plotW/2}" y="${level-13}" text-anchor="middle" font-size="12" fill="var(--foreground)">Zero width → zero area</text>`:`<text x="${left+plotW/2}" y="${level-13}" text-anchor="middle" font-size="12" fill="var(--foreground)">Shaded area = ${num(p*100,4)}%</text>`}`;
+ }
+ $('#pu-unit').addEventListener('change',e=>{state.unit=e.target.value;draw();save();});
+ $('#pu-center').addEventListener('input',e=>{state.center=Number(e.target.value)/factor();draw();save();});
+ $('#pu-width').addEventListener('input',e=>{state.width=Number(e.target.value)/factor();draw();save();});
+ root.querySelectorAll('[data-width]').forEach(b=>b.addEventListener('click',()=>{state.width=Number(b.dataset.width);draw();save();}));
+ $('#pu-reset').addEventListener('click',()=>{Object.assign(state,{center:30,width:10,unit:'degrees'});draw();save();});
+ new ResizeObserver(draw).observe($('#pu-chart'));draw();
+})();
+</script>

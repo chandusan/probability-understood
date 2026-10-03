@@ -1,0 +1,58 @@
+<section id="prob-rectangles-lab" aria-label="Rectangle event membership experiment">
+  <style>
+    #prob-rectangles-lab{min-width:0;color:var(--foreground,#263d35)}#prob-rectangles-lab h3{margin:0 0 .75rem;font-size:1rem}#prob-rectangles-lab .viz-controls{display:grid;gap:.4rem}#prob-rectangles-lab .form-label{display:flex;justify-content:space-between;gap:8px;font-size:.85rem;flex-wrap:wrap}#prob-rectangles-lab .form-range{width:100%;margin:2px 0 8px}#prob-rectangles-lab output{font-variant-numeric:tabular-nums}
+    #prob-rectangles-lab select{box-sizing:border-box;width:100%;min-width:0;padding:.55rem;font:inherit;font-size:.85rem;color:inherit;background:var(--background,#faf8f2);border:1px solid var(--border,#c7d2cc);border-radius:.4rem}#prob-rectangles-lab .plot{width:100%;min-width:0;margin-top:.75rem}#prob-rectangles-lab svg{display:block;width:100%;height:auto;touch-action:manipulation}#prob-rectangles-lab svg text{fill:var(--foreground,#263d35);font-family:inherit}
+    #prob-rectangles-lab .text-small{font-size:.78rem;line-height:1.5;margin:.5rem 0}#prob-rectangles-lab .key{display:grid;gap:.25rem;margin:.6rem 0;font-size:.78rem}#prob-rectangles-lab .key span{display:block}#prob-rectangles-lab .key b{display:inline-block;min-width:17px}#prob-rectangles-lab .key .a{color:var(--viz-series-1,#177e68)}#prob-rectangles-lab .key .b{color:var(--viz-series-2,#b56532)}
+    #prob-rectangles-lab .stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.45rem}#prob-rectangles-lab .stat{border:1px solid var(--border,#c7d2cc);border-radius:.4rem;padding:.5rem;min-width:0}#prob-rectangles-lab .stat span{display:block;font-size:.72rem;color:var(--muted-foreground,#64746d)}#prob-rectangles-lab .stat strong{display:block;font-size:1.2rem;font-variant-numeric:tabular-nums}#prob-rectangles-lab .membership{padding:.6rem 0;line-height:1.6;font-size:.82rem;min-height:3.2em;overflow-wrap:anywhere}#prob-rectangles-lab .model-control{display:flex;gap:8px;align-items:flex-start;margin-top:.6rem;font-size:.8rem;line-height:1.45}#prob-rectangles-lab .model-control input{margin-top:3px;flex:0 0 auto;accent-color:var(--viz-series-1,#177e68)}#prob-rectangles-lab [data-model]{overflow-wrap:anywhere}
+  </style>
+  <h3>Does the point belong?</h3>
+  <div class="key"><span><b class="a">A</b> 0 &lt; x &lt; 4, 0 &lt; y &lt; 3</span><span><b class="b">B</b> 2 &lt; x &lt; 4, 2 &lt; y &lt; 4</span></div>
+  <div class="viz-controls">
+    <label class="form-label" for="prob-rect-x">Point's x coordinate <output id="prob-rect-x-value">3</output></label>
+    <input class="form-range" id="prob-rect-x" type="range" min="0" max="4" step="0.1" value="3">
+    <label class="form-label" for="prob-rect-y">Point's y coordinate <output id="prob-rect-y-value">2.5</output></label>
+    <input class="form-range" id="prob-rect-y" type="range" min="0" max="4" step="0.1" value="2.5">
+    <label class="form-label" for="prob-rect-mode">Highlight</label>
+    <select class="form-select" id="prob-rect-mode"><option value="union">Union A ∪ B</option><option value="intersection">Intersection A ∩ B</option></select>
+  </div>
+  <div class="plot"></div>
+  <p class="text-small">Use the sliders or click inside the square. Dashed rectangle edges are excluded by the strict inequalities.</p>
+  <div class="membership" data-membership aria-live="polite" aria-atomic="true"></div>
+  <div class="stats"><div class="stat"><span>Union area</span><strong>14</strong></div><div class="stat"><span>Intersection area</span><strong>2</strong></div></div>
+  <p class="text-small">Area(A) = 12; area(B) = 4. Union area = 12 + 4 − 2.</p>
+  <label class="model-control"><input id="prob-rect-uniform" type="checkbox"><span>Assume a uniform point in S = (0, 4) × (0, 4)</span></label>
+  <p class="text-small" data-model aria-live="polite">Areas alone do not specify probabilities. Choose a probability model to go further.</p>
+  <script>
+  (()=>{
+    const root=document.getElementById('prob-rectangles-lab'),plot=root.querySelector('.plot'),xi=root.querySelector('#prob-rect-x'),yi=root.querySelector('#prob-rect-y'),mode=root.querySelector('#prob-rect-mode'),uniform=root.querySelector('#prob-rect-uniform');
+    const NS='http://www.w3.org/2000/svg',teal='var(--viz-series-1,#177e68)',copper='var(--viz-series-2,#b56532)',border='var(--border,#c7d2cc)',fmt=n=>Number(n.toFixed(1)).toString();let geometry;
+    function node(tag,attrs={},text){const e=document.createElementNS(NS,tag);for(const[k,v]of Object.entries(attrs))e.setAttribute(k,v);if(text!==undefined)e.textContent=text;return e}
+    function render(){
+      const px=Number(xi.value),py=Number(yi.value),inA=px>0&&px<4&&py>0&&py<3,inB=px>2&&px<4&&py>2&&py<4,inS=px>0&&px<4&&py>0&&py<4,isUnion=mode.value==='union',selected=isUnion?(inA||inB):(inA&&inB);
+      root.querySelector('#prob-rect-x-value').textContent=fmt(px);root.querySelector('#prob-rect-y-value').textContent=fmt(py);
+      root.querySelector('[data-membership]').textContent=`Point (${fmt(px)}, ${fmt(py)}): A ${inA?'yes':'no'}; B ${inB?'yes':'no'}. ${isUnion?'Union':'Intersection'}: ${selected?'included':'excluded'}.${inS?'':' This boundary point is also outside the open sample space S.'}`;
+      root.querySelector('[data-model]').textContent=uniform.checked?'Under this uniform model, area(S) = 16. P(A ∪ B) = 14/16 = 87.5%; P(A ∩ B) = 2/16 = 12.5%.':'Areas alone do not specify probabilities. Choose a probability model to go further.';
+      const width=Math.max(240,Math.round(plot.getBoundingClientRect().width)||274),left=34,top=18,right=14,side=width-left-right,height=top+side+38;
+      const x=v=>left+v*side/4,y=v=>top+side-v*side/4;geometry={width,height,left,top,side};
+      const svg=node('svg',{viewBox:`0 0 ${width} ${height}`,role:'img','aria-label':`${isUnion?'Union, area 14':'Intersection, area 2'}, of open rectangles A and B. Point (${fmt(px)}, ${fmt(py)}) ${selected?'belongs':'does not belong'} to the highlighted event.`});svg.append(node('title',{},'Strict coordinate tests define rectangle event membership'));
+      svg.append(node('rect',{x:left,y:top,width:side,height:side,fill:'var(--background,#faf8f2)',stroke:border}));
+      for(let t=0;t<=4;t++){
+        if(t>0&&t<4){svg.append(node('line',{x1:x(t),x2:x(t),y1:top,y2:top+side,stroke:border,'stroke-opacity':.55}));svg.append(node('line',{x1:left,x2:left+side,y1:y(t),y2:y(t),stroke:border,'stroke-opacity':.55}))}
+        svg.append(node('text',{x:x(t),y:top+side+18,'text-anchor':'middle','font-size':11},String(t)));svg.append(node('text',{x:left-9,y:y(t)+4,'text-anchor':'end','font-size':11},String(t)));
+      }
+      if(isUnion){const points=[[0,0],[4,0],[4,4],[2,4],[2,3],[0,3]];svg.append(node('polygon',{points:points.map(p=>`${x(p[0])},${y(p[1])}`).join(' '),fill:teal,'fill-opacity':.18}))}
+      else svg.append(node('rect',{x:x(2),y:y(3),width:side/2,height:side/4,fill:teal,'fill-opacity':.28}));
+      svg.append(node('rect',{x:x(0),y:y(3),width:side,height:side*.75,fill:'none',stroke:teal,'stroke-width':2,'stroke-dasharray':'6 3'}));
+      svg.append(node('rect',{x:x(2),y:y(4),width:side/2,height:side/2,fill:'none',stroke:copper,'stroke-width':2,'stroke-dasharray':'3 3'}));
+      svg.append(node('circle',{cx:x(px),cy:y(py),r:5.5,fill:'var(--foreground,#263d35)',stroke:'var(--background,#faf8f2)','stroke-width':2}));
+      svg.append(node('text',{x:left+side/2,y:height-2,'text-anchor':'middle','font-size':12},'x'));svg.append(node('text',{x:10,y:12,'font-size':12},'y'));plot.replaceChildren(svg);
+    }
+    plot.addEventListener('pointerdown',event=>{
+      const svg=plot.querySelector('svg');if(!svg||!geometry)return;const box=svg.getBoundingClientRect(),gx=(event.clientX-box.left)*geometry.width/box.width,gy=(event.clientY-box.top)*geometry.height/box.height;
+      if(gx<geometry.left||gx>geometry.left+geometry.side||gy<geometry.top||gy>geometry.top+geometry.side)return;
+      xi.value=fmt(4*(gx-geometry.left)/geometry.side);yi.value=fmt(4*(1-(gy-geometry.top)/geometry.side));render();
+    });
+    xi.addEventListener('input',render);yi.addEventListener('input',render);mode.addEventListener('change',render);uniform.addEventListener('change',render);if(typeof ResizeObserver!=='undefined')new ResizeObserver(render).observe(plot);else window.addEventListener('resize',render);render();
+  })();
+  </script>
+</section>

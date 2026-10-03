@@ -1,5 +1,6 @@
 [
   {
+    "chapter": "data-summary",
     "slide": 1,
     "title": "A story inside the data",
     "file": "slides/01.html",
@@ -8,6 +9,7 @@
     "interactives": []
   },
   {
+    "chapter": "data-summary",
     "slide": 2,
     "title": "What does “centre” mean?",
     "file": "slides/02.html",
@@ -16,6 +18,7 @@
     "interactives": []
   },
   {
+    "chapter": "data-summary",
     "slide": 3,
     "title": "The mean: equal shares",
     "file": "slides/03.html",
@@ -24,6 +27,7 @@
     "interactives": []
   },
   {
+    "chapter": "data-summary",
     "slide": 4,
     "title": "Why squared error finds the mean",
     "file": "slides/04.html",
@@ -32,6 +36,7 @@
     "interactives": []
   },
   {
+    "chapter": "data-summary",
     "slide": 5,
     "title": "The geometry of the mean",
     "file": "slides/05.html",
@@ -42,6 +47,7 @@
     ]
   },
   {
+    "chapter": "data-summary",
     "slide": 6,
     "title": "Finding the median",
     "file": "slides/06.html",
@@ -50,6 +56,7 @@
     "interactives": []
   },
   {
+    "chapter": "data-summary",
     "slide": 7,
     "title": "Why absolute error finds the median",
     "file": "slides/07.html",
@@ -60,6 +67,7 @@
     ]
   },
   {
+    "chapter": "data-summary",
     "slide": 8,
     "title": "Spheres, diamonds & octahedra",
     "file": "slides/08.html",
@@ -71,6 +79,7 @@
     ]
   },
   {
+    "chapter": "data-summary",
     "slide": 9,
     "title": "One observation changes",
     "file": "slides/09.html",
@@ -81,6 +90,7 @@
     ]
   },
   {
+    "chapter": "data-summary",
     "slide": 10,
     "title": "Reading the geometric picture",
     "file": "slides/10.html",
@@ -89,6 +99,7 @@
     "interactives": []
   },
   {
+    "chapter": "data-summary",
     "slide": 11,
     "title": "Which centre should we use?",
     "file": "slides/11.html",
@@ -97,6 +108,7 @@
     "interactives": []
   },
   {
+    "chapter": "data-summary",
     "slide": 12,
     "title": "Skewness & the long tail",
     "file": "slides/12.html",
@@ -105,6 +117,7 @@
     "interactives": []
   },
   {
+    "chapter": "data-summary",
     "slide": 13,
     "title": "Why an 88 needs context",
     "file": "slides/13.html",
@@ -113,6 +126,7 @@
     "interactives": []
   },
   {
+    "chapter": "data-summary",
     "slide": 14,
     "title": "What spread tells us",
     "file": "slides/14.html",
@@ -121,6 +135,7 @@
     "interactives": []
   },
   {
+    "chapter": "data-summary",
     "slide": 15,
     "title": "Range & population support",
     "file": "slides/15.html",
@@ -129,6 +144,7 @@
     "interactives": []
   },
   {
+    "chapter": "data-summary",
     "slide": 16,
     "title": "Min–max scaling & outliers",
     "file": "slides/16.html",
@@ -139,6 +155,7 @@
     ]
   },
   {
+    "chapter": "data-summary",
     "slide": 17,
     "title": "Percentiles & interpolation",
     "file": "slides/17.html",
@@ -149,6 +166,7 @@
     ]
   },
   {
+    "chapter": "data-summary",
     "slide": 18,
     "title": "Quartiles & probability",
     "file": "slides/18.html",
@@ -157,6 +175,7 @@
     "interactives": []
   },
   {
+    "chapter": "data-summary",
     "slide": 19,
     "title": "The middle half: IQR",
     "file": "slides/19.html",
@@ -165,6 +184,7 @@
     "interactives": []
   },
   {
+    "chapter": "data-summary",
     "slide": 20,
     "title": "Diamonds: the first sample",
     "file": "slides/20.html",
@@ -173,6 +193,7 @@
     "interactives": []
   },
   {
+    "chapter": "data-summary",
     "slide": 21,
     "title": "Add two expensive diamonds",
     "file": "slides/21.html",
@@ -181,6 +202,7 @@
     "interactives": []
   },
   {
+    "chapter": "data-summary",
     "slide": 22,
     "title": "Reading a boxplot",
     "file": "slides/22.html",
@@ -191,6 +213,7 @@
     ]
   },
   {
+    "chapter": "data-summary",
     "slide": 23,
     "title": "Variance, estimation & n − 1",
     "file": "slides/23.html",
@@ -201,6 +224,7 @@
     ]
   },
   {
+    "chapter": "data-summary",
     "slide": 24,
     "title": "PCA, scaling & model variance",
     "file": "slides/24.html",
@@ -212,6 +236,7 @@
     ]
   },
   {
+    "chapter": "data-summary",
     "slide": 25,
     "title": "Population versus sample",
     "file": "slides/25.html",
@@ -220,6 +245,7 @@
     "interactives": []
   },
   {
+    "chapter": "data-summary",
     "slide": 26,
     "title": "Interpreting standard deviation",
     "file": "slides/26.html",
@@ -228,6 +254,7 @@
     "interactives": []
   },
   {
+    "chapter": "data-summary",
     "slide": 27,
     "title": "Birth weights & the bell curve",
     "file": "slides/27.html",
@@ -236,6 +263,7 @@
     "interactives": []
   },
   {
+    "chapter": "data-summary",
     "slide": 28,
     "title": "The 68–95–99.7 rule",
     "file": "slides/28.html",
@@ -246,6 +274,7 @@
     ]
   },
   {
+    "chapter": "data-summary",
     "slide": 29,
     "title": "Heart rates: every calculation",
     "file": "slides/29.html",
@@ -254,6 +283,7 @@
     "interactives": []
   },
   {
+    "chapter": "data-summary",
     "slide": 30,
     "title": "Which professor varies most?",
     "file": "slides/30.html",
@@ -262,11 +292,422 @@
     "interactives": []
   },
   {
+    "chapter": "data-summary",
     "slide": 31,
     "title": "Four ways to change the spread",
     "file": "slides/31.html",
     "image": "assets/slides/31.webp",
     "words": 700,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part1",
+    "slide": 1,
+    "title": "From observed data to possible worlds",
+    "file": "probability-part1/01.html",
+    "image": "assets/slides/probability-part1/01.webp",
+    "words": 525,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part1",
+    "slide": 2,
+    "title": "What makes a system deterministic?",
+    "file": "probability-part1/02.html",
+    "image": "assets/slides/probability-part1/02.webp",
+    "words": 443,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part1",
+    "slide": 3,
+    "title": "What does a random error mean?",
+    "file": "probability-part1/03.html",
+    "image": "assets/slides/probability-part1/03.webp",
+    "words": 426,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part1",
+    "slide": 4,
+    "title": "Randomness, chaos & predictability",
+    "file": "probability-part1/04.html",
+    "image": "assets/slides/probability-part1/04.webp",
+    "words": 444,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part1",
+    "slide": 5,
+    "title": "A coin’s long-run regularity",
+    "file": "probability-part1/05.html",
+    "image": "assets/slides/probability-part1/05.webp",
+    "words": 457,
+    "interactives": [
+      "prob-coin"
+    ]
+  },
+  {
+    "chapter": "probability-part1",
+    "slide": 6,
+    "title": "Two dice, 36 distinct outcomes",
+    "file": "probability-part1/06.html",
+    "image": "assets/slides/probability-part1/06.webp",
+    "words": 306,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part1",
+    "slide": 7,
+    "title": "Count the sixes in ten dice",
+    "file": "probability-part1/07.html",
+    "image": "assets/slides/probability-part1/07.webp",
+    "words": 461,
+    "interactives": [
+      "prob-binomial"
+    ]
+  },
+  {
+    "chapter": "probability-part1",
+    "slide": 8,
+    "title": "A needle, a floor & a probability",
+    "file": "probability-part1/08.html",
+    "image": "assets/slides/probability-part1/08.webp",
+    "words": 443,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part1",
+    "slide": 9,
+    "title": "A whole price path is one outcome",
+    "file": "probability-part1/09.html",
+    "image": "assets/slides/probability-part1/09.webp",
+    "words": 420,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part1",
+    "slide": 10,
+    "title": "When do two random chords cross?",
+    "file": "probability-part1/10.html",
+    "image": "assets/slides/probability-part1/10.webp",
+    "words": 518,
+    "interactives": [
+      "prob-chords"
+    ]
+  },
+  {
+    "chapter": "probability-part1",
+    "slide": 11,
+    "title": "A language for uncertainty",
+    "file": "probability-part1/11.html",
+    "image": "assets/slides/probability-part1/11.webp",
+    "words": 410,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part1",
+    "slide": 12,
+    "title": "What belongs in a sample space?",
+    "file": "probability-part1/12.html",
+    "image": "assets/slides/probability-part1/12.webp",
+    "words": 403,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part1",
+    "slide": 13,
+    "title": "Countable versus uncountable",
+    "file": "probability-part1/13.html",
+    "image": "assets/slides/probability-part1/13.webp",
+    "words": 498,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part1",
+    "slide": 14,
+    "title": "Counting a grid of possibilities",
+    "file": "probability-part1/14.html",
+    "image": "assets/slides/probability-part1/14.webp",
+    "words": 356,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part1",
+    "slide": 15,
+    "title": "Describe a needle’s landing",
+    "file": "probability-part1/15.html",
+    "image": "assets/slides/probability-part1/15.webp",
+    "words": 417,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part1",
+    "slide": 16,
+    "title": "Coordinates for a random needle",
+    "file": "probability-part1/16.html",
+    "image": "assets/slides/probability-part1/16.webp",
+    "words": 106,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part1",
+    "slide": 17,
+    "title": "Orientation, uniformity & crossing",
+    "file": "probability-part1/17.html",
+    "image": "assets/slides/probability-part1/17.webp",
+    "words": 1603,
+    "interactives": [
+      "prob-uniform",
+      "prob-needle"
+    ]
+  },
+  {
+    "chapter": "probability-part1",
+    "slide": 18,
+    "title": "An event is a set of outcomes",
+    "file": "probability-part1/18.html",
+    "image": "assets/slides/probability-part1/18.webp",
+    "words": 409,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part1",
+    "slide": 19,
+    "title": "Membership: an outcome in an event",
+    "file": "probability-part1/19.html",
+    "image": "assets/slides/probability-part1/19.webp",
+    "words": 368,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part1",
+    "slide": 20,
+    "title": "Three cars, eight possible stories",
+    "file": "probability-part1/20.html",
+    "image": "assets/slides/probability-part1/20.webp",
+    "words": 392,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part1",
+    "slide": 21,
+    "title": "Impossible and certain events",
+    "file": "probability-part1/21.html",
+    "image": "assets/slides/probability-part1/21.webp",
+    "words": 394,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part1",
+    "slide": 22,
+    "title": "Union: at least one event happens",
+    "file": "probability-part1/22.html",
+    "image": "assets/slides/probability-part1/22.webp",
+    "words": 509,
+    "interactives": [
+      "prob-events"
+    ]
+  },
+  {
+    "chapter": "probability-part1",
+    "slide": 23,
+    "title": "Intersection: both events happen",
+    "file": "probability-part1/23.html",
+    "image": "assets/slides/probability-part1/23.webp",
+    "words": 372,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part1",
+    "slide": 24,
+    "title": "Overlapping rectangles",
+    "file": "probability-part1/24.html",
+    "image": "assets/slides/probability-part1/24.webp",
+    "words": 170,
+    "interactives": [
+      "prob-rectangles"
+    ]
+  },
+  {
+    "chapter": "probability-part1",
+    "slide": 25,
+    "title": "Complement: everything outside an event",
+    "file": "probability-part1/25.html",
+    "image": "assets/slides/probability-part1/25.webp",
+    "words": 310,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part1",
+    "slide": 26,
+    "title": "Translate words into sets",
+    "file": "probability-part1/26.html",
+    "image": "assets/slides/probability-part1/26.webp",
+    "words": 354,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part1",
+    "slide": 27,
+    "title": "Work the die example",
+    "file": "probability-part1/27.html",
+    "image": "assets/slides/probability-part1/27.webp",
+    "words": 375,
+    "interactives": [
+      "prob-events"
+    ]
+  },
+  {
+    "chapter": "probability-part1",
+    "slide": 28,
+    "title": "Why the set laws work",
+    "file": "probability-part1/28.html",
+    "image": "assets/slides/probability-part1/28.webp",
+    "words": 683,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part1",
+    "slide": 29,
+    "title": "Split an event into two pieces",
+    "file": "probability-part1/29.html",
+    "image": "assets/slides/probability-part1/29.webp",
+    "words": 362,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part1",
+    "slide": 30,
+    "title": "Empty space and the whole space",
+    "file": "probability-part1/30.html",
+    "image": "assets/slides/probability-part1/30.webp",
+    "words": 274,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part1",
+    "slide": 31,
+    "title": "Disjoint means at most one",
+    "file": "probability-part1/31.html",
+    "image": "assets/slides/probability-part1/31.webp",
+    "words": 435,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part1",
+    "slide": 32,
+    "title": "Inclusion makes a partial order",
+    "file": "probability-part1/32.html",
+    "image": "assets/slides/probability-part1/32.webp",
+    "words": 499,
+    "interactives": [
+      "prob-inclusion"
+    ]
+  },
+  {
+    "chapter": "probability-part1",
+    "slide": 33,
+    "title": "Three consequences of inclusion",
+    "file": "probability-part1/33.html",
+    "image": "assets/slides/probability-part1/33.webp",
+    "words": 497,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part1",
+    "slide": 34,
+    "title": "Which inclusions are always true?",
+    "file": "probability-part1/34.html",
+    "image": "assets/slides/probability-part1/34.webp",
+    "words": 520,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part1",
+    "slide": 35,
+    "title": "From two events to a family",
+    "file": "probability-part1/35.html",
+    "image": "assets/slides/probability-part1/35.webp",
+    "words": 376,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part1",
+    "slide": 36,
+    "title": "Union over many events",
+    "file": "probability-part1/36.html",
+    "image": "assets/slides/probability-part1/36.webp",
+    "words": 376,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part1",
+    "slide": 37,
+    "title": "Intersection over many events",
+    "file": "probability-part1/37.html",
+    "image": "assets/slides/probability-part1/37.webp",
+    "words": 426,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part1",
+    "slide": 38,
+    "title": "De Morgan’s laws for any family",
+    "file": "probability-part1/38.html",
+    "image": "assets/slides/probability-part1/38.webp",
+    "words": 438,
+    "interactives": [
+      "prob-demorgan"
+    ]
+  },
+  {
+    "chapter": "probability-part1",
+    "slide": 39,
+    "title": "Three axioms that hold it together",
+    "file": "probability-part1/39.html",
+    "image": "assets/slides/probability-part1/39.webp",
+    "words": 673,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part1",
+    "slide": 40,
+    "title": "When counting becomes probability",
+    "file": "probability-part1/40.html",
+    "image": "assets/slides/probability-part1/40.webp",
+    "words": 400,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part1",
+    "slide": 41,
+    "title": "Three cars: counting and weighting",
+    "file": "probability-part1/41.html",
+    "image": "assets/slides/probability-part1/41.webp",
+    "words": 460,
+    "interactives": [
+      "prob-cars"
+    ]
+  },
+  {
+    "chapter": "probability-part1",
+    "slide": 42,
+    "title": "Two dice: sums of at least ten",
+    "file": "probability-part1/42.html",
+    "image": "assets/slides/probability-part1/42.webp",
+    "words": 404,
+    "interactives": [
+      "prob-dice"
+    ]
+  },
+  {
+    "chapter": "probability-part1",
+    "slide": 43,
+    "title": "A complete probability argument",
+    "file": "probability-part1/43.html",
+    "image": "assets/slides/probability-part1/43.webp",
+    "words": 720,
     "interactives": []
   }
 ]

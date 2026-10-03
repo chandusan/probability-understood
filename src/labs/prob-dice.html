@@ -1,0 +1,35 @@
+<div id="prob-dice">
+  <h3>Count the ordered pairs that clear the threshold</h3>
+  <p class="text-small">Two fair, independent dice give 36 equally likely ordered pairs. Each grid cell shows their sum. A filled cell satisfies the event.</p>
+  <label class="form-label" for="dice-threshold">Event: sum ≥ <output id="dice-threshold-value">10</output><input class="form-range" type="range" id="dice-threshold" min="2" max="12" step="1" value="10"></label>
+  <div class="dice-axis-note">Columns: second die → · Rows: first die ↓</div>
+  <div class="dice-grid" role="group" aria-label="Six by six grid of ordered dice pairs"></div>
+  <div class="card dice-result" aria-live="polite" aria-atomic="true"><strong id="dice-fraction"></strong><span id="dice-percent"></span></div>
+  <p class="text-small" id="dice-sums"></p>
+  <details><summary>List the favorable ordered pairs</summary><p class="text-small" id="dice-pairs"></p></details>
+  <p class="text-small">Equal weights belong to the 36 pairs, not the eleven possible sums. The central sums have more routes through the grid.</p>
+  <button class="btn" type="button" id="dice-reset">Return to sum ≥ 10</button>
+  <style>
+    #prob-dice{min-width:0}#prob-dice output{font-weight:700;font-variant-numeric:tabular-nums}#prob-dice .dice-axis-note{font-size:11px;margin-bottom:8px}#prob-dice .dice-grid{display:grid;grid-template-columns:24px repeat(6,minmax(0,1fr));gap:4px;max-width:450px;margin:0 auto 18px}#prob-dice .dice-cell,#prob-dice .dice-axis{display:flex;align-items:center;justify-content:center;min-width:0;min-height:32px;font-size:12px;font-variant-numeric:tabular-nums}#prob-dice .dice-axis{font-weight:700;color:var(--muted-foreground)}#prob-dice .dice-cell{position:relative;border:1px solid var(--border);border-radius:4px;background:var(--background)}#prob-dice .dice-cell[data-included=true]{background:var(--primary);border-color:var(--primary);color:var(--primary-foreground);font-weight:700}#prob-dice .dice-result{font-variant-numeric:tabular-nums}#prob-dice .dice-result strong{display:block;font-size:17px}#prob-dice .dice-result span{display:block;font-size:13px;margin-top:4px}#prob-dice #dice-pairs{overflow-wrap:anywhere}#prob-dice details>summary{font-size:12px;cursor:pointer}#prob-dice #dice-sums{font-variant-numeric:tabular-nums}
+  </style>
+  <script>
+    (()=>{
+      const root=document.getElementById('prob-dice'),threshold=root.querySelector('#dice-threshold'),grid=root.querySelector('.dice-grid');
+      const stored=window.openai?.widgetState;if(stored&&Number.isInteger(stored.threshold)&&stored.threshold>=2&&stored.threshold<=12)threshold.value=stored.threshold;
+      function axis(text){const d=document.createElement('div');d.className='dice-axis';d.textContent=text;d.setAttribute('aria-hidden','true');return d;}
+      grid.append(axis(''));for(let j=1;j<=6;j++)grid.append(axis(j));
+      for(let i=1;i<=6;i++){grid.append(axis(i));for(let j=1;j<=6;j++){const cell=document.createElement('div');cell.className='dice-cell';cell.dataset.first=i;cell.dataset.second=j;cell.textContent=i+j;grid.append(cell);}}
+      const gcd=(a,b)=>b?gcd(b,a%b):a;
+      function draw(){
+        const t=Number(threshold.value),pairs=[],counts=new Map();root.querySelector('#dice-threshold-value').textContent=t;
+        grid.querySelectorAll('.dice-cell').forEach(cell=>{const i=Number(cell.dataset.first),j=Number(cell.dataset.second),sum=i+j,yes=sum>=t;cell.dataset.included=yes?'true':'false';cell.setAttribute('aria-label',`First die ${i}, second die ${j}, sum ${sum}: ${yes?'included':'outside event'}.`);cell.title=`(${i}, ${j}): sum ${sum}${yes?' ✓':''}`;if(yes){pairs.push(`(${i}, ${j})`);counts.set(sum,(counts.get(sum)||0)+1);}});
+        const n=pairs.length,g=gcd(n,36);root.querySelector('#dice-fraction').textContent=`P(sum ≥ ${t}) = ${n}/36 = ${n/g}/${36/g}`;
+        root.querySelector('#dice-percent').textContent=`${n} favorable pairs out of 36: ${(100*n/36).toFixed(2)}%.`;
+        root.querySelector('#dice-sums').textContent='Routes by favorable sum: '+[...counts].sort((a,b)=>a[0]-b[0]).map(([s,c])=>`${s} → ${c}`).join('; ')+'.';
+        root.querySelector('#dice-pairs').textContent=pairs.join(', ')+'.';
+      }
+      function change(){draw();window.openai?.setWidgetState({threshold:Number(threshold.value)});}
+      threshold.addEventListener('input',change);root.querySelector('#dice-reset').addEventListener('click',()=>{threshold.value=10;change();});draw();
+    })();
+  </script>
+</div>

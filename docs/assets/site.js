@@ -1,12 +1,13 @@
 (() => {
-  const current=Number(document.body.dataset.slide), key='probability-understood:data-summary:v1';
-  const getProgress=()=>{try{const p=JSON.parse(localStorage.getItem(key)||'{}');return {completed:Array.isArray(p.completed)?p.completed.filter(n=>Number.isInteger(n)&&n>=1&&n<=31):[],last:Number(p.last)||1};}catch{return {completed:[],last:1};}};
+  const current=Number(document.body.dataset.slide), count=Number(document.body.dataset.slideCount)||31;
+  const key=`probability-understood:${document.body.dataset.chapter||'data-summary'}:v1`;
+  const getProgress=()=>{try{const p=JSON.parse(localStorage.getItem(key)||'{}');return {completed:Array.isArray(p.completed)?p.completed.filter(n=>Number.isInteger(n)&&n>=1&&n<=count):[],last:Number.isInteger(p.last)&&p.last>=1&&p.last<=count?p.last:1};}catch{return {completed:[],last:1};}};
   let progress=getProgress();
   const save=()=>{try{localStorage.setItem(key,JSON.stringify(progress));}catch{}};
   const drawProgress=()=>{
     const n=new Set(progress.completed).size;
     document.querySelectorAll('[data-completed-count]').forEach(el=>el.textContent=n);
-    document.querySelector('[data-course-progress]').style.width=`${n/31*100}%`;
+    document.querySelector('[data-course-progress]').style.width=`${n/count*100}%`;
     document.querySelectorAll('.slide-link').forEach(a=>a.classList.toggle('done',progress.completed.includes(Number(a.dataset.slide))));
     const button=document.querySelector('[data-complete]'),done=progress.completed.includes(current);
     button.setAttribute('aria-pressed',String(done));button.textContent=done?'✓ Marked as understood':'Mark this slide as understood';

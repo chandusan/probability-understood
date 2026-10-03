@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Slide 17 of Probability · Part 1: Orientation, uniformity &amp; crossing. Original slide, first-principles explanation, examples and worked practice."><title>17 · Orientation, uniformity &amp; crossing — Probability, understood</title><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/site.css"><link rel="stylesheet" href="../assets/vendor/katex/katex.min.css"><script defer src="../assets/vendor/katex/katex.min.js"></script><script defer src="../assets/vendor/katex/contrib/auto-render.min.js"></script><script defer src="../assets/site.js"></script></head>
+<body data-slide="17" data-slide-prefix="" data-chapter="probability-part1" data-slide-count="43"><a class="skip" href="#lesson">Skip to the lesson</a>
+<aside class="sidebar" aria-label="Course navigation"><a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>Probability,<br>understood.</span></a><button class="nav-close" data-close-nav aria-label="Close slide navigation">×</button><p class="course-label">Your study companion</p><nav class="chapter-nav" aria-label="Choose a chapter"><a href="../slides/01.html"><span>01</span> Data Summary</a><a href="../probability-part1/01.html" aria-current="true"><span>02</span> Probability · Part 1</a></nav><p class="course-title">Probability · Part 1</p><label class="sr-only" for="slide-search">Find a slide</label><input class="nav-search" id="slide-search" type="search" placeholder="Find a slide…" autocomplete="off"><nav class="slide-nav" aria-label="All 43 slides"><div class="nav-group"><div class="nav-group-title">From data to uncertainty</div><a class="slide-link" data-slide="1" data-search="01 from the data we saw to the data we could see from observed data to possible worlds" href="01.html"><span class="slide-num">01</span><span>From observed data to possible worlds</span></a><a class="slide-link" data-slide="2" data-search="02 a rule with one answer what makes a system deterministic?" href="02.html"><span class="slide-num">02</span><span>What makes a system deterministic?</span></a><a class="slide-link" data-slide="3" data-search="03 a prediction can be a distribution what does a random error mean?" href="03.html"><span class="slide-num">03</span><span>What does a random error mean?</span></a><a class="slide-link" data-slide="4" data-search="04 three ways the future can be hard to know randomness, chaos &amp; predictability" href="04.html"><span class="slide-num">04</span><span>Randomness, chaos &amp; predictability</span></a></div><div class="nav-group"><div class="nav-group-title">Experiments & random outcomes</div><a class="slide-link" data-slide="5" data-search="05 unpredictable tosses, stable proportions a coin’s long-run regularity" href="05.html"><span class="slide-num">05</span><span>A coin’s long-run regularity</span></a><a class="slide-link" data-slide="6" data-search="06 two dice: count outcomes before probabilities two dice, 36 distinct outcomes" href="06.html"><span class="slide-num">06</span><span>Two dice, 36 distinct outcomes</span></a><a class="slide-link" data-slide="7" data-search="07 count successes, not every detail count the sixes in ten dice" href="07.html"><span class="slide-num">07</span><span>Count the sixes in ten dice</span></a><a class="slide-link" data-slide="8" data-search="08 a needle turns chance into geometry a needle, a floor &amp; a probability" href="08.html"><span class="slide-num">08</span><span>A needle, a floor &amp; a probability</span></a><a class="slide-link" data-slide="9" data-search="09 an outcome can be an entire path a whole price path is one outcome" href="09.html"><span class="slide-num">09</span><span>A whole price path is one outcome</span></a><a class="slide-link" data-slide="10" data-search="10 random chords need a sampling rule when do two random chords cross?" href="10.html"><span class="slide-num">10</span><span>When do two random chords cross?</span></a></div><div class="nav-group"><div class="nav-group-title">Building a sample space</div><a class="slide-link" data-slide="11" data-search="11 give uncertainty a vocabulary a language for uncertainty" href="11.html"><span class="slide-num">11</span><span>A language for uncertainty</span></a><a class="slide-link" data-slide="12" data-search="12 how many possible outcomes? what belongs in a sample space?" href="12.html"><span class="slide-num">12</span><span>What belongs in a sample space?</span></a><a class="slide-link" data-slide="13" data-search="13 an infinity you can list countable versus uncountable" href="13.html"><span class="slide-num">13</span><span>Countable versus uncountable</span></a><a class="slide-link" data-slide="14" data-search="14 build a sample space by combining choices counting a grid of possibilities" href="14.html"><span class="slide-num">14</span><span>Counting a grid of possibilities</span></a><a class="slide-link" data-slide="15" data-search="15 return to the needle: what is one outcome? describe a needle’s landing" href="15.html"><span class="slide-num">15</span><span>Describe a needle’s landing</span></a><a class="slide-link" data-slide="16" data-search="16 coordinates describe the experiment coordinates for a random needle" href="16.html"><span class="slide-num">16</span><span>Coordinates for a random needle</span></a><a class="slide-link" data-slide="17" data-search="17 fold the needle, then measure the probability orientation, uniformity &amp; crossing" href="17.html" aria-current="page"><span class="slide-num">17</span><span>Orientation, uniformity &amp; crossing</span></a></div><div class="nav-group"><div class="nav-group-title">The language of events</div><a class="slide-link" data-slide="18" data-search="18 an event is a collection of outcomes an event is a set of outcomes" href="18.html"><span class="slide-num">18</span><span>An event is a set of outcomes</span></a><a class="slide-link" data-slide="19" data-search="19 membership connects an outcome to an event membership: an outcome in an event" href="19.html"><span class="slide-num">19</span><span>Membership: an outcome in an event</span></a><a class="slide-link" data-slide="20" data-search="20 three cars: build outcomes before events three cars, eight possible stories" href="20.html"><span class="slide-num">20</span><span>Three cars, eight possible stories</span></a><a class="slide-link" data-slide="21" data-search="21 nothing qualifies—or everything does impossible and certain events" href="21.html"><span class="slide-num">21</span><span>Impossible and certain events</span></a><a class="slide-link" data-slide="22" data-search="22 union means at least one membership succeeds union: at least one event happens" href="22.html"><span class="slide-num">22</span><span>Union: at least one event happens</span></a><a class="slide-link" data-slide="23" data-search="23 intersection keeps the shared outcomes intersection: both events happen" href="23.html"><span class="slide-num">23</span><span>Intersection: both events happen</span></a><a class="slide-link" data-slide="24" data-search="24 two rectangles, two different regions overlapping rectangles" href="24.html"><span class="slide-num">24</span><span>Overlapping rectangles</span></a><a class="slide-link" data-slide="25" data-search="25 a complement needs a surrounding world complement: everything outside an event" href="25.html"><span class="slide-num">25</span><span>Complement: everything outside an event</span></a><a class="slide-link" data-slide="26" data-search="26 translate sentences into membership tests translate words into sets" href="26.html"><span class="slide-num">26</span><span>Translate words into sets</span></a><a class="slide-link" data-slide="27" data-search="27 one die, three event operations work the die example" href="27.html"><span class="slide-num">27</span><span>Work the die example</span></a></div><div class="nav-group"><div class="nav-group-title">Set laws & inclusion</div><a class="slide-link" data-slide="28" data-search="28 set laws are rules about who gets admitted why the set laws work" href="28.html"><span class="slide-num">28</span><span>Why the set laws work</span></a><a class="slide-link" data-slide="29" data-search="29 split one event into two nonoverlapping parts split an event into two pieces" href="29.html"><span class="slide-num">29</span><span>Split an event into two pieces</span></a><a class="slide-link" data-slide="30" data-search="30 what “nothing” and “everything” do to a set empty space and the whole space" href="30.html"><span class="slide-num">30</span><span>Empty space and the whole space</span></a><a class="slide-link" data-slide="31" data-search="31 disjoint means at most one can occur disjoint means at most one" href="31.html"><span class="slide-num">31</span><span>Disjoint means at most one</span></a><a class="slide-link" data-slide="32" data-search="32 containment is an order with branches inclusion makes a partial order" href="32.html"><span class="slide-num">32</span><span>Inclusion makes a partial order</span></a><a class="slide-link" data-slide="33" data-search="33 prove a set identity by following one outcome three consequences of inclusion" href="33.html"><span class="slide-num">33</span><span>Three consequences of inclusion</span></a><a class="slide-link" data-slide="34" data-search="34 find every inclusion that must be true which inclusions are always true?" href="34.html"><span class="slide-num">34</span><span>Which inclusions are always true?</span></a></div><div class="nav-group"><div class="nav-group-title">Many events & probability rules</div><a class="slide-link" data-slide="35" data-search="35 from two events to a whole collection from two events to a family" href="35.html"><span class="slide-num">35</span><span>From two events to a family</span></a><a class="slide-link" data-slide="36" data-search="36 a union needs just one successful membership test union over many events" href="36.html"><span class="slide-num">36</span><span>Union over many events</span></a><a class="slide-link" data-slide="37" data-search="37 an intersection requires every membership test intersection over many events" href="37.html"><span class="slide-num">37</span><span>Intersection over many events</span></a><a class="slide-link" data-slide="38" data-search="38 negation swaps “at least one” with “every” de morgan’s laws for any family" href="38.html"><span class="slide-num">38</span><span>De Morgan’s laws for any family</span></a><a class="slide-link" data-slide="39" data-search="39 three rules make probability coherent three axioms that hold it together" href="39.html"><span class="slide-num">39</span><span>Three axioms that hold it together</span></a></div><div class="nav-group"><div class="nav-group-title">Counting equally likely outcomes</div><a class="slide-link" data-slide="40" data-search="40 counting works when the outcomes have equal weight when counting becomes probability" href="40.html"><span class="slide-num">40</span><span>When counting becomes probability</span></a><a class="slide-link" data-slide="41" data-search="41 three cars: count sequences, then check their weights three cars: counting and weighting" href="41.html"><span class="slide-num">41</span><span>Three cars: counting and weighting</span></a><a class="slide-link" data-slide="42" data-search="42 two dice: count pairs before counting sums two dice: sums of at least ten" href="42.html"><span class="slide-num">42</span><span>Two dice: sums of at least ten</span></a><a class="slide-link" data-slide="43" data-search="43 from describing data to reasoning about uncertainty a complete probability argument" href="43.html"><span class="slide-num">43</span><span>A complete probability argument</span></a></div><p class="no-results" hidden>No matching slides.</p></nav><div class="nav-footer"><span><strong data-completed-count>0</strong> of 43 slides understood</span><div class="progress-track" aria-hidden="true"><i data-course-progress></i></div><span>One idea at a time.</span><br><a data-resume hidden></a></div></aside>
+<button class="scrim" data-close-nav aria-label="Close navigation"></button><div class="site-body"><header class="topbar"><button class="menu-button" aria-expanded="false" aria-label="Open slide navigation">☰ Slides</button><div class="breadcrumb"><span class="crumb-course">Probability · Part 1 <span aria-hidden="true">/</span> </span><strong>Slide 17 of 43</strong></div><div class="top-tools"><a href="../assets/source/02-probability-part1.pdf#page=17" target="_blank" rel="noopener">Original PDF ↗</a><button class="plain-button print-button" data-print>Print this slide</button></div></header><div class="reading-progress" aria-hidden="true"><i data-reading-progress></i></div>
+<div class="page-layout"><main class="lesson" id="lesson"><p class="eyebrow">Building a sample space · Slide 17</p><h1>Fold the needle, then measure the probability</h1><p class="lead">We can describe a needle drop with just two quantities: how close its midpoint is to a line, and how much it tilts away from that line. The useful simplification is to keep every distinction that can change the crossing result, while folding together placements that behave identically.</p><div class="lesson-meta"><span>~9 min reading</span><span class="meta-sep">/</span><span>Source + intuition + practice</span><span class="meta-sep">/</span><span>2 interactive experiments</span></div>
+<figure class="slide-figure" id="source-slide"><button class="slide-image-button" data-zoom-slide aria-label="Enlarge original slide 17"><img class="slide-image" src="../assets/slides/probability-part1/17.webp" alt="Original slide 17: Orientation, uniformity &amp; crossing. The concepts and figures are explained below." width="2000" height="1500" fetchpriority="high"></button><figcaption class="slide-caption"><span>Original slide · STAT 5701 · Dobrin Marchev</span><button data-zoom-slide>Enlarge slide ↗</button></figcaption></figure><p class="source-note">Slide numbers follow the PDF page order; the printed footer numbers differ on some slides.</p>
+<div class="teaching-heading">Let’s understand it</div><article class="prose"><h2 id="why-use-angles-from-0-to-90-degrees">Why use angles from 0 to 90 degrees?</h2>
+<p>Imagine the ruled lines are horizontal. A needle at $30^\circ$ leans upward to the right. A needle at $150^\circ$ leans upward to the left. Their smaller angles with a horizontal line are both $30^\circ$, and their vertical reaches are identical.</p>
+<p>At the same midpoint, either both cross a ruled line or neither does. We lose information about which way the needle leans, but keep all the information needed for this question.</p>
+<p>Using an angle from $0$ to $180^\circ$ would therefore be valid. The slide chooses a shorter description: the <strong>acute angle</strong>, including its boundary values, between the needle and the lines:</p>
+<p>$$0\le\theta\le90^\circ=\frac\pi2.$$</p>
+<p>This folding is separate from treating the needle as an unoriented segment. First, angles differing by $180^\circ$ describe the same unlabeled segment. Then reflection pairs such as $30^\circ$ and $150^\circ$ are grouped because they have the same crossing behavior.</p>
+<p>For a full orientation $\alpha\in[0,\pi)$, the folded angle is</p>
+<p>$$\theta=\min(\alpha,\pi-\alpha).$$</p>
+<details>
+<summary>Why does folding preserve a uniform distribution?</summary>
+<p>Suppose $\alpha$ is uniform on $[0,\pi)$. Take any interval $[a,b]\subseteq[0,\pi/2]$. It has two preimages under the fold: $[a,b]$ and $[\pi-b,\pi-a]$, ignoring shared boundary points of probability zero. Their total length is $2(b-a)$.</p>
+<p>Thus</p>
+<p>$$P(a\le\theta\le b)=\frac{2(b-a)}\pi=\frac{b-a}{\pi/2}.$$</p>
+<p>Equal widths in the folded range still have equal probabilities. Folding would not automatically produce this result from an arbitrary biased orientation distribution; it works here because the original orientation is uniform.</p>
+</details>
+<h2 id="why-does-distance-range-only-up-to-half-the-spacing">Why does distance range only up to half the spacing?</h2>
+<p>Let $U$ be the midpoint's vertical position inside a strip between lines at $0$ and $d$. Its distances to those two lines are $U$ and $d-U$. The nearest-line distance is</p>
+<p>$$x=\min(U,d-U).$$</p>
+<p>The farthest a midpoint can be from its nearest line is halfway between them, at distance $d/2$. Thus $0\le x\le d/2$.</p>
+<p>If $U$ is uniform on $[0,d]$, folding the two halves of the strip gives</p>
+<p>$$x\sim\operatorname{Uniform}(0,d/2).$$</p>
+<p>For example, positions $0.2d$ and $0.8d$ both have nearest-line distance $0.2d$. An interval of distances of width $h$ corresponds to two position intervals of total width $2h$, giving probability $2h/d$.</p>
+<p>The symbol $x$ now denotes <strong>perpendicular distance</strong>. It was a horizontal coordinate on the previous page; this is a deliberate change of parametrization.</p>
+<h2 id="what-does-uniform-mean-is-it-a-function">What does Uniform mean? Is it a function?</h2>
+<p>The notation</p>
+<p>$$\theta\sim\operatorname{Uniform}(0,\pi/2)$$</p>
+<p>means “$\theta$ is distributed uniformly between $0$ and $\pi/2$.” The symbol $\sim$ means “is distributed as.” Uniform is the name of a probability distribution, characterized by equal probabilities for equal-length intervals.</p>
+<p>For instance,</p>
+<p>$$P(10^\circ\le\theta\le20^\circ)
+=P(60^\circ\le\theta\le70^\circ)=\frac{10}{90}=\frac19.$$</p>
+<p>The distribution can be described by a function, its <strong>probability density function</strong>, or PDF. In radians,</p>
+<p>$$f_\theta(t)=
+\begin{cases}
+2/\pi,&amp;0\le t\le\pi/2,\\
+0,&amp;\text{otherwise}.
+\end{cases}$$</p>
+<p>The graph is a flat horizontal segment above the allowed interval and zero outside. Its total area is $(\pi/2)(2/\pi)=1$.</p>
+<h2 id="why-is-the-height-not-the-probability-of-one-angle">Why is the height not the probability of one angle?</h2>
+<p>Density is probability <strong>per unit of angle</strong>. To obtain probability, we need width as well as height. In degrees, the density is $1/90$ per degree, so</p>
+<p>$$P(a\le\theta\le b)=\underbrace{\frac1{90}}_{\text{density per degree}}\underbrace{(b-a)}_{\text{degrees}}.$$</p>
+<p>Watch an interval around $30^\circ$ shrink:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Interval</th>
+<th style="text-align: right;">Width</th>
+<th style="text-align: right;">Probability</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$25^\circ$ to $35^\circ$</td>
+<td style="text-align: right;">$10^\circ$</td>
+<td style="text-align: right;">$10/90$</td>
+</tr>
+<tr>
+<td>$29.5^\circ$ to $30.5^\circ$</td>
+<td style="text-align: right;">$1^\circ$</td>
+<td style="text-align: right;">$1/90$</td>
+</tr>
+<tr>
+<td>$29.995^\circ$ to $30.005^\circ$</td>
+<td style="text-align: right;">$0.01^\circ$</td>
+<td style="text-align: right;">$0.01/90$</td>
+</tr>
+</tbody>
+</table></div>
+<p>The height does not change. The area shrinks because the width shrinks. One exact angle has zero width, so</p>
+<p>$$P(\theta=30^\circ)=0.$$</p>
+<p>An outcome can occur even though its individual probability is zero in a continuous distribution. No point owns a positive chunk of probability; intervals carry probability through area. This does not contradict countable additivity: an interval contains uncountably many points, and the rule does not say its probability is an uncountable sum of zero point masses.</p>
+<p>A device displaying “$30^\circ$” usually reports an interval after rounding, perhaps $[29.5^\circ,30.5^\circ)$. That recorded reading does have positive probability.</p>
+<h2 id="change-units-without-changing-probability">Change units without changing probability</h2>
+<p>The same distribution has density $1/90$ per degree or $2/\pi$ per radian. Their numerical heights differ because a degree and a radian have different widths. The total area stays one:</p>
+<p>$$90\left(\frac1{90}\right)=\frac\pi2\left(\frac2\pi\right)=1.$$</p>
+<p>A $10^\circ$ interval has width $\pi/18$ radians. Either calculation gives $1/9$:</p>
+<p>$$\frac{10}{90}=\frac2\pi\frac\pi{18}.$$</p>
+<p>Try narrowing the highlighted interval, then switching angle units. Predict which quantities change: axis numbers and density height do; the shaded probability does not. A density can exceed one without violating probability rules, because a density is not itself an interval probability.</p>
+<section class="experiment" aria-label="Interactive: Density, interval width and probability"><div class="experiment-label"><span>Explore the idea</span><a href="../assets/labs/prob-uniform.html" target="_blank" rel="noopener">Open larger ↗</a></div><iframe src="../assets/labs/prob-uniform.html" title="Density, interval width and probability" loading="lazy"></iframe></section>
+
+<h2 id="when-does-the-needle-reach-a-line">When does the needle reach a line?</h2>
+<p>The midpoint-to-endpoint distance is $l/2$. At angle $\theta$ from the horizontal lines, the perpendicular reach is the opposite side of a right triangle:</p>
+<p>$$\text{perpendicular reach}=\frac l2\sin\theta.$$</p>
+<p>The needle reaches the nearest line when that reach is at least the center's distance:</p>
+<p>$$\boxed{x\le\frac l2\sin\theta.}$$</p>
+<p>Check the limiting cases. At $\theta=0$, the needle is parallel and has zero perpendicular reach. At $\theta=\pi/2$, the full half-length points toward a line. The inequality also confirms that increasing the angle or bringing the midpoint closer makes crossing easier.</p>
+<p>Move the orientation through $30^\circ$ and $150^\circ$ to see the same folded angle. Then change the midpoint distance. The boundary in the lower plot is the crossing inequality: points below the curve cross, and points above it miss. The experiment uses the dimensionless ratios $l/d$ and $x/d$ so the geometry works in any consistent length unit.</p>
+<section class="experiment" aria-label="Interactive: Fold the angle and cross a line"><div class="experiment-label"><span>Explore the idea</span><a href="../assets/labs/prob-needle.html" target="_blank" rel="noopener">Open larger ↗</a></div><iframe src="../assets/labs/prob-needle.html" title="Fold the angle and cross a line" loading="lazy"></iframe></section>
+
+<h2 id="derive-buffons-probability-one-step-at-a-time">Derive Buffon's probability, one step at a time</h2>
+<p>Assume $0&lt;l\le d$, independent uniform position and orientation, and an ideal needle of zero thickness. At a <strong>fixed angle</strong> $\theta$, the permissible distance interval is</p>
+<p>$$0\le x\le\frac l2\sin\theta.$$</p>
+<p>The entire distance interval has length $d/2$. Because $x$ is uniform,</p>
+<p>$$P(\text{cross}\mid\theta)=\frac{(l/2)\sin\theta}{d/2}=\frac ld\sin\theta.$$</p>
+<p>Now average over the uniform angles. The density in radians is $2/\pi$:</p>
+<p>$$\begin{aligned}
+P(\text{cross})
+&amp;=\int_0^{\pi/2}\frac ld\sin\theta\,\frac2\pi\,d\theta\\
+&amp;=\frac{2l}{\pi d}\left[-\cos\theta\right]_0^{\pi/2}\\
+&amp;=\boxed{\frac{2l}{\pi d}}.
+\end{aligned}$$</p>
+<p>The formula has sensible behavior: doubling a short needle doubles the crossing probability; increasing the spacing makes crossings less frequent. When $l=d$, the probability is $2/\pi\approx0.6366$, not one, because many nearly parallel placements still miss.</p>
+<details>
+<summary>See the same calculation as area in an outcome rectangle</summary>
+<p>The reduced sample space is the rectangle</p>
+<p>$$0\le\theta\le\pi/2,\qquad0\le x\le d/2.$$</p>
+<p>Its area is $\pi d/4$. Independence and the two uniform distributions make probability proportional to area inside this rectangle. The crossing region lies below $x=(l/2)\sin\theta$, whose area is</p>
+<p>$$\int_0^{\pi/2}\frac l2\sin\theta\,d\theta=\frac l2.$$</p>
+<p>Therefore the area ratio is</p>
+<p>$$\frac{l/2}{\pi d/4}=\frac{2l}{\pi d}.$$</p>
+<p>This is area in the <strong>distance-angle outcome space</strong>, not area of the needle on the physical floor. For $l&gt;d$, the curve extends beyond the allowed rectangle for some angles; we must use $\min\{1,(l/d)\sin\theta\}$ as the conditional probability. Extending the short-needle formula without that correction can produce an impossible answer greater than one.</p>
+</details>
+<h2 id="the-rectangular-grid-variant">The rectangular-grid variant</h2>
+<p>The slide also introduces a Buffon–Laplace grid with vertical lines spaced $a$ apart and horizontal lines spaced $b$ apart. Let $x\in[0,a/2]$ and $y\in[0,b/2]$ be midpoint distances to the nearest vertical and horizontal lines. Let $\theta\in[0,\pi/2]$ be the folded angle measured from the horizontal direction.</p>
+<p>For $l\le\min(a,b)$, crossing a vertical line is the event</p>
+<p>$$V:\quad x\le\frac l2\cos\theta,$$</p>
+<p>while crossing a horizontal line is</p>
+<p>$$H:\quad y\le\frac l2\sin\theta.$$</p>
+<p>Cosine gives horizontal reach toward a vertical line; sine gives vertical reach toward a horizontal line. Crossing the grid means $V\cup H$: at least one kind of line is crossed. Counting $P(V)+P(H)$ alone would count needles crossing both types twice.</p>
+<details>
+<summary>Derive the grid formula under uniform independent placement</summary>
+<p>Assume the center is uniform within a rectangular cell and independent of uniform orientation. Folding each coordinate makes $x,y$ independent uniforms on their stated intervals. Conditional on $\theta$,</p>
+<p>$$P(V\mid\theta)=\frac la\cos\theta,\qquad
+P(H\mid\theta)=\frac lb\sin\theta.$$</p>
+<p>The two distance tests are conditionally independent because they involve independent center coordinates, so</p>
+<p>$$P(V\cap H\mid\theta)=\frac{l^2}{ab}\sin\theta\cos\theta.$$</p>
+<p>Averaging using density $2/\pi$ gives</p>
+<p>$$P(V)=\frac{2l}{\pi a},\qquad
+P(H)=\frac{2l}{\pi b},\qquad
+P(V\cap H)=\frac{l^2}{\pi ab}.$$</p>
+<p>Therefore</p>
+<p>$$\boxed{P(\text{at least one grid line})
+=\frac{2l(a+b)-l^2}{\pi ab}.}$$</p>
+<p>The source gives the stricter condition $l&lt;\min(a,b)$; the displayed formula also extends to equality, with the same continuous-model boundary conventions. For a square grid with $a=b=l$, it gives $3/\pi\approx0.9549$.</p>
+<p>Conditional independence here does not mean $V,H$ are unconditionally independent: they share the random angle. That distinction will become important when studying conditional probability.</p>
+</details>
+<h2 id="other-problems-that-use-the-same-idea">Other problems that use the same idea</h2>
+<p>The source asks for similar problems. The common method is to represent random choices as coordinates, draw the favorable region, and measure it using the specified distribution.</p>
+<p><strong>A dart in a square.</strong> Choose a point uniformly in a square of side $2r$ containing an inscribed circle of radius $r$. The circle event has probability</p>
+<p>$$\frac{\pi r^2}{(2r)^2}=\frac\pi4.$$</p>
+<p><strong>Two people meeting.</strong> Each arrives independently and uniformly during a $60$-minute interval and waits $10$ minutes. Their arrival pair $(u,v)$ is uniform in a square of area $60^2$. They meet when $\lvert u-v\rvert\le10$. The excluded region is two triangles, each with legs $50$, giving</p>
+<p>$$P(\text{meet})=1-\frac{2(50^2/2)}{60^2}=\frac{11}{36}.$$</p>
+<p><strong>Break a stick twice.</strong> Choose two independent uniform cut positions on a unit stick. After ordering them as $u&lt;v$, the lengths are $u,v-u,1-v$. They form a triangle exactly when each is less than $1/2$. The ordered-cut region has area $1/2$. The favorable triangle has vertices $(0,1/2),(1/2,1/2),(1/2,1)$, with boundaries excluded where a piece has length exactly $1/2$. Its area is $(1/2)(1/2)(1/2)=1/8$, so the probability is $(1/8)/(1/2)=1/4$. A different procedure for choosing cuts need not give the same distribution.</p>
+<h2 id="check-your-understanding">Check your understanding</h2>
+<p>Let $l=d/2$, $x=d/5$, and $\theta=30^\circ$. Does this placement cross? What is the crossing probability over all standard random drops? Finally, what is the probability that the folded angle is exactly $30^\circ$?</p>
+<details>
+<summary>Work through the answer</summary>
+<p>For this placement, the perpendicular reach is</p>
+<p>$$\frac l2\sin30^\circ=\frac d4\frac12=\frac d8.$$</p>
+<p>Since $d/5&gt;d/8$, the needle misses. Across the whole random experiment,</p>
+<p>$$P(\text{cross})=\frac{2(d/2)}{\pi d}=\frac1\pi\approx0.3183.$$</p>
+<p>For a continuous uniform angle, $P(\theta=30^\circ)=0$. That does not make $30^\circ$ an impossible geometric placement. It means a single exact angle has zero width and therefore zero probability mass. By contrast, the interval from $25^\circ$ to $35^\circ$ has probability $10/90=1/9$.</p>
+</details></article>
+<section class="lesson-end" aria-label="Study progress"><button class="complete-button" data-complete aria-pressed="false">Mark this slide as understood</button><p class="completion-note">Your reading progress stays in this browser. Revisit any idea whenever you need.</p><nav class="page-turn" aria-label="Previous and next slides"><a href="16.html"><span>← Previous slide</span>Coordinates for a random needle</a><a href="18.html"><span>Next slide →</span>An event is a set of outcomes</a></nav></section>
+<footer class="footer"><p>A personal teaching companion built from our questions, examples and explanations.</p><p>Original slides: Dobrin Marchev · STAT 5701. Slide images remain attributed to their author. This is an independent study resource.</p></footer></main>
+<aside class="page-toc" aria-label="On this slide"><p class="toc-label">On this slide</p><a class="toc-source" href="#source-slide">The original slide</a><a href="#why-use-angles-from-0-to-90-degrees">Why use angles from 0 to 90 degrees?</a><a href="#why-does-distance-range-only-up-to-half-the-spacing">Why does distance range only up to half the spacing?</a><a href="#what-does-uniform-mean-is-it-a-function">What does Uniform mean? Is it a function?</a><a href="#why-is-the-height-not-the-probability-of-one-angle">Why is the height not the probability of one angle?</a><a href="#change-units-without-changing-probability">Change units without changing probability</a><a href="#when-does-the-needle-reach-a-line">When does the needle reach a line?</a><a href="#derive-buffons-probability-one-step-at-a-time">Derive Buffon's probability, one step at a time</a><a href="#the-rectangular-grid-variant">The rectangular-grid variant</a><a href="#other-problems-that-use-the-same-idea">Other problems that use the same idea</a><a href="#check-your-understanding">Check your understanding</a><a href="#lesson">Back to the top ↑</a></aside></div></div>
+<dialog class="image-dialog" aria-label="Original slide 17, enlarged"><div class="dialog-tools"><span>Slide 17 / 43</span><button data-close-dialog>Close ×</button></div><img src="../assets/slides/probability-part1/17.webp" alt="Enlarged original slide 17: Orientation, uniformity &amp; crossing"><div class="dialog-tools"><a href="../assets/source/02-probability-part1.pdf#page=17" target="_blank" rel="noopener">Read the source PDF ↗</a></div></dialog></body></html>

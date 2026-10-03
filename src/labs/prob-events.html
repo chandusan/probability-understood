@@ -1,0 +1,56 @@
+<section id="prob-events-lab" aria-label="Event membership experiment">
+  <style>
+    #prob-events-lab{min-width:0;color:var(--foreground,#263d35)}#prob-events-lab h3{margin:0 0 .75rem;font-size:1rem}#prob-events-lab .viz-controls{display:grid;gap:.45rem}#prob-events-lab .form-label{display:block;font-size:.8rem}
+    #prob-events-lab select{box-sizing:border-box;width:100%;min-width:0;padding:.55rem;font:inherit;font-size:.85rem;color:inherit;background:var(--background,#faf8f2);border:1px solid var(--border,#c7d2cc);border-radius:.4rem}
+    #prob-events-lab .membership-fields{display:grid;gap:.5rem;margin:.8rem 0}#prob-events-lab fieldset{margin:0;min-width:0;padding:.4rem .45rem .5rem;border:1px solid var(--border,#c7d2cc);border-radius:.4rem}#prob-events-lab legend{padding:0 .25rem;font-size:.8rem;overflow-wrap:anywhere}
+    #prob-events-lab .faces{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:4px}#prob-events-lab .face-control{display:flex;align-items:center;justify-content:center;flex-direction:column;gap:4px;min-width:0;min-height:44px;border-radius:4px;cursor:pointer;font-size:.8rem}#prob-events-lab .face-control:has(input:checked){background:color-mix(in srgb,var(--viz-series-1,#177e68) 11%,transparent)}#prob-events-lab input[type=checkbox]{width:16px;height:16px;accent-color:var(--viz-series-1,#177e68);margin:0}
+    #prob-events-lab .plot{width:100%;min-width:0}#prob-events-lab svg{display:block;width:100%;height:auto}#prob-events-lab svg text{fill:var(--foreground,#263d35);font-family:inherit}
+    #prob-events-lab .result{margin-top:.5rem;padding:.65rem;border:1px solid var(--border,#c7d2cc);border-radius:.4rem}#prob-events-lab .result strong,#prob-events-lab .result output{display:block;overflow-wrap:anywhere;font-variant-numeric:tabular-nums}#prob-events-lab .result strong{font-size:.8rem;font-weight:500;color:var(--muted-foreground,#64746d)}#prob-events-lab .result output{font-size:1.15rem;font-weight:650;margin-top:.25rem}#prob-events-lab .text-small{font-size:.78rem;line-height:1.5;margin:.5rem 0}#prob-events-lab .count{margin-bottom:0}
+  </style>
+  <h3>Which die outcomes pass the test?</h3>
+  <div class="viz-controls">
+    <label class="form-label" for="prob-events-preset">Start from an example</label>
+    <select class="form-select" id="prob-events-preset"><option value="indexed">Indexed union: A₁, A₂, A₃</option><option value="die">Die exercise: even / less than 4</option></select>
+    <label class="form-label" for="prob-events-operation">Operation</label>
+    <select class="form-select" id="prob-events-operation"><option value="union">Union: at least one</option><option value="intersection">Intersection: every event</option><option value="complement">Complement of the first event</option></select>
+  </div>
+  <p class="text-small">Check a face to include it in an event. Choosing an example resets its memberships. The sample space is {1, 2, 3, 4, 5, 6}.</p>
+  <div class="membership-fields"></div>
+  <div class="plot"></div>
+  <div class="result" aria-live="polite" aria-atomic="true"><strong data-expression>A₁ ∪ A₂ ∪ A₃</strong><output data-result>{1, 2, 4, 6}</output><p class="text-small count" data-count>4 of 6 outcomes included.</p></div>
+  <p class="text-small">Memberships are set definitions. Equal face probabilities would be an additional fair-die assumption.</p>
+  <script>
+  (()=>{
+    const root=document.getElementById('prob-events-lab'),plot=root.querySelector('.plot'),fields=root.querySelector('.membership-fields'),preset=root.querySelector('#prob-events-preset'),operation=root.querySelector('#prob-events-operation');
+    const NS='http://www.w3.org/2000/svg',faces=[1,2,3,4,5,6],teal='var(--viz-series-1,#177e68)',border='var(--border,#c7d2cc)';
+    let events=[],names=[];
+    const setText=s=>s.size?'{'+[...s].sort((a,b)=>a-b).join(', ')+'}':'∅';
+    function node(tag,attrs={},value){const e=document.createElementNS(NS,tag);for(const[k,v]of Object.entries(attrs))e.setAttribute(k,v);if(value!==undefined)e.textContent=value;return e}
+    function reset(){
+      const indexed=preset.value==='indexed';names=indexed?['A₁','A₂','A₃']:['A','B'];events=(indexed?[[1,2],[2,4],[6]]:[[2,4,6],[1,2,3]]).map(v=>new Set(v));
+      fields.replaceChildren();
+      events.forEach((event,i)=>{
+        const field=document.createElement('fieldset'),legend=document.createElement('legend'),row=document.createElement('div');legend.dataset.event=String(i);field.append(legend);row.className='faces';
+        for(const face of faces){const label=document.createElement('label'),input=document.createElement('input'),text=document.createElement('span');label.className='face-control';input.type='checkbox';input.checked=event.has(face);input.setAttribute('aria-label',`Face ${face} belongs to ${names[i]}`);input.id=`prob-events-${i}-${face}`;text.textContent=String(face);input.addEventListener('change',()=>{input.checked?event.add(face):event.delete(face);render()});label.append(input,text);row.append(label)}
+        field.append(row);fields.append(field);
+      });render();
+    }
+    function render(){
+      events.forEach((event,i)=>{fields.querySelector(`[data-event="${i}"]`).textContent=names[i]+' = '+setText(event)});
+      const mode=operation.value,selected=new Set(faces.filter(face=>mode==='union'?events.some(e=>e.has(face)):mode==='intersection'?events.every(e=>e.has(face)):!events[0].has(face)));
+      const expression=mode==='complement'?names[0]+'ᶜ':names.join(mode==='union'?' ∪ ':' ∩ ');
+      root.querySelector('[data-expression]').textContent=expression;root.querySelector('[data-result]').textContent=setText(selected);root.querySelector('[data-count]').textContent=`${selected.size} of 6 outcomes included. Each outcome appears at most once.`;
+      const width=Math.max(240,Math.round(plot.getBoundingClientRect().width)||274),gap=8,cell=(width-2*gap)/3,height=174;
+      const svg=node('svg',{viewBox:`0 0 ${width} ${height}`,role:'img','aria-label':`${expression} contains ${setText(selected)}. Tiles list each face and the events containing it.`});svg.append(node('title',{},'Membership in the selected set operation'));
+      faces.forEach((face,i)=>{
+        const x=(i%3)*(cell+gap),y=Math.floor(i/3)*87,inResult=selected.has(face),members=names.filter((_,j)=>events[j].has(face)).join(' ');
+        svg.append(node('rect',{x:x+1,y:y+1,width:cell-2,height:78,rx:6,fill:inResult?teal:'var(--background,#faf8f2)','fill-opacity':inResult?.13:1,stroke:inResult?teal:border,'stroke-width':inResult?1.7:1}));
+        svg.append(node('text',{x:x+cell/2,y:y+29,'text-anchor':'middle','font-size':22,'font-weight':650},String(face)));
+        svg.append(node('text',{x:x+cell/2,y:y+48,'text-anchor':'middle','font-size':11},members||'no event'));
+        svg.append(node('text',{x:x+cell/2,y:y+66,'text-anchor':'middle','font-size':11,'font-weight':inResult?650:400},inResult?'✓ included':'excluded'));
+      });plot.replaceChildren(svg);
+    }
+    preset.addEventListener('change',reset);operation.addEventListener('change',render);if(typeof ResizeObserver!=='undefined')new ResizeObserver(render).observe(plot);else window.addEventListener('resize',render);reset();
+  })();
+  </script>
+</section>

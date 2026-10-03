@@ -1,0 +1,35 @@
+<div id="prob-cars">
+  <h3>Same eight sequences, different probability weights</h3>
+  <p class="text-small">Assumption: the three cars turn independently, each with the same probability p of turning right. L means left; R means right.</p>
+  <label class="form-label" for="cars-p">Right-turn probability p = <output id="cars-p-value">0.50</output><input class="form-range" type="range" id="cars-p" min="0" max="100" step="1" value="50"></label>
+  <label class="form-label" for="cars-event">Highlight an event <select class="form-select" id="cars-event"><option value="one">A: exactly one right</option><option value="same">C: all the same direction</option></select></label>
+  <div class="cars-summary" aria-live="polite" aria-atomic="true">
+    <div class="card"><strong>A: exactly one right</strong><span id="cars-one"></span><small>3p(1 − p)²</small></div>
+    <div class="card"><strong>C: all the same</strong><span id="cars-same"></span><small>p³ + (1 − p)³</small></div>
+  </div>
+  <div class="cars-outcomes" aria-label="Eight ordered turn sequences and their weights"></div>
+  <p class="text-small" id="cars-status" aria-live="polite" aria-atomic="true"></p>
+  <p class="text-small">Each bar uses a 0–100% scale. “In event” describes membership even when the sequence currently has zero probability.</p>
+  <button type="button" class="btn" id="cars-reset">Return to p = 0.50</button>
+  <style>
+    #prob-cars{min-width:0}#prob-cars .form-select{display:block;margin-top:5px;width:100%;font-size:12px}#prob-cars output{font-weight:700;font-variant-numeric:tabular-nums}#prob-cars .cars-summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin:18px 0}#prob-cars .cars-summary strong{display:block;font-size:12px}#prob-cars .cars-summary span{display:block;font-size:20px;line-height:1.7;font-variant-numeric:tabular-nums}#prob-cars .cars-summary small{display:block;font-size:12px}#prob-cars .cars-outcomes{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:10px}#prob-cars .cars-outcome{min-width:0;padding:11px 9px;border:1px solid var(--border);border-radius:8px;background:var(--background)}#prob-cars .cars-outcome[data-selected=true]{border-color:var(--primary);box-shadow:inset 0 0 0 2px var(--primary);background:var(--card)}#prob-cars .cars-sequence{font-size:18px;font-weight:700;letter-spacing:.15em}#prob-cars .cars-weight{font-size:13px;font-variant-numeric:tabular-nums}#prob-cars .cars-bar{height:9px;border-radius:3px;background:var(--muted);margin-top:7px;overflow:hidden}#prob-cars .cars-bar>span{display:block;height:100%;background:var(--primary)}#prob-cars .cars-membership{display:block;font-size:11px;margin-top:7px}#prob-cars #cars-status{font-variant-numeric:tabular-nums}
+  </style>
+  <script>
+    (()=>{
+      const root=document.getElementById('prob-cars'),pInput=root.querySelector('#cars-p'),event=root.querySelector('#cars-event'),grid=root.querySelector('.cars-outcomes');
+      const stored=window.openai?.widgetState;if(stored&&Number.isInteger(stored.p)&&stored.p>=0&&stored.p<=100){pInput.value=stored.p;if(['one','same'].includes(stored.event))event.value=stored.event;}
+      const sequences=['LLL','LLR','LRL','LRR','RLL','RLR','RRL','RRR'];
+      sequences.forEach(s=>{const card=document.createElement('div');card.className='cars-outcome';card.dataset.sequence=s;const title=document.createElement('div');title.className='cars-sequence';title.textContent=s;const weight=document.createElement('div');weight.className='cars-weight';const bar=document.createElement('div');bar.className='cars-bar';bar.setAttribute('aria-hidden','true');bar.append(document.createElement('span'));const membership=document.createElement('span');membership.className='cars-membership';card.append(title,weight,bar,membership);grid.append(card);});
+      const pct=n=>(100*n).toFixed(2)+'%';
+      function save(){window.openai?.setWidgetState({p:Number(pInput.value),event:event.value});}
+      function draw(){
+        const p=Number(pInput.value)/100;root.querySelector('#cars-p-value').textContent=p.toFixed(2);
+        const one=3*p*(1-p)**2,same=p**3+(1-p)**3;
+        root.querySelector('#cars-one').textContent=pct(one);root.querySelector('#cars-same').textContent=pct(same);
+        let total=0;sequences.forEach((s,i)=>{const r=[...s].filter(c=>c==='R').length,w=p**r*(1-p)**(3-r),selected=event.value==='one'?r===1:r===0||r===3;total+=w;const card=grid.children[i];card.dataset.selected=selected?'true':'false';card.querySelector('.cars-weight').textContent=pct(w);card.querySelector('.cars-bar>span').style.width=(100*w)+'%';card.querySelector('.cars-membership').textContent=selected?'✓ In event':'Outside event';card.setAttribute('aria-label',`${s}: probability ${pct(w)}. ${selected?'In selected event.':'Outside selected event.'}`);});
+        root.querySelector('#cars-status').textContent=`Total probability: ${pct(total)}. `+(p===.5?'All eight sequences have weight 12.50%. A = 3/8 and C = 1/4.':p===0?'Only LLL has positive probability. A = 0 and C = 1.':p===1?'Only RRR has positive probability. A = 0 and C = 1.':'The eight sequences are not equally likely. Add their weights instead of dividing counts by 8.');
+      }
+      pInput.addEventListener('input',()=>{draw();save();});event.addEventListener('change',()=>{draw();save();});root.querySelector('#cars-reset').addEventListener('click',()=>{pInput.value=50;event.value='one';draw();save();});draw();
+    })();
+  </script>
+</div>

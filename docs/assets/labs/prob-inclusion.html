@@ -1,0 +1,43 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Explore a partial order of sets</title><link rel="icon" href="data:,"><link rel="stylesheet" href="../lab.css"><script src="../lab-frame.js"></script></head><body data-lab="prob-inclusion"><main class="lab-root"><div id="prob-inclusion">
+  <h3>Compare sets in the containment diamond</h3>
+  <p class="text-small">Choose A and B. An upward path means the lower set is contained in the upper set. Each set also contains itself.</p>
+  <div class="viz-controls">
+    <label class="form-label" for="inclusion-a">Set A <select class="form-select" id="inclusion-a"><option value="0">∅</option><option value="1" selected>{1}</option><option value="2">{2}</option><option value="3">{1, 2}</option></select></label>
+    <label class="form-label" for="inclusion-b">Set B <select class="form-select" id="inclusion-b"><option value="0">∅</option><option value="1">{1}</option><option value="2" selected>{2}</option><option value="3">{1, 2}</option></select></label>
+  </div>
+  <div class="inclusion-chart"></div>
+  <div class="card" id="inclusion-result" aria-live="polite" aria-atomic="true"></div>
+  <p class="text-small">A and B labels identify your selections; vertical position represents containment, not the numerical size of the elements.</p>
+  <style>
+    #prob-inclusion{min-width:0}#prob-inclusion .form-select{display:block;margin-top:5px;width:100%}#prob-inclusion .viz-controls>label{flex-basis:100px}#prob-inclusion .inclusion-chart{max-width:360px;margin:10px auto}#prob-inclusion svg{display:block;width:100%;height:auto}#prob-inclusion svg text{font-family:inherit;fill:var(--foreground);font-size:14px}#prob-inclusion svg .choice-tag{font-size:13px;font-weight:700}#prob-inclusion #inclusion-result{font-size:13px;line-height:1.75}#prob-inclusion #inclusion-result strong{display:block;margin-bottom:6px}
+  </style>
+  <script>
+    (()=>{
+      const root=document.getElementById('prob-inclusion'),a=root.querySelector('#inclusion-a'),b=root.querySelector('#inclusion-b'),chart=root.querySelector('.inclusion-chart'),result=root.querySelector('#inclusion-result');
+      const names=['∅','{1}','{2}','{1, 2}'],NS='http://www.w3.org/2000/svg';
+      const stored=window.openai?.widgetState;if(stored&&Number.isInteger(stored.a)&&stored.a>=0&&stored.a<=3&&Number.isInteger(stored.b)&&stored.b>=0&&stored.b<=3){a.value=stored.a;b.value=stored.b;}
+      function el(tag,attrs,text){const e=document.createElementNS(NS,tag);for(const[k,v]of Object.entries(attrs||{}))e.setAttribute(k,v);if(text!==undefined)e.textContent=text;return e;}
+      function draw(){
+        const A=Number(a.value),B=Number(b.value),ab=(A&B)===A,ba=(A&B)===B;
+        const svg=el('svg',{viewBox:'0 0 280 282',role:'img','aria-label':`Containment diamond for subsets of {1,2}. Empty set at bottom, {1} and {2} in the middle, {1,2} at top. A is ${names[A]}, B is ${names[B]}.`});
+        const defs=el('defs'),marker=el('marker',{id:'inclusion-arrow',viewBox:'0 0 10 10',refX:'9',refY:'5',markerWidth:'5',markerHeight:'5',orient:'auto'});marker.append(el('path',{d:'M 0 0 L 10 5 L 0 10 z',fill:'var(--muted-foreground)'}));defs.append(marker);svg.append(defs);
+        const pos=[[140,240],[60,140],[220,140],[140,40]];
+        for(const[lo,hi]of [[0,1],[0,2],[1,3],[2,3]]){const[x1,y1]=pos[lo],[x2,y2]=pos[hi],dx=x2-x1,dy=y2-y1;svg.append(el('line',{x1:x1+dx*.26,y1:y1+dy*.26,x2:x2-dx*.28,y2:y2-dy*.28,stroke:'var(--muted-foreground)','stroke-width':1.8,'marker-end':'url(#inclusion-arrow)'}));}
+        pos.forEach(([x,y],i)=>{
+          svg.append(el('rect',{x:x-43,y:y-25,width:86,height:50,rx:9,fill:i===A||i===B?'var(--card)':'var(--background)',stroke:i===A?'var(--viz-series-1)':i===B?'var(--viz-series-2)':'var(--border)','stroke-width':i===A||i===B?3:1.5}));
+          if(i===A&&i===B)svg.append(el('rect',{x:x-38,y:y-20,width:76,height:40,rx:6,fill:'none',stroke:'var(--viz-series-2)','stroke-width':2}));
+          svg.append(el('text',{x,y:y-2,'text-anchor':'middle','font-weight':600},names[i]));
+          svg.append(el('text',{x,y:y+15,'text-anchor':'middle',class:'choice-tag'},i===A&&i===B?'A and B':i===A?'A':i===B?'B':''));
+        });chart.replaceChildren(svg);
+        const heading=document.createElement('strong');heading.textContent=A===B?'Equal sets: both inclusions hold.':ab?'A is a proper subset of B.':ba?'B is a proper subset of A.':'Incomparable: neither set contains the other.';
+        const line=document.createElement('div');line.textContent=`A ⊆ B: ${ab?'yes':'no'}. B ⊆ A: ${ba?'yes':'no'}.`;
+        const witness=document.createElement('div');const missing=(x,y)=>[1,2].find(v=>(x&(1<<(v-1)))&&!(y&(1<<(v-1))));
+        witness.textContent=[!ab?`${missing(A,B)} belongs to A but not B.`:'',!ba?`${missing(B,A)} belongs to B but not A.`:''].filter(Boolean).join(' ')||'They have exactly the same members.';
+        result.replaceChildren(heading,line,witness);
+      }
+      function change(){draw();window.openai?.setWidgetState({a:Number(a.value),b:Number(b.value)});}
+      a.addEventListener('change',change);b.addEventListener('change',change);draw();
+    })();
+  </script>
+</div>
+</main></body></html>
