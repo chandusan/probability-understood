@@ -1,0 +1,46 @@
+<style>
+.series-legend{display:flex;gap:16px;flex-wrap:wrap;font-size:12px;margin:12px 0}.series-key{display:inline-block;width:22px;border-top:3px solid var(--primary);vertical-align:middle;margin-right:5px}.series-key.approx{border-color:var(--orange);border-top-style:dashed}.series-plot{width:100%;display:block;background:var(--background);border-radius:6px}.series-terms{display:grid;gap:7px;margin:15px 0}.series-term{display:grid;grid-template-columns:42px 1fr 75px;align-items:center;gap:8px;font-size:12px;font-variant-numeric:tabular-nums}.series-track{height:15px;background:var(--muted);position:relative;border-radius:3px}.series-track:before{content:'';position:absolute;left:50%;top:0;bottom:0;border-left:1px solid var(--muted-foreground)}.series-fill{height:100%;position:absolute;background:var(--primary);border-radius:2px}.series-fill.negative{background:var(--orange)}.series-term output{text-align:right}.series-formula{font:16px/1.8 Georgia,serif;overflow-wrap:anywhere}.series-note{min-height:3.2em}
+</style>
+<h3>Grow a polynomial toward a curve</h3>
+<p>Extra terms change the approximation. The partial sums converge as the degree grows, though the error need not shrink at every step. Try a square root first, then compare it with an ordinary cubic, whose expansion actually stops.</p>
+<div class="viz-controls" style="margin-top:16px">
+ <label class="form-label" for="series-alpha">Exponent α<br><select id="series-alpha" class="form-select"><option value="0.5">½ — square root</option><option value="3">3 — ordinary cubic</option><option value="-1">−1 — reciprocal</option><option value="-0.5">−½ — reciprocal square root</option><option value="2.5">2½ — fractional power</option></select></label>
+ <label class="form-label" for="series-degree">Include powers through x<sup><output id="series-degree-label">4</output></sup><input id="series-degree" type="range" min="0" max="40" value="4" step="1" class="form-range"></label>
+ <label class="form-label" for="series-x">Evaluate at x = <output id="series-x-label">0.5</output><input id="series-x" type="range" min="-0.95" max="0.95" step="0.01" value="0.5" class="form-range"></label>
+</div>
+<div class="series-formula">(1 + x)<sup>α</sup> ≈ 1 + αx + α(α − 1)x²/2! + …</div>
+<div class="series-legend"><span><i class="series-key"></i>Exact function</span><span><i class="series-key approx"></i>Partial sum</span></div>
+<svg id="series-plot" class="series-plot" role="img" aria-label="Exact power function and its partial binomial expansion"></svg>
+<div class="stats" aria-live="polite"><div class="stat">Exact value<strong id="series-exact"></strong></div><div class="stat">Partial sum<strong id="series-sum"></strong></div><div class="stat">Absolute error<strong id="series-error"></strong></div></div>
+<p id="series-note" class="series-note"></p>
+<h4>What each term contributes at your chosen x</h4>
+<p class="text-small text-muted">The constant 1 is included in the sum. Below, a bar to the right adds; a bar to the left subtracts. All shown bars share one scale.</p>
+<div id="series-terms" class="series-terms"></div>
+<p class="text-small">The controls keep |x| &lt; 1, where every displayed infinite series converges. Close to the edge, many more terms may be needed. A small error at one x does not promise a small error everywhere.</p>
+<script>
+(() => {
+ const $=id=>document.getElementById(id), alpha=$('series-alpha'), degree=$('series-degree'), input=$('series-x'), plot=$('series-plot');
+ const saved=window.openai?.widgetState;
+ if(saved){if(['0.5','3','-1','-0.5','2.5'].includes(String(saved.alpha)))alpha.value=String(saved.alpha);if(Number.isInteger(saved.degree)&&saved.degree>=0&&saved.degree<=40)degree.value=saved.degree;if(Number.isFinite(saved.x)&&Math.abs(saved.x)<=.95)input.value=saved.x;}
+ function terms(a,x,n){const result=[1];let c=1;for(let k=1;k<=n;k++){c*= (a-k+1)/k;result.push(c*x**k);}return result;}
+ const fmt=n=>n===0?'0':Math.abs(n)<.000001?n.toExponential(2):Number(n.toFixed(6)).toLocaleString('en-US',{maximumFractionDigits:6});
+ function render(){
+  const a=+alpha.value,n=+degree.value,x=+input.value,contributions=terms(a,x,n),sum=contributions.reduce((s,v)=>s+v,0),exact=(1+x)**a;
+  $('series-degree-label').textContent=n;$('series-x-label').textContent=x.toFixed(2);$('series-exact').textContent=fmt(exact);$('series-sum').textContent=fmt(sum);$('series-error').textContent=fmt(Math.abs(exact-sum));
+  $('series-note').textContent=a===3?(n>=3?'At degree 3 the cubic is already exact. Every later coefficient is zero because its numerator contains (3 − 3).':'The cubic becomes exact at degree 3. Increase the number of terms and watch the two curves meet.'):(Math.abs(x)>.8?'You are near the convergence boundary. Increase the degree and watch how the gap changes; it need not shrink at every step, and 40 terms may not give high accuracy.':'For this exponent the coefficients continue forever. The partial sum uses only the first '+(n+1)+' terms; the curve uses the exact function.');
+  const shown=Array.from({length:Math.min(n,8)},(_,i)=>i+1);if(n>8)shown.push(n);
+  const maxTerm=Math.max(.000000000001,...shown.map(k=>Math.abs(contributions[k])));
+  $('series-terms').innerHTML=shown.length?shown.map((k,i)=>`${n>9&&i===8?'<p class="text-small text-muted">Intermediate terms are included in the sum; only the last one is shown below.</p>':''}<div class="series-term"><span>x<sup>${k}</sup></span><div class="series-track"><i class="series-fill ${contributions[k]<0?'negative':''}" style="width:${48*Math.abs(contributions[k])/maxTerm}%;left:${contributions[k]<0?50-48*Math.abs(contributions[k])/maxTerm:50}%"></i></div><output>${fmt(contributions[k])}</output></div>`).join(''):'<p class="text-small">Degree 0 keeps just the constant: the approximation is 1 everywhere.</p>';
+  const width=Math.max(240,Math.round(plot.getBoundingClientRect().width||520)),height=260,left=43,right=13,top=16,bottom=34,bound=Math.max(.65,Math.min(.98,Math.abs(x)+.04));
+  const samples=Array.from({length:241},(_,i)=>{const t=-bound+2*bound*i/240;return[t,(1+t)**a,terms(a,t,n).reduce((s,v)=>s+v,0)];});
+  const all=samples.flatMap(v=>v.slice(1)),low=Math.min(0,...all),hi=Math.max(...all),padding=(hi-low)*.07||.1,min=low-padding,max=hi+padding;
+  const X=t=>left+(t+bound)/(2*bound)*(width-left-right),Y=v=>height-bottom-(v-min)/(max-min)*(height-top-bottom);
+  const path=index=>samples.map((v,i)=>(i?'L':'M')+X(v[0]).toFixed(2)+','+Y(v[index]).toFixed(2)).join(' ');
+  let ticks='';for(let i=0;i<4;i++){const v=low+(hi-low)*i/3,y=Y(v);ticks+=`<line x1="${left}" y1="${y}" x2="${width-right}" y2="${y}" stroke="var(--border)"/><text x="${left-6}" y="${y+4}" text-anchor="end" fill="var(--muted-foreground)" font-size="11">${Number(v.toFixed(2))}</text>`;}
+  for(const t of[-bound,0,bound])ticks+=`<text x="${X(t)}" y="${height-12}" text-anchor="middle" fill="var(--muted-foreground)" font-size="11">${Number(t.toFixed(2))}</text>`;
+  plot.setAttribute('viewBox',`0 0 ${width} ${height}`);plot.innerHTML=`<title>Exact function and degree ${n} approximation for exponent ${a}; selected x is ${x}</title>${ticks}<line x1="${X(x)}" y1="${top}" x2="${X(x)}" y2="${height-bottom}" stroke="var(--muted-foreground)" stroke-dasharray="2 4"/><path d="${path(1)}" fill="none" stroke="var(--primary)" stroke-width="2.5"/><path d="${path(2)}" fill="none" stroke="var(--orange)" stroke-width="2.5" stroke-dasharray="6 4"/><circle cx="${X(x)}" cy="${Y(exact)}" r="5" fill="var(--primary)"/><circle cx="${X(x)}" cy="${Y(sum)}" r="3" fill="var(--orange)"/><text x="${width-right}" y="${height-1}" text-anchor="end" font-size="11" fill="var(--foreground)">x</text>`;
+  window.openai?.setWidgetState({alpha:a,degree:n,x});
+ }
+ [alpha,degree,input].forEach(control=>control.addEventListener('input',render));let lastWidth=0;new ResizeObserver(()=>{const w=plot.getBoundingClientRect().width;if(w!==lastWidth){lastWidth=w;render();}}).observe(plot);render();
+})();
+</script>

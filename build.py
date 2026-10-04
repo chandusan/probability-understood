@@ -24,6 +24,15 @@ LAB_TITLES.update({
     'prob-demorgan':'See De Morgan’s laws one outcome at a time',
     'prob-cars':'Three turns with an adjustable right-turn probability',
     'prob-dice':'Count outcomes in the two-dice grid',
+    'count-tree':'Build a counting tree one choice at a time',
+    'count-cards':'See where the ace and diamond counts overlap',
+    'count-arrangements':'Turn ordered arrangements into groups',
+    'count-stars':'Turn repeated choices into stars and bars',
+    'count-series':'Build a generalized binomial series term by term',
+    'count-pipeline':'Count feature pipelines with constraints',
+    'count-lottery':'Count every possible lottery match',
+    'count-poker':'Build and compare five-card poker hands',
+    'count-tournament':'Why two players meet with probability two over n',
 })
 CHAPTERS = [
     {'id':'data-summary','number':'01','title':'Data Summary','folder':'slides',
@@ -34,6 +43,11 @@ CHAPTERS = [
      'groups':[(1,4,'From data to uncertainty'),(5,10,'Experiments & random outcomes'),(11,17,'Building a sample space'),(18,27,'The language of events'),(28,34,'Set laws & inclusion'),(35,39,'Many events & probability rules'),(40,43,'Counting equally likely outcomes')],
      'titles':['From observed data to possible worlds','What makes a system deterministic?','What does a random error mean?','Randomness, chaos & predictability','A coin’s long-run regularity','Two dice, 36 distinct outcomes','Count the sixes in ten dice','A needle, a floor & a probability','A whole price path is one outcome','When do two random chords cross?','A language for uncertainty','What belongs in a sample space?','Countable versus uncountable','Counting a grid of possibilities','Describe a needle’s landing','Coordinates for a random needle','Orientation, uniformity & crossing','An event is a set of outcomes','Membership: an outcome in an event','Three cars, eight possible stories','Impossible and certain events','Union: at least one event happens','Intersection: both events happen','Overlapping rectangles','Complement: everything outside an event','Translate words into sets','Work the die example','Why the set laws work','Split an event into two pieces','Empty space and the whole space','Disjoint means at most one','Inclusion makes a partial order','Three consequences of inclusion','Which inclusions are always true?','From two events to a family','Union over many events','Intersection over many events','De Morgan’s laws for any family','Three axioms that hold it together','When counting becomes probability','Three cars: counting and weighting','Two dice: sums of at least ten','A complete probability argument'],
      'legacy':'02-foundations.html'},
+    {'id':'counting','number':'03','title':'Counting','folder':'counting',
+     'content':'counting','images':'slides/counting','pdf':'03-counting.pdf','height':1500,
+     'groups':[(1,8,'Probability meets counting'),(9,18,'Build choices step by step'),(19,27,'Order, groups & constraints'),(28,34,'Coefficients & repeated choices'),(35,40,'A lottery, counted carefully'),(41,51,'The anatomy of poker hands'),(52,53,'Two final challenges')],
+     'titles':['Why counting unlocks probability','The three probability axioms','What is a probability space?','When outcomes are equally likely','Three cars, counted carefully','Two dice: solve the exercise','Probability rules as bookkeeping','An ace or a diamond?','The art of counting once','Add disjoint alternatives','Multiply sequential choices','Read a counting tree','Gold and silver among eight finalists','Extend the multiplication rule','Follow a three-stage tree','Count the licence plates','Factorials: arranging everything','All 24 orders of four letters','Keep each subject together','Arrange only some of the objects','Assign three committee roles','Build a constrained feature pipeline','When order changes the outcome','An all-male executive committee','List the groups of three','Why divide by k factorial?','Understand the choose notation','Where binomial coefficients come from','Extend the binomial theorem','Which counting rule applies?','Build a longer sequence','Repetition and identical objects','Donuts, stars and bars','A strategy for new problems','Six numbers from forty-nine','Prizes and the winning rules','A ticket with no matches','Exactly one match','Two, three or four matches','Five matches and the bonus caveat','The universe of poker hands','Rank patterns and card categories','The rarest poker hands','See the structure of one pair','Count all one-pair hands','Count two-pair hands','Three of a kind and full houses','Quads and the straight flushes','Ten ways to make a straight','A flush, with straights removed','Check the entire poker distribution','Ten coin tosses: both exercises','Will two tournament players meet?'],
+     'legacy':'03-counting.html'},
 ]
 
 def render_md(text):
@@ -107,7 +121,9 @@ def build():
                 links+=f'<a class="slide-link" data-slide="{num}" data-search="{search}" href="{sp}{num:02}.html"{active}><span class="slide-num">{num:02}</span><span>{html.escape(other["short"])}</span></a>'
             nav+=f'<div class="nav-group"><div class="nav-group-title">{label}</div>{links}</div>'
         prev=f'<a href="{sp}{n-1:02}.html"><span>← Previous slide</span>{html.escape(titles[n-2])}</a>' if n>1 else '<span></span>'
-        nxt=f'<a href="{sp}{n+1:02}.html"><span>Next slide →</span>{html.escape(titles[n])}</a>' if n<count else (f'<a href="{p}probability-part1/01.html"><span>Next chapter →</span>Probability · Part 1</a>' if chapter['number']=='01' else f'<a href="{sp}01.html"><span>Back to the beginning →</span>Revisit the ideas</a>')
+        chapter_index=CHAPTERS.index(chapter)
+        next_chapter=CHAPTERS[chapter_index+1] if chapter_index+1<len(CHAPTERS) else None
+        nxt=f'<a href="{sp}{n+1:02}.html"><span>Next slide →</span>{html.escape(titles[n])}</a>' if n<count else (f'<a href="{p}{next_chapter["folder"]}/01.html"><span>Next chapter →</span>{html.escape(next_chapter["title"])}</a>' if next_chapter else f'<a href="{sp}01.html"><span>Back to the beginning →</span>Revisit the ideas</a>')
         group=next(label for a,b,label in chapter['groups'] if a<=n<=b)
         lead=render_md(s['lead']).removeprefix('<p>').removesuffix('</p>')
         title=render_md(s['title']).removeprefix('<p>').removesuffix('</p>')

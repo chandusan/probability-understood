@@ -1,0 +1,42 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Turn ordered arrangements into groups</title><link rel="icon" href="data:,"><link rel="stylesheet" href="../lab.css"><script src="../lab-frame.js"></script></head><body data-lab="count-arrangements"><main class="lab-root"><section id="count-arrangements-lab" aria-label="Ordered selections and unordered groups">
+  <style>
+    #count-arrangements-lab{min-width:0;color:var(--foreground,#263d35)}#count-arrangements-lab h3{font-size:1rem;margin:0 0 .75rem}#count-arrangements-lab .controls{display:grid;grid-template-columns:1fr 1fr;gap:.65rem}#count-arrangements-lab label{display:block;font-size:.8rem;margin-bottom:.3rem}#count-arrangements-lab select{box-sizing:border-box;width:100%;min-width:0;padding:.5rem;font:inherit;color:inherit;background:var(--background,#faf8f2);border:1px solid var(--border,#c7d2cc);border-radius:5px}#count-arrangements-lab .text-small{font-size:.8rem;line-height:1.5;margin:.7rem 0}#count-arrangements-lab .stats{display:grid;grid-template-columns:1fr 1fr;gap:.55rem;margin:.7rem 0}#count-arrangements-lab .stat{padding:.65rem;border:1px solid var(--border,#c7d2cc);border-radius:5px;min-width:0}#count-arrangements-lab .stat strong{font-size:1.4rem;display:block}#count-arrangements-lab .stat span{font-size:.77rem;display:block}#count-arrangements-lab .groups{display:grid;grid-template-columns:repeat(auto-fit,minmax(90px,1fr));gap:.4rem}#count-arrangements-lab button{font:inherit;font-size:.8rem;min-height:40px;padding:.45rem .2rem;color:inherit;background:var(--background,#faf8f2);border:1px solid var(--border,#c7d2cc);border-radius:5px;cursor:pointer}#count-arrangements-lab button[aria-pressed=true]{background:var(--viz-series-1,#177e68);color:white;border-color:var(--viz-series-1,#177e68)}#count-arrangements-lab :focus-visible{outline:3px solid var(--viz-series-2,#b66f45);outline-offset:2px}#count-arrangements-lab svg{width:100%;height:auto;display:block}#count-arrangements-lab svg text{font-family:inherit;fill:var(--foreground,#263d35)}#count-arrangements-lab .plot{margin-top:.5rem;min-width:0}#count-arrangements-lab .result{font-size:.86rem;line-height:1.5;padding:.6rem;border-left:3px solid var(--viz-series-1,#177e68);margin-top:.7rem}#count-arrangements-lab [data-group-title]{font-weight:600;margin-bottom:.5rem}
+  </style>
+  <h3>Many orders, one selected set</h3>
+  <div class="controls">
+    <div><label for="count-arr-n">Available objects</label><select id="count-arr-n"><option value="3">3: A–C</option><option value="4">4: A–D</option><option value="5" selected>5: A–E</option><option value="6">6: A–F</option></select></div>
+    <div><label for="count-arr-k">Selection size</label><select id="count-arr-k"><option value="1">1 object</option><option value="2">2 objects</option><option value="3" selected>3 objects</option></select></div>
+  </div>
+  <p class="text-small">Distinct objects, selected without replacement. Choose a set below to inspect all its ordered descriptions.</p>
+  <div class="stats"><div class="stat"><strong data-ordered>60</strong><span>ordered selections</span></div><div class="stat"><strong data-unordered>10</strong><span>unordered sets</span></div></div>
+  <p class="text-small" data-group-title>Choose a selected set</p>
+  <div class="groups" role="group" aria-label="Select an unordered set"></div>
+  <div class="plot"></div>
+  <div class="result" aria-live="polite" aria-atomic="true"></div>
+  <script>
+    (()=>{
+      const root=document.getElementById('count-arrangements-lab'),nInput=root.querySelector('#count-arr-n'),kInput=root.querySelector('#count-arr-k'),groups=root.querySelector('.groups'),plot=root.querySelector('.plot'),NS='http://www.w3.org/2000/svg';
+      let sets=[],selected=0;
+      const factorial=n=>{let v=1;for(let i=2;i<=n;i++)v*=i;return v};
+      function combinations(items,k,start=0,prefix=[],out=[]){if(prefix.length===k){out.push(prefix);return out}for(let i=start;i<=items.length-(k-prefix.length);i++)combinations(items,k,i+1,[...prefix,items[i]],out);return out}
+      function permutations(items){if(!items.length)return [[]];return items.flatMap((item,i)=>permutations(items.filter((_,j)=>i!==j)).map(rest=>[item,...rest]))}
+      const setLabel=items=>'{'+items.join(', ')+'}';
+      function svgNode(tag,attrs={},value){const el=document.createElementNS(NS,tag);Object.entries(attrs).forEach(([k,v])=>el.setAttribute(k,v));if(value!==undefined)el.textContent=value;return el}
+      function rebuild(){const n=Number(nInput.value),k=Number(kInput.value);sets=combinations('ABCDEF'.slice(0,n).split(''),k);selected=0;groups.replaceChildren();sets.forEach((s,i)=>{const b=document.createElement('button');b.type='button';b.textContent=setLabel(s);b.setAttribute('aria-label','Inspect all orders of '+setLabel(s));b.addEventListener('click',()=>{selected=i;render()});groups.append(b)});render()}
+      function render(){
+        const k=Number(kInput.value),orders=permutations(sets[selected]),count=sets.length*factorial(k);
+        root.querySelector('[data-ordered]').textContent=count;root.querySelector('[data-unordered]').textContent=sets.length;
+        [...groups.children].forEach((b,i)=>b.setAttribute('aria-pressed',String(i===selected)));
+        root.querySelector('[data-group-title]').textContent=sets.length+' different selected sets';
+        root.querySelector('.result').textContent=`${setLabel(sets[selected])} has ${k}! = ${orders.length} ordered descriptions. Every other set has the same number: ${count} ÷ ${orders.length} = ${sets.length}.`;
+        const width=Math.max(240,Math.round(plot.getBoundingClientRect().width)||274),columns=2,gap=8,cell=(width-gap)/columns,rows=Math.ceil(orders.length/columns),height=rows*61+27;
+        const svg=svgNode('svg',{viewBox:`0 0 ${width} ${height}`,role:'img','aria-label':`All ${orders.length} orders of ${setLabel(sets[selected])}: ${orders.map(a=>a.join('')).join(', ')}`});
+        svg.append(svgNode('text',{x:0,y:16,'font-size':12,'font-weight':600},'Ordered descriptions of this set'));
+        orders.forEach((order,i)=>{const x=(i%columns)*(cell+gap),y=27+Math.floor(i/columns)*61;svg.append(svgNode('rect',{x:x+1,y:y+1,width:cell-2,height:52,rx:5,fill:'var(--background,#faf8f2)',stroke:'var(--border,#c7d2cc)'}));const pitch=Math.min(30,(cell-16)/k),start=x+cell/2-(k-1)*pitch/2;order.forEach((letter,j)=>{svg.append(svgNode('circle',{cx:start+j*pitch,cy:y+22,r:11,fill:'var(--viz-series-1,#177e68)','fill-opacity':.13}));svg.append(svgNode('text',{x:start+j*pitch,y:y+26,'text-anchor':'middle','font-size':13,'font-weight':650},letter));svg.append(svgNode('text',{x:start+j*pitch,y:y+44,'text-anchor':'middle','font-size':9},String(j+1)))})});
+        plot.replaceChildren(svg);
+      }
+      nInput.addEventListener('change',rebuild);kInput.addEventListener('change',rebuild);rebuild();if(typeof ResizeObserver!=='undefined')new ResizeObserver(render).observe(plot);else window.addEventListener('resize',render);
+    })();
+  </script>
+</section>
+</main></body></html>

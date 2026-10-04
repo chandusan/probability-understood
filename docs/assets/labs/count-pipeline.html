@@ -1,0 +1,43 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Count feature pipelines with constraints</title><link rel="icon" href="data:,"><link rel="stylesheet" href="../lab.css"><script src="../lab-frame.js"></script></head><body data-lab="count-pipeline"><main class="lab-root"><style>
+.pipeline-rules{display:grid;gap:7px;margin:15px 0}.pipeline-rules label{display:flex;gap:9px;align-items:center;font-size:13px}.pipeline-matrix{display:grid;grid-template-columns:24px repeat(7,minmax(0,1fr));gap:4px;margin:16px 0}.pipeline-cell,.pipeline-axis{display:grid;place-items:center;min-height:28px;font-size:12px}.pipeline-cell{border:1px solid var(--border);border-radius:4px;background:var(--muted);padding:2px;cursor:pointer}.pipeline-cell.ok{background:#d9ece4;color:#174f42;border-color:#7eac9e}.pipeline-cell.blocked{background:#f5e4df;color:#8a372d;border-color:#c59182}.pipeline-cell.other{color:#647365;background:#edf0e9}.pipeline-cell.selected{outline:2px solid var(--foreground);outline-offset:1px}.pipeline-axis{font-weight:600}.pipeline-legend{display:flex;flex-wrap:wrap;gap:8px 17px;font-size:12px}.pipeline-dot{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;background:#d9ece4;border:1px solid #7eac9e}.pipeline-dot.blocked{background:#f5e4df;border-color:#c59182}.pipeline-dot.other{background:#edf0e9;border-color:#bbc5b4}.pipeline-sample{font-family:monospace;font-size:24px;letter-spacing:8px}.pipeline-examples{word-spacing:9px;font:13px/1.9 monospace;overflow-wrap:anywhere}.pipeline-caption{font-size:12px;color:var(--muted-foreground)}
+</style>
+<h3>Filter the pipelines, one condition at a time</h3>
+<p>A pipeline is an ordered triple: the feature at stage 1, then stage 2, then stage 3. The original exercise uses all three rules below.</p>
+<div class="pipeline-rules">
+ <label><input id="pipeline-first-rule" type="checkbox" checked>Stage 1 must be A or B</label>
+ <label><input id="pipeline-distinct" type="checkbox" checked>Use each feature at most once</label>
+ <label><input id="pipeline-forbid" type="checkbox" checked>C and D cannot both appear</label>
+</div>
+<div class="stats" aria-live="polite"><div class="stat">Before the C–D rule<strong id="pipeline-before"></strong></div><div class="stat">Removed by that rule<strong id="pipeline-removed"></strong></div><div class="stat">Valid pipelines<strong id="pipeline-total"></strong></div></div>
+<p id="pipeline-equation"></p>
+<label class="form-label" for="pipeline-first" style="margin-top:18px">Inspect the grid for stage 1 = <select id="pipeline-first" class="form-select"><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option><option>F</option><option>G</option></select></label>
+<p class="pipeline-caption">Rows choose stage 2; columns choose stage 3. Select a cell to see why that exact pipeline is accepted or rejected.</p>
+<div id="pipeline-matrix" class="pipeline-matrix" role="group" aria-label="Choose second and third features"></div>
+<div class="pipeline-legend"><span><i class="pipeline-dot"></i>Valid</span><span><i class="pipeline-dot blocked"></i>C–D conflict</span><span><i class="pipeline-dot other"></i>Another rule</span></div>
+<div class="card" style="margin-top:16px" aria-live="polite"><strong id="pipeline-sample" class="pipeline-sample"></strong><p id="pipeline-reason"></p></div>
+<h4>Pipelines removed specifically by the C–D rule</h4>
+<div id="pipeline-examples" class="pipeline-examples"></div>
+<p class="text-small">With the original rules: A has 30 distinct continuations, but ACD and ADC fail. B behaves the same way. Thus 2 × (30 − 2) = 56. Allowing reuse changes the answer to 94; it changes what counts as a legal outcome.</p>
+<script>
+(() => {
+ const $=id=>document.getElementById(id), letters=[...'ABCDEFG'],firstRule=$('pipeline-first-rule'),distinct=$('pipeline-distinct'),forbid=$('pipeline-forbid'),first=$('pipeline-first');let second='C',third='E';
+ const saved=window.openai?.widgetState;if(saved){for(const [key,control] of[['firstRule',firstRule],['distinct',distinct],['forbid',forbid]])if(typeof saved[key]==='boolean')control.checked=saved[key];if(letters.includes(saved.first))first.value=saved.first;if(letters.includes(saved.second))second=saved.second;if(letters.includes(saved.third))third=saved.third;}
+ function reason(triple,cd=true){if(firstRule.checked&&!['A','B'].includes(triple[0]))return'other';if(distinct.checked&&new Set(triple).size<3)return'other';if(cd&&forbid.checked&&triple.includes('C')&&triple.includes('D'))return'blocked';return'ok';}
+ function render(){
+  const all=[];for(const a of letters)for(const b of letters)for(const c of letters)all.push(a+b+c);
+  const before=all.filter(t=>reason(t,false)==='ok'),removed=before.filter(t=>reason(t)==='blocked'),valid=before.length-removed.length;
+  $('pipeline-before').textContent=before.length;$('pipeline-removed').textContent=removed.length;$('pipeline-total').textContent=valid;
+  const starts=firstRule.checked?2:7;$('pipeline-equation').textContent=`${starts} × ${distinct.checked?'6 × 5':'7 × 7'} = ${before.length} before the C–D rule. ${before.length} − ${removed.length} = ${valid} valid pipelines.`;
+  let grid='<span class="pipeline-axis" aria-hidden="true">↓ / →</span>'+letters.map(c=>`<span class="pipeline-axis">${c}</span>`).join('');
+  for(const b of letters){grid+=`<span class="pipeline-axis">${b}</span>`;for(const c of letters){const t=first.value+b+c,status=reason(t),label=status==='ok'?'valid':status==='blocked'?'C and D conflict':'violates first-stage or no-reuse rule';grid+=`<button class="pipeline-cell ${status}${b===second&&c===third?' selected':''}" data-second="${b}" data-third="${c}" aria-label="${t}: ${label}" aria-pressed="${b===second&&c===third}">${status==='ok'?'✓':status==='blocked'?'×':'·'}</button>`;}}
+  $('pipeline-matrix').innerHTML=grid;const selected=first.value+second+third,messages=[];
+  if(firstRule.checked&&!['A','B'].includes(first.value))messages.push('Stage 1 must be A or B.');if(distinct.checked&&new Set(selected).size<3)messages.push('A feature is repeated, but reuse is switched off.');if(forbid.checked&&selected.includes('C')&&selected.includes('D'))messages.push('C and D both appear, so they violate the conflict rule.');
+  $('pipeline-sample').textContent=selected;$('pipeline-reason').textContent=messages.length?messages.join(' '):'Valid: this ordered triple satisfies every selected rule.';
+  $('pipeline-examples').textContent=removed.length?removed.join(' '):'None under the selected rules.';
+  $('pipeline-matrix').querySelectorAll('button').forEach(button=>button.addEventListener('click',()=>{second=button.dataset.second;third=button.dataset.third;render();const replacement=$('pipeline-matrix').querySelector(`[data-second="${second}"][data-third="${third}"]`);replacement?.focus({preventScroll:true});}));
+  window.openai?.setWidgetState({firstRule:firstRule.checked,distinct:distinct.checked,forbid:forbid.checked,first:first.value,second,third});
+ }
+ [firstRule,distinct,forbid,first].forEach(control=>control.addEventListener('change',render));render();
+})();
+</script>
+</main></body></html>

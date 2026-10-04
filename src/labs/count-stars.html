@@ -1,0 +1,46 @@
+<section id="count-stars-lab" aria-label="Stars and bars donut purchases">
+  <style>
+    #count-stars-lab{min-width:0;color:var(--foreground,#263d35)}#count-stars-lab h3{font-size:1rem;margin:0 0 .7rem}#count-stars-lab .quantities{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.45rem}#count-stars-lab label{display:block;font-size:.75rem;margin-bottom:.3rem}#count-stars-lab input{box-sizing:border-box;width:100%;min-width:0;padding:.5rem;font:inherit;color:inherit;background:var(--background,#faf8f2);border:1px solid var(--border,#c7d2cc);border-radius:5px}#count-stars-lab .text-small{font-size:.8rem;line-height:1.5;margin:.65rem 0}#count-stars-lab .plot{width:100%;min-width:0;margin:.7rem 0 .2rem}#count-stars-lab svg{display:block;width:100%;height:auto}#count-stars-lab svg text{fill:var(--foreground,#263d35);font-family:inherit}#count-stars-lab .moves{display:grid;grid-template-columns:1fr 1fr;gap:.4rem}#count-stars-lab button{font:inherit;font-size:.8rem;padding:.5rem .25rem;min-height:40px;border:1px solid var(--border,#c7d2cc);border-radius:5px;color:inherit;background:var(--background,#faf8f2);cursor:pointer}#count-stars-lab button:disabled{opacity:.4;cursor:default}#count-stars-lab :focus-visible{outline:3px solid var(--viz-series-2,#b66f45);outline-offset:2px}#count-stars-lab .result{margin:.7rem 0;padding:.65rem;border:1px solid var(--border,#c7d2cc);border-radius:5px;font-size:.85rem;line-height:1.5}#count-stars-lab .result strong{font-size:1.35rem;display:block}#count-stars-lab .result output{display:block;overflow-wrap:anywhere}#count-stars-lab summary{font-size:.85rem;cursor:pointer;padding:.35rem 0}#count-stars-lab table{width:100%;border-collapse:collapse;font-size:.77rem;margin-top:.5rem}#count-stars-lab th,#count-stars-lab td{text-align:center;padding:.35rem .12rem;border-bottom:1px solid var(--border,#c7d2cc)}#count-stars-lab td:last-child{font-family:ui-monospace,monospace;white-space:nowrap}#count-stars-lab tr[aria-current=true]{background:color-mix(in srgb,var(--viz-series-1,#177e68) 12%,transparent)}#count-stars-lab [data-reset]{width:100%;margin-top:.6rem}
+  </style>
+  <h3>Turn quantities into an encoding</h3>
+  <div class="quantities">
+    <div><label for="count-stars-c">Chocolate</label><input id="count-stars-c" type="number" min="0" max="6" step="1" value="3" inputmode="numeric"></div>
+    <div><label for="count-stars-v">Vanilla</label><input id="count-stars-v" type="number" min="0" max="3" step="1" value="0" inputmode="numeric"></div>
+    <div><label for="count-stars-s">Strawberry</label><input id="count-stars-s" type="number" min="0" max="5" step="1" value="2" inputmode="numeric"></div>
+  </div>
+  <p class="text-small">Edit a quantity to change the total (up to 8 donuts). Move a bar to transfer one donut between neighboring flavors while keeping the total fixed.</p>
+  <div class="plot"></div>
+  <p class="text-small" data-encoding></p>
+  <div class="moves">
+    <button type="button" data-move="0,-1" aria-label="Move first bar left: chocolate to vanilla">Bar 1 ←</button><button type="button" data-move="0,1" aria-label="Move first bar right: vanilla to chocolate">Bar 1 →</button>
+    <button type="button" data-move="1,-1" aria-label="Move second bar left: vanilla to strawberry">Bar 2 ←</button><button type="button" data-move="1,1" aria-label="Move second bar right: strawberry to vanilla">Bar 2 →</button>
+  </div>
+  <div class="result" aria-live="polite" aria-atomic="true"><strong data-count>21 possible purchases</strong><output data-description></output></div>
+  <details><summary data-list-summary>See all 21 purchases</summary><p class="text-small">C = chocolate, V = vanilla, S = strawberry. The highlighted row is your current purchase.</p><table><thead><tr><th scope="col">C</th><th scope="col">V</th><th scope="col">S</th><th scope="col">Encoding</th></tr></thead><tbody></tbody></table></details>
+  <button type="button" data-reset>Reset to 3 chocolate, 0 vanilla, 2 strawberry</button>
+  <script>
+    (()=>{
+      const root=document.getElementById('count-stars-lab'),inputs=['c','v','s'].map(s=>root.querySelector('#count-stars-'+s)),plot=root.querySelector('.plot'),body=root.querySelector('tbody'),NS='http://www.w3.org/2000/svg';
+      let quantities=[3,0,2];
+      const encode=q=>q.map(n=>'*'.repeat(n)).join('|');
+      function svgNode(tag,attrs={},value){const el=document.createElementNS(NS,tag);Object.entries(attrs).forEach(([k,v])=>el.setAttribute(k,v));if(value!==undefined)el.textContent=value;return el}
+      function render(){
+        const total=quantities.reduce((a,b)=>a+b,0),length=total+2,count=(total+2)*(total+1)/2,encoding=encode(quantities);
+        inputs.forEach((input,i)=>{input.value=quantities[i];input.max=8-(total-quantities[i])});
+        root.querySelector('[data-count]').textContent=count+' possible '+(count===1?'purchase':'purchases');
+        root.querySelector('[data-description]').textContent=`${total} donuts + 2 bars = ${length} positions. Choose 2 bar positions: ${length} × ${length-1} ÷ 2 = ${count}. Current quantities: (${quantities.join(', ')}).`;
+        root.querySelector('[data-encoding]').textContent=`${encoding} — ${quantities[0]} chocolate, ${quantities[1]} vanilla, ${quantities[2]} strawberry.`;
+        root.querySelector('[data-list-summary]').textContent='See all '+count+' '+(count===1?'purchase':'purchases');
+        const moves=[...root.querySelectorAll('[data-move]')];moves[0].disabled=quantities[0]===0;moves[1].disabled=quantities[1]===0;moves[2].disabled=quantities[1]===0;moves[3].disabled=quantities[2]===0;
+        const width=Math.max(240,Math.round(plot.getBoundingClientRect().width)||274),pitch=Math.min(34,(width-4)/length),start=(width-length*pitch)/2;
+        const svg=svgNode('svg',{viewBox:`0 0 ${width} 87`,role:'img','aria-label':`${encoding}. Stars count donuts; two bars divide chocolate, vanilla, and strawberry. Numbered positions run from 1 to ${length}.`});
+        svg.append(svgNode('text',{x:width/2,y:13,'text-anchor':'middle','font-size':11},'Choose which positions contain bars'));
+        let barIndex=0;[...encoding].forEach((symbol,i)=>{const x=start+(i+.5)*pitch;svg.append(svgNode('rect',{x:start+i*pitch+1,y:24,width:pitch-2,height:35,rx:4,fill:'var(--background,#faf8f2)',stroke:'var(--border,#c7d2cc)'}));if(symbol==='|'){barIndex++;svg.append(svgNode('line',{x1:x,y1:30,x2:x,y2:51,stroke:'var(--viz-series-2,#b66f45)','stroke-width':3}));svg.append(svgNode('text',{x,y:82,'text-anchor':'middle','font-size':9},'bar '+barIndex))}else{svg.append(svgNode('text',{x,y:48,'text-anchor':'middle','font-size':21},'★'))}svg.append(svgNode('text',{x,y:70,'text-anchor':'middle','font-size':10},String(i+1)))});plot.replaceChildren(svg);
+        body.replaceChildren();for(let c=0;c<=total;c++){for(let v=0;v<=total-c;v++){const q=[c,v,total-c-v],tr=document.createElement('tr');if(q.every((x,i)=>x===quantities[i]))tr.setAttribute('aria-current','true');[...q,encode(q)].forEach(value=>{const td=document.createElement('td');td.textContent=value;tr.append(td)});body.append(tr)}}
+      }
+      inputs.forEach((input,i)=>input.addEventListener('change',()=>{const parsed=Number(input.value),others=quantities.reduce((a,b,j)=>a+(i===j?0:b),0);quantities[i]=Number.isFinite(parsed)?Math.max(0,Math.min(8-others,Math.floor(parsed))):0;render()}));
+      root.querySelectorAll('[data-move]').forEach(button=>button.addEventListener('click',()=>{const [bar,direction]=button.dataset.move.split(',').map(Number),from=direction<0?bar:bar+1,to=direction<0?bar+1:bar;if(quantities[from]>0){quantities[from]--;quantities[to]++;render()}}));
+      root.querySelector('[data-reset]').addEventListener('click',()=>{quantities=[3,0,2];render()});render();if(typeof ResizeObserver!=='undefined')new ResizeObserver(render).observe(plot);else window.addEventListener('resize',render);
+    })();
+  </script>
+</section>

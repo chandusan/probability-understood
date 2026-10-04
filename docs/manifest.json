@@ -709,5 +709,508 @@
     "image": "assets/slides/probability-part1/43.webp",
     "words": 720,
     "interactives": []
+  },
+  {
+    "chapter": "counting",
+    "slide": 1,
+    "title": "Why counting unlocks probability",
+    "file": "counting/01.html",
+    "image": "assets/slides/counting/01.webp",
+    "words": 422,
+    "interactives": []
+  },
+  {
+    "chapter": "counting",
+    "slide": 2,
+    "title": "The three probability axioms",
+    "file": "counting/02.html",
+    "image": "assets/slides/counting/02.webp",
+    "words": 374,
+    "interactives": []
+  },
+  {
+    "chapter": "counting",
+    "slide": 3,
+    "title": "What is a probability space?",
+    "file": "counting/03.html",
+    "image": "assets/slides/counting/03.webp",
+    "words": 400,
+    "interactives": []
+  },
+  {
+    "chapter": "counting",
+    "slide": 4,
+    "title": "When outcomes are equally likely",
+    "file": "counting/04.html",
+    "image": "assets/slides/counting/04.webp",
+    "words": 375,
+    "interactives": []
+  },
+  {
+    "chapter": "counting",
+    "slide": 5,
+    "title": "Three cars, counted carefully",
+    "file": "counting/05.html",
+    "image": "assets/slides/counting/05.webp",
+    "words": 377,
+    "interactives": [
+      "prob-cars"
+    ]
+  },
+  {
+    "chapter": "counting",
+    "slide": 6,
+    "title": "Two dice: solve the exercise",
+    "file": "counting/06.html",
+    "image": "assets/slides/counting/06.webp",
+    "words": 365,
+    "interactives": [
+      "prob-dice"
+    ]
+  },
+  {
+    "chapter": "counting",
+    "slide": 7,
+    "title": "Probability rules as bookkeeping",
+    "file": "counting/07.html",
+    "image": "assets/slides/counting/07.webp",
+    "words": 392,
+    "interactives": []
+  },
+  {
+    "chapter": "counting",
+    "slide": 8,
+    "title": "An ace or a diamond?",
+    "file": "counting/08.html",
+    "image": "assets/slides/counting/08.webp",
+    "words": 404,
+    "interactives": [
+      "count-cards"
+    ]
+  },
+  {
+    "chapter": "counting",
+    "slide": 9,
+    "title": "The art of counting once",
+    "file": "counting/09.html",
+    "image": "assets/slides/counting/09.webp",
+    "words": 450,
+    "interactives": []
+  },
+  {
+    "chapter": "counting",
+    "slide": 10,
+    "title": "Add disjoint alternatives",
+    "file": "counting/10.html",
+    "image": "assets/slides/counting/10.webp",
+    "words": 372,
+    "interactives": []
+  },
+  {
+    "chapter": "counting",
+    "slide": 11,
+    "title": "Multiply sequential choices",
+    "file": "counting/11.html",
+    "image": "assets/slides/counting/11.webp",
+    "words": 449,
+    "interactives": []
+  },
+  {
+    "chapter": "counting",
+    "slide": 12,
+    "title": "Read a counting tree",
+    "file": "counting/12.html",
+    "image": "assets/slides/counting/12.webp",
+    "words": 430,
+    "interactives": [
+      "count-tree"
+    ]
+  },
+  {
+    "chapter": "counting",
+    "slide": 13,
+    "title": "Gold and silver among eight finalists",
+    "file": "counting/13.html",
+    "image": "assets/slides/counting/13.webp",
+    "words": 424,
+    "interactives": []
+  },
+  {
+    "chapter": "counting",
+    "slide": 14,
+    "title": "Extend the multiplication rule",
+    "file": "counting/14.html",
+    "image": "assets/slides/counting/14.webp",
+    "words": 469,
+    "interactives": []
+  },
+  {
+    "chapter": "counting",
+    "slide": 15,
+    "title": "Follow a three-stage tree",
+    "file": "counting/15.html",
+    "image": "assets/slides/counting/15.webp",
+    "words": 438,
+    "interactives": [
+      "count-tree"
+    ]
+  },
+  {
+    "chapter": "counting",
+    "slide": 16,
+    "title": "Count the licence plates",
+    "file": "counting/16.html",
+    "image": "assets/slides/counting/16.webp",
+    "words": 427,
+    "interactives": []
+  },
+  {
+    "chapter": "counting",
+    "slide": 17,
+    "title": "Factorials: arranging everything",
+    "file": "counting/17.html",
+    "image": "assets/slides/counting/17.webp",
+    "words": 437,
+    "interactives": []
+  },
+  {
+    "chapter": "counting",
+    "slide": 18,
+    "title": "All 24 orders of four letters",
+    "file": "counting/18.html",
+    "image": "assets/slides/counting/18.webp",
+    "words": 401,
+    "interactives": []
+  },
+  {
+    "chapter": "counting",
+    "slide": 19,
+    "title": "Keep each subject together",
+    "file": "counting/19.html",
+    "image": "assets/slides/counting/19.webp",
+    "words": 424,
+    "interactives": []
+  },
+  {
+    "chapter": "counting",
+    "slide": 20,
+    "title": "Arrange only some of the objects",
+    "file": "counting/20.html",
+    "image": "assets/slides/counting/20.webp",
+    "words": 330,
+    "interactives": []
+  },
+  {
+    "chapter": "counting",
+    "slide": 21,
+    "title": "Assign three committee roles",
+    "file": "counting/21.html",
+    "image": "assets/slides/counting/21.webp",
+    "words": 345,
+    "interactives": []
+  },
+  {
+    "chapter": "counting",
+    "slide": 22,
+    "title": "Build a constrained feature pipeline",
+    "file": "counting/22.html",
+    "image": "assets/slides/counting/22.webp",
+    "words": 424,
+    "interactives": [
+      "count-pipeline"
+    ]
+  },
+  {
+    "chapter": "counting",
+    "slide": 23,
+    "title": "When order changes the outcome",
+    "file": "counting/23.html",
+    "image": "assets/slides/counting/23.webp",
+    "words": 389,
+    "interactives": [
+      "count-arrangements"
+    ]
+  },
+  {
+    "chapter": "counting",
+    "slide": 24,
+    "title": "An all-male executive committee",
+    "file": "counting/24.html",
+    "image": "assets/slides/counting/24.webp",
+    "words": 320,
+    "interactives": []
+  },
+  {
+    "chapter": "counting",
+    "slide": 25,
+    "title": "List the groups of three",
+    "file": "counting/25.html",
+    "image": "assets/slides/counting/25.webp",
+    "words": 353,
+    "interactives": []
+  },
+  {
+    "chapter": "counting",
+    "slide": 26,
+    "title": "Why divide by k factorial?",
+    "file": "counting/26.html",
+    "image": "assets/slides/counting/26.webp",
+    "words": 449,
+    "interactives": [
+      "count-arrangements"
+    ]
+  },
+  {
+    "chapter": "counting",
+    "slide": 27,
+    "title": "Understand the choose notation",
+    "file": "counting/27.html",
+    "image": "assets/slides/counting/27.webp",
+    "words": 311,
+    "interactives": []
+  },
+  {
+    "chapter": "counting",
+    "slide": 28,
+    "title": "Where binomial coefficients come from",
+    "file": "counting/28.html",
+    "image": "assets/slides/counting/28.webp",
+    "words": 316,
+    "interactives": []
+  },
+  {
+    "chapter": "counting",
+    "slide": 29,
+    "title": "Extend the binomial theorem",
+    "file": "counting/29.html",
+    "image": "assets/slides/counting/29.webp",
+    "words": 428,
+    "interactives": [
+      "count-series"
+    ]
+  },
+  {
+    "chapter": "counting",
+    "slide": 30,
+    "title": "Which counting rule applies?",
+    "file": "counting/30.html",
+    "image": "assets/slides/counting/30.webp",
+    "words": 378,
+    "interactives": []
+  },
+  {
+    "chapter": "counting",
+    "slide": 31,
+    "title": "Build a longer sequence",
+    "file": "counting/31.html",
+    "image": "assets/slides/counting/31.webp",
+    "words": 410,
+    "interactives": []
+  },
+  {
+    "chapter": "counting",
+    "slide": 32,
+    "title": "Repetition and identical objects",
+    "file": "counting/32.html",
+    "image": "assets/slides/counting/32.webp",
+    "words": 407,
+    "interactives": []
+  },
+  {
+    "chapter": "counting",
+    "slide": 33,
+    "title": "Donuts, stars and bars",
+    "file": "counting/33.html",
+    "image": "assets/slides/counting/33.webp",
+    "words": 935,
+    "interactives": [
+      "count-stars"
+    ]
+  },
+  {
+    "chapter": "counting",
+    "slide": 34,
+    "title": "A strategy for new problems",
+    "file": "counting/34.html",
+    "image": "assets/slides/counting/34.webp",
+    "words": 477,
+    "interactives": []
+  },
+  {
+    "chapter": "counting",
+    "slide": 35,
+    "title": "Six numbers from forty-nine",
+    "file": "counting/35.html",
+    "image": "assets/slides/counting/35.webp",
+    "words": 385,
+    "interactives": []
+  },
+  {
+    "chapter": "counting",
+    "slide": 36,
+    "title": "Prizes and the winning rules",
+    "file": "counting/36.html",
+    "image": "assets/slides/counting/36.webp",
+    "words": 416,
+    "interactives": []
+  },
+  {
+    "chapter": "counting",
+    "slide": 37,
+    "title": "A ticket with no matches",
+    "file": "counting/37.html",
+    "image": "assets/slides/counting/37.webp",
+    "words": 331,
+    "interactives": [
+      "count-lottery"
+    ]
+  },
+  {
+    "chapter": "counting",
+    "slide": 38,
+    "title": "Exactly one match",
+    "file": "counting/38.html",
+    "image": "assets/slides/counting/38.webp",
+    "words": 332,
+    "interactives": []
+  },
+  {
+    "chapter": "counting",
+    "slide": 39,
+    "title": "Two, three or four matches",
+    "file": "counting/39.html",
+    "image": "assets/slides/counting/39.webp",
+    "words": 140,
+    "interactives": []
+  },
+  {
+    "chapter": "counting",
+    "slide": 40,
+    "title": "Five matches and the bonus caveat",
+    "file": "counting/40.html",
+    "image": "assets/slides/counting/40.webp",
+    "words": 405,
+    "interactives": []
+  },
+  {
+    "chapter": "counting",
+    "slide": 41,
+    "title": "The universe of poker hands",
+    "file": "counting/41.html",
+    "image": "assets/slides/counting/41.webp",
+    "words": 446,
+    "interactives": []
+  },
+  {
+    "chapter": "counting",
+    "slide": 42,
+    "title": "Rank patterns and card categories",
+    "file": "counting/42.html",
+    "image": "assets/slides/counting/42.webp",
+    "words": 489,
+    "interactives": []
+  },
+  {
+    "chapter": "counting",
+    "slide": 43,
+    "title": "The rarest poker hands",
+    "file": "counting/43.html",
+    "image": "assets/slides/counting/43.webp",
+    "words": 449,
+    "interactives": []
+  },
+  {
+    "chapter": "counting",
+    "slide": 44,
+    "title": "See the structure of one pair",
+    "file": "counting/44.html",
+    "image": "assets/slides/counting/44.webp",
+    "words": 426,
+    "interactives": []
+  },
+  {
+    "chapter": "counting",
+    "slide": 45,
+    "title": "Count all one-pair hands",
+    "file": "counting/45.html",
+    "image": "assets/slides/counting/45.webp",
+    "words": 355,
+    "interactives": []
+  },
+  {
+    "chapter": "counting",
+    "slide": 46,
+    "title": "Count two-pair hands",
+    "file": "counting/46.html",
+    "image": "assets/slides/counting/46.webp",
+    "words": 372,
+    "interactives": []
+  },
+  {
+    "chapter": "counting",
+    "slide": 47,
+    "title": "Three of a kind and full houses",
+    "file": "counting/47.html",
+    "image": "assets/slides/counting/47.webp",
+    "words": 430,
+    "interactives": []
+  },
+  {
+    "chapter": "counting",
+    "slide": 48,
+    "title": "Quads and the straight flushes",
+    "file": "counting/48.html",
+    "image": "assets/slides/counting/48.webp",
+    "words": 381,
+    "interactives": []
+  },
+  {
+    "chapter": "counting",
+    "slide": 49,
+    "title": "Ten ways to make a straight",
+    "file": "counting/49.html",
+    "image": "assets/slides/counting/49.webp",
+    "words": 329,
+    "interactives": []
+  },
+  {
+    "chapter": "counting",
+    "slide": 50,
+    "title": "A flush, with straights removed",
+    "file": "counting/50.html",
+    "image": "assets/slides/counting/50.webp",
+    "words": 364,
+    "interactives": []
+  },
+  {
+    "chapter": "counting",
+    "slide": 51,
+    "title": "Check the entire poker distribution",
+    "file": "counting/51.html",
+    "image": "assets/slides/counting/51.webp",
+    "words": 547,
+    "interactives": [
+      "count-poker"
+    ]
+  },
+  {
+    "chapter": "counting",
+    "slide": 52,
+    "title": "Ten coin tosses: both exercises",
+    "file": "counting/52.html",
+    "image": "assets/slides/counting/52.webp",
+    "words": 380,
+    "interactives": []
+  },
+  {
+    "chapter": "counting",
+    "slide": 53,
+    "title": "Will two tournament players meet?",
+    "file": "counting/53.html",
+    "image": "assets/slides/counting/53.webp",
+    "words": 643,
+    "interactives": [
+      "count-tournament"
+    ]
   }
 ]

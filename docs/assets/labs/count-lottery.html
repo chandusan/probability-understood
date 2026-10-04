@@ -1,0 +1,34 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Count every possible lottery match</title><link rel="icon" href="data:,"><link rel="stylesheet" href="../lab.css"><script src="../lab-frame.js"></script></head><body data-lab="count-lottery"><main class="lab-root"><div id="count-lottery">
+  <h3>Build the six-number match distribution</h3>
+  <p class="text-small">Model: six distinct numbers are chosen uniformly from 49. Count main-number matches only. A fixed winning set divides the numbers into 6 winners and 43 others.</p>
+  <label class="form-label" for="lottery-k">Match count k = <output id="lottery-k-value">0</output><input class="form-range" type="range" id="lottery-k" min="0" max="6" step="1" value="0"></label>
+  <label class="form-label" for="lottery-mode">Event <select class="form-select" id="lottery-mode"><option value="exact">Exactly k matches</option><option value="atleast">At least k matches</option></select></label>
+  <div class="card lottery-selected" aria-live="polite" aria-atomic="true"><strong id="lottery-event"></strong><div id="lottery-formula"></div><div id="lottery-fraction"></div><div id="lottery-probability"></div></div>
+  <div class="lottery-distribution" aria-label="All seven exact match categories"></div>
+  <p class="text-small" id="lottery-total"></p>
+  <p class="text-small">All bars share a 0–100% probability scale. Five and six matches have positive probabilities even though their bars are extremely short. Outlined rows belong to your selected event.</p>
+  <style>
+    #count-lottery{min-width:0}#count-lottery .form-select{display:block;width:100%;margin-top:5px}#count-lottery output{font-weight:700}#count-lottery .lottery-selected{margin:16px 0;font-variant-numeric:tabular-nums}#count-lottery .lottery-selected strong{display:block;font-size:14px}#count-lottery .lottery-selected div{font-size:12px;margin-top:7px;overflow-wrap:anywhere}#count-lottery #lottery-probability{font-size:20px;font-weight:600}#count-lottery .lottery-distribution{display:grid;gap:8px}#count-lottery .lottery-row{padding:9px 11px;border:1px solid var(--border);border-radius:6px;background:var(--background)}#count-lottery .lottery-row[data-selected=true]{box-shadow:inset 0 0 0 1px var(--primary);border-color:var(--primary);background:var(--card)}#count-lottery .lottery-row-head{display:flex;flex-wrap:wrap;justify-content:space-between;gap:3px 10px;font-size:12px;font-variant-numeric:tabular-nums}#count-lottery .lottery-row-head strong{font-weight:600}#count-lottery .lottery-bar{height:8px;border-radius:3px;background:var(--muted);overflow:hidden;margin-top:7px}#count-lottery .lottery-bar span{display:block;height:100%;background:var(--primary)}#count-lottery .lottery-row-count{font-size:11px;margin-top:4px;font-variant-numeric:tabular-nums}#count-lottery #lottery-total{font-variant-numeric:tabular-nums}
+  </style>
+  <script>
+    (()=>{
+      const root=document.getElementById('count-lottery'),kInput=root.querySelector('#lottery-k'),mode=root.querySelector('#lottery-mode'),grid=root.querySelector('.lottery-distribution');
+      function choose(n,r){if(r<0||r>n)return 0;r=Math.min(r,n-r);let v=1;for(let j=1;j<=r;j++)v=v*(n-r+j)/j;return Math.round(v);}
+      const N=choose(49,6),counts=Array.from({length:7},(_,k)=>choose(6,k)*choose(43,6-k));
+      const num=n=>n.toLocaleString('en-US'),pct=p=>(100*p).toFixed(8)+'%';
+      const saved=window.openai?.widgetState;if(saved&&Number.isInteger(saved.k)&&saved.k>=0&&saved.k<=6){kInput.value=saved.k;if(['exact','atleast'].includes(saved.mode))mode.value=saved.mode;}
+      counts.forEach((count,k)=>{const row=document.createElement('div');row.className='lottery-row';row.dataset.k=k;const head=document.createElement('div');head.className='lottery-row-head';const label=document.createElement('strong');label.textContent=k+' matches';const prob=document.createElement('span');prob.textContent=pct(count/N);head.append(label,prob);const bar=document.createElement('div');bar.className='lottery-bar';bar.setAttribute('aria-hidden','true');const fill=document.createElement('span');fill.style.width=(100*count/N)+'%';bar.append(fill);const text=document.createElement('div');text.className='lottery-row-count';text.textContent=num(count)+' six-number sets';row.append(head,bar,text);grid.append(row);});
+      function draw(){
+        const k=Number(kInput.value),exact=mode.value==='exact',count=exact?counts[k]:counts.slice(k).reduce((a,b)=>a+b,0);root.querySelector('#lottery-k-value').textContent=k;
+        root.querySelector('#lottery-event').textContent=(exact?'Exactly ':'At least ')+k+' main-number matches';
+        root.querySelector('#lottery-formula').textContent=exact?`Choose ${k} of the 6 winners and ${6-k} of the 43 others: ${num(choose(6,k))} × ${num(choose(43,6-k))}.`:`Add the disjoint counts for ${Array.from({length:7-k},(_,i)=>i+k).join(', ')} matches.`;
+        root.querySelector('#lottery-fraction').textContent=num(count)+' / '+num(N)+' equally likely sets';root.querySelector('#lottery-probability').textContent=pct(count/N);
+        [...grid.children].forEach((row,i)=>row.dataset.selected=(exact?i===k:i>=k)?'true':'false');
+        root.querySelector('#lottery-total').textContent=`Check: all seven exact counts add to ${num(counts.reduce((a,b)=>a+b,0))} = C(49, 6). Their exact probabilities sum to 1.`;
+      }
+      function change(){draw();window.openai?.setWidgetState({k:Number(kInput.value),mode:mode.value});}
+      kInput.addEventListener('input',change);mode.addEventListener('change',change);draw();
+    })();
+  </script>
+</div>
+</main></body></html>
