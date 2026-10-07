@@ -33,6 +33,14 @@ LAB_TITLES.update({
     'count-lottery':'Count every possible lottery match',
     'count-poker':'Build and compare five-card poker hands',
     'count-tournament':'Why two players meet with probability two over n',
+    'rules-occupancy':'Explore the load of one chosen bin',
+    'rules-birthday':'Compare birthday collision events',
+    'rules-multiset':'Count arrangements of repeated letters',
+    'rules-overlap':'Change event overlap and the union',
+    'rules-bridge':'Compare exact and minimum bridge suit counts',
+    'rules-inclusion':'Count one outcome through inclusion–exclusion',
+    'rules-coverage':'Make every die face appear',
+    'rules-derangements':'Avoid your own name in a random permutation',
 })
 CHAPTERS = [
     {'id':'data-summary','number':'01','title':'Data Summary','folder':'slides',
@@ -48,6 +56,11 @@ CHAPTERS = [
      'groups':[(1,8,'Probability meets counting'),(9,18,'Build choices step by step'),(19,27,'Order, groups & constraints'),(28,34,'Coefficients & repeated choices'),(35,40,'A lottery, counted carefully'),(41,51,'The anatomy of poker hands'),(52,53,'Two final challenges')],
      'titles':['Why counting unlocks probability','The three probability axioms','What is a probability space?','When outcomes are equally likely','Three cars, counted carefully','Two dice: solve the exercise','Probability rules as bookkeeping','An ace or a diamond?','The art of counting once','Add disjoint alternatives','Multiply sequential choices','Read a counting tree','Gold and silver among eight finalists','Extend the multiplication rule','Follow a three-stage tree','Count the licence plates','Factorials: arranging everything','All 24 orders of four letters','Keep each subject together','Arrange only some of the objects','Assign three committee roles','Build a constrained feature pipeline','When order changes the outcome','An all-male executive committee','List the groups of three','Why divide by k factorial?','Understand the choose notation','Where binomial coefficients come from','Extend the binomial theorem','Which counting rule applies?','Build a longer sequence','Repetition and identical objects','Donuts, stars and bars','A strategy for new problems','Six numbers from forty-nine','Prizes and the winning rules','A ticket with no matches','Exactly one match','Two, three or four matches','Five matches and the bonus caveat','The universe of poker hands','Rank patterns and card categories','The rarest poker hands','See the structure of one pair','Count all one-pair hands','Count two-pair hands','Three of a kind and full houses','Quads and the straight flushes','Ten ways to make a straight','A flush, with straights removed','Check the entire poker distribution','Ten coin tosses: both exercises','Will two tournament players meet?'],
      'legacy':'03-counting.html'},
+    {'id':'probability-part2','number':'04','title':'Probability · Part 2','folder':'probability-part2',
+     'content':'probability-part2','images':'slides/probability-part2','pdf':'04-probability-part2.pdf','height':1500,
+     'groups':[(1,4,'Symmetry before enumeration'),(5,7,'The power of the complement'),(8,13,'Occupancy & birthday collisions'),(14,16,'Repeated objects & rare patterns'),(17,21,'Add probabilities without double counting'),(22,27,'Bridge hands & overlapping events'),(28,34,'Inclusion–exclusion in action'),(35,36,'Permutations & the appearance of e')],
+     'titles':['Choose a probability strategy','Will two tennis players meet?','Count matches with symmetry','Why random chords cross one third of the time','Prove the complement rule','Lotto: count matches and define a prize','Six robberies in six districts','The load of one specified bin','Choose the hits, then place the rest','Recognize the binomial distribution','Birthdays: count the collision-free rooms','Derive the birthday product','Why twenty-three people are enough','Arrange a multiset of repeated objects','Can shuffled letters become poetry?','Compute the probability of one exact string','Add two events and remove the overlap','Partition a union into disjoint regions','Derive the addition rule step by step','Two cities in the final five','Translate or, both, neither and exactly one','What makes a bridge hand equally likely?','Four questions about two major suits','Exactly five spades','Hearts, symmetry and dependence','Five spades and five hearts together','Exactly five versus at least five','Add three events without overcounting','Read the seven regions of a Venn diagram','Check every region in the proof','At least one six in three rolls','All six faces in ten rolls','Divisibility and long runs of digits','General inclusion–exclusion','Names in a hat and derangements','Partial derangements and nonrepeatwords'],
+     'legacy':'04-rules.html'},
 ]
 
 def render_md(text):
@@ -66,7 +79,8 @@ def render_md(text):
     return rendered.replace('<table>','<div class="table-wrap"><table>').replace('</table>','</table></div>')
 
 def lab_page(name,fragment):
-    return f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{html.escape(LAB_TITLES[name])}</title><link rel="icon" href="data:,"><link rel="stylesheet" href="../lab.css"><script src="../lab-frame.js"></script></head><body data-lab="{name}"><main class="lab-root">{fragment}</main></body></html>'''
+    extras='<link rel="stylesheet" href="../rules-labs.css"><script defer src="../rules-math.js"></script><script defer src="../rules-labs.js"></script>' if name.startswith('rules-') else ''
+    return f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{html.escape(LAB_TITLES[name])}</title><link rel="icon" href="data:,"><link rel="stylesheet" href="../lab.css"><script src="../lab-frame.js"></script>{extras}</head><body data-lab="{name}"><main class="lab-root">{fragment}</main></body></html>'''
 
 def build():
     all_slides=[]
@@ -94,7 +108,7 @@ def build():
     if OUT.exists(): shutil.rmtree(OUT)
     for chapter in CHAPTERS: (OUT/chapter['folder']).mkdir(parents=True)
     shutil.copytree(ROOT/'assets',OUT/'assets')
-    for name in ('site.css','site.js','lab.css','lab-frame.js'): shutil.copyfile(ROOT/'src'/name,OUT/'assets'/name)
+    for name in ('site.css','site.js','lab.css','lab-frame.js','rules-math.js','rules-labs.js','rules-labs.css'): shutil.copyfile(ROOT/'src'/name,OUT/'assets'/name)
     (OUT/'assets/labs').mkdir()
     for name in LAB_TITLES:
         (OUT/'assets/labs'/f'{name}.html').write_text(lab_page(name,lab_fragments[name]))

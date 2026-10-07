@@ -1,6 +1,7 @@
 """Regenerate source slide captures with Poppler and Pillow.
 
-Run with --chapter data-summary (default), probability-part1, counting, or all.
+Run with --chapter data-summary (default), probability-part1, counting,
+probability-part2, or all.
 Normal site builds use the already committed images.
 """
 from pathlib import Path
@@ -14,6 +15,7 @@ chapters={
     'data-summary':('01-data-summary.pdf','slides',31),
     'probability-part1':('02-probability-part1.pdf','slides/probability-part1',43),
     'counting':('03-counting.pdf','slides/counting',53),
+    'probability-part2':('04-probability-part2.pdf','slides/probability-part2',36),
 }
 parser=argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--chapter',choices=[*chapters,'all'],default='data-summary')

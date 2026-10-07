@@ -1212,5 +1212,353 @@
     "interactives": [
       "count-tournament"
     ]
+  },
+  {
+    "chapter": "probability-part2",
+    "slide": 1,
+    "title": "Choose a probability strategy",
+    "file": "probability-part2/01.html",
+    "image": "assets/slides/probability-part2/01.webp",
+    "words": 536,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part2",
+    "slide": 2,
+    "title": "Will two tennis players meet?",
+    "file": "probability-part2/02.html",
+    "image": "assets/slides/probability-part2/02.webp",
+    "words": 555,
+    "interactives": [
+      "count-tournament"
+    ]
+  },
+  {
+    "chapter": "probability-part2",
+    "slide": 3,
+    "title": "Count matches with symmetry",
+    "file": "probability-part2/03.html",
+    "image": "assets/slides/probability-part2/03.webp",
+    "words": 242,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part2",
+    "slide": 4,
+    "title": "Why random chords cross one third of the time",
+    "file": "probability-part2/04.html",
+    "image": "assets/slides/probability-part2/04.webp",
+    "words": 535,
+    "interactives": [
+      "prob-chords"
+    ]
+  },
+  {
+    "chapter": "probability-part2",
+    "slide": 5,
+    "title": "Prove the complement rule",
+    "file": "probability-part2/05.html",
+    "image": "assets/slides/probability-part2/05.webp",
+    "words": 518,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part2",
+    "slide": 6,
+    "title": "Lotto: count matches and define a prize",
+    "file": "probability-part2/06.html",
+    "image": "assets/slides/probability-part2/06.webp",
+    "words": 569,
+    "interactives": [
+      "count-lottery"
+    ]
+  },
+  {
+    "chapter": "probability-part2",
+    "slide": 7,
+    "title": "Six robberies in six districts",
+    "file": "probability-part2/07.html",
+    "image": "assets/slides/probability-part2/07.webp",
+    "words": 530,
+    "interactives": [
+      "rules-occupancy"
+    ]
+  },
+  {
+    "chapter": "probability-part2",
+    "slide": 8,
+    "title": "The load of one specified bin",
+    "file": "probability-part2/08.html",
+    "image": "assets/slides/probability-part2/08.webp",
+    "words": 502,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part2",
+    "slide": 9,
+    "title": "Choose the hits, then place the rest",
+    "file": "probability-part2/09.html",
+    "image": "assets/slides/probability-part2/09.webp",
+    "words": 552,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part2",
+    "slide": 10,
+    "title": "Recognize the binomial distribution",
+    "file": "probability-part2/10.html",
+    "image": "assets/slides/probability-part2/10.webp",
+    "words": 503,
+    "interactives": [
+      "prob-binomial"
+    ]
+  },
+  {
+    "chapter": "probability-part2",
+    "slide": 11,
+    "title": "Birthdays: count the collision-free rooms",
+    "file": "probability-part2/11.html",
+    "image": "assets/slides/probability-part2/11.webp",
+    "words": 579,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part2",
+    "slide": 12,
+    "title": "Derive the birthday product",
+    "file": "probability-part2/12.html",
+    "image": "assets/slides/probability-part2/12.webp",
+    "words": 480,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part2",
+    "slide": 13,
+    "title": "Why twenty-three people are enough",
+    "file": "probability-part2/13.html",
+    "image": "assets/slides/probability-part2/13.webp",
+    "words": 545,
+    "interactives": [
+      "rules-birthday"
+    ]
+  },
+  {
+    "chapter": "probability-part2",
+    "slide": 14,
+    "title": "Arrange a multiset of repeated objects",
+    "file": "probability-part2/14.html",
+    "image": "assets/slides/probability-part2/14.webp",
+    "words": 504,
+    "interactives": [
+      "rules-multiset"
+    ]
+  },
+  {
+    "chapter": "probability-part2",
+    "slide": 15,
+    "title": "Can shuffled letters become poetry?",
+    "file": "probability-part2/15.html",
+    "image": "assets/slides/probability-part2/15.webp",
+    "words": 631,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part2",
+    "slide": 16,
+    "title": "Compute the probability of one exact string",
+    "file": "probability-part2/16.html",
+    "image": "assets/slides/probability-part2/16.webp",
+    "words": 506,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part2",
+    "slide": 17,
+    "title": "Add two events and remove the overlap",
+    "file": "probability-part2/17.html",
+    "image": "assets/slides/probability-part2/17.webp",
+    "words": 453,
+    "interactives": [
+      "rules-overlap"
+    ]
+  },
+  {
+    "chapter": "probability-part2",
+    "slide": 18,
+    "title": "Partition a union into disjoint regions",
+    "file": "probability-part2/18.html",
+    "image": "assets/slides/probability-part2/18.webp",
+    "words": 522,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part2",
+    "slide": 19,
+    "title": "Derive the addition rule step by step",
+    "file": "probability-part2/19.html",
+    "image": "assets/slides/probability-part2/19.webp",
+    "words": 470,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part2",
+    "slide": 20,
+    "title": "Two cities in the final five",
+    "file": "probability-part2/20.html",
+    "image": "assets/slides/probability-part2/20.webp",
+    "words": 563,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part2",
+    "slide": 21,
+    "title": "Translate or, both, neither and exactly one",
+    "file": "probability-part2/21.html",
+    "image": "assets/slides/probability-part2/21.webp",
+    "words": 480,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part2",
+    "slide": 22,
+    "title": "What makes a bridge hand equally likely?",
+    "file": "probability-part2/22.html",
+    "image": "assets/slides/probability-part2/22.webp",
+    "words": 541,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part2",
+    "slide": 23,
+    "title": "Four questions about two major suits",
+    "file": "probability-part2/23.html",
+    "image": "assets/slides/probability-part2/23.webp",
+    "words": 545,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part2",
+    "slide": 24,
+    "title": "Exactly five spades",
+    "file": "probability-part2/24.html",
+    "image": "assets/slides/probability-part2/24.webp",
+    "words": 455,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part2",
+    "slide": 25,
+    "title": "Hearts, symmetry and dependence",
+    "file": "probability-part2/25.html",
+    "image": "assets/slides/probability-part2/25.webp",
+    "words": 519,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part2",
+    "slide": 26,
+    "title": "Five spades and five hearts together",
+    "file": "probability-part2/26.html",
+    "image": "assets/slides/probability-part2/26.webp",
+    "words": 464,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part2",
+    "slide": 27,
+    "title": "Exactly five versus at least five",
+    "file": "probability-part2/27.html",
+    "image": "assets/slides/probability-part2/27.webp",
+    "words": 524,
+    "interactives": [
+      "rules-bridge"
+    ]
+  },
+  {
+    "chapter": "probability-part2",
+    "slide": 28,
+    "title": "Add three events without overcounting",
+    "file": "probability-part2/28.html",
+    "image": "assets/slides/probability-part2/28.webp",
+    "words": 577,
+    "interactives": [
+      "rules-inclusion"
+    ]
+  },
+  {
+    "chapter": "probability-part2",
+    "slide": 29,
+    "title": "Read the seven regions of a Venn diagram",
+    "file": "probability-part2/29.html",
+    "image": "assets/slides/probability-part2/29.webp",
+    "words": 493,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part2",
+    "slide": 30,
+    "title": "Check every region in the proof",
+    "file": "probability-part2/30.html",
+    "image": "assets/slides/probability-part2/30.webp",
+    "words": 485,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part2",
+    "slide": 31,
+    "title": "At least one six in three rolls",
+    "file": "probability-part2/31.html",
+    "image": "assets/slides/probability-part2/31.webp",
+    "words": 521,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part2",
+    "slide": 32,
+    "title": "All six faces in ten rolls",
+    "file": "probability-part2/32.html",
+    "image": "assets/slides/probability-part2/32.webp",
+    "words": 611,
+    "interactives": [
+      "rules-coverage"
+    ]
+  },
+  {
+    "chapter": "probability-part2",
+    "slide": 33,
+    "title": "Divisibility and long runs of digits",
+    "file": "probability-part2/33.html",
+    "image": "assets/slides/probability-part2/33.webp",
+    "words": 620,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part2",
+    "slide": 34,
+    "title": "General inclusion–exclusion",
+    "file": "probability-part2/34.html",
+    "image": "assets/slides/probability-part2/34.webp",
+    "words": 114,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part2",
+    "slide": 35,
+    "title": "Names in a hat and derangements",
+    "file": "probability-part2/35.html",
+    "image": "assets/slides/probability-part2/35.webp",
+    "words": 598,
+    "interactives": [
+      "rules-derangements"
+    ]
+  },
+  {
+    "chapter": "probability-part2",
+    "slide": 36,
+    "title": "Partial derangements and nonrepeatwords",
+    "file": "probability-part2/36.html",
+    "image": "assets/slides/probability-part2/36.webp",
+    "words": 529,
+    "interactives": []
   }
 ]
