@@ -1219,7 +1219,7 @@
     "title": "Choose a probability strategy",
     "file": "probability-part2/01.html",
     "image": "assets/slides/probability-part2/01.webp",
-    "words": 536,
+    "words": 791,
     "interactives": []
   },
   {
@@ -1279,7 +1279,7 @@
     "title": "Six robberies in six districts",
     "file": "probability-part2/07.html",
     "image": "assets/slides/probability-part2/07.webp",
-    "words": 530,
+    "words": 608,
     "interactives": [
       "rules-occupancy"
     ]
