@@ -1,0 +1,9 @@
+<h3>Among positive tests, how many have the condition?</h3>
+<p class="cond-note">A hypothetical screening model. The starting sensitivity is 96%, as stated in the problem. Counts below describe a model population of 100,000.</p>
+<div class="cond-controls">
+<label for="prior">Prevalence: <output id="prior-out"></output><input id="prior" type="range" min="0" max="20" step="0.1" value="0.1"></label>
+<label for="sensitivity">Sensitivity: <output id="sensitivity-out"></output><input id="sensitivity" type="range" min="0" max="100" step="1" value="96"></label>
+<label for="false-positive">False-positive rate: <output id="false-positive-out"></output><input id="false-positive" type="range" min="0" max="20" step="0.1" value="2"></label>
+</div>
+<div class="cond-scroll"><table><thead><tr><th>True status</th><th>Positive test</th><th>Negative test</th><th>Total</th></tr></thead><tbody id="test-rows"></tbody></table></div>
+<div id="test-results" class="cond-results" aria-live="polite"></div><div id="test-bar" class="cond-bar" aria-hidden="true"></div><p id="test-note" class="cond-note"></p>

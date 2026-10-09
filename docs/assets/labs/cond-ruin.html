@@ -1,0 +1,13 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Compare one-step and eventual winning probabilities</title><link rel="icon" href="data:,"><link rel="stylesheet" href="../lab.css"><script src="../lab-frame.js"></script><link rel="stylesheet" href="../cond-labs.css"><script defer src="../cond-math.js"></script><script defer src="../cond-labs.js"></script></head><body data-lab="cond-ruin"><main class="lab-root"><h3>One-step chances and eventual winning chances</h3>
+<p class="cond-note">A gains one dollar with probability p and loses one with probability 1 − p. Play ends at fortune 0 or k.</p>
+<div class="cond-controls">
+<label for="win-p">Chance of winning one play: <output id="win-p-out"></output><input id="win-p" type="range" min="2" max="98" value="50"></label>
+<label for="total-k">Total money k: <output id="total-k-out"></output><input id="total-k" type="range" min="2" max="40" value="10"></label>
+<label for="start-i">A's starting fortune i: <output id="start-i-out"></output><input id="start-i" type="range" min="1" max="9" value="3"></label>
+</div>
+<div id="ruin-results" class="cond-results" aria-live="polite"></div>
+<svg id="ruin-chart" class="cond-chart" viewBox="0 0 560 260" role="img" aria-label="Eventual winning probability at each starting fortune"></svg>
+<p id="ruin-equation" class="cond-note"></p>
+<div class="viz-row"><button class="btn" id="ruin-one">Draw one sample path</button><button class="btn" id="ruin-many">Simulate 1,000 games</button></div>
+<p id="ruin-simulation" class="cond-note cond-path" aria-live="polite">The curve is the exact probability, before any simulation.</p>
+</main></body></html>

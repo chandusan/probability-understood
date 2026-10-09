@@ -41,6 +41,11 @@ LAB_TITLES.update({
     'rules-inclusion':'Count one outcome through inclusion–exclusion',
     'rules-coverage':'Make every die face appear',
     'rules-derangements':'Avoid your own name in a random permutation',
+    'cond-events':'Keep only the outcomes allowed by the condition',
+    'cond-coins':'Check pairwise and mutual independence with four tosses',
+    'cond-bayes':'See how base rates change a positive-test probability',
+    'cond-urns':'Update the urn, then predict the next draw',
+    'cond-ruin':'Compare one-step and eventual winning probabilities',
 })
 CHAPTERS = [
     {'id':'data-summary','number':'01','title':'Data Summary','folder':'slides',
@@ -61,6 +66,11 @@ CHAPTERS = [
      'groups':[(1,4,'Symmetry before enumeration'),(5,7,'The power of the complement'),(8,13,'Occupancy & birthday collisions'),(14,16,'Repeated objects & rare patterns'),(17,21,'Add probabilities without double counting'),(22,27,'Bridge hands & overlapping events'),(28,34,'Inclusion–exclusion in action'),(35,36,'Permutations & the appearance of e')],
      'titles':['Choose a probability strategy','Will two tennis players meet?','Count matches with symmetry','Why random chords cross one third of the time','Prove the complement rule','Lotto: count matches and define a prize','Six robberies in six districts','The load of one specified bin','Choose the hits, then place the rest','Recognize the binomial distribution','Birthdays: count the collision-free rooms','Derive the birthday product','Why twenty-three people are enough','Arrange a multiset of repeated objects','Can shuffled letters become poetry?','Compute the probability of one exact string','Add two events and remove the overlap','Partition a union into disjoint regions','Derive the addition rule step by step','Two cities in the final five','Translate or, both, neither and exactly one','What makes a bridge hand equally likely?','Four questions about two major suits','Exactly five spades','Hearts, symmetry and dependence','Five spades and five hearts together','Exactly five versus at least five','Add three events without overcounting','Read the seven regions of a Venn diagram','Check every region in the proof','At least one six in three rolls','All six faces in ten rolls','Divisibility and long runs of digits','General inclusion–exclusion','Names in a hat and derangements','Partial derangements and nonrepeatwords'],
      'legacy':'04-rules.html'},
+    {'id':'probability-part3','number':'05','title':'Probability · Part 3','folder':'probability-part3',
+     'content':'probability-part3','images':'slides/probability-part3','pdf':'05-probability-part3.pdf','height':1500,
+     'groups':[(1,6,'Probability after new information'),(7,13,'What independence really means'),(14,20,'Condition on the next draw'),(21,26,'Total probability & Bayes’ rule'),(27,30,'Base rates & evidence'),(31,36,'Update beliefs, then predict'),(37,44,'A random walk to the boundary')],
+     'titles':['A roadmap for conditional probability','A die after learning it is even','How information changes the model','Derive the conditional probability formula','Why divide by the condition’s probability?','Neither subscription, given at most one','Independence means unchanged proportions','See independence in a probability grid','Independent versus mutually exclusive','Pairwise versus mutual independence','At least one and exactly one event','Four tosses: pairwise is not enough','A fox’s tags: condition on at most one loss','Multiply probabilities along a path','Three cards: specified order or any order','Two draws from an urn','Name the events before multiplying','Count black then red without replacement','Why the second draw has the original red fraction','Exactly one red, and the very last draw','Derive the law of total probability','Score first, win, and reverse the condition','Bayes’ rule: compare the paths to evidence','Start Bayes’ proof with the right denominator','Factor the intersection in the useful direction','Add every route to the observed evidence','A positive test and a rare condition','Separate sensitivity from the posterior','Correct the test calculation and explain base rates','Bayes’ rule for many possible sources','Two red draws: which urn and what comes next?','Calculate the likelihood within each urn','Update the probability of the chosen urn','Track the balls remaining after the evidence','Predict with the updated urn probabilities','Fraud flags and a second piece of evidence','Gambler’s ruin: state the stopping problem','Random walks: recurrence and meeting are different','Set the boundary probabilities','Condition on the next play','Solve by successive differences and telescoping','An optional characteristic-equation solution','Finish the biased-game calculation','The fair game and the complete answer'],
+     'legacy':'05-conditional.html'},
 ]
 
 def render_md(text):
@@ -80,6 +90,8 @@ def render_md(text):
 
 def lab_page(name,fragment):
     extras='<link rel="stylesheet" href="../rules-labs.css"><script defer src="../rules-math.js"></script><script defer src="../rules-labs.js"></script>' if name.startswith('rules-') else ''
+    if name.startswith('cond-'):
+        extras='<link rel="stylesheet" href="../cond-labs.css"><script defer src="../cond-math.js"></script><script defer src="../cond-labs.js"></script>'
     return f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{html.escape(LAB_TITLES[name])}</title><link rel="icon" href="data:,"><link rel="stylesheet" href="../lab.css"><script src="../lab-frame.js"></script>{extras}</head><body data-lab="{name}"><main class="lab-root">{fragment}</main></body></html>'''
 
 def build():
@@ -108,7 +120,7 @@ def build():
     if OUT.exists(): shutil.rmtree(OUT)
     for chapter in CHAPTERS: (OUT/chapter['folder']).mkdir(parents=True)
     shutil.copytree(ROOT/'assets',OUT/'assets')
-    for name in ('site.css','site.js','lab.css','lab-frame.js','rules-math.js','rules-labs.js','rules-labs.css'): shutil.copyfile(ROOT/'src'/name,OUT/'assets'/name)
+    for name in ('site.css','site.js','lab.css','lab-frame.js','rules-math.js','rules-labs.js','rules-labs.css','cond-math.js','cond-labs.js','cond-labs.css'): shutil.copyfile(ROOT/'src'/name,OUT/'assets'/name)
     (OUT/'assets/labs').mkdir()
     for name in LAB_TITLES:
         (OUT/'assets/labs'/f'{name}.html').write_text(lab_page(name,lab_fragments[name]))

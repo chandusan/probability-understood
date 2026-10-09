@@ -1,0 +1,11 @@
+<h3>Keep only the outcomes allowed by the condition</h3>
+<p class="cond-note">A = StreamFlix subscription; B = BingeMax subscription. Starting values use the streaming-subscription example on slide 6.</p>
+<div class="cond-controls">
+<label for="pa">P(A): <output id="pa-out"></output><input id="pa" type="range" min="0" max="100" value="45"></label>
+<label for="pb">P(B): <output id="pb-out"></output><input id="pb" type="range" min="0" max="100" value="60"></label>
+<label for="joint">P(A and B): <output id="joint-out"></output><input id="joint" type="range" min="5" max="45" value="25"></label>
+</div>
+<label class="form-label" for="condition">Information we are given</label><select id="condition" class="form-select"><option value="all">No condition</option><option value="b">B occurred</option><option value="notb">B did not occur</option><option value="atmost" selected>At most one subscription</option></select>
+<div id="event-bar" class="cond-bar" aria-hidden="true"></div><div id="event-legend" class="cond-legend"></div>
+<div class="cond-scroll"><table><thead><tr><th>Region</th><th>Original probability</th><th>After conditioning</th></tr></thead><tbody id="event-rows"></tbody></table></div>
+<div id="event-results" class="cond-results" aria-live="polite"></div><p id="event-note" class="cond-note"></p>

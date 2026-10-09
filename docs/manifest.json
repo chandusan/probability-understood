@@ -1560,5 +1560,415 @@
     "image": "assets/slides/probability-part2/36.webp",
     "words": 529,
     "interactives": []
+  },
+  {
+    "chapter": "probability-part3",
+    "slide": 1,
+    "title": "A roadmap for conditional probability",
+    "file": "probability-part3/01.html",
+    "image": "assets/slides/probability-part3/01.webp",
+    "words": 505,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part3",
+    "slide": 2,
+    "title": "A die after learning it is even",
+    "file": "probability-part3/02.html",
+    "image": "assets/slides/probability-part3/02.webp",
+    "words": 495,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part3",
+    "slide": 3,
+    "title": "How information changes the model",
+    "file": "probability-part3/03.html",
+    "image": "assets/slides/probability-part3/03.webp",
+    "words": 564,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part3",
+    "slide": 4,
+    "title": "Derive the conditional probability formula",
+    "file": "probability-part3/04.html",
+    "image": "assets/slides/probability-part3/04.webp",
+    "words": 496,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part3",
+    "slide": 5,
+    "title": "Why divide by the condition’s probability?",
+    "file": "probability-part3/05.html",
+    "image": "assets/slides/probability-part3/05.webp",
+    "words": 479,
+    "interactives": [
+      "cond-events"
+    ]
+  },
+  {
+    "chapter": "probability-part3",
+    "slide": 6,
+    "title": "Neither subscription, given at most one",
+    "file": "probability-part3/06.html",
+    "image": "assets/slides/probability-part3/06.webp",
+    "words": 473,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part3",
+    "slide": 7,
+    "title": "Independence means unchanged proportions",
+    "file": "probability-part3/07.html",
+    "image": "assets/slides/probability-part3/07.webp",
+    "words": 390,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part3",
+    "slide": 8,
+    "title": "See independence in a probability grid",
+    "file": "probability-part3/08.html",
+    "image": "assets/slides/probability-part3/08.webp",
+    "words": 446,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part3",
+    "slide": 9,
+    "title": "Independent versus mutually exclusive",
+    "file": "probability-part3/09.html",
+    "image": "assets/slides/probability-part3/09.webp",
+    "words": 453,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part3",
+    "slide": 10,
+    "title": "Pairwise versus mutual independence",
+    "file": "probability-part3/10.html",
+    "image": "assets/slides/probability-part3/10.webp",
+    "words": 519,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part3",
+    "slide": 11,
+    "title": "At least one and exactly one event",
+    "file": "probability-part3/11.html",
+    "image": "assets/slides/probability-part3/11.webp",
+    "words": 483,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part3",
+    "slide": 12,
+    "title": "Four tosses: pairwise is not enough",
+    "file": "probability-part3/12.html",
+    "image": "assets/slides/probability-part3/12.webp",
+    "words": 727,
+    "interactives": [
+      "cond-coins"
+    ]
+  },
+  {
+    "chapter": "probability-part3",
+    "slide": 13,
+    "title": "A fox’s tags: condition on at most one loss",
+    "file": "probability-part3/13.html",
+    "image": "assets/slides/probability-part3/13.webp",
+    "words": 371,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part3",
+    "slide": 14,
+    "title": "Multiply probabilities along a path",
+    "file": "probability-part3/14.html",
+    "image": "assets/slides/probability-part3/14.webp",
+    "words": 508,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part3",
+    "slide": 15,
+    "title": "Three cards: specified order or any order",
+    "file": "probability-part3/15.html",
+    "image": "assets/slides/probability-part3/15.webp",
+    "words": 543,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part3",
+    "slide": 16,
+    "title": "Two draws from an urn",
+    "file": "probability-part3/16.html",
+    "image": "assets/slides/probability-part3/16.webp",
+    "words": 493,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part3",
+    "slide": 17,
+    "title": "Name the events before multiplying",
+    "file": "probability-part3/17.html",
+    "image": "assets/slides/probability-part3/17.webp",
+    "words": 461,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part3",
+    "slide": 18,
+    "title": "Count black then red without replacement",
+    "file": "probability-part3/18.html",
+    "image": "assets/slides/probability-part3/18.webp",
+    "words": 519,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part3",
+    "slide": 19,
+    "title": "Why the second draw has the original red fraction",
+    "file": "probability-part3/19.html",
+    "image": "assets/slides/probability-part3/19.webp",
+    "words": 451,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part3",
+    "slide": 20,
+    "title": "Exactly one red, and the very last draw",
+    "file": "probability-part3/20.html",
+    "image": "assets/slides/probability-part3/20.webp",
+    "words": 554,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part3",
+    "slide": 21,
+    "title": "Derive the law of total probability",
+    "file": "probability-part3/21.html",
+    "image": "assets/slides/probability-part3/21.webp",
+    "words": 573,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part3",
+    "slide": 22,
+    "title": "Score first, win, and reverse the condition",
+    "file": "probability-part3/22.html",
+    "image": "assets/slides/probability-part3/22.webp",
+    "words": 499,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part3",
+    "slide": 23,
+    "title": "Bayes’ rule: compare the paths to evidence",
+    "file": "probability-part3/23.html",
+    "image": "assets/slides/probability-part3/23.webp",
+    "words": 483,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part3",
+    "slide": 24,
+    "title": "Start Bayes’ proof with the right denominator",
+    "file": "probability-part3/24.html",
+    "image": "assets/slides/probability-part3/24.webp",
+    "words": 487,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part3",
+    "slide": 25,
+    "title": "Factor the intersection in the useful direction",
+    "file": "probability-part3/25.html",
+    "image": "assets/slides/probability-part3/25.webp",
+    "words": 453,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part3",
+    "slide": 26,
+    "title": "Add every route to the observed evidence",
+    "file": "probability-part3/26.html",
+    "image": "assets/slides/probability-part3/26.webp",
+    "words": 526,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part3",
+    "slide": 27,
+    "title": "A positive test and a rare condition",
+    "file": "probability-part3/27.html",
+    "image": "assets/slides/probability-part3/27.webp",
+    "words": 539,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part3",
+    "slide": 28,
+    "title": "Separate sensitivity from the posterior",
+    "file": "probability-part3/28.html",
+    "image": "assets/slides/probability-part3/28.webp",
+    "words": 463,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part3",
+    "slide": 29,
+    "title": "Correct the test calculation and explain base rates",
+    "file": "probability-part3/29.html",
+    "image": "assets/slides/probability-part3/29.webp",
+    "words": 486,
+    "interactives": [
+      "cond-bayes"
+    ]
+  },
+  {
+    "chapter": "probability-part3",
+    "slide": 30,
+    "title": "Bayes’ rule for many possible sources",
+    "file": "probability-part3/30.html",
+    "image": "assets/slides/probability-part3/30.webp",
+    "words": 578,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part3",
+    "slide": 31,
+    "title": "Two red draws: which urn and what comes next?",
+    "file": "probability-part3/31.html",
+    "image": "assets/slides/probability-part3/31.webp",
+    "words": 564,
+    "interactives": [
+      "cond-urns"
+    ]
+  },
+  {
+    "chapter": "probability-part3",
+    "slide": 32,
+    "title": "Calculate the likelihood within each urn",
+    "file": "probability-part3/32.html",
+    "image": "assets/slides/probability-part3/32.webp",
+    "words": 522,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part3",
+    "slide": 33,
+    "title": "Update the probability of the chosen urn",
+    "file": "probability-part3/33.html",
+    "image": "assets/slides/probability-part3/33.webp",
+    "words": 443,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part3",
+    "slide": 34,
+    "title": "Track the balls remaining after the evidence",
+    "file": "probability-part3/34.html",
+    "image": "assets/slides/probability-part3/34.webp",
+    "words": 559,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part3",
+    "slide": 35,
+    "title": "Predict with the updated urn probabilities",
+    "file": "probability-part3/35.html",
+    "image": "assets/slides/probability-part3/35.webp",
+    "words": 430,
+    "interactives": [
+      "cond-urns"
+    ]
+  },
+  {
+    "chapter": "probability-part3",
+    "slide": 36,
+    "title": "Fraud flags and a second piece of evidence",
+    "file": "probability-part3/36.html",
+    "image": "assets/slides/probability-part3/36.webp",
+    "words": 615,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part3",
+    "slide": 37,
+    "title": "Gambler’s ruin: state the stopping problem",
+    "file": "probability-part3/37.html",
+    "image": "assets/slides/probability-part3/37.webp",
+    "words": 576,
+    "interactives": [
+      "cond-ruin"
+    ]
+  },
+  {
+    "chapter": "probability-part3",
+    "slide": 38,
+    "title": "Random walks: recurrence and meeting are different",
+    "file": "probability-part3/38.html",
+    "image": "assets/slides/probability-part3/38.webp",
+    "words": 254,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part3",
+    "slide": 39,
+    "title": "Set the boundary probabilities",
+    "file": "probability-part3/39.html",
+    "image": "assets/slides/probability-part3/39.webp",
+    "words": 690,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part3",
+    "slide": 40,
+    "title": "Condition on the next play",
+    "file": "probability-part3/40.html",
+    "image": "assets/slides/probability-part3/40.webp",
+    "words": 467,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part3",
+    "slide": 41,
+    "title": "Solve by successive differences and telescoping",
+    "file": "probability-part3/41.html",
+    "image": "assets/slides/probability-part3/41.webp",
+    "words": 439,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part3",
+    "slide": 42,
+    "title": "An optional characteristic-equation solution",
+    "file": "probability-part3/42.html",
+    "image": "assets/slides/probability-part3/42.webp",
+    "words": 474,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part3",
+    "slide": 43,
+    "title": "Finish the biased-game calculation",
+    "file": "probability-part3/43.html",
+    "image": "assets/slides/probability-part3/43.webp",
+    "words": 435,
+    "interactives": []
+  },
+  {
+    "chapter": "probability-part3",
+    "slide": 44,
+    "title": "The fair game and the complete answer",
+    "file": "probability-part3/44.html",
+    "image": "assets/slides/probability-part3/44.webp",
+    "words": 579,
+    "interactives": [
+      "cond-ruin"
+    ]
   }
 ]

@@ -1,0 +1,9 @@
+<h3>Update which urn is likely, then predict the next draw</h3>
+<p class="cond-note">Each urn starts with 20 balls. Choose an urn with probability 1/2, then observe consecutive red draws without replacement. The chosen urn stays the same.</p>
+<div class="cond-controls">
+<label for="red-a">Red balls in A: <output id="red-a-out"></output><input id="red-a" type="range" min="1" max="19" value="12"></label>
+<label for="red-b">Red balls in B: <output id="red-b-out"></output><input id="red-b" type="range" min="1" max="19" value="4"></label>
+<label for="observed">Red draws observed: <output id="observed-out"></output><input id="observed" type="range" min="0" max="8" value="2"></label>
+</div>
+<div class="cond-scroll"><table><thead><tr><th>Chosen urn</th><th>Likelihood of observed reds</th><th>Updated urn probability</th><th>Next-red chance in this urn</th></tr></thead><tbody id="urn-rows"></tbody></table></div>
+<div id="urn-results" class="cond-results" aria-live="polite"></div><p id="urn-note" class="cond-note"></p>
