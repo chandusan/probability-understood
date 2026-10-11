@@ -1970,5 +1970,345 @@
     "interactives": [
       "cond-ruin"
     ]
+  },
+  {
+    "chapter": "random-variables",
+    "slide": 1,
+    "title": "A number attached to a random outcome",
+    "file": "random-variables/01.html",
+    "image": "assets/slides/random-variables/01.webp",
+    "words": 487,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables",
+    "slide": 2,
+    "title": "What is a random variable?",
+    "file": "random-variables/02.html",
+    "image": "assets/slides/random-variables/02.webp",
+    "words": 559,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables",
+    "slide": 3,
+    "title": "Three ads with changing click probabilities",
+    "file": "random-variables/03.html",
+    "image": "assets/slides/random-variables/03.webp",
+    "words": 529,
+    "interactives": [
+      "rv-ads"
+    ]
+  },
+  {
+    "chapter": "random-variables",
+    "slide": 4,
+    "title": "Measure the distance of a random point",
+    "file": "random-variables/04.html",
+    "image": "assets/slides/random-variables/04.webp",
+    "words": 459,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables",
+    "slide": 5,
+    "title": "Stop at the first repeated loss pattern",
+    "file": "random-variables/05.html",
+    "image": "assets/slides/random-variables/05.webp",
+    "words": 666,
+    "interactives": [
+      "rv-stopping"
+    ]
+  },
+  {
+    "chapter": "random-variables",
+    "slide": 6,
+    "title": "Probability mass groups outcomes with the same value",
+    "file": "random-variables/06.html",
+    "image": "assets/slides/random-variables/06.webp",
+    "words": 452,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables",
+    "slide": 7,
+    "title": "Two dice: outcomes versus sums",
+    "file": "random-variables/07.html",
+    "image": "assets/slides/random-variables/07.webp",
+    "words": 533,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables",
+    "slide": 8,
+    "title": "Derive every probability in the dice-sum PMF",
+    "file": "random-variables/08.html",
+    "image": "assets/slides/random-variables/08.webp",
+    "words": 437,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables",
+    "slide": 9,
+    "title": "Read a probability mass graph",
+    "file": "random-variables/09.html",
+    "image": "assets/slides/random-variables/09.webp",
+    "words": 461,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables",
+    "slide": 10,
+    "title": "The CDF accumulates probability up to a threshold",
+    "file": "random-variables/10.html",
+    "image": "assets/slides/random-variables/10.webp",
+    "words": 517,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables",
+    "slide": 11,
+    "title": "Why the dice CDF has steps",
+    "file": "random-variables/11.html",
+    "image": "assets/slides/random-variables/11.webp",
+    "words": 480,
+    "interactives": [
+      "rv-dice"
+    ]
+  },
+  {
+    "chapter": "random-variables",
+    "slide": 12,
+    "title": "Uniform points turn probability into area",
+    "file": "random-variables/12.html",
+    "image": "assets/slides/random-variables/12.webp",
+    "words": 360,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables",
+    "slide": 13,
+    "title": "A distance threshold selects a curved region",
+    "file": "random-variables/13.html",
+    "image": "assets/slides/random-variables/13.webp",
+    "words": 461,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables",
+    "slide": 14,
+    "title": "The four pieces of the distance CDF",
+    "file": "random-variables/14.html",
+    "image": "assets/slides/random-variables/14.webp",
+    "words": 151,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables",
+    "slide": 15,
+    "title": "Derive the clipped-circle area",
+    "file": "random-variables/15.html",
+    "image": "assets/slides/random-variables/15.webp",
+    "words": 457,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables",
+    "slide": 16,
+    "title": "Assemble and check the full distance CDF",
+    "file": "random-variables/16.html",
+    "image": "assets/slides/random-variables/16.webp",
+    "words": 329,
+    "interactives": [
+      "rv-distance"
+    ]
+  },
+  {
+    "chapter": "random-variables",
+    "slide": 17,
+    "title": "Density is probability per unit of distance",
+    "file": "random-variables/17.html",
+    "image": "assets/slides/random-variables/17.webp",
+    "words": 255,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables",
+    "slide": 18,
+    "title": "Probability is area under a density",
+    "file": "random-variables/18.html",
+    "image": "assets/slides/random-variables/18.webp",
+    "words": 469,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables",
+    "slide": 19,
+    "title": "The CDF accumulates density from the left",
+    "file": "random-variables/19.html",
+    "image": "assets/slides/random-variables/19.webp",
+    "words": 413,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables",
+    "slide": 20,
+    "title": "Why density is the slope of a CDF",
+    "file": "random-variables/20.html",
+    "image": "assets/slides/random-variables/20.webp",
+    "words": 124,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables",
+    "slide": 21,
+    "title": "Continuity, corners and when a density exists",
+    "file": "random-variables/21.html",
+    "image": "assets/slides/random-variables/21.webp",
+    "words": 363,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables",
+    "slide": 22,
+    "title": "Differentiate a polynomial CDF",
+    "file": "random-variables/22.html",
+    "image": "assets/slides/random-variables/22.webp",
+    "words": 178,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables",
+    "slide": 23,
+    "title": "From the distance CDF to its density",
+    "file": "random-variables/23.html",
+    "image": "assets/slides/random-variables/23.webp",
+    "words": 87,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables",
+    "slide": 24,
+    "title": "Apply the product and chain rules explicitly",
+    "file": "random-variables/24.html",
+    "image": "assets/slides/random-variables/24.webp",
+    "words": 372,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables",
+    "slide": 25,
+    "title": "See the derivative terms cancel",
+    "file": "random-variables/25.html",
+    "image": "assets/slides/random-variables/25.webp",
+    "words": 262,
+    "interactives": [
+      "rv-distance"
+    ]
+  },
+  {
+    "chapter": "random-variables",
+    "slide": 26,
+    "title": "A jump at zero and a continuous spending model",
+    "file": "random-variables/26.html",
+    "image": "assets/slides/random-variables/26.webp",
+    "words": 281,
+    "interactives": [
+      "rv-mixed"
+    ]
+  },
+  {
+    "chapter": "random-variables",
+    "slide": 27,
+    "title": "Discrete probabilities and endpoint choices",
+    "file": "random-variables/27.html",
+    "image": "assets/slides/random-variables/27.webp",
+    "words": 325,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables",
+    "slide": 28,
+    "title": "Four possible values: solve every probability",
+    "file": "random-variables/28.html",
+    "image": "assets/slides/random-variables/28.webp",
+    "words": 347,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables",
+    "slide": 29,
+    "title": "Every CDF begins at zero and ends at one",
+    "file": "random-variables/29.html",
+    "image": "assets/slides/random-variables/29.webp",
+    "words": 455,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables",
+    "slide": 30,
+    "title": "Prove monotonicity and the interval rule",
+    "file": "random-variables/30.html",
+    "image": "assets/slides/random-variables/30.webp",
+    "words": 162,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables",
+    "slide": 31,
+    "title": "The size of a CDF jump is a point probability",
+    "file": "random-variables/31.html",
+    "image": "assets/slides/random-variables/31.webp",
+    "words": 140,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables",
+    "slide": 32,
+    "title": "Connect probability masses with CDF steps",
+    "file": "random-variables/32.html",
+    "image": "assets/slides/random-variables/32.webp",
+    "words": 300,
+    "interactives": [
+      "rv-dice"
+    ]
+  },
+  {
+    "chapter": "random-variables",
+    "slide": 33,
+    "title": "Normalize an infinite PMF and find its tail",
+    "file": "random-variables/33.html",
+    "image": "assets/slides/random-variables/33.webp",
+    "words": 366,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables",
+    "slide": 34,
+    "title": "Nontraditional dice: count physical faces",
+    "file": "random-variables/34.html",
+    "image": "assets/slides/random-variables/34.webp",
+    "words": 590,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables",
+    "slide": 35,
+    "title": "Build the complete nontraditional dice distribution",
+    "file": "random-variables/35.html",
+    "image": "assets/slides/random-variables/35.webp",
+    "words": 483,
+    "interactives": [
+      "rv-dice"
+    ]
+  },
+  {
+    "chapter": "random-variables",
+    "slide": 36,
+    "title": "Lottery winnings versus net gain",
+    "file": "random-variables/36.html",
+    "image": "assets/slides/random-variables/36.webp",
+    "words": 477,
+    "interactives": []
   }
 ]

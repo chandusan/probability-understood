@@ -46,6 +46,11 @@ LAB_TITLES.update({
     'cond-bayes':'See how base rates change a positive-test probability',
     'cond-urns':'Update the urn, then predict the next draw',
     'cond-ruin':'Compare one-step and eventual winning probabilities',
+    'rv-ads':'Group dependent click paths into a distribution',
+    'rv-stopping':'Find the first time a stopping rule is triggered',
+    'rv-dice':'Connect outcomes, probability masses and CDF jumps',
+    'rv-distance':'Grow a distance threshold inside a square',
+    'rv-mixed':'Separate a point mass from a continuous density',
 })
 CHAPTERS = [
     {'id':'data-summary','number':'01','title':'Data Summary','folder':'slides',
@@ -71,6 +76,11 @@ CHAPTERS = [
      'groups':[(1,6,'Probability after new information'),(7,13,'What independence really means'),(14,20,'Condition on the next draw'),(21,26,'Total probability & Bayes’ rule'),(27,30,'Base rates & evidence'),(31,36,'Update beliefs, then predict'),(37,44,'A random walk to the boundary')],
      'titles':['A roadmap for conditional probability','A die after learning it is even','How information changes the model','Derive the conditional probability formula','Why divide by the condition’s probability?','Neither subscription, given at most one','Independence means unchanged proportions','See independence in a probability grid','Independent versus mutually exclusive','Pairwise versus mutual independence','At least one and exactly one event','Four tosses: pairwise is not enough','A fox’s tags: condition on at most one loss','Multiply probabilities along a path','Three cards: specified order or any order','Two draws from an urn','Name the events before multiplying','Count black then red without replacement','Why the second draw has the original red fraction','Exactly one red, and the very last draw','Derive the law of total probability','Score first, win, and reverse the condition','Bayes’ rule: compare the paths to evidence','Start Bayes’ proof with the right denominator','Factor the intersection in the useful direction','Add every route to the observed evidence','A positive test and a rare condition','Separate sensitivity from the posterior','Correct the test calculation and explain base rates','Bayes’ rule for many possible sources','Two red draws: which urn and what comes next?','Calculate the likelihood within each urn','Update the probability of the chosen urn','Track the balls remaining after the evidence','Predict with the updated urn probabilities','Fraud flags and a second piece of evidence','Gambler’s ruin: state the stopping problem','Random walks: recurrence and meeting are different','Set the boundary probabilities','Condition on the next play','Solve by successive differences and telescoping','An optional characteristic-equation solution','Finish the biased-game calculation','The fair game and the complete answer'],
      'legacy':'05-conditional.html'},
+    {'id':'random-variables','number':'06','title':'Random Variables','folder':'random-variables',
+     'content':'random-variables','images':'slides/random-variables','pdf':'06-random-variables.pdf','height':1500,
+     'groups':[(1,5,'Turn outcomes into numbers'),(6,11,'Probability mass & accumulation'),(12,16,'Build a distribution from geometry'),(17,22,'Understand probability density'),(23,26,'Differentiate & combine distributions'),(27,32,'CDFs, endpoints & jumps'),(33,36,'Solve complete distribution problems')],
+     'titles':['A number attached to a random outcome','What is a random variable?','Three ads with changing click probabilities','Measure the distance of a random point','Stop at the first repeated loss pattern','Probability mass groups outcomes with the same value','Two dice: outcomes versus sums','Derive every probability in the dice-sum PMF','Read a probability mass graph','The CDF accumulates probability up to a threshold','Why the dice CDF has steps','Uniform points turn probability into area','A distance threshold selects a curved region','The four pieces of the distance CDF','Derive the clipped-circle area','Assemble and check the full distance CDF','Density is probability per unit of distance','Probability is area under a density','The CDF accumulates density from the left','Why density is the slope of a CDF','Continuity, corners and when a density exists','Differentiate a polynomial CDF','From the distance CDF to its density','Apply the product and chain rules explicitly','See the derivative terms cancel','A jump at zero and a continuous spending model','Discrete probabilities and endpoint choices','Four possible values: solve every probability','Every CDF begins at zero and ends at one','Prove monotonicity and the interval rule','The size of a CDF jump is a point probability','Connect probability masses with CDF steps','Normalize an infinite PMF and find its tail','Nontraditional dice: count physical faces','Build the complete nontraditional dice distribution','Lottery winnings versus net gain'],
+     'legacy':'06-random-variables.html'},
 ]
 
 def render_md(text):
@@ -92,6 +102,8 @@ def lab_page(name,fragment):
     extras='<link rel="stylesheet" href="../rules-labs.css"><script defer src="../rules-math.js"></script><script defer src="../rules-labs.js"></script>' if name.startswith('rules-') else ''
     if name.startswith('cond-'):
         extras='<link rel="stylesheet" href="../cond-labs.css"><script defer src="../cond-math.js"></script><script defer src="../cond-labs.js"></script>'
+    if name.startswith('rv-'):
+        extras='<link rel="stylesheet" href="../rv-labs.css"><script defer src="../rv-math.js"></script><script defer src="../rv-labs.js"></script>'
     return f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{html.escape(LAB_TITLES[name])}</title><link rel="icon" href="data:,"><link rel="stylesheet" href="../lab.css"><script src="../lab-frame.js"></script>{extras}</head><body data-lab="{name}"><main class="lab-root">{fragment}</main></body></html>'''
 
 def build():
@@ -120,7 +132,7 @@ def build():
     if OUT.exists(): shutil.rmtree(OUT)
     for chapter in CHAPTERS: (OUT/chapter['folder']).mkdir(parents=True)
     shutil.copytree(ROOT/'assets',OUT/'assets')
-    for name in ('site.css','site.js','lab.css','lab-frame.js','rules-math.js','rules-labs.js','rules-labs.css','cond-math.js','cond-labs.js','cond-labs.css'): shutil.copyfile(ROOT/'src'/name,OUT/'assets'/name)
+    for name in ('site.css','site.js','lab.css','lab-frame.js','rules-math.js','rules-labs.js','rules-labs.css','cond-math.js','cond-labs.js','cond-labs.css','rv-math.js','rv-labs.js','rv-labs.css'): shutil.copyfile(ROOT/'src'/name,OUT/'assets'/name)
     (OUT/'assets/labs').mkdir()
     for name in LAB_TITLES:
         (OUT/'assets/labs'/f'{name}.html').write_text(lab_page(name,lab_fragments[name]))
