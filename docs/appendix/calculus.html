@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="A short calculus appendix: derivatives, integrals, worked examples, and their connection to probability densities and CDFs."><title>Calculus appendix — Probability, understood</title><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/site.css"><link rel="stylesheet" href="../assets/vendor/katex/katex.min.css"><script defer src="../assets/vendor/katex/katex.min.js"></script><script defer src="../assets/vendor/katex/contrib/auto-render.min.js"></script><script defer src="../assets/site.js"></script></head>
 <body class="appendix-page"><a class="skip" href="#lesson">Skip to the appendix</a>
-<aside class="sidebar" aria-label="Course navigation"><a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>Probability,<br>understood.</span></a><button class="nav-close" data-close-nav aria-label="Close navigation">×</button><p class="course-label">Your study companion</p><nav class="chapter-nav" aria-label="Choose a chapter"><a href="../slides/01.html"><span>01</span> Data Summary</a><a href="../probability-part1/01.html"><span>02</span> Probability · Part 1</a><a href="../counting/01.html"><span>03</span> Counting</a><a href="../probability-part2/01.html"><span>04</span> Probability · Part 2</a><a href="../probability-part3/01.html"><span>05</span> Probability · Part 3</a><a href="../random-variables/01.html"><span>06</span> Random Variables</a></nav><p class="course-title">Calculus appendix</p><nav class="slide-nav reference-nav" aria-label="Appendix sections"><a href="#differentiation-how-fast-is-it-changing">Differentiation: how fast is it changing?</a><a href="#the-differentiation-rules-you-need">The differentiation rules you need</a><a href="#integration-add-up-small-contributions">Integration: add up small contributions</a><a href="#why-probability-uses-both">Why probability uses both</a><a href="#try-one-of-each">Try one of each</a></nav><div class="nav-footer"><a class="appendix-link" href="calculus.html" aria-current="page">Calculus appendix</a><span>A reference to return to when you need it.</span></div></aside>
+<aside class="sidebar" aria-label="Appendix navigation"><a class="brand" href="#lesson"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>Probability,<br>understood.</span></a><button class="nav-close" data-close-nav aria-label="Close navigation">×</button><p class="course-label">Standalone study reference</p><p class="course-title">Calculus appendix</p><nav class="slide-nav reference-nav" aria-label="Appendix sections"><a href="#differentiation-how-fast-is-it-changing">Differentiation: how fast is it changing?</a><a href="#the-differentiation-rules-you-need">The differentiation rules you need</a><a href="#integration-add-up-small-contributions">Integration: add up small contributions</a><a href="#why-probability-uses-both">Why probability uses both</a><a href="#try-one-of-each">Try one of each</a></nav><div class="nav-footer"><a class="appendix-link" href="calculus.html" aria-current="page">Calculus appendix</a><span>A reference to return to when you need it.</span></div></aside>
 <button class="scrim" data-close-nav aria-label="Close navigation"></button><div class="site-body"><header class="topbar"><button class="menu-button" aria-expanded="false" aria-label="Open navigation">☰ Menu</button><div class="breadcrumb"><strong>Calculus appendix</strong></div><div class="top-tools"><button class="plain-button print-button" data-print>Print this appendix</button></div></header><div class="reading-progress" aria-hidden="true"><i data-reading-progress></i></div>
 <div class="page-layout"><main class="lesson" id="lesson"><p class="eyebrow">Study reference</p><h1>Differentiation &amp; integration</h1><div class="lead"><p>A small calculus toolkit for probability: differentiation measures how fast a quantity changes; integration adds up its contributions. These two ideas explain the connection between a cumulative distribution function (CDF) and a probability density (PDF).</p></div><div class="lesson-meta"><span>A short refresher</span><span class="meta-sep">/</span><span>Intuition + rules + worked examples</span></div><article class="prose"><h2 id="differentiation-how-fast-is-it-changing">Differentiation: how fast is it changing?</h2>
 <p>Suppose $g(x)=x^2$. Moving from $x$ to $x+h$ changes the output by $(x+h)^2-x^2$. Divide by the input change $h$ to find the <strong>average change per unit</strong>:</p>
@@ -58,14 +58,14 @@ $$</p>
 </tr>
 </tbody>
 </table></div>
-<p>For <a href="../random-variables/22.html">slide 22's polynomial CDF</a>, the middle branch gives</p>
+<p>For example, let $g(x)=(x^2+x^3)/12$. Its derivative is</p>
 <p>$$
 \frac{d}{dx}\left(\frac{x^2+x^3}{12}\right)
-=\frac1{12}(2x+3x^2),\qquad 0&lt;x&lt;2.
+=\frac1{12}(2x+3x^2).
 $$</p>
-<p>The constant factor stays; differentiate each power separately. For $x&lt;0$ and $x&gt;2$, the CDF is constant and its derivative is zero. Check joins separately: at $x=2$, the left and right slopes differ, so the derivative does not exist.</p>
+<p>The constant factor stays; differentiate each power separately.</p>
 <details id="product-and-chain">
-<summary>Product and chain rules: the extra steps for slides 24–25</summary>
+<summary>Product and chain rules: a worked example</summary>
 <p><strong>Product rule:</strong> both factors change. For $x^2q(x)$,</p>
 <p>$$
 \frac{d}{dx}[x^2q(x)]=2xq(x)+x^2q'(x).
@@ -84,7 +84,14 @@ q'(x)&amp;=\frac1{1+u(x)^2}\,u'(x)\\
 &amp;=\frac1{x\sqrt{x^2-1}}.
 \end{aligned}
 $$</p>
-<p>Return to <a href="../random-variables/24.html">the product calculation</a> or <a href="../random-variables/25.html">the chain-rule cancellation</a> to see how these pieces fit together.</p>
+<p>Putting these pieces into the product rule gives the complete derivative, for $x&gt;1$:</p>
+<p>$$
+\begin{aligned}
+\frac{d}{dx}\left[x^2\arctan\sqrt{x^2-1}\right]
+&amp;=2x\arctan\sqrt{x^2-1}+x^2\frac1{x\sqrt{x^2-1}}\\
+&amp;=2x\arctan\sqrt{x^2-1}+\frac{x}{\sqrt{x^2-1}}.
+\end{aligned}
+$$</p>
 </details>
 <h2 id="integration-add-up-small-contributions">Integration: add up small contributions</h2>
 <p>For a nonnegative function $g$, imagine splitting $[a,b]$ into narrow strips. Each strip has approximate area <strong>height $g(x)$ times width $\Delta x$</strong>. Add the areas and let the strips become arbitrarily thin. The result is the <strong>definite integral</strong>:</p>
@@ -133,7 +140,7 @@ $$</p>
 P(0.5&lt;X\le0.8)=F(0.8)-F(0.5)=0.39.
 $$</p>
 <p>A density height is probability <strong>per unit of $x$</strong>. Multiplying by a tiny width gives approximately the probability in that tiny interval. Integrating adds those contributions across the full interval.</p>
-<p><strong>Two details matter:</strong> use each formula only on its stated range, splitting an integral where the formula changes. And if a CDF has a jump, that jump is a point probability: differentiating its smooth pieces alone misses it. In <a href="../random-variables/26.html">slide 26</a>, the continuous part integrates to $0.6$; the separate probability $0.4$ at zero completes the total.</p>
+<p><strong>Two details matter:</strong> use each formula only on its stated range, splitting an integral where the formula changes. And if a CDF has a jump, that jump is a point probability: differentiating its smooth pieces alone misses it.</p>
 <h2 id="try-one-of-each">Try one of each</h2>
 <p>Differentiate $(x^2+x^3)/12$. Then calculate $\int_1^2 0.3x\,dx$.</p>
 <details>
@@ -147,4 +154,4 @@ $$</p>
 =0.15(2^2)-0.15(1^2)=0.45.
 $$</p>
 <p>The derivative is a function describing a local rate. The definite integral is a number describing accumulation over a specified interval.</p>
-</details></article><nav class="lesson-end page-turn" aria-label="Continue studying"><a href="../random-variables/17.html"><span>Apply integration →</span>Probability as area</a><a href="../random-variables/20.html"><span>Apply differentiation →</span>From a CDF to its density</a></nav><footer class="footer"><p>A personal teaching companion built from our questions, examples and explanations.</p></footer></main><aside class="page-toc" aria-label="In this appendix"><p class="toc-label">In this appendix</p><a href="#differentiation-how-fast-is-it-changing">Differentiation: how fast is it changing?</a><a href="#the-differentiation-rules-you-need">The differentiation rules you need</a><a href="#integration-add-up-small-contributions">Integration: add up small contributions</a><a href="#why-probability-uses-both">Why probability uses both</a><a href="#try-one-of-each">Try one of each</a><a href="#lesson">Back to the top ↑</a></aside></div></div></body></html>
+</details></article><footer class="footer"><p>A personal teaching companion built from our questions, examples and explanations.</p></footer></main><aside class="page-toc" aria-label="In this appendix"><p class="toc-label">In this appendix</p><a href="#differentiation-how-fast-is-it-changing">Differentiation: how fast is it changing?</a><a href="#the-differentiation-rules-you-need">The differentiation rules you need</a><a href="#integration-add-up-small-contributions">Integration: add up small contributions</a><a href="#why-probability-uses-both">Why probability uses both</a><a href="#try-one-of-each">Try one of each</a><a href="#lesson">Back to the top ↑</a></aside></div></div></body></html>

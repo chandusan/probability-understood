@@ -34,17 +34,17 @@ Here $c$ is a constant; $u$ and $v$ are differentiable functions of $x$. Apply e
 | $uv$ | $u'v+uv'$ | Differentiate each factor in turn. |
 | $g(u(x))$ | $g'(u(x))u'(x)$ | Differentiate the outside, then multiply by the inside's derivative. |
 
-For [slide 22's polynomial CDF](../random-variables/22.html), the middle branch gives
+For example, let $g(x)=(x^2+x^3)/12$. Its derivative is
 
 $$
 \frac{d}{dx}\left(\frac{x^2+x^3}{12}\right)
-=\frac1{12}(2x+3x^2),\qquad 0<x<2.
+=\frac1{12}(2x+3x^2).
 $$
 
-The constant factor stays; differentiate each power separately. For $x<0$ and $x>2$, the CDF is constant and its derivative is zero. Check joins separately: at $x=2$, the left and right slopes differ, so the derivative does not exist.
+The constant factor stays; differentiate each power separately.
 
 <details id="product-and-chain" markdown="1">
-<summary>Product and chain rules: the extra steps for slides 24–25</summary>
+<summary>Product and chain rules: a worked example</summary>
 
 **Product rule:** both factors change. For $x^2q(x)$,
 
@@ -71,7 +71,15 @@ q'(x)&=\frac1{1+u(x)^2}\,u'(x)\\
 \end{aligned}
 $$
 
-Return to [the product calculation](../random-variables/24.html) or [the chain-rule cancellation](../random-variables/25.html) to see how these pieces fit together.
+Putting these pieces into the product rule gives the complete derivative, for $x>1$:
+
+$$
+\begin{aligned}
+\frac{d}{dx}\left[x^2\arctan\sqrt{x^2-1}\right]
+&=2x\arctan\sqrt{x^2-1}+x^2\frac1{x\sqrt{x^2-1}}\\
+&=2x\arctan\sqrt{x^2-1}+\frac{x}{\sqrt{x^2-1}}.
+\end{aligned}
+$$
 
 </details>
 
@@ -147,7 +155,7 @@ $$
 
 A density height is probability **per unit of $x$**. Multiplying by a tiny width gives approximately the probability in that tiny interval. Integrating adds those contributions across the full interval.
 
-**Two details matter:** use each formula only on its stated range, splitting an integral where the formula changes. And if a CDF has a jump, that jump is a point probability: differentiating its smooth pieces alone misses it. In [slide 26](../random-variables/26.html), the continuous part integrates to $0.6$; the separate probability $0.4$ at zero completes the total.
+**Two details matter:** use each formula only on its stated range, splitting an integral where the formula changes. And if a CDF has a jump, that jump is a point probability: differentiating its smooth pieces alone misses it.
 
 ## Try one of each
 

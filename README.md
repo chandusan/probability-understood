@@ -14,7 +14,7 @@ A slide-by-slide teaching companion to **01 Data Summary**, **02 Probability · 
 
 **[Open Random Variables](https://chandusan.github.io/probability-understood/random-variables/01.html)**
 
-**[Open the calculus appendix](https://chandusan.github.io/probability-understood/appendix/calculus.html)** — a short reference for differentiation, integration, and the CDF–density connection, with optional product and chain rule examples. It is linked from every lesson and directly from the relevant Random Variables slides.
+**[Open the calculus appendix](https://chandusan.github.io/probability-understood/appendix/calculus.html)** — a short, self-contained reference for differentiation, integration, and the CDF–density connection, with optional product and chain rule examples. The appendix has no outgoing links to slides. It is linked from every lesson and directly from the relevant Random Variables slides.
 
 The chapter selector switches between the six companions. The previous six-lesson site is preserved in Git at `archive/before-slide-rebuild-2026-10-03`.
 
