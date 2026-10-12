@@ -224,6 +224,146 @@ $$
 
 on intervals where the powers are defined. Increase the exponent by one, then divide by that new exponent. Constant factors stay outside, and sums can be integrated term by term. Thus $\int0.3x\,dx=0.15x^2+C$. Check an antiderivative by differentiating it back.
 
+## Substitution and integration by parts
+
+Yes. **Two of the most useful integration techniques come directly from running the chain rule and product rule backwards.**
+
+| Differentiation rule | Corresponding integration technique |
+|---|---|
+| Chain rule | **Substitution** |
+| Product rule | **Integration by parts** |
+
+Let’s work through one complete example of each.
+
+**1. Substitution: recognize a chain rule in reverse.**
+
+Suppose we want to calculate
+
+$$
+\boxed{\int 2x\sqrt{x^2+1}\,dx.}
+$$
+
+Look at the structure:
+
+- The expression inside the square root is $x^2+1$.
+- Its derivative is $2x$.
+- That derivative is already multiplying the square root.
+
+This is exactly the pattern the chain rule produces: **a function of an inside expression, multiplied by the derivative of that inside expression.**
+
+Give the inside expression a simpler name:
+
+$$
+u=x^2+1.
+$$
+
+Then
+
+$$
+\frac{du}{dx}=2x,
+\qquad\text{written as}\qquad du=2x\,dx.
+$$
+
+We can now replace **the whole piece $2x\,dx$** with $du$, and the square root with $\sqrt u$:
+
+$$
+\int 2x\sqrt{x^2+1}\,dx
+=\int \sqrt u\,du.
+$$
+
+That is an ordinary power-rule integral:
+
+$$
+\int u^{1/2}\,du
+=\frac23u^{3/2}+C.
+$$
+
+Finally, replace $u$ with its original expression:
+
+$$
+\boxed{\int 2x\sqrt{x^2+1}\,dx
+=\frac23(x^2+1)^{3/2}+C.}
+$$
+
+We can check the answer using the chain rule:
+
+$$
+\frac{d}{dx}\left[\frac23(x^2+1)^{3/2}\right]
+=\frac23\cdot\frac32(x^2+1)^{1/2}\cdot2x
+=2x\sqrt{x^2+1}.
+$$
+
+**Substitution works here because the extra factor required by the chain rule is present in the integrand.**
+
+---
+
+**2. Integration by parts: rearrange the product rule.**
+
+Now suppose we want to calculate
+
+$$
+\boxed{\int xe^x\,dx.}
+$$
+
+For this example, use the fact that $e^x$ has derivative $e^x$, so an antiderivative of $e^x$ is also $e^x$.
+
+Differentiate the product $xe^x$:
+
+$$
+\frac{d}{dx}(xe^x)
+=\underbrace{1\cdot e^x}_{\text{differentiate }x}
++\underbrace{x\cdot e^x}_{\text{differentiate }e^x}.
+$$
+
+Our desired integrand, $xe^x$, appears on the right. Rearrange:
+
+$$
+xe^x=\frac{d}{dx}(xe^x)-e^x.
+$$
+
+Now integrate both sides:
+
+$$
+\int xe^x\,dx
+=xe^x-\int e^x\,dx.
+$$
+
+Therefore,
+
+$$
+\boxed{\int xe^x\,dx=xe^x-e^x+C.}
+$$
+
+The idea is: **differentiating a product gives the term we want plus an extra term. Subtract the accumulated extra term.**
+
+The general rule comes from the same rearrangement:
+
+$$
+(uv)'=u'v+uv'
+$$
+
+so
+
+$$
+\boxed{\int uv'\,dx=uv-\int u'v\,dx.}
+$$
+
+It is useful when the new integral is simpler. Here differentiating the factor $x$ reduced it to $1$.
+
+---
+
+There are other techniques too:
+
+- **Simplify or expand first:** turn an expression into powers you can integrate separately.
+- **Partial fractions:** split certain fractions of polynomials into simpler fractions.
+- **Trigonometric identities or substitutions:** rewrite expressions involving trigonometric functions or square roots.
+
+Choosing the right technique takes practice. A useful first question is:
+
+> **What differentiation rule could have produced this expression?**
+
+An inside expression accompanied by its derivative suggests substitution. A product with a factor that becomes simpler when differentiated often suggests integration by parts.
+
 ## Why probability uses both
 
 For a variable with density $f$, the CDF $F(x)=P(X\le x)$ accumulates probability up to $x$:
@@ -275,3 +415,93 @@ $$
 The derivative is a function describing a local rate. The definite integral is a number describing accumulation over a specified interval.
 
 </details>
+
+## Differentiation and integration cheat sheet
+
+Use the tables to recognize a familiar function, then use the rules below to handle sums, products, or functions inside other functions. You can check any proposed antiderivative by differentiating it.
+
+Here $c$ is a constant, $C$ is an arbitrary constant of integration, and trigonometric angles are in **radians**. The exponential base $b$ satisfies $b>0$ and $b\ne1$. Also, $\sec x=1/\cos x$.
+
+### Common derivatives
+
+| Function $f(x)$ | Derivative $f'(x)$ |
+|---|---|
+| $c$ | $0$ |
+| $x^n$ | $nx^{n-1}$ |
+| $e^x$ | $e^x$ |
+| $b^x$ | $b^x\ln b$ |
+| $\ln\lvert x\rvert$ | $1/x$ |
+| $\sin x$ | $\cos x$ |
+| $\cos x$ | $-\sin x$ |
+| $\tan x$ | $\sec^2 x$ |
+| $\arctan x$ | $1/(1+x^2)$ |
+| $\arcsin x$ | $1/\sqrt{1-x^2}$ |
+
+### Common integrals
+
+These are **indefinite integrals**: each answer is a family of antiderivatives, which is why it includes $C$.
+
+| Integrand $f(x)$ | Antiderivatives $\int f(x)\,dx$ |
+|---|---|
+| $c$ | $cx+C$ |
+| $x^n$, with $n\ne-1$ | $\dfrac{x^{n+1}}{n+1}+C$ |
+| $e^x$ | $e^x+C$ |
+| $b^x$ | $\dfrac{b^x}{\ln b}+C$ |
+| $1/x$ | $\ln\lvert x\rvert+C$ |
+| $\sin x$ | $-\cos x+C$ |
+| $\cos x$ | $\sin x+C$ |
+| $\sec^2 x$ | $\tan x+C$ |
+| $1/(1+x^2)$ | $\arctan x+C$ |
+| $1/\sqrt{1-x^2}$ | $\arcsin x+C$ |
+
+**Domains:** use these formulas on intervals where the expressions and derivatives are defined. The logarithm and $1/x$ formulas require $x\ne0$; the tangent and secant formulas require $\cos x\ne0$; the arcsine derivative and its matching integral require $-1<x<1$. For arbitrary real powers, $x>0$ is a safe domain; integer powers, for example, also allow negative $x$ wherever defined.
+
+### Rules for combining functions
+
+Here $u$ and $v$ are functions of $x$, primes denote derivatives, and $\alpha,\beta$ are constants.
+
+| Rule | Formula |
+|---|---|
+| Differentiate a sum or constant multiple | $(\alpha u+\beta v)'=\alpha u'+\beta v'$ |
+| Product rule | $(uv)'=u'v+uv'$ |
+| Quotient rule, where $v\ne0$ | $\left(\dfrac uv\right)'=\dfrac{u'v-uv'}{v^2}$ |
+| Chain rule | $\dfrac{d}{dx}f(u(x))=f'(u(x))u'(x)$ |
+| Integrate a sum or constant multiple | $\int(\alpha u+\beta v)\,dx=\alpha\int u\,dx+\beta\int v\,dx$ |
+
+When combining indefinite integrals, collect all constants into one final $+C$.
+
+**Substitution — reverse the chain rule.** If $F'=f$, then
+
+$$
+\int f(u(x))u'(x)\,dx=F(u(x))+C.
+$$
+
+Look for an inside expression together with its derivative. Write $u=u(x)$ and $du=u'(x)\,dx$ to make the replacement. For a definite integral, change the endpoints to their corresponding $u$ values too.
+
+**Integration by parts — rearrange the product rule.**
+
+$$
+\int u(x)v'(x)\,dx=u(x)v(x)-\int u'(x)v(x)\,dx.
+$$
+
+Choose the factors so that differentiating $u$ makes the remaining integral simpler; include $+C$ in the final answer.
+
+**Definite integral — ending value minus starting value.** If $f$ is continuous on $[a,b]$ and $F'=f$, then
+
+$$
+\int_a^b f(x)\,dx=F(b)-F(a).
+$$
+
+There is no final $+C$: the same constant cancels when the two endpoint values are subtracted.
+
+### Remember the inside factor
+
+For a linear inside expression with nonzero slope, differentiation **multiplies** by its slope; integration **divides** by that slope:
+
+$$
+\frac{d}{dx}e^{3x}=3e^{3x},
+\qquad
+\int e^{3x}\,dx=\frac13e^{3x}+C.
+$$
+
+Differentiating the answer verifies why the factor $1/3$ is needed: it cancels the $3$ produced by the chain rule. This division shortcut applies to a **constant, nonzero** inside slope; for a general inside function, use substitution and account for its derivative.

@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="A short calculus appendix: derivatives, integrals, worked examples, and their connection to probability densities and CDFs."><title>Calculus appendix — Probability, understood</title><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/site.css"><link rel="stylesheet" href="../assets/vendor/katex/katex.min.css"><script defer src="../assets/vendor/katex/katex.min.js"></script><script defer src="../assets/vendor/katex/contrib/auto-render.min.js"></script><script defer src="../assets/site.js"></script></head>
 <body class="appendix-page"><a class="skip" href="#lesson">Skip to the appendix</a>
-<aside class="sidebar" aria-label="Appendix navigation"><a class="brand" href="#lesson"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>Probability,<br>understood.</span></a><button class="nav-close" data-close-nav aria-label="Close navigation">×</button><p class="course-label">Standalone study reference</p><p class="course-title">Calculus appendix</p><nav class="slide-nav reference-nav" aria-label="Appendix sections"><a href="#differentiation-how-fast-is-it-changing">Differentiation: how fast is it changing?</a><a href="#the-differentiation-rules-you-need">The differentiation rules you need</a><a href="#integration-add-up-small-contributions">Integration: add up small contributions</a><a href="#why-differentiating-accumulated-area-gives-the-function">Why differentiating accumulated area gives the function</a><a href="#calculate-an-integral-by-reversing-differentiation">Calculate an integral by reversing differentiation</a><a href="#why-probability-uses-both">Why probability uses both</a><a href="#try-one-of-each">Try one of each</a></nav><div class="nav-footer"><a class="appendix-link" href="calculus.html" aria-current="page">Calculus appendix</a><span>A reference to return to when you need it.</span></div></aside>
+<aside class="sidebar" aria-label="Appendix navigation"><a class="brand" href="#lesson"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>Probability,<br>understood.</span></a><button class="nav-close" data-close-nav aria-label="Close navigation">×</button><p class="course-label">Standalone study reference</p><p class="course-title">Calculus appendix</p><nav class="slide-nav reference-nav" aria-label="Appendix sections"><a href="#differentiation-how-fast-is-it-changing">Differentiation: how fast is it changing?</a><a href="#the-differentiation-rules-you-need">The differentiation rules you need</a><a href="#integration-add-up-small-contributions">Integration: add up small contributions</a><a href="#why-differentiating-accumulated-area-gives-the-function">Why differentiating accumulated area gives the function</a><a href="#calculate-an-integral-by-reversing-differentiation">Calculate an integral by reversing differentiation</a><a href="#substitution-and-integration-by-parts">Substitution and integration by parts</a><a href="#why-probability-uses-both">Why probability uses both</a><a href="#try-one-of-each">Try one of each</a><a href="#differentiation-and-integration-cheat-sheet">Differentiation and integration cheat sheet</a></nav><div class="nav-footer"><a class="appendix-link" href="calculus.html" aria-current="page">Calculus appendix</a><span>A reference to return to when you need it.</span></div></aside>
 <button class="scrim" data-close-nav aria-label="Close navigation"></button><div class="site-body"><header class="topbar"><button class="menu-button" aria-expanded="false" aria-label="Open navigation">☰ Menu</button><div class="breadcrumb"><strong>Calculus appendix</strong></div><div class="top-tools"><button class="plain-button print-button" data-print>Print this appendix</button></div></header><div class="reading-progress" aria-hidden="true"><i data-reading-progress></i></div>
 <div class="page-layout"><main class="lesson" id="lesson"><p class="eyebrow">Study reference</p><h1>Differentiation &amp; integration</h1><div class="lead"><p>A small calculus toolkit for probability: differentiation measures how fast a quantity changes; integration adds up its contributions. These two ideas explain the connection between a cumulative distribution function (CDF) and a probability density (PDF).</p></div><div class="lesson-meta"><span>A short refresher</span><span class="meta-sep">/</span><span>Intuition + rules + worked examples</span></div><article class="prose"><h2 id="differentiation-how-fast-is-it-changing">Differentiation: how fast is it changing?</h2>
 <p>Suppose $g(x)=x^2$. Moving from $x$ to $x+h$ changes the output by $(x+h)^2-x^2$. Divide by the input change $h$ to find the <strong>average change per unit</strong>:</p>
@@ -185,6 +185,118 @@ $$</p>
 \int x^n\,dx=\frac{x^{n+1}}{n+1}+C,\qquad n\ne-1,
 $$</p>
 <p>on intervals where the powers are defined. Increase the exponent by one, then divide by that new exponent. Constant factors stay outside, and sums can be integrated term by term. Thus $\int0.3x\,dx=0.15x^2+C$. Check an antiderivative by differentiating it back.</p>
+<h2 id="substitution-and-integration-by-parts">Substitution and integration by parts</h2>
+<p>Yes. <strong>Two of the most useful integration techniques come directly from running the chain rule and product rule backwards.</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Differentiation rule</th>
+<th>Corresponding integration technique</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Chain rule</td>
+<td><strong>Substitution</strong></td>
+</tr>
+<tr>
+<td>Product rule</td>
+<td><strong>Integration by parts</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>Let’s work through one complete example of each.</p>
+<p><strong>1. Substitution: recognize a chain rule in reverse.</strong></p>
+<p>Suppose we want to calculate</p>
+<p>$$
+\boxed{\int 2x\sqrt{x^2+1}\,dx.}
+$$</p>
+<p>Look at the structure:</p>
+<ul>
+<li>The expression inside the square root is $x^2+1$.</li>
+<li>Its derivative is $2x$.</li>
+<li>That derivative is already multiplying the square root.</li>
+</ul>
+<p>This is exactly the pattern the chain rule produces: <strong>a function of an inside expression, multiplied by the derivative of that inside expression.</strong></p>
+<p>Give the inside expression a simpler name:</p>
+<p>$$
+u=x^2+1.
+$$</p>
+<p>Then</p>
+<p>$$
+\frac{du}{dx}=2x,
+\qquad\text{written as}\qquad du=2x\,dx.
+$$</p>
+<p>We can now replace <strong>the whole piece $2x\,dx$</strong> with $du$, and the square root with $\sqrt u$:</p>
+<p>$$
+\int 2x\sqrt{x^2+1}\,dx
+=\int \sqrt u\,du.
+$$</p>
+<p>That is an ordinary power-rule integral:</p>
+<p>$$
+\int u^{1/2}\,du
+=\frac23u^{3/2}+C.
+$$</p>
+<p>Finally, replace $u$ with its original expression:</p>
+<p>$$
+\boxed{\int 2x\sqrt{x^2+1}\,dx
+=\frac23(x^2+1)^{3/2}+C.}
+$$</p>
+<p>We can check the answer using the chain rule:</p>
+<p>$$
+\frac{d}{dx}\left[\frac23(x^2+1)^{3/2}\right]
+=\frac23\cdot\frac32(x^2+1)^{1/2}\cdot2x
+=2x\sqrt{x^2+1}.
+$$</p>
+<p><strong>Substitution works here because the extra factor required by the chain rule is present in the integrand.</strong></p>
+<hr />
+<p><strong>2. Integration by parts: rearrange the product rule.</strong></p>
+<p>Now suppose we want to calculate</p>
+<p>$$
+\boxed{\int xe^x\,dx.}
+$$</p>
+<p>For this example, use the fact that $e^x$ has derivative $e^x$, so an antiderivative of $e^x$ is also $e^x$.</p>
+<p>Differentiate the product $xe^x$:</p>
+<p>$$
+\frac{d}{dx}(xe^x)
+=\underbrace{1\cdot e^x}_{\text{differentiate }x}
++\underbrace{x\cdot e^x}_{\text{differentiate }e^x}.
+$$</p>
+<p>Our desired integrand, $xe^x$, appears on the right. Rearrange:</p>
+<p>$$
+xe^x=\frac{d}{dx}(xe^x)-e^x.
+$$</p>
+<p>Now integrate both sides:</p>
+<p>$$
+\int xe^x\,dx
+=xe^x-\int e^x\,dx.
+$$</p>
+<p>Therefore,</p>
+<p>$$
+\boxed{\int xe^x\,dx=xe^x-e^x+C.}
+$$</p>
+<p>The idea is: <strong>differentiating a product gives the term we want plus an extra term. Subtract the accumulated extra term.</strong></p>
+<p>The general rule comes from the same rearrangement:</p>
+<p>$$
+(uv)'=u'v+uv'
+$$</p>
+<p>so</p>
+<p>$$
+\boxed{\int uv'\,dx=uv-\int u'v\,dx.}
+$$</p>
+<p>It is useful when the new integral is simpler. Here differentiating the factor $x$ reduced it to $1$.</p>
+<hr />
+<p>There are other techniques too:</p>
+<ul>
+<li><strong>Simplify or expand first:</strong> turn an expression into powers you can integrate separately.</li>
+<li><strong>Partial fractions:</strong> split certain fractions of polynomials into simpler fractions.</li>
+<li><strong>Trigonometric identities or substitutions:</strong> rewrite expressions involving trigonometric functions or square roots.</li>
+</ul>
+<p>Choosing the right technique takes practice. A useful first question is:</p>
+<blockquote>
+<p><strong>What differentiation rule could have produced this expression?</strong></p>
+</blockquote>
+<p>An inside expression accompanied by its derivative suggests substitution. A product with a factor that becomes simpler when differentiated often suggests integration by parts.</p>
 <h2 id="why-probability-uses-both">Why probability uses both</h2>
 <p>For a variable with density $f$, the CDF $F(x)=P(X\le x)$ accumulates probability up to $x$:</p>
 <p>$$
@@ -219,4 +331,167 @@ $$</p>
 =0.15(2^2)-0.15(1^2)=0.45.
 $$</p>
 <p>The derivative is a function describing a local rate. The definite integral is a number describing accumulation over a specified interval.</p>
-</details></article><footer class="footer"><p>A personal teaching companion built from our questions, examples and explanations.</p></footer></main><aside class="page-toc" aria-label="In this appendix"><p class="toc-label">In this appendix</p><a href="#differentiation-how-fast-is-it-changing">Differentiation: how fast is it changing?</a><a href="#the-differentiation-rules-you-need">The differentiation rules you need</a><a href="#integration-add-up-small-contributions">Integration: add up small contributions</a><a href="#why-differentiating-accumulated-area-gives-the-function">Why differentiating accumulated area gives the function</a><a href="#calculate-an-integral-by-reversing-differentiation">Calculate an integral by reversing differentiation</a><a href="#why-probability-uses-both">Why probability uses both</a><a href="#try-one-of-each">Try one of each</a><a href="#lesson">Back to the top ↑</a></aside></div></div></body></html>
+</details>
+<h2 id="differentiation-and-integration-cheat-sheet">Differentiation and integration cheat sheet</h2>
+<p>Use the tables to recognize a familiar function, then use the rules below to handle sums, products, or functions inside other functions. You can check any proposed antiderivative by differentiating it.</p>
+<p>Here $c$ is a constant, $C$ is an arbitrary constant of integration, and trigonometric angles are in <strong>radians</strong>. The exponential base $b$ satisfies $b&gt;0$ and $b\ne1$. Also, $\sec x=1/\cos x$.</p>
+<h3 id="common-derivatives">Common derivatives</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Function $f(x)$</th>
+<th>Derivative $f'(x)$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$c$</td>
+<td>$0$</td>
+</tr>
+<tr>
+<td>$x^n$</td>
+<td>$nx^{n-1}$</td>
+</tr>
+<tr>
+<td>$e^x$</td>
+<td>$e^x$</td>
+</tr>
+<tr>
+<td>$b^x$</td>
+<td>$b^x\ln b$</td>
+</tr>
+<tr>
+<td>$\ln\lvert x\rvert$</td>
+<td>$1/x$</td>
+</tr>
+<tr>
+<td>$\sin x$</td>
+<td>$\cos x$</td>
+</tr>
+<tr>
+<td>$\cos x$</td>
+<td>$-\sin x$</td>
+</tr>
+<tr>
+<td>$\tan x$</td>
+<td>$\sec^2 x$</td>
+</tr>
+<tr>
+<td>$\arctan x$</td>
+<td>$1/(1+x^2)$</td>
+</tr>
+<tr>
+<td>$\arcsin x$</td>
+<td>$1/\sqrt{1-x^2}$</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="common-integrals">Common integrals</h3>
+<p>These are <strong>indefinite integrals</strong>: each answer is a family of antiderivatives, which is why it includes $C$.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Integrand $f(x)$</th>
+<th>Antiderivatives $\int f(x)\,dx$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$c$</td>
+<td>$cx+C$</td>
+</tr>
+<tr>
+<td>$x^n$, with $n\ne-1$</td>
+<td>$\dfrac{x^{n+1}}{n+1}+C$</td>
+</tr>
+<tr>
+<td>$e^x$</td>
+<td>$e^x+C$</td>
+</tr>
+<tr>
+<td>$b^x$</td>
+<td>$\dfrac{b^x}{\ln b}+C$</td>
+</tr>
+<tr>
+<td>$1/x$</td>
+<td>$\ln\lvert x\rvert+C$</td>
+</tr>
+<tr>
+<td>$\sin x$</td>
+<td>$-\cos x+C$</td>
+</tr>
+<tr>
+<td>$\cos x$</td>
+<td>$\sin x+C$</td>
+</tr>
+<tr>
+<td>$\sec^2 x$</td>
+<td>$\tan x+C$</td>
+</tr>
+<tr>
+<td>$1/(1+x^2)$</td>
+<td>$\arctan x+C$</td>
+</tr>
+<tr>
+<td>$1/\sqrt{1-x^2}$</td>
+<td>$\arcsin x+C$</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Domains:</strong> use these formulas on intervals where the expressions and derivatives are defined. The logarithm and $1/x$ formulas require $x\ne0$; the tangent and secant formulas require $\cos x\ne0$; the arcsine derivative and its matching integral require $-1&lt;x&lt;1$. For arbitrary real powers, $x&gt;0$ is a safe domain; integer powers, for example, also allow negative $x$ wherever defined.</p>
+<h3 id="rules-for-combining-functions">Rules for combining functions</h3>
+<p>Here $u$ and $v$ are functions of $x$, primes denote derivatives, and $\alpha,\beta$ are constants.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>Formula</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Differentiate a sum or constant multiple</td>
+<td>$(\alpha u+\beta v)'=\alpha u'+\beta v'$</td>
+</tr>
+<tr>
+<td>Product rule</td>
+<td>$(uv)'=u'v+uv'$</td>
+</tr>
+<tr>
+<td>Quotient rule, where $v\ne0$</td>
+<td>$\left(\dfrac uv\right)'=\dfrac{u'v-uv'}{v^2}$</td>
+</tr>
+<tr>
+<td>Chain rule</td>
+<td>$\dfrac{d}{dx}f(u(x))=f'(u(x))u'(x)$</td>
+</tr>
+<tr>
+<td>Integrate a sum or constant multiple</td>
+<td>$\int(\alpha u+\beta v)\,dx=\alpha\int u\,dx+\beta\int v\,dx$</td>
+</tr>
+</tbody>
+</table></div>
+<p>When combining indefinite integrals, collect all constants into one final $+C$.</p>
+<p><strong>Substitution — reverse the chain rule.</strong> If $F'=f$, then</p>
+<p>$$
+\int f(u(x))u'(x)\,dx=F(u(x))+C.
+$$</p>
+<p>Look for an inside expression together with its derivative. Write $u=u(x)$ and $du=u'(x)\,dx$ to make the replacement. For a definite integral, change the endpoints to their corresponding $u$ values too.</p>
+<p><strong>Integration by parts — rearrange the product rule.</strong></p>
+<p>$$
+\int u(x)v'(x)\,dx=u(x)v(x)-\int u'(x)v(x)\,dx.
+$$</p>
+<p>Choose the factors so that differentiating $u$ makes the remaining integral simpler; include $+C$ in the final answer.</p>
+<p><strong>Definite integral — ending value minus starting value.</strong> If $f$ is continuous on $[a,b]$ and $F'=f$, then</p>
+<p>$$
+\int_a^b f(x)\,dx=F(b)-F(a).
+$$</p>
+<p>There is no final $+C$: the same constant cancels when the two endpoint values are subtracted.</p>
+<h3 id="remember-the-inside-factor">Remember the inside factor</h3>
+<p>For a linear inside expression with nonzero slope, differentiation <strong>multiplies</strong> by its slope; integration <strong>divides</strong> by that slope:</p>
+<p>$$
+\frac{d}{dx}e^{3x}=3e^{3x},
+\qquad
+\int e^{3x}\,dx=\frac13e^{3x}+C.
+$$</p>
+<p>Differentiating the answer verifies why the factor $1/3$ is needed: it cancels the $3$ produced by the chain rule. This division shortcut applies to a <strong>constant, nonzero</strong> inside slope; for a general inside function, use substitution and account for its derivative.</p></article><footer class="footer"><p>A personal teaching companion built from our questions, examples and explanations.</p></footer></main><aside class="page-toc" aria-label="In this appendix"><p class="toc-label">In this appendix</p><a href="#differentiation-how-fast-is-it-changing">Differentiation: how fast is it changing?</a><a href="#the-differentiation-rules-you-need">The differentiation rules you need</a><a href="#integration-add-up-small-contributions">Integration: add up small contributions</a><a href="#why-differentiating-accumulated-area-gives-the-function">Why differentiating accumulated area gives the function</a><a href="#calculate-an-integral-by-reversing-differentiation">Calculate an integral by reversing differentiation</a><a href="#substitution-and-integration-by-parts">Substitution and integration by parts</a><a href="#why-probability-uses-both">Why probability uses both</a><a href="#try-one-of-each">Try one of each</a><a href="#differentiation-and-integration-cheat-sheet">Differentiation and integration cheat sheet</a><a href="#lesson">Back to the top ↑</a></aside></div></div></body></html>
