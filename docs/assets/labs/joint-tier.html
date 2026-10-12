@@ -1,0 +1,7 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Normalize a joint model and update a tier prediction</title><link rel="icon" href="data:,"><link rel="stylesheet" href="../lab.css"><script src="../lab-frame.js"></script><link rel="stylesheet" href="../joint-labs.css"><script defer src="../joint-math.js"></script><script defer src="../joint-labs.js"></script></head><body data-lab="joint-tier"><main class="lab-root"><h3>Which subscription tier is most plausible after observing breaches?</h3>
+<p class="joint-note">X is the tier: 1 = Basic, 2 = Pro, 3 = Enterprise. Y is the number of hourly API threshold breaches: 0, 1, or 2. The model assigns weights x<sup>y</sup> / (y! 2<sup>x</sup>). The nine weights total 57/16, so multiplying by k = 16/57 makes their probabilities total 1.</p>
+<div class="joint-controls"><label for="tier-breaches">Observed breaches Y<select id="tier-breaches"><option>0</option><option>1</option><option selected>2</option></select></label></div>
+<div id="tier-results" class="joint-results" aria-live="polite"></div><p id="tier-formula" class="joint-formula"></p>
+<div id="tier-table" class="joint-scroll" tabindex="0" role="region" aria-label="Subscription tier joint probabilities with marginal totals"></div>
+<h4 id="tier-bars-title" class="joint-heading"></h4><div id="tier-bars" class="joint-bars"></div><p id="tier-note" class="joint-callout"></p><p id="tier-mean-note" class="joint-note"></p>
+</main></body></html>

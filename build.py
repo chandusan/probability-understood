@@ -51,6 +51,10 @@ LAB_TITLES.update({
     'rv-dice':'Connect outcomes, probability masses and CDF jumps',
     'rv-distance':'Grow a distance threshold inside a square',
     'rv-mixed':'Separate a point mass from a continuous density',
+    'joint-audit':'Count an image-audit sample and explore its joint probabilities',
+    'joint-dice':'Move from joint dice counts to marginal and conditional distributions',
+    'joint-churn':'Compare joint, marginal and conditional churn probabilities',
+    'joint-tier':'Normalize a joint model and update a tier prediction',
 })
 CHAPTERS = [
     {'id':'data-summary','number':'01','title':'Data Summary','folder':'slides',
@@ -81,6 +85,11 @@ CHAPTERS = [
      'groups':[(1,5,'Turn outcomes into numbers'),(6,11,'Probability mass & accumulation'),(12,16,'Build a distribution from geometry'),(17,22,'Understand probability density'),(23,26,'Differentiate & combine distributions'),(27,32,'CDFs, endpoints & jumps'),(33,36,'Solve complete distribution problems')],
      'titles':['A number attached to a random outcome','What is a random variable?','Three ads with changing click probabilities','Measure the distance of a random point','Stop at the first repeated loss pattern','Probability mass groups outcomes with the same value','Two dice: outcomes versus sums','Derive every probability in the dice-sum PMF','Read a probability mass graph','The CDF accumulates probability up to a threshold','Why the dice CDF has steps','Uniform points turn probability into area','A distance threshold selects a curved region','The four pieces of the distance CDF','Derive the clipped-circle area','Assemble and check the full distance CDF','Density is probability per unit of distance','Probability is area under a density','The CDF accumulates density from the left','Why density is the slope of a CDF','Continuity, corners and when a density exists','Differentiate a polynomial CDF','From the distance CDF to its density','Apply the product and chain rules explicitly','See the derivative terms cancel','A jump at zero and a continuous spending model','Discrete probabilities and endpoint choices','Four possible values: solve every probability','Every CDF begins at zero and ends at one','Prove monotonicity and the interval rule','The size of a CDF jump is a point probability','Connect probability masses with CDF steps','Normalize an infinite PMF and find its tail','Nontraditional dice: count physical faces','Build the complete nontraditional dice distribution','Lottery winnings versus net gain'],
      'legacy':'06-random-variables.html'},
+    {'id':'random-variables-part2','number':'07','title':'Random Variables · Part 2','folder':'random-variables-part2',
+     'content':'random-variables-part2','images':'slides/random-variables-part2','pdf':'07-random-variables-part2.pdf','height':1500,
+     'groups':[(1,3,'Density, accumulation & endpoints'),(4,7,'Solve continuous & mixed models'),(8,13,'Joint probabilities from sampling'),(14,20,'Count two outcomes across five rolls'),(21,25,'Sum out a variable'),(26,31,'Condition & rescale a distribution'),(32,36,'Compare risks & predict a category')],
+     'titles':['Density is probability per unit','Read probability as area','CDFs, endpoints and jumps','Normalize a power-shaped density','Construct and check the full CDF','Condition on a mixed CDF','Solve the polynomial-CDF exercise','Measure two variables in one experiment','The rules for a joint PMF','An image audit without replacement','Derive the joint audit distribution','Read the joint audit table','Interpret the joint probability bars','Count sixes and fives in five rolls','The probability of one category pattern','Count all patterns with the same totals','Assemble the multinomial distribution','Read the exact five-roll table','More sixes than fives','Sum the event and check with symmetry','Marginals keep one variable','Prove the marginal summation rule','Find the dice-count marginals','Churn and engagement in one table','Add the churn and engagement margins','Conditioning changes the population','Derive the conditional PMF','Joint, marginal and conditional questions','Normalize one column of the dice table','Derive every conditional six-count distribution','Reverse the dice condition','Compare risks with a clear denominator','Churn among low-engagement customers','Normalize a model and predict a tier','Calculate all nine model weights','Marginals, posterior probabilities and a prediction'],
+     'legacy':'07-random-variables-part2.html'},
 ]
 
 def render_md(text):
@@ -104,11 +113,13 @@ def lab_page(name,fragment):
         extras='<link rel="stylesheet" href="../cond-labs.css"><script defer src="../cond-math.js"></script><script defer src="../cond-labs.js"></script>'
     if name.startswith('rv-'):
         extras='<link rel="stylesheet" href="../rv-labs.css"><script defer src="../rv-math.js"></script><script defer src="../rv-labs.js"></script>'
+    if name.startswith('joint-'):
+        extras='<link rel="stylesheet" href="../joint-labs.css"><script defer src="../joint-math.js"></script><script defer src="../joint-labs.js"></script>'
     return f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{html.escape(LAB_TITLES[name])}</title><link rel="icon" href="data:,"><link rel="stylesheet" href="../lab.css"><script src="../lab-frame.js"></script>{extras}</head><body data-lab="{name}"><main class="lab-root">{fragment}</main></body></html>'''
 
 def chapter_navigation(prefix, current=None):
     links=''.join(f'<a href="{prefix}{c["folder"]}/01.html"'+(' aria-current="true"' if c['id']==current else '')+f'><span>{c["number"]}</span> {html.escape(c["title"])}</a>' for c in CHAPTERS)
-    return f'<nav class="chapter-nav" aria-label="Choose a chapter">{links}</nav>'
+    return f'<details class="chapter-picker"><summary>Change chapter</summary><nav class="chapter-nav" aria-label="Choose a chapter">{links}</nav></details>'
 
 
 def appendix_page(source):
@@ -151,7 +162,7 @@ def build():
     if OUT.exists(): shutil.rmtree(OUT)
     for chapter in CHAPTERS: (OUT/chapter['folder']).mkdir(parents=True)
     shutil.copytree(ROOT/'assets',OUT/'assets')
-    for name in ('site.css','site.js','lab.css','lab-frame.js','rules-math.js','rules-labs.js','rules-labs.css','cond-math.js','cond-labs.js','cond-labs.css','rv-math.js','rv-labs.js','rv-labs.css'): shutil.copyfile(ROOT/'src'/name,OUT/'assets'/name)
+    for name in ('site.css','site.js','lab.css','lab-frame.js','rules-math.js','rules-labs.js','rules-labs.css','cond-math.js','cond-labs.js','cond-labs.css','rv-math.js','rv-labs.js','rv-labs.css','joint-math.js','joint-labs.js','joint-labs.css'): shutil.copyfile(ROOT/'src'/name,OUT/'assets'/name)
     (OUT/'assets/labs').mkdir()
     for name in LAB_TITLES:
         (OUT/'assets/labs'/f'{name}.html').write_text(lab_page(name,lab_fragments[name]))

@@ -2310,5 +2310,343 @@
     "image": "assets/slides/random-variables/36.webp",
     "words": 477,
     "interactives": []
+  },
+  {
+    "chapter": "random-variables-part2",
+    "slide": 1,
+    "title": "Density is probability per unit",
+    "file": "random-variables-part2/01.html",
+    "image": "assets/slides/random-variables-part2/01.webp",
+    "words": 540,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables-part2",
+    "slide": 2,
+    "title": "Read probability as area",
+    "file": "random-variables-part2/02.html",
+    "image": "assets/slides/random-variables-part2/02.webp",
+    "words": 341,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables-part2",
+    "slide": 3,
+    "title": "CDFs, endpoints and jumps",
+    "file": "random-variables-part2/03.html",
+    "image": "assets/slides/random-variables-part2/03.webp",
+    "words": 161,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables-part2",
+    "slide": 4,
+    "title": "Normalize a power-shaped density",
+    "file": "random-variables-part2/04.html",
+    "image": "assets/slides/random-variables-part2/04.webp",
+    "words": 319,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables-part2",
+    "slide": 5,
+    "title": "Construct and check the full CDF",
+    "file": "random-variables-part2/05.html",
+    "image": "assets/slides/random-variables-part2/05.webp",
+    "words": 228,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables-part2",
+    "slide": 6,
+    "title": "Condition on a mixed CDF",
+    "file": "random-variables-part2/06.html",
+    "image": "assets/slides/random-variables-part2/06.webp",
+    "words": 373,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables-part2",
+    "slide": 7,
+    "title": "Solve the polynomial-CDF exercise",
+    "file": "random-variables-part2/07.html",
+    "image": "assets/slides/random-variables-part2/07.webp",
+    "words": 83,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables-part2",
+    "slide": 8,
+    "title": "Measure two variables in one experiment",
+    "file": "random-variables-part2/08.html",
+    "image": "assets/slides/random-variables-part2/08.webp",
+    "words": 363,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables-part2",
+    "slide": 9,
+    "title": "The rules for a joint PMF",
+    "file": "random-variables-part2/09.html",
+    "image": "assets/slides/random-variables-part2/09.webp",
+    "words": 421,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables-part2",
+    "slide": 10,
+    "title": "An image audit without replacement",
+    "file": "random-variables-part2/10.html",
+    "image": "assets/slides/random-variables-part2/10.webp",
+    "words": 372,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables-part2",
+    "slide": 11,
+    "title": "Derive the joint audit distribution",
+    "file": "random-variables-part2/11.html",
+    "image": "assets/slides/random-variables-part2/11.webp",
+    "words": 381,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables-part2",
+    "slide": 12,
+    "title": "Read the joint audit table",
+    "file": "random-variables-part2/12.html",
+    "image": "assets/slides/random-variables-part2/12.webp",
+    "words": 292,
+    "interactives": [
+      "joint-audit"
+    ]
+  },
+  {
+    "chapter": "random-variables-part2",
+    "slide": 13,
+    "title": "Interpret the joint probability bars",
+    "file": "random-variables-part2/13.html",
+    "image": "assets/slides/random-variables-part2/13.webp",
+    "words": 446,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables-part2",
+    "slide": 14,
+    "title": "Count sixes and fives in five rolls",
+    "file": "random-variables-part2/14.html",
+    "image": "assets/slides/random-variables-part2/14.webp",
+    "words": 336,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables-part2",
+    "slide": 15,
+    "title": "The probability of one category pattern",
+    "file": "random-variables-part2/15.html",
+    "image": "assets/slides/random-variables-part2/15.webp",
+    "words": 356,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables-part2",
+    "slide": 16,
+    "title": "Count all patterns with the same totals",
+    "file": "random-variables-part2/16.html",
+    "image": "assets/slides/random-variables-part2/16.webp",
+    "words": 403,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables-part2",
+    "slide": 17,
+    "title": "Assemble the multinomial distribution",
+    "file": "random-variables-part2/17.html",
+    "image": "assets/slides/random-variables-part2/17.webp",
+    "words": 430,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables-part2",
+    "slide": 18,
+    "title": "Read the exact five-roll table",
+    "file": "random-variables-part2/18.html",
+    "image": "assets/slides/random-variables-part2/18.webp",
+    "words": 439,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables-part2",
+    "slide": 19,
+    "title": "More sixes than fives",
+    "file": "random-variables-part2/19.html",
+    "image": "assets/slides/random-variables-part2/19.webp",
+    "words": 378,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables-part2",
+    "slide": 20,
+    "title": "Sum the event and check with symmetry",
+    "file": "random-variables-part2/20.html",
+    "image": "assets/slides/random-variables-part2/20.webp",
+    "words": 508,
+    "interactives": [
+      "joint-dice"
+    ]
+  },
+  {
+    "chapter": "random-variables-part2",
+    "slide": 21,
+    "title": "Marginals keep one variable",
+    "file": "random-variables-part2/21.html",
+    "image": "assets/slides/random-variables-part2/21.webp",
+    "words": 373,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables-part2",
+    "slide": 22,
+    "title": "Prove the marginal summation rule",
+    "file": "random-variables-part2/22.html",
+    "image": "assets/slides/random-variables-part2/22.webp",
+    "words": 331,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables-part2",
+    "slide": 23,
+    "title": "Find the dice-count marginals",
+    "file": "random-variables-part2/23.html",
+    "image": "assets/slides/random-variables-part2/23.webp",
+    "words": 502,
+    "interactives": [
+      "joint-dice"
+    ]
+  },
+  {
+    "chapter": "random-variables-part2",
+    "slide": 24,
+    "title": "Churn and engagement in one table",
+    "file": "random-variables-part2/24.html",
+    "image": "assets/slides/random-variables-part2/24.webp",
+    "words": 320,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables-part2",
+    "slide": 25,
+    "title": "Add the churn and engagement margins",
+    "file": "random-variables-part2/25.html",
+    "image": "assets/slides/random-variables-part2/25.webp",
+    "words": 323,
+    "interactives": [
+      "joint-churn"
+    ]
+  },
+  {
+    "chapter": "random-variables-part2",
+    "slide": 26,
+    "title": "Conditioning changes the population",
+    "file": "random-variables-part2/26.html",
+    "image": "assets/slides/random-variables-part2/26.webp",
+    "words": 294,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables-part2",
+    "slide": 27,
+    "title": "Derive the conditional PMF",
+    "file": "random-variables-part2/27.html",
+    "image": "assets/slides/random-variables-part2/27.webp",
+    "words": 351,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables-part2",
+    "slide": 28,
+    "title": "Joint, marginal and conditional questions",
+    "file": "random-variables-part2/28.html",
+    "image": "assets/slides/random-variables-part2/28.webp",
+    "words": 353,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables-part2",
+    "slide": 29,
+    "title": "Normalize one column of the dice table",
+    "file": "random-variables-part2/29.html",
+    "image": "assets/slides/random-variables-part2/29.webp",
+    "words": 351,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables-part2",
+    "slide": 30,
+    "title": "Derive every conditional six-count distribution",
+    "file": "random-variables-part2/30.html",
+    "image": "assets/slides/random-variables-part2/30.webp",
+    "words": 607,
+    "interactives": [
+      "joint-dice"
+    ]
+  },
+  {
+    "chapter": "random-variables-part2",
+    "slide": 31,
+    "title": "Reverse the dice condition",
+    "file": "random-variables-part2/31.html",
+    "image": "assets/slides/random-variables-part2/31.webp",
+    "words": 416,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables-part2",
+    "slide": 32,
+    "title": "Compare risks with a clear denominator",
+    "file": "random-variables-part2/32.html",
+    "image": "assets/slides/random-variables-part2/32.webp",
+    "words": 362,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables-part2",
+    "slide": 33,
+    "title": "Churn among low-engagement customers",
+    "file": "random-variables-part2/33.html",
+    "image": "assets/slides/random-variables-part2/33.webp",
+    "words": 455,
+    "interactives": [
+      "joint-churn"
+    ]
+  },
+  {
+    "chapter": "random-variables-part2",
+    "slide": 34,
+    "title": "Normalize a model and predict a tier",
+    "file": "random-variables-part2/34.html",
+    "image": "assets/slides/random-variables-part2/34.webp",
+    "words": 365,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables-part2",
+    "slide": 35,
+    "title": "Calculate all nine model weights",
+    "file": "random-variables-part2/35.html",
+    "image": "assets/slides/random-variables-part2/35.webp",
+    "words": 257,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables-part2",
+    "slide": 36,
+    "title": "Marginals, posterior probabilities and a prediction",
+    "file": "random-variables-part2/36.html",
+    "image": "assets/slides/random-variables-part2/36.webp",
+    "words": 725,
+    "interactives": [
+      "joint-tier"
+    ]
   }
 ]
