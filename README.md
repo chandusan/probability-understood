@@ -14,6 +14,8 @@ A slide-by-slide teaching companion to **01 Data Summary**, **02 Probability · 
 
 **[Open Random Variables](https://chandusan.github.io/probability-understood/random-variables/01.html)**
 
+**[Open the calculus appendix](https://chandusan.github.io/probability-understood/appendix/calculus.html)** — a short reference for differentiation, integration, and the CDF–density connection, with optional product and chain rule examples. It is linked from every lesson and directly from the relevant Random Variables slides.
+
 The chapter selector switches between the six companions. The previous six-lesson site is preserved in Git at `archive/before-slide-rebuild-2026-10-03`.
 
 ## What is included
@@ -49,6 +51,8 @@ python3 -m venv .venv
 ```
 
 Edit Data Summary explanations in `content/slides/01.md` through `31.md`, Probability Part 1 in `content/probability-part1/01.md` through `43.md`, Counting in `content/counting/01.md` through `53.md`, Probability Part 2 in `content/probability-part2/01.md` through `36.md`, Probability Part 3 in `content/probability-part3/01.md` through `44.md`, and Random Variables in `content/random-variables/01.md` through `36.md`. Each file starts with a title and an introductory paragraph. Standard Markdown, TeX math, tables, and `<details markdown="1">` sections are supported.
+
+Edit the calculus reference in `content/appendix/calculus.md`; it builds to `docs/appendix/calculus.html` and is separate from slide counts and completion progress.
 
 The page layout and slide navigation are assembled in `build.py`; the reading interface is in `src/site.css` and `src/site.js`. Experiments are authored in `src/labs/`, with shared styles and local state/height handling in `src/lab.css` and `src/lab-frame.js`. The Part 2 experiments also share `src/rules-math.js`, `src/rules-labs.js`, and `src/rules-labs.css`. Run their exact-count and probability checks with `node scripts/check_probability_part2.cjs`. Part 3 uses `src/cond-math.js`, `src/cond-labs.js`, and `src/cond-labs.css`; validate its finite outcome counts, Bayes calculations, and independent absorbing-chain solution with `node scripts/check_probability_part3.cjs`. Random Variables uses `src/rv-math.js`, `src/rv-labs.js`, and `src/rv-labs.css`; run `node scripts/check_random_variables.cjs` for exhaustive path counts, CDF endpoint checks, and independent numerical area/derivative checks.
 

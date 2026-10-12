@@ -2129,7 +2129,7 @@
     "title": "Density is probability per unit of distance",
     "file": "random-variables/17.html",
     "image": "assets/slides/random-variables/17.webp",
-    "words": 255,
+    "words": 264,
     "interactives": []
   },
   {
@@ -2147,7 +2147,7 @@
     "title": "The CDF accumulates density from the left",
     "file": "random-variables/19.html",
     "image": "assets/slides/random-variables/19.webp",
-    "words": 413,
+    "words": 421,
     "interactives": []
   },
   {
@@ -2156,7 +2156,7 @@
     "title": "Why density is the slope of a CDF",
     "file": "random-variables/20.html",
     "image": "assets/slides/random-variables/20.webp",
-    "words": 124,
+    "words": 133,
     "interactives": []
   },
   {
@@ -2174,7 +2174,7 @@
     "title": "Differentiate a polynomial CDF",
     "file": "random-variables/22.html",
     "image": "assets/slides/random-variables/22.webp",
-    "words": 178,
+    "words": 187,
     "interactives": []
   },
   {
@@ -2192,7 +2192,7 @@
     "title": "Apply the product and chain rules explicitly",
     "file": "random-variables/24.html",
     "image": "assets/slides/random-variables/24.webp",
-    "words": 372,
+    "words": 379,
     "interactives": []
   },
   {
@@ -2201,7 +2201,7 @@
     "title": "See the derivative terms cancel",
     "file": "random-variables/25.html",
     "image": "assets/slides/random-variables/25.webp",
-    "words": 262,
+    "words": 273,
     "interactives": [
       "rv-distance"
     ]
@@ -2212,7 +2212,7 @@
     "title": "A jump at zero and a continuous spending model",
     "file": "random-variables/26.html",
     "image": "assets/slides/random-variables/26.webp",
-    "words": 281,
+    "words": 288,
     "interactives": [
       "rv-mixed"
     ]

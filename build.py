@@ -106,6 +106,25 @@ def lab_page(name,fragment):
         extras='<link rel="stylesheet" href="../rv-labs.css"><script defer src="../rv-math.js"></script><script defer src="../rv-labs.js"></script>'
     return f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{html.escape(LAB_TITLES[name])}</title><link rel="icon" href="data:,"><link rel="stylesheet" href="../lab.css"><script src="../lab-frame.js"></script>{extras}</head><body data-lab="{name}"><main class="lab-root">{fragment}</main></body></html>'''
 
+def chapter_navigation(prefix, current=None):
+    links=''.join(f'<a href="{prefix}{c["folder"]}/01.html"'+(' aria-current="true"' if c['id']==current else '')+f'><span>{c["number"]}</span> {html.escape(c["title"])}</a>' for c in CHAPTERS)
+    return f'<nav class="chapter-nav" aria-label="Choose a chapter">{links}</nav>'
+
+
+def appendix_page(source):
+    match=re.match(r'^# (.+)\n\s*\n([^\n]+(?:\n(?!\n)[^\n]+)*)\n\s*\n',source)
+    if not match: raise ValueError('Calculus appendix: expected title then opening paragraph')
+    title,lead=match.groups()
+    text=render_md(source[match.end():])
+    toc=''.join(f'<a href="#{anchor}">{re.sub("<[^>]*>","",label)}</a>' for anchor,label in re.findall(r'<h2 id="([^"]+)">(.*?)</h2>',text,re.S))
+    return f'''<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="A short calculus appendix: derivatives, integrals, worked examples, and their connection to probability densities and CDFs."><title>Calculus appendix — Probability, understood</title><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/site.css"><link rel="stylesheet" href="../assets/vendor/katex/katex.min.css"><script defer src="../assets/vendor/katex/katex.min.js"></script><script defer src="../assets/vendor/katex/contrib/auto-render.min.js"></script><script defer src="../assets/site.js"></script></head>
+<body class="appendix-page"><a class="skip" href="#lesson">Skip to the appendix</a>
+<aside class="sidebar" aria-label="Course navigation"><a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>Probability,<br>understood.</span></a><button class="nav-close" data-close-nav aria-label="Close navigation">×</button><p class="course-label">Your study companion</p>{chapter_navigation('../')}<p class="course-title">Calculus appendix</p><nav class="slide-nav reference-nav" aria-label="Appendix sections">{toc}</nav><div class="nav-footer"><a class="appendix-link" href="calculus.html" aria-current="page">Calculus appendix</a><span>A reference to return to when you need it.</span></div></aside>
+<button class="scrim" data-close-nav aria-label="Close navigation"></button><div class="site-body"><header class="topbar"><button class="menu-button" aria-expanded="false" aria-label="Open navigation">☰ Menu</button><div class="breadcrumb"><strong>Calculus appendix</strong></div><div class="top-tools"><button class="plain-button print-button" data-print>Print this appendix</button></div></header><div class="reading-progress" aria-hidden="true"><i data-reading-progress></i></div>
+<div class="page-layout"><main class="lesson" id="lesson"><p class="eyebrow">Study reference</p><h1>{html.escape(title)}</h1><div class="lead">{render_md(lead)}</div><div class="lesson-meta"><span>A short refresher</span><span class="meta-sep">/</span><span>Intuition + rules + worked examples</span></div><article class="prose">{text}</article><nav class="lesson-end page-turn" aria-label="Continue studying"><a href="../random-variables/17.html"><span>Apply integration →</span>Probability as area</a><a href="../random-variables/20.html"><span>Apply differentiation →</span>From a CDF to its density</a></nav><footer class="footer"><p>A personal teaching companion built from our questions, examples and explanations.</p></footer></main><aside class="page-toc" aria-label="In this appendix"><p class="toc-label">In this appendix</p>{toc}<a href="#lesson">Back to the top ↑</a></aside></div></div></body></html>'''
+
+
 def build():
     all_slides=[]
     for chapter in CHAPTERS:
@@ -141,8 +160,7 @@ def build():
         slides=chapter['slides'];count=len(slides);titles=chapter['titles']
         n=s['n'];p='' if home else '../';sp=chapter['folder']+'/' if home else ''
         source_href=f"{p}assets/source/{chapter['pdf']}#page={n}"
-        chapter_links=''.join(f'<a href="{p}{c["folder"]}/01.html"'+(' aria-current="true"' if c['id']==chapter['id'] else '')+f'><span>{c["number"]}</span> {html.escape(c["title"])}</a>' for c in CHAPTERS)
-        chapter_nav=f'<nav class="chapter-nav" aria-label="Choose a chapter">{chapter_links}</nav>'
+        chapter_nav=chapter_navigation(p,chapter['id'])
         page_note='<p class="source-note">Slide numbers follow the PDF page order; the printed footer numbers differ on some slides.</p>' if chapter['number']=='02' else ''
         text=render_md(s['body'])
         def embed(match):
@@ -170,7 +188,7 @@ def build():
         return f'''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Slide {n} of {html.escape(chapter['title'],quote=True)}: {html.escape(s['short'],quote=True)}. Original slide, first-principles explanation, examples and worked practice."><title>{n:02} · {html.escape(s['short'])} — Probability, understood</title><link rel="icon" href="{p}assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="{p}assets/site.css"><link rel="stylesheet" href="{p}assets/vendor/katex/katex.min.css"><script defer src="{p}assets/vendor/katex/katex.min.js"></script><script defer src="{p}assets/vendor/katex/contrib/auto-render.min.js"></script><script defer src="{p}assets/site.js"></script></head>
 <body data-slide="{n}" data-slide-prefix="{sp}" data-chapter="{chapter['id']}" data-slide-count="{count}"><a class="skip" href="#lesson">Skip to the lesson</a>
-<aside class="sidebar" aria-label="Course navigation"><a class="brand" href="{p}index.html"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>Probability,<br>understood.</span></a><button class="nav-close" data-close-nav aria-label="Close slide navigation">×</button><p class="course-label">Your study companion</p>{chapter_nav}<p class="course-title">{html.escape(chapter['title'])}</p><label class="sr-only" for="slide-search">Find a slide</label><input class="nav-search" id="slide-search" type="search" placeholder="Find a slide…" autocomplete="off"><nav class="slide-nav" aria-label="All {count} slides">{nav}<p class="no-results" hidden>No matching slides.</p></nav><div class="nav-footer"><span><strong data-completed-count>0</strong> of {count} slides understood</span><div class="progress-track" aria-hidden="true"><i data-course-progress></i></div><span>One idea at a time.</span><br><a data-resume hidden></a></div></aside>
+<aside class="sidebar" aria-label="Course navigation"><a class="brand" href="{p}index.html"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>Probability,<br>understood.</span></a><button class="nav-close" data-close-nav aria-label="Close slide navigation">×</button><p class="course-label">Your study companion</p>{chapter_nav}<p class="course-title">{html.escape(chapter['title'])}</p><label class="sr-only" for="slide-search">Find a slide</label><input class="nav-search" id="slide-search" type="search" placeholder="Find a slide…" autocomplete="off"><nav class="slide-nav" aria-label="All {count} slides">{nav}<p class="no-results" hidden>No matching slides.</p></nav><div class="nav-footer"><a class="appendix-link" href="{p}appendix/calculus.html">Calculus appendix</a><span><strong data-completed-count>0</strong> of {count} slides understood</span><div class="progress-track" aria-hidden="true"><i data-course-progress></i></div><span>One idea at a time.</span><br><a data-resume hidden></a></div></aside>
 <button class="scrim" data-close-nav aria-label="Close navigation"></button><div class="site-body"><header class="topbar"><button class="menu-button" aria-expanded="false" aria-label="Open slide navigation">☰ Slides</button><div class="breadcrumb"><span class="crumb-course">{html.escape(chapter['title'])} <span aria-hidden="true">/</span> </span><strong>Slide {n:02} of {count}</strong></div><div class="top-tools"><a href="{source_href}" target="_blank" rel="noopener">Original PDF ↗</a><button class="plain-button print-button" data-print>Print this slide</button></div></header><div class="reading-progress" aria-hidden="true"><i data-reading-progress></i></div>
 <div class="page-layout"><main class="lesson" id="lesson"><p class="eyebrow">{html.escape(group)} · Slide {n:02}</p><h1>{title}</h1><p class="lead">{lead}</p><div class="lesson-meta"><span>~{minutes} min reading</span><span class="meta-sep">/</span><span>Source + intuition + practice</span>{lab_meta}</div>
 <figure class="slide-figure" id="source-slide"><button class="slide-image-button" data-zoom-slide aria-label="Enlarge original slide {n}"><img class="slide-image" src="{p}assets/{chapter['images']}/{n:02}.webp" alt="Original slide {n}: {html.escape(s['short'],quote=True)}. The concepts and figures are explained below." width="2000" height="{chapter['height']}" fetchpriority="high"></button><figcaption class="slide-caption"><span>Original slide · STAT 5701 · Dobrin Marchev</span><button data-zoom-slide>Enlarge slide ↗</button></figcaption></figure>{page_note}
@@ -189,8 +207,10 @@ def build():
         target=f"{chapter['folder']}/01.html"
         (OUT/chapter['legacy']).write_text(f'<!doctype html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="refresh" content="0;url={target}"><title>{html.escape(chapter["title"])}</title></head><body><a href="{target}">Open {html.escape(chapter["title"])}</a></body></html>')
     (OUT/'index.html').write_text(page(CHAPTERS[0]['slides'][0],CHAPTERS[0],home=True))
+    (OUT/'appendix').mkdir()
+    (OUT/'appendix/calculus.html').write_text(appendix_page((ROOT/'content/appendix/calculus.md').read_text()))
     (OUT/'.nojekyll').touch()
     (OUT/'manifest.json').write_text(json.dumps(manifest,indent=2,ensure_ascii=False)+'\n')
-    print(f'Built {len(all_slides)} slides across {len(CHAPTERS)} chapters, {sum(s["words"] for s in all_slides):,} words and {len(LAB_TITLES)} interactive experiments.')
+    print(f'Built {len(all_slides)} slides across {len(CHAPTERS)} chapters, {sum(s["words"] for s in all_slides):,} words and {len(LAB_TITLES)} interactive experiments, plus a calculus appendix.')
 
 if __name__=='__main__': build()
