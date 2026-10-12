@@ -66,32 +66,68 @@ $$</p>
 <p>The constant factor stays; differentiate each power separately.</p>
 <details id="product-and-chain">
 <summary>Product and chain rules: a worked example</summary>
-<p><strong>Product rule:</strong> both factors change. For $x^2q(x)$,</p>
+<p>We want to differentiate the <strong>complete expression</strong></p>
 <p>$$
-\frac{d}{dx}[x^2q(x)]=2xq(x)+x^2q'(x).
+H(x)=x^2\arctan\!\left(\sqrt{x^2-1}\right),\qquad x&gt;1.
 $$</p>
-<p>The first term accounts for changing $x^2$ while keeping $q$ at its current value; the second accounts for changing $q$ while keeping $x^2$ at its current value. Multiplying the two derivatives would miss these contributions. A minus sign before the product applies to both terms.</p>
-<p><strong>Chain rule:</strong> changes pass through layers. For $u(x)=\sqrt{x^2-1}$ and $x&gt;1$, the inside changes at rate $2x$, while the square-root function changes at rate $1/(2\sqrt{x^2-1})$. Multiply the rates:</p>
+<p>Here $\arctan z$ means the angle whose tangent is $z$, measured in radians. We use $x&gt;1$ so the square root is positive and the denominators below are nonzero. Our goal is to find $H'(x)$.</p>
+<h3 id="1-split-the-expression-into-its-two-factors">1. Split the expression into its two factors</h3>
+<p>The outermost operation is multiplication:</p>
 <p>$$
-u'(x)=\frac1{2\sqrt{x^2-1}}(2x)
+\underbrace{x^2}_{\text{first factor}}
+\;\underbrace{\arctan\!\left(\sqrt{x^2-1}\right)}_{\text{second factor}}.
+$$</p>
+<p>Name these factors</p>
+<p>$$
+p(x)=x^2,\qquad q(x)=\arctan\!\left(\sqrt{x^2-1}\right).
+$$</p>
+<p>Then $H(x)=p(x)q(x)$. Both factors change with $x$, so the <strong>product rule</strong> gives</p>
+<p>$$
+H'(x)=p'(x)q(x)+p(x)q'(x).
+$$</p>
+<p>The first term differentiates the first factor and leaves the second as it is. The second term leaves the first factor as it is and differentiates the second. We add these two contributions.</p>
+<p>Since $p'(x)=2x$, we already have</p>
+<p>$$
+H'(x)=2x\arctan\!\left(\sqrt{x^2-1}\right)+x^2q'(x).
+$$</p>
+<p><strong>The only remaining task is to find $q'(x)$.</strong></p>
+<h3 id="2-look-inside-the-second-factor-and-apply-the-chain-rule">2. Look inside the second factor and apply the chain rule</h3>
+<p>The second factor is built in three stages:</p>
+<p>$$
+x\;\longrightarrow\;x^2-1
+\;\longrightarrow\;\sqrt{x^2-1}
+\;\longrightarrow\;\arctan\!\left(\sqrt{x^2-1}\right).
+$$</p>
+<p>Each stage changes the input passed to the next. The <strong>chain rule</strong> multiplies the rate of the outside operation by the rate of the expression inside it.</p>
+<p>First set $u(x)=\sqrt{x^2-1}$. The derivative of $\sqrt{w}$ with respect to its input $w$ is $1/(2\sqrt{w})$. Here that input is $w=x^2-1$, whose derivative with respect to $x$ is $2x$. Therefore</p>
+<p>$$
+u'(x)=\frac{1}{2\sqrt{x^2-1}}\,(2x)
 =\frac{x}{\sqrt{x^2-1}}.
 $$</p>
-<p>Now add the outer layer $q(x)=\arctan u(x)$. Here $\arctan u$ means the angle whose tangent is $u$, measured in radians; its derivative with respect to $u$ is $1/(1+u^2)$. Therefore</p>
+<p>Now $q(x)=\arctan u(x)$. The derivative of $\arctan u$ with respect to its input $u$ is $1/(1+u^2)$. Multiply by $u'(x)$ to account for how that input changes with $x$:</p>
 <p>$$
 \begin{aligned}
-q'(x)&amp;=\frac1{1+u(x)^2}\,u'(x)\\
-&amp;=\frac1{1+(x^2-1)}\frac{x}{\sqrt{x^2-1}}\\
-&amp;=\frac1{x\sqrt{x^2-1}}.
+q'(x)
+&amp;=\frac{1}{1+u(x)^2}\,u'(x)\\
+&amp;=\frac{1}{1+(\sqrt{x^2-1})^2}\,
+  \frac{x}{\sqrt{x^2-1}}\\
+&amp;=\frac{1}{x^2}\,\frac{x}{\sqrt{x^2-1}}\\
+&amp;=\frac{1}{x\sqrt{x^2-1}}.
 \end{aligned}
 $$</p>
-<p>Putting these pieces into the product rule gives the complete derivative, for $x&gt;1$:</p>
+<p>The denominator simplifies because $1+(\sqrt{x^2-1})^2=1+x^2-1=x^2$.</p>
+<h3 id="3-substitute-back-into-the-product-rule">3. Substitute back into the product rule</h3>
+<p>Return to $H'(x)=2xq(x)+x^2q'(x)$ and insert the two expressions we now know:</p>
 <p>$$
 \begin{aligned}
-\frac{d}{dx}\left[x^2\arctan\sqrt{x^2-1}\right]
-&amp;=2x\arctan\sqrt{x^2-1}+x^2\frac1{x\sqrt{x^2-1}}\\
-&amp;=2x\arctan\sqrt{x^2-1}+\frac{x}{\sqrt{x^2-1}}.
+H'(x)
+&amp;=2x\arctan\!\left(\sqrt{x^2-1}\right)
+  +x^2\frac{1}{x\sqrt{x^2-1}}\\
+&amp;=\boxed{2x\arctan\!\left(\sqrt{x^2-1}\right)
+  +\frac{x}{\sqrt{x^2-1}}},\qquad x&gt;1.
 \end{aligned}
 $$</p>
+<p>The two terms come from the two changing factors. The chain rule was needed inside the second factor because its input passes through several operations.</p>
 </details>
 <h2 id="integration-add-up-small-contributions">Integration: add up small contributions</h2>
 <p>For a nonnegative function $g$, imagine splitting $[a,b]$ into narrow strips. Each strip has approximate area <strong>height $g(x)$ times width $\Delta x$</strong>. Add the areas and let the strips become arbitrarily thin. The result is the <strong>definite integral</strong>:</p>
