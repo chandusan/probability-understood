@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="A short calculus appendix: derivatives, integrals, worked examples, and their connection to probability densities and CDFs."><title>Calculus appendix — Probability, understood</title><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/site.css"><link rel="stylesheet" href="../assets/vendor/katex/katex.min.css"><script defer src="../assets/vendor/katex/katex.min.js"></script><script defer src="../assets/vendor/katex/contrib/auto-render.min.js"></script><script defer src="../assets/site.js"></script></head>
 <body class="appendix-page"><a class="skip" href="#lesson">Skip to the appendix</a>
-<aside class="sidebar" aria-label="Appendix navigation"><a class="brand" href="#lesson"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>Probability,<br>understood.</span></a><button class="nav-close" data-close-nav aria-label="Close navigation">×</button><p class="course-label">Standalone study reference</p><p class="course-title">Calculus appendix</p><nav class="slide-nav reference-nav" aria-label="Appendix sections"><a href="#differentiation-how-fast-is-it-changing">Differentiation: how fast is it changing?</a><a href="#the-differentiation-rules-you-need">The differentiation rules you need</a><a href="#integration-add-up-small-contributions">Integration: add up small contributions</a><a href="#why-probability-uses-both">Why probability uses both</a><a href="#try-one-of-each">Try one of each</a></nav><div class="nav-footer"><a class="appendix-link" href="calculus.html" aria-current="page">Calculus appendix</a><span>A reference to return to when you need it.</span></div></aside>
+<aside class="sidebar" aria-label="Appendix navigation"><a class="brand" href="#lesson"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>Probability,<br>understood.</span></a><button class="nav-close" data-close-nav aria-label="Close navigation">×</button><p class="course-label">Standalone study reference</p><p class="course-title">Calculus appendix</p><nav class="slide-nav reference-nav" aria-label="Appendix sections"><a href="#differentiation-how-fast-is-it-changing">Differentiation: how fast is it changing?</a><a href="#the-differentiation-rules-you-need">The differentiation rules you need</a><a href="#integration-add-up-small-contributions">Integration: add up small contributions</a><a href="#why-differentiating-accumulated-area-gives-the-function">Why differentiating accumulated area gives the function</a><a href="#calculate-an-integral-by-reversing-differentiation">Calculate an integral by reversing differentiation</a><a href="#why-probability-uses-both">Why probability uses both</a><a href="#try-one-of-each">Try one of each</a></nav><div class="nav-footer"><a class="appendix-link" href="calculus.html" aria-current="page">Calculus appendix</a><span>A reference to return to when you need it.</span></div></aside>
 <button class="scrim" data-close-nav aria-label="Close navigation"></button><div class="site-body"><header class="topbar"><button class="menu-button" aria-expanded="false" aria-label="Open navigation">☰ Menu</button><div class="breadcrumb"><strong>Calculus appendix</strong></div><div class="top-tools"><button class="plain-button print-button" data-print>Print this appendix</button></div></header><div class="reading-progress" aria-hidden="true"><i data-reading-progress></i></div>
 <div class="page-layout"><main class="lesson" id="lesson"><p class="eyebrow">Study reference</p><h1>Differentiation &amp; integration</h1><div class="lead"><p>A small calculus toolkit for probability: differentiation measures how fast a quantity changes; integration adds up its contributions. These two ideas explain the connection between a cumulative distribution function (CDF) and a probability density (PDF).</p></div><div class="lesson-meta"><span>A short refresher</span><span class="meta-sep">/</span><span>Intuition + rules + worked examples</span></div><article class="prose"><h2 id="differentiation-how-fast-is-it-changing">Differentiation: how fast is it changing?</h2>
 <p>Suppose $g(x)=x^2$. Moving from $x$ to $x+h$ changes the output by $(x+h)^2-x^2$. Divide by the input change $h$ to find the <strong>average change per unit</strong>:</p>
@@ -135,13 +135,42 @@ $$</p>
 \int_a^b g(x)\,dx.
 $$</p>
 <p>The bottom and top numbers are the starting and ending points. The $dx$ tells us we are accumulating with respect to $x$. Where a function is negative, its integral counts signed area; probability densities are nonnegative.</p>
-<h3 id="calculate-an-integral-by-reversing-differentiation">Calculate an integral by reversing differentiation</h3>
+<h2 id="why-differentiating-accumulated-area-gives-the-function">Why differentiating accumulated area gives the function</h2>
+<p><strong>Integration accumulates area. Differentiation tells us how fast that area grows. The connection is that the rate of growth equals the curve’s height.</strong></p>
+<p>Let’s see why geometrically.</p>
+<p>Suppose we have a continuous curve $f(t)$ above the horizontal axis. Fix a starting point $a$, and define</p>
+<p>$$
+A(x)=\int_a^x f(t)\,dt.
+$$</p>
+<p>Here $A(x)$ is the <strong>area accumulated from $a$ up to $x$</strong>.</p>
+<p>Now move the right boundary a small distance $h$, from $x$ to $x+h$. The area increases by</p>
+<p>$$
+A(x+h)-A(x).
+$$</p>
+<p>Geometrically, this is a narrow strip under the curve. Its width is $h$, and its height is approximately $f(x)$, so</p>
+<p>$$
+A(x+h)-A(x)\approx f(x)\,h.
+$$</p>
+<p>Dividing by the distance we moved gives</p>
+<p>$$
+\frac{A(x+h)-A(x)}{h}\approx f(x).
+$$</p>
+<p>The left side measures <strong>how much area we gain per unit movement of the boundary</strong>. It is also the strip’s average height.</p>
+<p>As the strip gets narrower, its average height approaches the curve’s height at $x$. Therefore,</p>
+<p>$$
+\boxed{
+A'(x)
+=\lim_{h\to0}\frac{A(x+h)-A(x)}h
+=f(x).
+}
+$$</p>
+<p>That is why differentiating an accumulated integral recovers the original function.</p>
+<h2 id="calculate-an-integral-by-reversing-differentiation">Calculate an integral by reversing differentiation</h2>
 <p>An <strong>antiderivative</strong> $G$ of $g$ satisfies $G'=g$. Since the derivative of $x^2$ is $2x$,</p>
 <p>$$
 \int 2x\,dx=x^2+C.
 $$</p>
 <p>Without bounds, this is an <strong>indefinite integral</strong>: a family of antiderivatives. The arbitrary constant $C$ appears because $x^2$, $x^2+5$, and $x^2-8$ all have derivative $2x$.</p>
-<p>Why does this recover area? Moving the endpoint by a small amount $h$ adds approximately $g(x)h$ of area. The accumulated area therefore changes at rate $g(x)$: it is an antiderivative of $g$.</p>
 <p>For a continuous integrand, the fundamental theorem of calculus gives the useful calculation rule:</p>
 <p>$$
 \boxed{\int_a^b g(x)\,dx=[G(x)]_a^b=G(b)-G(a).}
@@ -190,4 +219,4 @@ $$</p>
 =0.15(2^2)-0.15(1^2)=0.45.
 $$</p>
 <p>The derivative is a function describing a local rate. The definite integral is a number describing accumulation over a specified interval.</p>
-</details></article><footer class="footer"><p>A personal teaching companion built from our questions, examples and explanations.</p></footer></main><aside class="page-toc" aria-label="In this appendix"><p class="toc-label">In this appendix</p><a href="#differentiation-how-fast-is-it-changing">Differentiation: how fast is it changing?</a><a href="#the-differentiation-rules-you-need">The differentiation rules you need</a><a href="#integration-add-up-small-contributions">Integration: add up small contributions</a><a href="#why-probability-uses-both">Why probability uses both</a><a href="#try-one-of-each">Try one of each</a><a href="#lesson">Back to the top ↑</a></aside></div></div></body></html>
+</details></article><footer class="footer"><p>A personal teaching companion built from our questions, examples and explanations.</p></footer></main><aside class="page-toc" aria-label="In this appendix"><p class="toc-label">In this appendix</p><a href="#differentiation-how-fast-is-it-changing">Differentiation: how fast is it changing?</a><a href="#the-differentiation-rules-you-need">The differentiation rules you need</a><a href="#integration-add-up-small-contributions">Integration: add up small contributions</a><a href="#why-differentiating-accumulated-area-gives-the-function">Why differentiating accumulated area gives the function</a><a href="#calculate-an-integral-by-reversing-differentiation">Calculate an integral by reversing differentiation</a><a href="#why-probability-uses-both">Why probability uses both</a><a href="#try-one-of-each">Try one of each</a><a href="#lesson">Back to the top ↑</a></aside></div></div></body></html>

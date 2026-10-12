@@ -147,7 +147,53 @@ $$
 
 The bottom and top numbers are the starting and ending points. The $dx$ tells us we are accumulating with respect to $x$. Where a function is negative, its integral counts signed area; probability densities are nonnegative.
 
-### Calculate an integral by reversing differentiation
+## Why differentiating accumulated area gives the function
+
+**Integration accumulates area. Differentiation tells us how fast that area grows. The connection is that the rate of growth equals the curve’s height.**
+
+Let’s see why geometrically.
+
+Suppose we have a continuous curve $f(t)$ above the horizontal axis. Fix a starting point $a$, and define
+
+$$
+A(x)=\int_a^x f(t)\,dt.
+$$
+
+Here $A(x)$ is the **area accumulated from $a$ up to $x$**.
+
+Now move the right boundary a small distance $h$, from $x$ to $x+h$. The area increases by
+
+$$
+A(x+h)-A(x).
+$$
+
+Geometrically, this is a narrow strip under the curve. Its width is $h$, and its height is approximately $f(x)$, so
+
+$$
+A(x+h)-A(x)\approx f(x)\,h.
+$$
+
+Dividing by the distance we moved gives
+
+$$
+\frac{A(x+h)-A(x)}{h}\approx f(x).
+$$
+
+The left side measures **how much area we gain per unit movement of the boundary**. It is also the strip’s average height.
+
+As the strip gets narrower, its average height approaches the curve’s height at $x$. Therefore,
+
+$$
+\boxed{
+A'(x)
+=\lim_{h\to0}\frac{A(x+h)-A(x)}h
+=f(x).
+}
+$$
+
+That is why differentiating an accumulated integral recovers the original function.
+
+## Calculate an integral by reversing differentiation
 
 An **antiderivative** $G$ of $g$ satisfies $G'=g$. Since the derivative of $x^2$ is $2x$,
 
@@ -156,8 +202,6 @@ $$
 $$
 
 Without bounds, this is an **indefinite integral**: a family of antiderivatives. The arbitrary constant $C$ appears because $x^2$, $x^2+5$, and $x^2-8$ all have derivative $2x$.
-
-Why does this recover area? Moving the endpoint by a small amount $h$ adds approximately $g(x)h$ of area. The accumulated area therefore changes at rate $g(x)$: it is an antiderivative of $g$.
 
 For a continuous integrand, the fundamental theorem of calculus gives the useful calculation rule:
 
