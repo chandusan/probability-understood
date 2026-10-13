@@ -56,7 +56,81 @@ $$</p>
 P(X\ge a)=1-F(a-),
 \qquad P(X&gt;a)=1-F(a).
 $$</p>
-<p>There is no atom at one, so $F(1-)=F(1)=0.55$ and both tail probabilities equal $0.45$. At zero the distinction matters: $P(X\ge0)=1$, but $P(X&gt;0)=1-F(0)=0.6$.</p>
+<h2 id="why-does-the-left-limit-equal-the-cdf-value-here">Why does the left limit equal the CDF value here?</h2>
+<p><strong>The only difference between \(F(a^-)\) and \(F(a)\) is the probability of \(X\) being exactly \(a\).</strong> They are equal whenever that probability is zero. Let’s unpack that using this example.</p>
+<p>Here, \(X\) measures spending in hundreds of dollars, so \(X=1\) means spending exactly <span class="no-math">$</span>100.</p>
+<p><strong>First, what does \(F(1^-)\) mean?</strong></p>
+<p>The superscript “\(-\)” means <strong>approach 1 from below</strong>:</p>
+<p>\[
+F(1^-)=\lim_{x\to1,\;x&lt;1}F(x).
+\]</p>
+<p>Imagine moving the spending cutoff through <span class="no-math">$</span>99, <span class="no-math">$</span>99.90, <span class="no-math">$</span>99.99, and closer and closer to <span class="no-math">$</span>100, while keeping it below <span class="no-math">$</span>100. In the limit, we include every spending amount <strong>strictly below <span class="no-math">$</span>100</strong>, but exclude exactly <span class="no-math">$</span>100.</p>
+<p>Therefore:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Expression</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\(F(1^-)=P(X&lt;1)\)</td>
+<td>Probability of spending <strong>less than <span class="no-math">$</span>100</strong></td>
+</tr>
+<tr>
+<td>\(F(1)=P(X\le1)\)</td>
+<td>Probability of spending <strong>at most <span class="no-math">$</span>100</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>Notice that \(1^-\) does <strong>not</strong> mean a particular number such as \(0.999\). It denotes this limiting process.</p>
+<p><strong>Now separate “at most <span class="no-math">$</span>100” into two disjoint possibilities:</strong></p>
+<ul>
+<li>Spending less than <span class="no-math">$</span>100.</li>
+<li>Spending exactly <span class="no-math">$</span>100.</li>
+</ul>
+<p>By the addition rule,</p>
+<p>\[
+P(X\le1)=P(X&lt;1)+P(X=1).
+\]</p>
+<p>Equivalently,</p>
+<p>\[
+\boxed{F(1)=F(1^-)+P(X=1).}
+\]</p>
+<p>That identity explains the entire distinction.</p>
+<p><strong>Why is \(P(X=1)=0\) in this model?</strong></p>
+<p>The model puts positive spending into a continuous density:</p>
+<p>\[
+f(x)=0.3x,\qquad 0&lt;x\le2.
+\]</p>
+<p>Probability comes from <strong>area over an interval</strong>. Exactly one value has zero width, hence zero area:</p>
+<p>\[
+P(X=1)=\int_1^1 0.3x\,dx=0.
+\]</p>
+<p>Although \(f(1)=0.3\), that is a density height—not the probability of spending exactly <span class="no-math">$</span>100.</p>
+<p>An <strong>atom</strong> simply means a point assigned positive probability. So “no atom at one” meant precisely:</p>
+<p>\[
+P(X=1)=0.
+\]</p>
+<p>Consequently,</p>
+<p>\[
+F(1)=F(1^-)+0.
+\]</p>
+<p>Using the CDF from the slide,</p>
+<p>\[
+F(1)=0.4+0.15(1)^2=0.55,
+\]</p>
+<p>so \(F(1^-)=0.55\) too. Therefore,</p>
+<p>\[
+\boxed{P(X\ge1)=P(X&gt;1)=1-0.55=0.45.}
+\]</p>
+<p>Including exactly <span class="no-math">$</span>100 adds zero probability <strong>under this continuous model</strong>.</p>
+<p>At zero, however, the model explicitly assigns \(P(X=0)=0.4\). There,</p>
+<p>\[
+F(0^-)=0,\qquad F(0)=0.4.
+\]</p>
+<p><strong>A point with positive probability creates a jump in the CDF. At a point with zero probability, including that point causes no jump.</strong></p>
 <h2 id="read-the-answer-within-each-population">Read the answer within each population</h2>
 <p>Among paying users alone,</p>
 <p>$$
@@ -75,5 +149,5 @@ $$</p>
 </details></article>
 <section class="lesson-end" aria-label="Study progress"><button class="complete-button" data-complete aria-pressed="false">Mark this slide as understood</button><p class="completion-note">Your reading progress stays in this browser. Revisit any idea whenever you need.</p><nav class="page-turn" aria-label="Previous and next slides"><a href="25.html"><span>← Previous slide</span>See the derivative terms cancel</a><a href="27.html"><span>Next slide →</span>Discrete probabilities and endpoint choices</a></nav></section>
 <footer class="footer"><p>A personal teaching companion built from our questions, examples and explanations.</p><p>Original slides: Dobrin Marchev · STAT 5701. Slide images remain attributed to their author. This is an independent study resource.</p></footer></main>
-<aside class="page-toc" aria-label="On this slide"><p class="toc-label">On this slide</p><a class="toc-source" href="#source-slide">The original slide</a><a href="#state-the-model-and-its-units">State the model and its units</a><a href="#part-a-build-the-cumulative-distribution">Part (a): build the cumulative distribution</a><a href="#part-b-spending-at-least-100-dollars">Part (b): spending at least 100 dollars</a><a href="#read-the-answer-within-each-population">Read the answer within each population</a><a href="#check-your-understanding">Check your understanding</a><a href="#lesson">Back to the top ↑</a></aside></div></div>
+<aside class="page-toc" aria-label="On this slide"><p class="toc-label">On this slide</p><a class="toc-source" href="#source-slide">The original slide</a><a href="#state-the-model-and-its-units">State the model and its units</a><a href="#part-a-build-the-cumulative-distribution">Part (a): build the cumulative distribution</a><a href="#part-b-spending-at-least-100-dollars">Part (b): spending at least 100 dollars</a><a href="#why-does-the-left-limit-equal-the-cdf-value-here">Why does the left limit equal the CDF value here?</a><a href="#read-the-answer-within-each-population">Read the answer within each population</a><a href="#check-your-understanding">Check your understanding</a><a href="#lesson">Back to the top ↑</a></aside></div></div>
 <dialog class="image-dialog" aria-label="Original slide 26, enlarged"><div class="dialog-tools"><span>Slide 26 / 36</span><button data-close-dialog>Close ×</button></div><img src="../assets/slides/random-variables/26.webp" alt="Enlarged original slide 26: A jump at zero and a continuous spending model"><div class="dialog-tools"><a href="../assets/source/06-random-variables.pdf#page=26" target="_blank" rel="noopener">Read the source PDF ↗</a></div></dialog></body></html>
