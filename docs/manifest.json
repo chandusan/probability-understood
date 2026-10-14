@@ -2648,5 +2648,1444 @@
     "interactives": [
       "joint-tier"
     ]
+  },
+  {
+    "chapter": "random-variables-part3",
+    "slide": 1,
+    "title": "Two measurements, one probability model",
+    "file": "random-variables-part3/01.html",
+    "image": "assets/slides/random-variables-part3/01.webp",
+    "words": 152,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables-part3",
+    "slide": 2,
+    "title": "A joint density gives probability to regions",
+    "file": "random-variables-part3/02.html",
+    "image": "assets/slides/random-variables-part3/02.webp",
+    "words": 238,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables-part3",
+    "slide": 3,
+    "title": "A double integral adds tiny columns",
+    "file": "random-variables-part3/03.html",
+    "image": "assets/slides/random-variables-part3/03.webp",
+    "words": 256,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables-part3",
+    "slide": 4,
+    "title": "A rectangle gives constant integration limits",
+    "file": "random-variables-part3/04.html",
+    "image": "assets/slides/random-variables-part3/04.webp",
+    "words": 185,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables-part3",
+    "slide": 5,
+    "title": "Integrate across x, then add the slices",
+    "file": "random-variables-part3/05.html",
+    "image": "assets/slides/random-variables-part3/05.webp",
+    "words": 204,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables-part3",
+    "slide": 6,
+    "title": "Reverse the order without changing the region",
+    "file": "random-variables-part3/06.html",
+    "image": "assets/slides/random-variables-part3/06.webp",
+    "words": 233,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables-part3",
+    "slide": 7,
+    "title": "A square example: integrate x first",
+    "file": "random-variables-part3/07.html",
+    "image": "assets/slides/random-variables-part3/07.webp",
+    "words": 180,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables-part3",
+    "slide": 8,
+    "title": "Verify the square example in the other order",
+    "file": "random-variables-part3/08.html",
+    "image": "assets/slides/random-variables-part3/08.webp",
+    "words": 190,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables-part3",
+    "slide": 9,
+    "title": "Solve the rectangular integration exercise",
+    "file": "random-variables-part3/09.html",
+    "image": "assets/slides/random-variables-part3/09.webp",
+    "words": 153,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables-part3",
+    "slide": 10,
+    "title": "A curved boundary makes a limit depend on a variable",
+    "file": "random-variables-part3/10.html",
+    "image": "assets/slides/random-variables-part3/10.webp",
+    "words": 232,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables-part3",
+    "slide": 11,
+    "title": "Vertical slices: bottom to top, then left to right",
+    "file": "random-variables-part3/11.html",
+    "image": "assets/slides/random-variables-part3/11.webp",
+    "words": 219,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables-part3",
+    "slide": 12,
+    "title": "Horizontal slices: left to right, then bottom to top",
+    "file": "random-variables-part3/12.html",
+    "image": "assets/slides/random-variables-part3/12.webp",
+    "words": 201,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables-part3",
+    "slide": 13,
+    "title": "Set up the polynomial surface over a triangle",
+    "file": "random-variables-part3/13.html",
+    "image": "assets/slides/random-variables-part3/13.webp",
+    "words": 201,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables-part3",
+    "slide": 14,
+    "title": "Integrate horizontally through the triangle",
+    "file": "random-variables-part3/14.html",
+    "image": "assets/slides/random-variables-part3/14.webp",
+    "words": 175,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables-part3",
+    "slide": 15,
+    "title": "Finish the triangular integral explicitly",
+    "file": "random-variables-part3/15.html",
+    "image": "assets/slides/random-variables-part3/15.webp",
+    "words": 144,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables-part3",
+    "slide": 16,
+    "title": "Rebuild the triangle using vertical slices",
+    "file": "random-variables-part3/16.html",
+    "image": "assets/slides/random-variables-part3/16.webp",
+    "words": 143,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables-part3",
+    "slide": 17,
+    "title": "Confirm the triangle's volume in the second order",
+    "file": "random-variables-part3/17.html",
+    "image": "assets/slides/random-variables-part3/17.webp",
+    "words": 162,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables-part3",
+    "slide": 18,
+    "title": "Solve both nonrectangular integration exercises",
+    "file": "random-variables-part3/18.html",
+    "image": "assets/slides/random-variables-part3/18.webp",
+    "words": 273,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables-part3",
+    "slide": 19,
+    "title": "Bring double integration back to probability",
+    "file": "random-variables-part3/19.html",
+    "image": "assets/slides/random-variables-part3/19.webp",
+    "words": 146,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables-part3",
+    "slide": 20,
+    "title": "Reverse the order to normalize an exponential density",
+    "file": "random-variables-part3/20.html",
+    "image": "assets/slides/random-variables-part3/20.webp",
+    "words": 198,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables-part3",
+    "slide": 21,
+    "title": "Uniform probability in a disk is an area ratio",
+    "file": "random-variables-part3/21.html",
+    "image": "assets/slides/random-variables-part3/21.webp",
+    "words": 234,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables-part3",
+    "slide": 22,
+    "title": "A marginal density adds an entire slice",
+    "file": "random-variables-part3/22.html",
+    "image": "assets/slides/random-variables-part3/22.webp",
+    "words": 193,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables-part3",
+    "slide": 23,
+    "title": "A conditional density rescales a fixed slice",
+    "file": "random-variables-part3/23.html",
+    "image": "assets/slides/random-variables-part3/23.webp",
+    "words": 166,
+    "interactives": [
+      "multi-slices"
+    ]
+  },
+  {
+    "chapter": "random-variables-part3",
+    "slide": 24,
+    "title": "State all four questions for a joint density",
+    "file": "random-variables-part3/24.html",
+    "image": "assets/slides/random-variables-part3/24.webp",
+    "words": 234,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables-part3",
+    "slide": 25,
+    "title": "Verify the square density integrates to one",
+    "file": "random-variables-part3/25.html",
+    "image": "assets/slides/random-variables-part3/25.webp",
+    "words": 196,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables-part3",
+    "slide": 26,
+    "title": "Derive both marginals and the interval probability",
+    "file": "random-variables-part3/26.html",
+    "image": "assets/slides/random-variables-part3/26.webp",
+    "words": 208,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables-part3",
+    "slide": 27,
+    "title": "A triangular density: support controls every answer",
+    "file": "random-variables-part3/27.html",
+    "image": "assets/slides/random-variables-part3/27.webp",
+    "words": 213,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables-part3",
+    "slide": 28,
+    "title": "Check normalization and conditional probabilities",
+    "file": "random-variables-part3/28.html",
+    "image": "assets/slides/random-variables-part3/28.webp",
+    "words": 184,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables-part3",
+    "slide": 29,
+    "title": "Two random chords: specify the random process",
+    "file": "random-variables-part3/29.html",
+    "image": "assets/slides/random-variables-part3/29.webp",
+    "words": 294,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables-part3",
+    "slide": 30,
+    "title": "Read the bivariate normal formula one piece at a time",
+    "file": "random-variables-part3/30.html",
+    "image": "assets/slides/random-variables-part3/30.webp",
+    "words": 261,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables-part3",
+    "slide": 31,
+    "title": "Read the normal density surface as a probability landscape",
+    "file": "random-variables-part3/31.html",
+    "image": "assets/slides/random-variables-part3/31.webp",
+    "words": 261,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables-part3",
+    "slide": 32,
+    "title": "Equal-density contours are ellipses",
+    "file": "random-variables-part3/32.html",
+    "image": "assets/slides/random-variables-part3/32.webp",
+    "words": 216,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables-part3",
+    "slide": 33,
+    "title": "Connect the surface, contours and observed point cloud",
+    "file": "random-variables-part3/33.html",
+    "image": "assets/slides/random-variables-part3/33.webp",
+    "words": 328,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables-part3",
+    "slide": 34,
+    "title": "Integrating a bivariate normal gives normal marginals",
+    "file": "random-variables-part3/34.html",
+    "image": "assets/slides/random-variables-part3/34.webp",
+    "words": 173,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables-part3",
+    "slide": 35,
+    "title": "Conditioning a normal pair shifts the centre and reduces spread",
+    "file": "random-variables-part3/35.html",
+    "image": "assets/slides/random-variables-part3/35.webp",
+    "words": 250,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables-part3",
+    "slide": 36,
+    "title": "Prove the normal conditional density with a consistent direction",
+    "file": "random-variables-part3/36.html",
+    "image": "assets/slides/random-variables-part3/36.webp",
+    "words": 172,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables-part3",
+    "slide": 37,
+    "title": "Read the conditional mean and standard deviation from the square",
+    "file": "random-variables-part3/37.html",
+    "image": "assets/slides/random-variables-part3/37.webp",
+    "words": 177,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables-part3",
+    "slide": 38,
+    "title": "More coordinates, the same probability ideas",
+    "file": "random-variables-part3/38.html",
+    "image": "assets/slides/random-variables-part3/38.webp",
+    "words": 237,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables-part3",
+    "slide": 39,
+    "title": "Understand the multivariate normal in matrix notation",
+    "file": "random-variables-part3/39.html",
+    "image": "assets/slides/random-variables-part3/39.webp",
+    "words": 244,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables-part3",
+    "slide": 40,
+    "title": "The requirements for any multivariate density",
+    "file": "random-variables-part3/40.html",
+    "image": "assets/slides/random-variables-part3/40.webp",
+    "words": 192,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables-part3",
+    "slide": 41,
+    "title": "Mutual independence means full joint factorization",
+    "file": "random-variables-part3/41.html",
+    "image": "assets/slides/random-variables-part3/41.webp",
+    "words": 238,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables-part3",
+    "slide": 42,
+    "title": "Multinomial counts come from repeated categorical trials",
+    "file": "random-variables-part3/42.html",
+    "image": "assets/slides/random-variables-part3/42.webp",
+    "words": 227,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables-part3",
+    "slide": 43,
+    "title": "Derive the multinomial coefficient by choosing positions",
+    "file": "random-variables-part3/43.html",
+    "image": "assets/slides/random-variables-part3/43.webp",
+    "words": 232,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables-part3",
+    "slide": 44,
+    "title": "Assemble and check the multinomial distribution",
+    "file": "random-variables-part3/44.html",
+    "image": "assets/slides/random-variables-part3/44.webp",
+    "words": 256,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables-part3",
+    "slide": 45,
+    "title": "Model four treatment outcomes with three counts",
+    "file": "random-variables-part3/45.html",
+    "image": "assets/slides/random-variables-part3/45.webp",
+    "words": 231,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables-part3",
+    "slide": 46,
+    "title": "Build the complete treatment-count probability table",
+    "file": "random-variables-part3/46.html",
+    "image": "assets/slides/random-variables-part3/46.webp",
+    "words": 346,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables-part3",
+    "slide": 47,
+    "title": "Solve the treatment event by two equivalent methods",
+    "file": "random-variables-part3/47.html",
+    "image": "assets/slides/random-variables-part3/47.webp",
+    "words": 182,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables-part3",
+    "slide": 48,
+    "title": "Marginalize a joint distribution by removing coordinates",
+    "file": "random-variables-part3/48.html",
+    "image": "assets/slides/random-variables-part3/48.webp",
+    "words": 229,
+    "interactives": []
+  },
+  {
+    "chapter": "random-variables-part3",
+    "slide": 49,
+    "title": "Condition on a group of observed variables",
+    "file": "random-variables-part3/49.html",
+    "image": "assets/slides/random-variables-part3/49.webp",
+    "words": 275,
+    "interactives": []
+  },
+  {
+    "chapter": "expectation",
+    "slide": 1,
+    "title": "Expectation as a weighted average",
+    "file": "expectation/01.html",
+    "image": "assets/slides/expectation/01.webp",
+    "words": 274,
+    "interactives": []
+  },
+  {
+    "chapter": "expectation",
+    "slide": 2,
+    "title": "Why sums and integrals give the mean",
+    "file": "expectation/02.html",
+    "image": "assets/slides/expectation/02.webp",
+    "words": 268,
+    "interactives": []
+  },
+  {
+    "chapter": "expectation",
+    "slide": 3,
+    "title": "Balance points and long-run averages",
+    "file": "expectation/03.html",
+    "image": "assets/slides/expectation/03.webp",
+    "words": 309,
+    "interactives": []
+  },
+  {
+    "chapter": "expectation",
+    "slide": 4,
+    "title": "Set up the outage-cost model",
+    "file": "expectation/04.html",
+    "image": "assets/slides/expectation/04.webp",
+    "words": 250,
+    "interactives": []
+  },
+  {
+    "chapter": "expectation",
+    "slide": 5,
+    "title": "Calculate the mean outage count",
+    "file": "expectation/05.html",
+    "image": "assets/slides/expectation/05.webp",
+    "words": 269,
+    "interactives": [
+      "multi-expectation"
+    ]
+  },
+  {
+    "chapter": "expectation",
+    "slide": 6,
+    "title": "Roulette: net profit and expected loss",
+    "file": "expectation/06.html",
+    "image": "assets/slides/expectation/06.webp",
+    "words": 289,
+    "interactives": []
+  },
+  {
+    "chapter": "expectation",
+    "slide": 7,
+    "title": "A decreasing density: mean and CDF",
+    "file": "expectation/07.html",
+    "image": "assets/slides/expectation/07.webp",
+    "words": 176,
+    "interactives": []
+  },
+  {
+    "chapter": "expectation",
+    "slide": 8,
+    "title": "Work through the mean integral",
+    "file": "expectation/08.html",
+    "image": "assets/slides/expectation/08.webp",
+    "words": 237,
+    "interactives": []
+  },
+  {
+    "chapter": "expectation",
+    "slide": 9,
+    "title": "Recover a density from its mean",
+    "file": "expectation/09.html",
+    "image": "assets/slides/expectation/09.webp",
+    "words": 192,
+    "interactives": []
+  },
+  {
+    "chapter": "expectation",
+    "slide": 10,
+    "title": "Derive both density constraints",
+    "file": "expectation/10.html",
+    "image": "assets/slides/expectation/10.webp",
+    "words": 199,
+    "interactives": []
+  },
+  {
+    "chapter": "expectation",
+    "slide": 11,
+    "title": "Solve and verify the density coefficients",
+    "file": "expectation/11.html",
+    "image": "assets/slides/expectation/11.webp",
+    "words": 199,
+    "interactives": []
+  },
+  {
+    "chapter": "expectation",
+    "slide": 12,
+    "title": "A best-of-seven series, fully solved",
+    "file": "expectation/12.html",
+    "image": "assets/slides/expectation/12.webp",
+    "words": 292,
+    "interactives": []
+  },
+  {
+    "chapter": "expectation",
+    "slide": 13,
+    "title": "The mean of a uniform distribution",
+    "file": "expectation/13.html",
+    "image": "assets/slides/expectation/13.webp",
+    "words": 249,
+    "interactives": []
+  },
+  {
+    "chapter": "expectation",
+    "slide": 14,
+    "title": "Average the transformed quantity",
+    "file": "expectation/14.html",
+    "image": "assets/slides/expectation/14.webp",
+    "words": 288,
+    "interactives": []
+  },
+  {
+    "chapter": "expectation",
+    "slide": 15,
+    "title": "Prove the function-expectation rule",
+    "file": "expectation/15.html",
+    "image": "assets/slides/expectation/15.webp",
+    "words": 202,
+    "interactives": []
+  },
+  {
+    "chapter": "expectation",
+    "slide": 16,
+    "title": "Build the outage-cost distribution",
+    "file": "expectation/16.html",
+    "image": "assets/slides/expectation/16.webp",
+    "words": 244,
+    "interactives": []
+  },
+  {
+    "chapter": "expectation",
+    "slide": 17,
+    "title": "Squared outages and the cost of variation",
+    "file": "expectation/17.html",
+    "image": "assets/slides/expectation/17.webp",
+    "words": 207,
+    "interactives": []
+  },
+  {
+    "chapter": "expectation",
+    "slide": 18,
+    "title": "Average a reciprocal",
+    "file": "expectation/18.html",
+    "image": "assets/slides/expectation/18.webp",
+    "words": 208,
+    "interactives": []
+  },
+  {
+    "chapter": "expectation",
+    "slide": 19,
+    "title": "Solve the reciprocal-cost expectation",
+    "file": "expectation/19.html",
+    "image": "assets/slides/expectation/19.webp",
+    "words": 165,
+    "interactives": []
+  },
+  {
+    "chapter": "expectation",
+    "slide": 20,
+    "title": "Why moments describe different features",
+    "file": "expectation/20.html",
+    "image": "assets/slides/expectation/20.webp",
+    "words": 308,
+    "interactives": []
+  },
+  {
+    "chapter": "expectation",
+    "slide": 21,
+    "title": "Raw moments and powers of the mean",
+    "file": "expectation/21.html",
+    "image": "assets/slides/expectation/21.webp",
+    "words": 244,
+    "interactives": []
+  },
+  {
+    "chapter": "expectation",
+    "slide": 22,
+    "title": "Central moments and deviations",
+    "file": "expectation/22.html",
+    "image": "assets/slides/expectation/22.webp",
+    "words": 248,
+    "interactives": []
+  },
+  {
+    "chapter": "expectation",
+    "slide": 23,
+    "title": "Why variance squares deviations",
+    "file": "expectation/23.html",
+    "image": "assets/slides/expectation/23.webp",
+    "words": 267,
+    "interactives": [
+      "multi-expectation"
+    ]
+  },
+  {
+    "chapter": "expectation",
+    "slide": 24,
+    "title": "Standard deviation and standardization",
+    "file": "expectation/24.html",
+    "image": "assets/slides/expectation/24.webp",
+    "words": 287,
+    "interactives": []
+  },
+  {
+    "chapter": "expectation",
+    "slide": 25,
+    "title": "Understand cubed deviations",
+    "file": "expectation/25.html",
+    "image": "assets/slides/expectation/25.webp",
+    "words": 313,
+    "interactives": []
+  },
+  {
+    "chapter": "expectation",
+    "slide": 26,
+    "title": "Standardized skewness",
+    "file": "expectation/26.html",
+    "image": "assets/slides/expectation/26.webp",
+    "words": 225,
+    "interactives": []
+  },
+  {
+    "chapter": "expectation",
+    "slide": 27,
+    "title": "Symmetry and zero skewness differ",
+    "file": "expectation/27.html",
+    "image": "assets/slides/expectation/27.webp",
+    "words": 331,
+    "interactives": []
+  },
+  {
+    "chapter": "expectation",
+    "slide": 28,
+    "title": "Kurtosis versus excess kurtosis",
+    "file": "expectation/28.html",
+    "image": "assets/slides/expectation/28.webp",
+    "words": 285,
+    "interactives": []
+  },
+  {
+    "chapter": "expectation",
+    "slide": 29,
+    "title": "Compare kurtosis conventions",
+    "file": "expectation/29.html",
+    "image": "assets/slides/expectation/29.webp",
+    "words": 296,
+    "interactives": []
+  },
+  {
+    "chapter": "expectation",
+    "slide": 30,
+    "title": "Why higher moments are sensitive",
+    "file": "expectation/30.html",
+    "image": "assets/slides/expectation/30.webp",
+    "words": 357,
+    "interactives": []
+  },
+  {
+    "chapter": "expectation",
+    "slide": 31,
+    "title": "Solve every part of the moment example",
+    "file": "expectation/31.html",
+    "image": "assets/slides/expectation/31.webp",
+    "words": 226,
+    "interactives": []
+  },
+  {
+    "chapter": "expectation",
+    "slide": 32,
+    "title": "Verify the third central moment",
+    "file": "expectation/32.html",
+    "image": "assets/slides/expectation/32.webp",
+    "words": 156,
+    "interactives": []
+  },
+  {
+    "chapter": "expectation",
+    "slide": 33,
+    "title": "Every raw moment of a uniform variable",
+    "file": "expectation/33.html",
+    "image": "assets/slides/expectation/33.webp",
+    "words": 233,
+    "interactives": []
+  },
+  {
+    "chapter": "expectation",
+    "slide": 34,
+    "title": "Derive uniform central moments",
+    "file": "expectation/34.html",
+    "image": "assets/slides/expectation/34.webp",
+    "words": 205,
+    "interactives": []
+  },
+  {
+    "chapter": "expectation",
+    "slide": 35,
+    "title": "Uniform spread, skewness and kurtosis",
+    "file": "expectation/35.html",
+    "image": "assets/slides/expectation/35.webp",
+    "words": 266,
+    "interactives": []
+  },
+  {
+    "chapter": "expectation",
+    "slide": 36,
+    "title": "Why a constant averages to itself",
+    "file": "expectation/36.html",
+    "image": "assets/slides/expectation/36.webp",
+    "words": 257,
+    "interactives": []
+  },
+  {
+    "chapter": "expectation",
+    "slide": 37,
+    "title": "Prove linearity of expectation",
+    "file": "expectation/37.html",
+    "image": "assets/slides/expectation/37.webp",
+    "words": 229,
+    "interactives": []
+  },
+  {
+    "chapter": "expectation",
+    "slide": 38,
+    "title": "Derive the variance shortcut",
+    "file": "expectation/38.html",
+    "image": "assets/slides/expectation/38.webp",
+    "words": 221,
+    "interactives": []
+  },
+  {
+    "chapter": "expectation",
+    "slide": 39,
+    "title": "Scale and shift a variance",
+    "file": "expectation/39.html",
+    "image": "assets/slides/expectation/39.webp",
+    "words": 241,
+    "interactives": []
+  },
+  {
+    "chapter": "expectation",
+    "slide": 40,
+    "title": "Solve the reciprocal-transformation variance",
+    "file": "expectation/40.html",
+    "image": "assets/slides/expectation/40.webp",
+    "words": 173,
+    "interactives": []
+  },
+  {
+    "chapter": "expectation",
+    "slide": 41,
+    "title": "What a moment-generating function does",
+    "file": "expectation/41.html",
+    "image": "assets/slides/expectation/41.webp",
+    "words": 235,
+    "interactives": []
+  },
+  {
+    "chapter": "expectation",
+    "slide": 42,
+    "title": "Build an MGF from the definition",
+    "file": "expectation/42.html",
+    "image": "assets/slides/expectation/42.webp",
+    "words": 243,
+    "interactives": []
+  },
+  {
+    "chapter": "expectation",
+    "slide": 43,
+    "title": "Set up the binomial MGF",
+    "file": "expectation/43.html",
+    "image": "assets/slides/expectation/43.webp",
+    "words": 218,
+    "interactives": []
+  },
+  {
+    "chapter": "expectation",
+    "slide": 44,
+    "title": "Find the binomial theorem in the sum",
+    "file": "expectation/44.html",
+    "image": "assets/slides/expectation/44.webp",
+    "words": 215,
+    "interactives": []
+  },
+  {
+    "chapter": "expectation",
+    "slide": 45,
+    "title": "Differentiate to get binomial moments",
+    "file": "expectation/45.html",
+    "image": "assets/slides/expectation/45.webp",
+    "words": 218,
+    "interactives": []
+  },
+  {
+    "chapter": "expectation",
+    "slide": 46,
+    "title": "The uniform MGF, including zero",
+    "file": "expectation/46.html",
+    "image": "assets/slides/expectation/46.webp",
+    "words": 201,
+    "interactives": []
+  },
+  {
+    "chapter": "expectation",
+    "slide": 47,
+    "title": "Useful MGF properties",
+    "file": "expectation/47.html",
+    "image": "assets/slides/expectation/47.webp",
+    "words": 256,
+    "interactives": []
+  },
+  {
+    "chapter": "expectation",
+    "slide": 48,
+    "title": "Prove how MGFs generate moments",
+    "file": "expectation/48.html",
+    "image": "assets/slides/expectation/48.webp",
+    "words": 235,
+    "interactives": []
+  },
+  {
+    "chapter": "expectation",
+    "slide": 49,
+    "title": "Recover the uniform mean at zero",
+    "file": "expectation/49.html",
+    "image": "assets/slides/expectation/49.webp",
+    "words": 251,
+    "interactives": []
+  },
+  {
+    "chapter": "special-distributions",
+    "slide": 1,
+    "title": "Choose a distribution by describing the experiment",
+    "file": "special-distributions/01.html",
+    "image": "assets/slides/special-distributions/01.webp",
+    "words": 309,
+    "interactives": []
+  },
+  {
+    "chapter": "special-distributions",
+    "slide": 2,
+    "title": "Package a distribution into a function",
+    "file": "special-distributions/02.html",
+    "image": "assets/slides/special-distributions/02.webp",
+    "words": 222,
+    "interactives": []
+  },
+  {
+    "chapter": "special-distributions",
+    "slide": 3,
+    "title": "Define the moment generating function carefully",
+    "file": "special-distributions/03.html",
+    "image": "assets/slides/special-distributions/03.webp",
+    "words": 230,
+    "interactives": []
+  },
+  {
+    "chapter": "special-distributions",
+    "slide": 4,
+    "title": "Why an MGF may fail to exist",
+    "file": "special-distributions/04.html",
+    "image": "assets/slides/special-distributions/04.webp",
+    "words": 156,
+    "interactives": []
+  },
+  {
+    "chapter": "special-distributions",
+    "slide": 5,
+    "title": "Find an MGF by taking an ordinary expectation",
+    "file": "special-distributions/05.html",
+    "image": "assets/slides/special-distributions/05.webp",
+    "words": 173,
+    "interactives": []
+  },
+  {
+    "chapter": "special-distributions",
+    "slide": 6,
+    "title": "Read probabilities from an expanded MGF",
+    "file": "special-distributions/06.html",
+    "image": "assets/slides/special-distributions/06.webp",
+    "words": 167,
+    "interactives": []
+  },
+  {
+    "chapter": "special-distributions",
+    "slide": 7,
+    "title": "Derive the MGF of a uniform variable",
+    "file": "special-distributions/07.html",
+    "image": "assets/slides/special-distributions/07.webp",
+    "words": 179,
+    "interactives": []
+  },
+  {
+    "chapter": "special-distributions",
+    "slide": 8,
+    "title": "Four useful things an MGF can do",
+    "file": "special-distributions/08.html",
+    "image": "assets/slides/special-distributions/08.webp",
+    "words": 213,
+    "interactives": []
+  },
+  {
+    "chapter": "special-distributions",
+    "slide": 9,
+    "title": "Why MGF derivatives and products work",
+    "file": "special-distributions/09.html",
+    "image": "assets/slides/special-distributions/09.webp",
+    "words": 292,
+    "interactives": []
+  },
+  {
+    "chapter": "special-distributions",
+    "slide": 10,
+    "title": "Find the uniform mean with the MGF—and see the extra work",
+    "file": "special-distributions/10.html",
+    "image": "assets/slides/special-distributions/10.webp",
+    "words": 177,
+    "interactives": []
+  },
+  {
+    "chapter": "special-distributions",
+    "slide": 11,
+    "title": "Use the logarithm to make independent sums additive",
+    "file": "special-distributions/11.html",
+    "image": "assets/slides/special-distributions/11.webp",
+    "words": 200,
+    "interactives": []
+  },
+  {
+    "chapter": "special-distributions",
+    "slide": 12,
+    "title": "One success-or-failure trial: the Bernoulli distribution",
+    "file": "special-distributions/12.html",
+    "image": "assets/slides/special-distributions/12.webp",
+    "words": 220,
+    "interactives": []
+  },
+  {
+    "chapter": "special-distributions",
+    "slide": 13,
+    "title": "From one trial to a count of successes",
+    "file": "special-distributions/13.html",
+    "image": "assets/slides/special-distributions/13.webp",
+    "words": 243,
+    "interactives": []
+  },
+  {
+    "chapter": "special-distributions",
+    "slide": 14,
+    "title": "Read the five-trial table by grouping sequences",
+    "file": "special-distributions/14.html",
+    "image": "assets/slides/special-distributions/14.webp",
+    "words": 246,
+    "interactives": []
+  },
+  {
+    "chapter": "special-distributions",
+    "slide": 15,
+    "title": "Choose success positions to derive the binomial coefficient",
+    "file": "special-distributions/15.html",
+    "image": "assets/slides/special-distributions/15.webp",
+    "words": 211,
+    "interactives": []
+  },
+  {
+    "chapter": "special-distributions",
+    "slide": 16,
+    "title": "Why the binomial probabilities add to one",
+    "file": "special-distributions/16.html",
+    "image": "assets/slides/special-distributions/16.webp",
+    "words": 214,
+    "interactives": []
+  },
+  {
+    "chapter": "special-distributions",
+    "slide": 17,
+    "title": "Recognize when a count is binomial",
+    "file": "special-distributions/17.html",
+    "image": "assets/slides/special-distributions/17.webp",
+    "words": 261,
+    "interactives": []
+  },
+  {
+    "chapter": "special-distributions",
+    "slide": 18,
+    "title": "Count heads in seven fair tosses",
+    "file": "special-distributions/18.html",
+    "image": "assets/slides/special-distributions/18.webp",
+    "words": 221,
+    "interactives": []
+  },
+  {
+    "chapter": "special-distributions",
+    "slide": 19,
+    "title": "Model twenty surgery outcomes with explicit assumptions",
+    "file": "special-distributions/19.html",
+    "image": "assets/slides/special-distributions/19.webp",
+    "words": 241,
+    "interactives": []
+  },
+  {
+    "chapter": "special-distributions",
+    "slide": 20,
+    "title": "Add the five ways to have at least sixteen successes",
+    "file": "special-distributions/20.html",
+    "image": "assets/slides/special-distributions/20.webp",
+    "words": 209,
+    "interactives": []
+  },
+  {
+    "chapter": "special-distributions",
+    "slide": 21,
+    "title": "Solve the true-or-false guessing exercise",
+    "file": "special-distributions/21.html",
+    "image": "assets/slides/special-distributions/21.webp",
+    "words": 224,
+    "interactives": []
+  },
+  {
+    "chapter": "special-distributions",
+    "slide": 22,
+    "title": "Find the full earthquake-insurance distribution",
+    "file": "special-distributions/22.html",
+    "image": "assets/slides/special-distributions/22.webp",
+    "words": 256,
+    "interactives": []
+  },
+  {
+    "chapter": "special-distributions",
+    "slide": 23,
+    "title": "Derive the binomial MGF in two ways",
+    "file": "special-distributions/23.html",
+    "image": "assets/slides/special-distributions/23.webp",
+    "words": 194,
+    "interactives": []
+  },
+  {
+    "chapter": "special-distributions",
+    "slide": 24,
+    "title": "Derive the binomial mean and variance step by step",
+    "file": "special-distributions/24.html",
+    "image": "assets/slides/special-distributions/24.webp",
+    "words": 189,
+    "interactives": []
+  },
+  {
+    "chapter": "special-distributions",
+    "slide": 25,
+    "title": "Derive the binomial third central moment",
+    "file": "special-distributions/25.html",
+    "image": "assets/slides/special-distributions/25.webp",
+    "words": 164,
+    "interactives": []
+  },
+  {
+    "chapter": "special-distributions",
+    "slide": 26,
+    "title": "Different stopping and sampling rules give different distributions",
+    "file": "special-distributions/26.html",
+    "image": "assets/slides/special-distributions/26.webp",
+    "words": 312,
+    "interactives": []
+  },
+  {
+    "chapter": "special-distributions",
+    "slide": 27,
+    "title": "Wait until the first success",
+    "file": "special-distributions/27.html",
+    "image": "assets/slides/special-distributions/27.webp",
+    "words": 237,
+    "interactives": []
+  },
+  {
+    "chapter": "special-distributions",
+    "slide": 28,
+    "title": "Sum the geometric distribution and derive its CDF",
+    "file": "special-distributions/28.html",
+    "image": "assets/slides/special-distributions/28.webp",
+    "words": 233,
+    "interactives": []
+  },
+  {
+    "chapter": "special-distributions",
+    "slide": 29,
+    "title": "Set up four questions about the first six",
+    "file": "special-distributions/29.html",
+    "image": "assets/slides/special-distributions/29.webp",
+    "words": 225,
+    "interactives": []
+  },
+  {
+    "chapter": "special-distributions",
+    "slide": 30,
+    "title": "Translate waiting-time language before calculating",
+    "file": "special-distributions/30.html",
+    "image": "assets/slides/special-distributions/30.webp",
+    "words": 236,
+    "interactives": []
+  },
+  {
+    "chapter": "special-distributions",
+    "slide": 31,
+    "title": "Derive the two geometric tail probabilities",
+    "file": "special-distributions/31.html",
+    "image": "assets/slides/special-distributions/31.webp",
+    "words": 185,
+    "interactives": []
+  },
+  {
+    "chapter": "special-distributions",
+    "slide": 32,
+    "title": "Sum the probability that the first six is on an even roll",
+    "file": "special-distributions/32.html",
+    "image": "assets/slides/special-distributions/32.webp",
+    "words": 191,
+    "interactives": []
+  },
+  {
+    "chapter": "special-distributions",
+    "slide": 33,
+    "title": "Condition on an even first-six roll",
+    "file": "special-distributions/33.html",
+    "image": "assets/slides/special-distributions/33.webp",
+    "words": 184,
+    "interactives": []
+  },
+  {
+    "chapter": "special-distributions",
+    "slide": 34,
+    "title": "Understand the conditional answer instead of guessing one third",
+    "file": "special-distributions/34.html",
+    "image": "assets/slides/special-distributions/34.webp",
+    "words": 197,
+    "interactives": []
+  },
+  {
+    "chapter": "special-distributions",
+    "slide": 35,
+    "title": "Model an event count with a Poisson distribution",
+    "file": "special-distributions/35.html",
+    "image": "assets/slides/special-distributions/35.webp",
+    "words": 281,
+    "interactives": []
+  },
+  {
+    "chapter": "special-distributions",
+    "slide": 36,
+    "title": "Check the Poisson probabilities and derive its moments",
+    "file": "special-distributions/36.html",
+    "image": "assets/slides/special-distributions/36.webp",
+    "words": 163,
+    "interactives": []
+  },
+  {
+    "chapter": "special-distributions",
+    "slide": 37,
+    "title": "Set up the hurricane-count exercise",
+    "file": "special-distributions/37.html",
+    "image": "assets/slides/special-distributions/37.webp",
+    "words": 216,
+    "interactives": []
+  },
+  {
+    "chapter": "special-distributions",
+    "slide": 38,
+    "title": "Calculate Poisson probabilities without repeated factorials",
+    "file": "special-distributions/38.html",
+    "image": "assets/slides/special-distributions/38.webp",
+    "words": 182,
+    "interactives": []
+  },
+  {
+    "chapter": "special-distributions",
+    "slide": 39,
+    "title": "Read the Poisson table as probability mass",
+    "file": "special-distributions/39.html",
+    "image": "assets/slides/special-distributions/39.webp",
+    "words": 293,
+    "interactives": []
+  },
+  {
+    "chapter": "special-distributions",
+    "slide": 40,
+    "title": "Solve all three hurricane probabilities with the correct endpoints",
+    "file": "special-distributions/40.html",
+    "image": "assets/slides/special-distributions/40.webp",
+    "words": 193,
+    "interactives": []
+  },
+  {
+    "chapter": "special-distributions",
+    "slide": 41,
+    "title": "Derive Poisson as a limit of rare independent successes",
+    "file": "special-distributions/41.html",
+    "image": "assets/slides/special-distributions/41.webp",
+    "words": 215,
+    "interactives": []
+  },
+  {
+    "chapter": "special-distributions",
+    "slide": 42,
+    "title": "Model September-first birthdays among five hundred people",
+    "file": "special-distributions/42.html",
+    "image": "assets/slides/special-distributions/42.webp",
+    "words": 239,
+    "interactives": []
+  },
+  {
+    "chapter": "special-distributions",
+    "slide": 43,
+    "title": "Compare the birthday approximation with the exact answer",
+    "file": "special-distributions/43.html",
+    "image": "assets/slides/special-distributions/43.webp",
+    "words": 205,
+    "interactives": []
+  },
+  {
+    "chapter": "special-distributions",
+    "slide": 44,
+    "title": "Prove the probability that a Poisson count is even",
+    "file": "special-distributions/44.html",
+    "image": "assets/slides/special-distributions/44.webp",
+    "words": 188,
+    "interactives": []
+  },
+  {
+    "chapter": "special-distributions",
+    "slide": 45,
+    "title": "Wait until the rth success",
+    "file": "special-distributions/45.html",
+    "image": "assets/slides/special-distributions/45.webp",
+    "words": 259,
+    "interactives": []
+  },
+  {
+    "chapter": "special-distributions",
+    "slide": 46,
+    "title": "Count the sequences that end at the rth success",
+    "file": "special-distributions/46.html",
+    "image": "assets/slides/special-distributions/46.webp",
+    "words": 251,
+    "interactives": []
+  },
+  {
+    "chapter": "special-distributions",
+    "slide": 47,
+    "title": "Find the number of lottery plays needed for five wins",
+    "file": "special-distributions/47.html",
+    "image": "assets/slides/special-distributions/47.webp",
+    "words": 245,
+    "interactives": []
+  },
+  {
+    "chapter": "special-distributions",
+    "slide": 48,
+    "title": "Sample a category without replacement",
+    "file": "special-distributions/48.html",
+    "image": "assets/slides/special-distributions/48.webp",
+    "words": 247,
+    "interactives": []
+  },
+  {
+    "chapter": "special-distributions",
+    "slide": 49,
+    "title": "Read the population-and-sample diagram as a counting argument",
+    "file": "special-distributions/49.html",
+    "image": "assets/slides/special-distributions/49.webp",
+    "words": 278,
+    "interactives": []
+  },
+  {
+    "chapter": "special-distributions",
+    "slide": 50,
+    "title": "Interpret every part of the hypergeometric formula",
+    "file": "special-distributions/50.html",
+    "image": "assets/slides/special-distributions/50.webp",
+    "words": 341,
+    "interactives": []
+  },
+  {
+    "chapter": "special-distributions",
+    "slide": 51,
+    "title": "Count defective cars in a sample without replacement",
+    "file": "special-distributions/51.html",
+    "image": "assets/slides/special-distributions/51.webp",
+    "words": 281,
+    "interactives": []
+  },
+  {
+    "chapter": "special-distributions",
+    "slide": 52,
+    "title": "Replacement changes the random process",
+    "file": "special-distributions/52.html",
+    "image": "assets/slides/special-distributions/52.webp",
+    "words": 293,
+    "interactives": []
+  },
+  {
+    "chapter": "special-distributions",
+    "slide": 53,
+    "title": "Write both sampling distributions and compare their spread",
+    "file": "special-distributions/53.html",
+    "image": "assets/slides/special-distributions/53.webp",
+    "words": 331,
+    "interactives": []
+  },
+  {
+    "chapter": "special-distributions",
+    "slide": 54,
+    "title": "When sampling without replacement resembles independent trials",
+    "file": "special-distributions/54.html",
+    "image": "assets/slides/special-distributions/54.webp",
+    "words": 257,
+    "interactives": []
+  },
+  {
+    "chapter": "special-distributions",
+    "slide": 55,
+    "title": "Count several categories with a multinomial distribution",
+    "file": "special-distributions/55.html",
+    "image": "assets/slides/special-distributions/55.webp",
+    "words": 239,
+    "interactives": []
+  },
+  {
+    "chapter": "special-distributions",
+    "slide": 56,
+    "title": "Derive the multinomial coefficient by choosing positions",
+    "file": "special-distributions/56.html",
+    "image": "assets/slides/special-distributions/56.webp",
+    "words": 254,
+    "interactives": []
+  },
+  {
+    "chapter": "special-distributions",
+    "slide": 57,
+    "title": "Read and check the complete multinomial model",
+    "file": "special-distributions/57.html",
+    "image": "assets/slides/special-distributions/57.webp",
+    "words": 256,
+    "interactives": []
+  },
+  {
+    "chapter": "special-distributions",
+    "slide": 58,
+    "title": "Build the joint model for four treatment outcomes",
+    "file": "special-distributions/58.html",
+    "image": "assets/slides/special-distributions/58.webp",
+    "words": 232,
+    "interactives": []
+  },
+  {
+    "chapter": "special-distributions",
+    "slide": 59,
+    "title": "Solve the treatment event using a binomial count and its complement",
+    "file": "special-distributions/59.html",
+    "image": "assets/slides/special-distributions/59.webp",
+    "words": 209,
+    "interactives": []
+  },
+  {
+    "chapter": "special-distributions",
+    "slide": 60,
+    "title": "Choose the distribution by describing what is random",
+    "file": "special-distributions/60.html",
+    "image": "assets/slides/special-distributions/60.webp",
+    "words": 388,
+    "interactives": []
+  },
+  {
+    "chapter": "special-distributions",
+    "slide": 61,
+    "title": "A complete reference for the main discrete distributions",
+    "file": "special-distributions/61.html",
+    "image": "assets/slides/special-distributions/61.webp",
+    "words": 500,
+    "interactives": [
+      "multi-distributions"
+    ]
   }
 ]

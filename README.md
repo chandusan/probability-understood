@@ -1,6 +1,6 @@
 # Probability, understood
 
-A slide-by-slide teaching companion to **01 Data Summary**, **02 Probability · Part 1**, **03 Counting**, **04 Probability · Part 2**, **05 Probability · Part 3**, **06 Random Variables**, and **07 Random Variables · Part 2**. Each of the 279 pages starts with the original slide image, then develops its ideas through intuition, worked examples, proofs, and questions from our study sessions.
+A slide-by-slide teaching companion to **01 Data Summary**, **02 Probability · Part 1**, **03 Counting**, **04 Probability · Part 2**, **05 Probability · Part 3**, **06 Random Variables**, **07 Random Variables · Part 2**, **08 Random Variables · Part 3**, **09 Expectation**, and **10 Special Distributions**. Each of the 438 pages starts with the original slide image, then develops its ideas through intuition, worked examples, proofs, and questions from our study sessions.
 
 **[Open the Data Summary companion](https://chandusan.github.io/probability-understood/)**
 
@@ -16,13 +16,19 @@ A slide-by-slide teaching companion to **01 Data Summary**, **02 Probability · 
 
 **[Open Random Variables · Part 2](https://chandusan.github.io/probability-understood/random-variables-part2/01.html)**
 
+**[Open Random Variables · Part 3](https://chandusan.github.io/probability-understood/random-variables-part3/01.html)**
+
+**[Open Expectation](https://chandusan.github.io/probability-understood/expectation/01.html)**
+
+**[Open Special Distributions](https://chandusan.github.io/probability-understood/special-distributions/01.html)**
+
 **[Open the calculus appendix](https://chandusan.github.io/probability-understood/appendix/calculus.html)** — a short, self-contained reference for differentiation, integration, and the CDF–density connection, with optional product and chain rule examples. The appendix has no outgoing links to slides. It is linked from every lesson and directly from the relevant Random Variables slides.
 
-The chapter selector switches between the seven companions. The previous six-lesson site is preserved in Git at `archive/before-slide-rebuild-2026-10-03`.
+The chapter selector switches between the ten companions. The previous six-lesson site is preserved in Git at `archive/before-slide-rebuild-2026-10-03`.
 
 ## What is included
 
-- All 279 original slides, rendered at 2,000 pixels wide and expandable for reading.
+- All 438 original slides, rendered at 2,000 pixels wide and expandable for reading.
 - Rich explanations of every slide, including the full exercise solutions and qualifications where the source wording is imprecise.
 - 12 Data Summary experiments: projection, absolute/squared loss, L1/L2 boundaries, a growing octahedron, outlier sensitivity, min–max scaling, percentile interpolation, boxplots, Bessel's correction, standardization, PCA, and the empirical rule.
 - 11 Probability experiments: coin frequencies, binomial counts, crossing chords, Buffon’s needle, uniform densities, set operations, rectangles, partial orders, De Morgan’s laws, car turns, and dice sums.
@@ -31,6 +37,7 @@ The chapter selector switches between the seven companions. The previous six-les
 - 5 Probability Part 3 experiments: conditional event regions, pairwise versus mutual independence, screening base rates, posterior urn probabilities and predictions, and gambler’s ruin.
 - 5 Random Variables experiments: dependent ad clicks, first-trigger stopping strings, linked outcome/PMF/CDF views for three distributions, distance geometry with its CDF and density, and a mixed distribution with a point mass at zero.
 - 4 Random Variables Part 2 experiments: exact image-audit counts, joint/marginal/conditional dice distributions, engagement-specific churn rates, and posterior tier predictions.
+- 3 new experiments for lessons 08–10: joint-density slices and conditioning, weighted means and variance, and a comparison of binomial, Poisson, geometric, and hypergeometric distributions.
 - Expandable proofs and worked understanding checks.
 - Slide search, previous/next navigation, a local section outline, and browser-local study progress tracked separately for each chapter.
 - Local math rendering and chart dependencies. Reading and experiments do not require an account or an external service.
@@ -53,15 +60,15 @@ python3 -m venv .venv
 .venv/bin/python build.py
 ```
 
-Edit Data Summary explanations in `content/slides/01.md` through `31.md`, Probability Part 1 in `content/probability-part1/01.md` through `43.md`, Counting in `content/counting/01.md` through `53.md`, Probability Part 2 in `content/probability-part2/01.md` through `36.md`, Probability Part 3 in `content/probability-part3/01.md` through `44.md`, Random Variables in `content/random-variables/01.md` through `36.md`, and Random Variables Part 2 in `content/random-variables-part2/01.md` through `36.md`. Each file starts with a title and an introductory paragraph. Standard Markdown, TeX math, tables, and `<details markdown="1">` sections are supported.
+Edit Data Summary explanations in `content/slides/01.md` through `31.md`, Probability Part 1 in `content/probability-part1/01.md` through `43.md`, Counting in `content/counting/01.md` through `53.md`, Probability Part 2 in `content/probability-part2/01.md` through `36.md`, Probability Part 3 in `content/probability-part3/01.md` through `44.md`, Random Variables in `content/random-variables/01.md` through `36.md`, and Random Variables Part 2 in `content/random-variables-part2/01.md` through `36.md`. The new chapters are in `content/random-variables-part3/01.md` through `49.md`, `content/expectation/01.md` through `49.md`, and `content/special-distributions/01.md` through `61.md`. Each file starts with a title and an introductory paragraph. Standard Markdown, TeX math, tables, and `<details markdown="1">` sections are supported.
 
 Edit the calculus reference in `content/appendix/calculus.md`; it builds to `docs/appendix/calculus.html` and is separate from slide counts and completion progress.
 
 The page layout and slide navigation are assembled in `build.py`; the reading interface is in `src/site.css` and `src/site.js`. Experiments are authored in `src/labs/`, with shared styles and local state/height handling in `src/lab.css` and `src/lab-frame.js`. The Part 2 experiments also share `src/rules-math.js`, `src/rules-labs.js`, and `src/rules-labs.css`. Run their exact-count and probability checks with `node scripts/check_probability_part2.cjs`. Part 3 uses `src/cond-math.js`, `src/cond-labs.js`, and `src/cond-labs.css`; validate its finite outcome counts, Bayes calculations, and independent absorbing-chain solution with `node scripts/check_probability_part3.cjs`. Random Variables uses `src/rv-math.js`, `src/rv-labs.js`, and `src/rv-labs.css`; run `node scripts/check_random_variables.cjs` for exhaustive path counts, CDF endpoint checks, and independent numerical area/derivative checks. Random Variables Part 2 uses `src/joint-math.js`, `src/joint-labs.js`, and `src/joint-labs.css`; run `node scripts/check_random_variables_part2.cjs` for independent finite-outcome enumeration, exact table counts, and conditional-distribution checks.
 
-The builder recreates `docs/` from these sources. Do not edit generated pages directly. It validates all 279 expected source files, slide images, and experiment references before replacing the generated directory.
+The builder recreates `docs/` from these sources. Do not edit generated pages directly. It validates all 438 expected source files, slide images, and experiment references before replacing the generated directory.
 
-The preserved PDFs live in `assets/source/`. Data Summary images are in `assets/slides/`; Probability Part 1 images are in `assets/slides/probability-part1/`; Counting images are in `assets/slides/counting/`; Probability Part 2 images are in `assets/slides/probability-part2/`; Probability Part 3 images are in `assets/slides/probability-part3/`; Random Variables images are in `assets/slides/random-variables/`; Random Variables Part 2 images are in `assets/slides/random-variables-part2/`. To regenerate images, use `scripts/render_slides.py --chapter all` with Poppler and Pillow available; image regeneration is not part of the normal build.
+The preserved PDFs live in `assets/source/`. Data Summary images are in `assets/slides/`; Probability Part 1 images are in `assets/slides/probability-part1/`; Counting images are in `assets/slides/counting/`; Probability Part 2 images are in `assets/slides/probability-part2/`; Probability Part 3 images are in `assets/slides/probability-part3/`; Random Variables images are in `assets/slides/random-variables/`; Random Variables Part 2 images are in `assets/slides/random-variables-part2/`. The new image folders are `assets/slides/random-variables-part3/`, `assets/slides/expectation/`, and `assets/slides/special-distributions/`. To regenerate images, use `scripts/render_slides.py --chapter all` with Poppler and Pillow available; image regeneration is not part of the normal build.
 
 ## Publishing
 
@@ -69,9 +76,9 @@ GitHub Pages serves `docs/` from `main`. After editing and rebuilding, commit bo
 
 ## Sources and attribution
 
-Original slides: **Dobrin Marchev, STAT 5701**, from the supplied `01-DataSummary.pdf`, `02-Probability-Part1.pdf`, `03-Counting.pdf`, `04-Probability-Part2.pdf`, `05-Probability-Part3.pdf`, `06-RandomVariables.pdf`, and `07-RandomVariables2.pdf`. Slide images and source material remain attributed to their author. Explanations, examples, proofs, corrections, and experiments are an independent personal study companion, not an official course publication.
+Original slides: **Dobrin Marchev, STAT 5701**, from the supplied `01-DataSummary.pdf`, `02-Probability-Part1.pdf`, `03-Counting.pdf`, `04-Probability-Part2.pdf`, `05-Probability-Part3.pdf`, `06-RandomVariables.pdf`, `07-RandomVariables2.pdf`, `08-RandomVariables3.pdf`, `09-Expectation.pdf`, and `10-SpecialDistributions.pdf`. Slide images and source material remain attributed to their author. Explanations, examples, proofs, corrections, and experiments are an independent personal study companion, not an official course publication.
 
-Original sources: [Data Summary](https://drive.google.com/file/d/10qzlEP0KcW0O1Prun81YHoZrWd50y3OY/view), [Probability Part 1](https://drive.google.com/file/d/1hRhUQHsHpt8Iltyr2HL3YMRuVfV3KgrR/view), [Probability Part 2](https://drive.google.com/file/d/1UZS4g0hVz42I1jnsBmiKRB3jGzCkfyfw/view), [Probability Part 3](https://drive.google.com/file/d/10BdvgFEaR7wI0MJX8QDlAH44GlTS59Xs/view), [Random Variables](https://drive.google.com/file/d/1nzYAnJSMFWGW9uvUu8u-0zVoHzasxwWI/view), [Random Variables Part 2](https://drive.google.com/file/d/1JHT6t9eGVWAbVLCSzXsa_kvlcdsI4kkG/view).
+Original sources: [Data Summary](https://drive.google.com/file/d/10qzlEP0KcW0O1Prun81YHoZrWd50y3OY/view), [Probability Part 1](https://drive.google.com/file/d/1hRhUQHsHpt8Iltyr2HL3YMRuVfV3KgrR/view), [Probability Part 2](https://drive.google.com/file/d/1UZS4g0hVz42I1jnsBmiKRB3jGzCkfyfw/view), [Probability Part 3](https://drive.google.com/file/d/10BdvgFEaR7wI0MJX8QDlAH44GlTS59Xs/view), [Random Variables](https://drive.google.com/file/d/1nzYAnJSMFWGW9uvUu8u-0zVoHzasxwWI/view), [Random Variables Part 2](https://drive.google.com/file/d/1JHT6t9eGVWAbVLCSzXsa_kvlcdsI4kkG/view), [Random Variables Part 3](https://drive.google.com/file/d/1Ml1cB7VL49NhlWVU_n00IGNPctEzg2hz/view), [Expectation](https://drive.google.com/file/d/1ixjyyyuSFiTuoq15RoDb84uRoE17NHl8/view), [Special Distributions](https://drive.google.com/file/d/1FqlWIXkJUOvw2Yie5RvEt0eDhTyz9Mx3/view).
 
 Probability slide numbers follow PDF page order; some printed footer numbers differ. The source images are preserved unchanged, while the teaching text explicitly qualifies source assumptions where needed. Your questions about orientation, continuous density, set inclusion, and infinite operations are integrated into the relevant lessons.
 
@@ -84,5 +91,7 @@ Probability Part 3 develops all 44 slides through explicit conditional probabili
 Random Variables covers all 36 source slides, with complete dependent-click and early-stopping enumerations, every ordinary and nontraditional dice probability, explicit geometric area and derivative calculations, the polynomial-CDF exercise, a mixed spending distribution, the infinite-PMF normalization, and lottery net gains. It distinguishes probability mass from density, explains every CDF endpoint and jump, and qualifies the source's differentiability statements and paying-user density wording. Original slide images and the PDF remain unchanged.
 
 Random Variables Part 2 covers all 36 source slides: density and mixed-CDF exercises, the complete polynomial-CDF solution, joint hypergeometric and multinomial counting, exact dice tables and event sums, marginalization, conditional-binomial derivations, relative-risk comparisons, and normalization and prediction in the nine-cell tier model. It explains which mixed-CDF jumps to include, requires n > −1 for the power density, distinguishes an overall churn baseline from a disjoint comparison group, and completes the source’s unanswered tier-prediction question with the most probable category and the conditional-mean alternative. Original slides and PDF are preserved unchanged.
+
+Lessons 08–10 add 159 source-aligned explanations: double integrals and their geometry, continuous joint and conditional distributions, the multivariate normal, expectation and moments, variance, moment-generating functions, and the main discrete distributions. Worked problems show the event or quantity before the calculation, state the required assumptions, and explain corrections beside the unchanged original slides. The new explorers share `src/multi-math.js`, `src/multi-labs.js`, and `src/multi-labs.css`; run their independent enumeration and numerical checks with `node scripts/check_lessons_08_10.cjs`.
 
 Vendored dependencies: KaTeX 0.16.22 (MIT) and D3 7.9.0 (ISC). Their licenses are included under `assets/vendor/`. The build dependency is Python-Markdown 3.8.2.
