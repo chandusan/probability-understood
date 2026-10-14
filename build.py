@@ -5,6 +5,7 @@ import json
 import re
 import shutil
 import markdown
+from midterms import build_midterms, load_midterms
 
 ROOT = Path(__file__).resolve().parent
 OUT = ROOT / 'docs'
@@ -352,6 +353,7 @@ def appendix_page(source):
 
 
 def build():
+    midterm_papers = load_midterms(ROOT)
     all_slides=[]
     for chapter in CHAPTERS:
         slides=[]
@@ -377,7 +379,7 @@ def build():
     if OUT.exists(): shutil.rmtree(OUT)
     for chapter in CHAPTERS: (OUT/chapter['folder']).mkdir(parents=True)
     shutil.copytree(ROOT/'assets',OUT/'assets')
-    for name in ('site.css','site.js','lab.css','lab-frame.js','rules-math.js','rules-labs.js','rules-labs.css','cond-math.js','cond-labs.js','cond-labs.css','rv-math.js','rv-labs.js','rv-labs.css','joint-math.js','joint-labs.js','joint-labs.css','multi-math.js','multi-labs.js','multi-labs.css'): shutil.copyfile(ROOT/'src'/name,OUT/'assets'/name)
+    for name in ('site.css','site.js','lab.css','lab-frame.js','rules-math.js','rules-labs.js','rules-labs.css','cond-math.js','cond-labs.js','cond-labs.css','rv-math.js','rv-labs.js','rv-labs.css','joint-math.js','joint-labs.js','joint-labs.css','multi-math.js','multi-labs.js','multi-labs.css','midterms.css'): shutil.copyfile(ROOT/'src'/name,OUT/'assets'/name)
     (OUT/'assets/labs').mkdir()
     for name in LAB_TITLES:
         (OUT/'assets/labs'/f'{name}.html').write_text(lab_page(name,lab_fragments[name]))
@@ -414,7 +416,7 @@ def build():
         return f'''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Slide {n} of {html.escape(chapter['title'],quote=True)}: {html.escape(s['short'],quote=True)}. Original slide, first-principles explanation, examples and worked practice."><title>{n:02} · {html.escape(s['short'])} — Probability, understood</title><link rel="icon" href="{p}assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="{p}assets/site.css"><link rel="stylesheet" href="{p}assets/vendor/katex/katex.min.css"><script defer src="{p}assets/vendor/katex/katex.min.js"></script><script defer src="{p}assets/vendor/katex/contrib/auto-render.min.js"></script><script defer src="{p}assets/site.js"></script></head>
 <body data-slide="{n}" data-slide-prefix="{sp}" data-chapter="{chapter['id']}" data-slide-count="{count}"><a class="skip" href="#lesson">Skip to the lesson</a>
-<aside class="sidebar" aria-label="Course navigation"><a class="brand" href="{p}index.html"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>Probability,<br>understood.</span></a><button class="nav-close" data-close-nav aria-label="Close slide navigation">×</button><p class="course-label">Your study companion</p>{chapter_nav}<p class="course-title">{html.escape(chapter['title'])}</p><label class="sr-only" for="slide-search">Find a slide</label><input class="nav-search" id="slide-search" type="search" placeholder="Find a slide…" autocomplete="off"><nav class="slide-nav" aria-label="All {count} slides">{nav}<p class="no-results" hidden>No matching slides.</p></nav><div class="nav-footer"><a class="appendix-link" href="{p}appendix/calculus.html">Calculus appendix</a><span><strong data-completed-count>0</strong> of {count} slides understood</span><div class="progress-track" aria-hidden="true"><i data-course-progress></i></div><span>One idea at a time.</span><br><a data-resume hidden></a></div></aside>
+<aside class="sidebar" aria-label="Course navigation"><a class="brand" href="{p}index.html"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>Probability,<br>understood.</span></a><button class="nav-close" data-close-nav aria-label="Close slide navigation">×</button><p class="course-label">Your study companion</p>{chapter_nav}<p class="course-title">{html.escape(chapter['title'])}</p><label class="sr-only" for="slide-search">Find a slide</label><input class="nav-search" id="slide-search" type="search" placeholder="Find a slide…" autocomplete="off"><nav class="slide-nav" aria-label="All {count} slides">{nav}<p class="no-results" hidden>No matching slides.</p></nav><div class="nav-footer"><a class="appendix-link" href="{p}midterms/index.html">Midterms · questions &amp; solutions</a><a class="appendix-link" href="{p}appendix/calculus.html">Calculus appendix</a><span><strong data-completed-count>0</strong> of {count} slides understood</span><div class="progress-track" aria-hidden="true"><i data-course-progress></i></div><span>One idea at a time.</span><br><a data-resume hidden></a></div></aside>
 <button class="scrim" data-close-nav aria-label="Close navigation"></button><div class="site-body"><header class="topbar"><button class="menu-button" aria-expanded="false" aria-label="Open slide navigation">☰ Slides</button><div class="breadcrumb"><span class="crumb-course">{html.escape(chapter['title'])} <span aria-hidden="true">/</span> </span><strong>Slide {n:02} of {count}</strong></div><div class="top-tools"><a href="{source_href}" target="_blank" rel="noopener">Original PDF ↗</a><button class="plain-button print-button" data-print>Print this slide</button></div></header><div class="reading-progress" aria-hidden="true"><i data-reading-progress></i></div>
 <div class="page-layout"><main class="lesson" id="lesson"><p class="eyebrow">{html.escape(group)} · Slide {n:02}</p><h1>{title}</h1><p class="lead">{lead}</p><div class="lesson-meta"><span>~{minutes} min reading</span><span class="meta-sep">/</span><span>Source + intuition + practice</span>{lab_meta}</div>
 <figure class="slide-figure" id="source-slide"><button class="slide-image-button" data-zoom-slide aria-label="Enlarge original slide {n}"><img class="slide-image" src="{p}assets/{chapter['images']}/{n:02}.webp" alt="Original slide {n}: {html.escape(s['short'],quote=True)}. The concepts and figures are explained below." width="2000" height="{chapter['height']}" fetchpriority="high"></button><figcaption class="slide-caption"><span>Original slide · STAT 5701 · Dobrin Marchev</span><button data-zoom-slide>Enlarge slide ↗</button></figcaption></figure>{page_note}
@@ -435,8 +437,9 @@ def build():
     (OUT/'index.html').write_text(page(CHAPTERS[0]['slides'][0],CHAPTERS[0],home=True))
     (OUT/'appendix').mkdir()
     (OUT/'appendix/calculus.html').write_text(appendix_page((ROOT/'content/appendix/calculus.md').read_text()))
+    build_midterms(ROOT, OUT, render_md, chapter_navigation, papers=midterm_papers)
     (OUT/'.nojekyll').touch()
     (OUT/'manifest.json').write_text(json.dumps(manifest,indent=2,ensure_ascii=False)+'\n')
-    print(f'Built {len(all_slides)} slides across {len(CHAPTERS)} chapters, {sum(s["words"] for s in all_slides):,} words and {len(LAB_TITLES)} interactive experiments, plus a calculus appendix.')
+    print(f'Built {len(all_slides)} slides across {len(CHAPTERS)} chapters, {sum(s["words"] for s in all_slides):,} words and {len(LAB_TITLES)} interactive experiments, plus a calculus appendix and {len(midterm_papers)} midterm papers.')
 
 if __name__=='__main__': build()

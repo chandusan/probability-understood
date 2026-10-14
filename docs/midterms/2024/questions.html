@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Fall 2024: all questions in a separate practice paper."><title>Fall 2024 · Questions — Probability, understood</title><link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../../assets/site.css"><link rel="stylesheet" href="../../assets/midterms.css"><link rel="stylesheet" href="../../assets/vendor/katex/katex.min.css"><script defer src="../../assets/vendor/katex/katex.min.js"></script><script defer src="../../assets/vendor/katex/contrib/auto-render.min.js"></script><script defer src="../../assets/site.js"></script></head>
+<body class="midterms-page midterm-practice"><a class="skip" href="#lesson">Skip to the questions</a>
+<aside class="sidebar" aria-label="Midterm navigation"><a class="brand" href="../../index.html"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>Probability,<br>understood.</span></a><button class="nav-close" data-close-nav aria-label="Close navigation">×</button><p class="course-label">Your study companion</p><details class="chapter-picker"><summary>Change chapter</summary><nav class="chapter-nav" aria-label="Choose a chapter"><a href="../../slides/01.html"><span>01</span> Data Summary</a><a href="../../probability-part1/01.html"><span>02</span> Probability · Part 1</a><a href="../../counting/01.html"><span>03</span> Counting</a><a href="../../probability-part2/01.html"><span>04</span> Probability · Part 2</a><a href="../../probability-part3/01.html"><span>05</span> Probability · Part 3</a><a href="../../random-variables/01.html"><span>06</span> Random Variables</a><a href="../../random-variables-part2/01.html"><span>07</span> Random Variables · Part 2</a><a href="../../random-variables-part3/01.html"><span>08</span> Random Variables · Part 3</a><a href="../../expectation/01.html"><span>09</span> Expectation</a><a href="../../special-distributions/01.html"><span>10</span> Special Distributions</a></nav></details><p class="course-title">Midterms</p><nav class="slide-nav midterm-nav" aria-label="Papers and questions"><div class="nav-group"><div class="nav-group-title">Fall 2024</div><a href="questions.html" aria-current="page">Questions</a><a href="solutions.html">Questions with solutions</a></div><div class="nav-group"><div class="nav-group-title">Jump to a question</div><a href="#question-1"><span class="midterm-nav-number">01</span><span>A joint density on a triangular region</span></a><a href="#question-2"><span class="midterm-nav-number">02</span><span>A piecewise continuous density</span></a><a href="#question-3"><span class="midterm-nav-number">03</span><span>A joint probability mass function</span></a><a href="#question-4"><span class="midterm-nav-number">04</span><span>Probabilities from a discrete CDF</span></a><a href="#question-5"><span class="midterm-nav-number">05</span><span>Disease testing and updating probabilities</span></a><a href="#question-6"><span class="midterm-nav-number">06</span><span>Two draws without replacement</span></a></div><div class="nav-group"><div class="nav-group-title">Other papers</div><a href="../2025/questions.html">Fall 2025</a></div></nav><div class="nav-footer"><a class="appendix-link" href="../../midterms/index.html">All midterms</a><a class="appendix-link" href="../../appendix/calculus.html">Calculus appendix</a><span>Try it yourself. Then understand every step.</span></div></aside>
+<button class="scrim" data-close-nav aria-label="Close navigation"></button><div class="site-body"><header class="topbar"><button class="menu-button" aria-expanded="false" aria-label="Open midterm navigation">☰ Menu</button><div class="breadcrumb"><span class="crumb-course"><a href="../index.html">Midterms</a> / </span><strong>Fall 2024</strong></div><div class="top-tools"><button class="plain-button print-button" data-print>Print questions</button></div></header><div class="reading-progress" aria-hidden="true"><i data-reading-progress></i></div>
+<div class="page-layout"><main class="lesson" id="lesson"><p class="eyebrow">Midterms · Questions</p><h1>Fall 2024</h1><p class="lead">Midterm practice paper</p><nav class="midterm-mode" aria-label="Choose questions or solutions"><a href="questions.html" aria-current="page">Questions</a><a href="solutions.html">Questions with solutions</a></nav><div class="paper-intro prose"><p>STAT 5701 midterm practice paper, labeled Fall 2024 in the original. All six questions and their original subparts are included.</p></div><p class="midterm-mode-note">Work through the questions at your own pace. Open “Questions with solutions” when you are ready to check your reasoning.</p><p class="midterm-source"><a href="../../assets/source/midterms/midterm-2024-questions.pdf" target="_blank" rel="noopener">Original questions PDF ↗</a></p><div class="midterm-questions"><section class="midterm-question" id="question-1" aria-labelledby="question-1-title"><div class="midterm-question-heading"><span class="midterm-question-number">01</span><h2 id="question-1-title">A joint density on a triangular region</h2></div><div class="question-prompt prose"><p>Let the joint pdf for continuous random variables $(X,Y)$ be</p>
+<p>$$
+f(x,y)=cx+1,\qquad x,y\ge0,\quad x+y\le1.
+$$</p>
+<p>The density is zero outside this triangular region.</p>
+<h3 id="question-1-prompt-a">(a)</h3>
+<p>Find the constant $c$.</p>
+<h3 id="question-1-prompt-b">(b)</h3>
+<p>Find both marginal pdfs $f_X(x)$ and $f_Y(y)$.</p>
+<p><em>Original hint: If you couldn’t find the constant $c$ from part (a), assume $c=2$.</em></p></div></section><section class="midterm-question" id="question-2" aria-labelledby="question-2-title"><div class="midterm-question-heading"><span class="midterm-question-number">02</span><h2 id="question-2-title">A piecewise continuous density</h2></div><div class="question-prompt prose"><p>Suppose the pdf of the continuous random variable $X$ is given by</p>
+<p>$$
+f(x)=
+\begin{cases}
+1+x,&amp;x\in[-1,0),\\
+1-x,&amp;x\in[0,1],\\
+0,&amp;x\notin[-1,1].
+\end{cases}
+$$</p>
+<h3 id="question-2-prompt-a">(a)</h3>
+<p>Show $f(x)$ is a proper pdf.</p>
+<p><em>Original hint:</em></p>
+<p>$$
+\int_{-1}^{1}f(x)\,dx
+=\int_{-1}^{0}f(x)\,dx+\int_0^1f(x)\,dx.
+$$</p>
+<h3 id="question-2-prompt-b">(b)</h3>
+<p>Derive the cdf $F(x)$.</p>
+<h3 id="question-2-prompt-c">(c)</h3>
+<p>Find $P(-1\le X\le-0.4)$.</p>
+<h3 id="question-2-prompt-d">(d)</h3>
+<p>Find $E(X)$.</p></div></section><section class="midterm-question" id="question-3" aria-labelledby="question-3-title"><div class="midterm-question-heading"><span class="midterm-question-number">03</span><h2 id="question-3-title">A joint probability mass function</h2></div><div class="question-prompt prose"><p>The discrete random variables $X$ and $Y$ have a joint probability mass function</p>
+<p>$$
+f(x,y)=
+\begin{cases}
+cxy,&amp;x=1,2,3,\quad y=1,2,\\
+0,&amp;\text{otherwise}.
+\end{cases}
+$$</p>
+<h3 id="question-3-prompt-a">(a)</h3>
+<p>Find the value of the constant $c$.</p>
+<h3 id="question-3-prompt-b">(b)</h3>
+<p>Compute the marginal pmf $f_Y(y)$.</p>
+<h3 id="question-3-prompt-c">(c)</h3>
+<p>Determine the conditional pmf $f(x\mid y=1)$.</p></div></section><section class="midterm-question" id="question-4" aria-labelledby="question-4-title"><div class="midterm-question-heading"><span class="midterm-question-number">04</span><h2 id="question-4-title">Probabilities from a discrete CDF</h2></div><div class="question-prompt prose"><p>A discrete random variable $X$ has a cumulative distribution function with jumps at the points $x=1,\ldots,6$, and given by the formula</p>
+<p>$$
+F(x)=
+\begin{cases}
+0,&amp;x\le0,\\
+\dfrac{x^3}{216},&amp;x=1,\ldots,6,\\
+1,&amp;x&gt;6.
+\end{cases}
+$$</p>
+<h3 id="question-4-prompt-a">(a)</h3>
+<p>Find $P(5&lt;X\le6)$.</p>
+<h3 id="question-4-prompt-b">(b)</h3>
+<p>Find $P(1&lt;X&lt;5\mid2\le X&lt;3)$.</p>
+<h3 id="question-4-prompt-c">(c)</h3>
+<p>Derive the table with the probability mass function $p(x)$ of $X$.</p></div></section><section class="midterm-question" id="question-5" aria-labelledby="question-5-title"><div class="midterm-question-heading"><span class="midterm-question-number">05</span><h2 id="question-5-title">Disease testing and updating probabilities</h2></div><div class="question-prompt prose"><p>Suppose that in the general population, the probability of having a certain common disease (the base rate) is $0.44$. We denote the true presence or absence of the disease as the value of a parameter, $\theta$, that can have the value $\theta=1$ if disease is present in a person, or $\theta=0$ if the disease is absent.</p>
+<p>Suppose that there is a test for the disease that has an $87\%$ sensitivity rate, which means that if a person has the disease, then the test result is positive $87\%$ of the time. We denote a positive test result as $T=+$ and a negative test result as $T=-$. Then the sensitivity is expressed formally as</p>
+<p>$$
+P(T=+\mid\theta=1)=0.87.
+$$</p>
+<p>Suppose also that the test has a false alarm rate of $7\%$. We denote the false alarm rate as</p>
+<p>$$
+P(T=+\mid\theta=0)=0.07.
+$$</p>
+<h3 id="question-5-prompt-a">(a)</h3>
+<p>Suppose we sample a person at random from the population, administer the test, and it comes up positive. What is the posterior probability that the person has the disease? Mathematically expressed, what is $P(\theta=1\mid T=+)$?</p>
+<h3 id="question-5-prompt-b">(b)</h3>
+<p>Suppose that the same randomly selected person as in part (a) gets re-tested after the first test result was positive, and on the re-test the result is also positive. Given the results of both tests, and assuming conditional independence of the test results, what is the probability that the person has the disease?</p>
+<p>Mathematically expressed, find $P(\theta=1\mid T_1=+,T_2=+)$ under the assumption that</p>
+<p>$$
+P(T_1=+,T_2=+\mid\theta)
+=P(T_1=+\mid\theta)P(T_2=+\mid\theta).
+$$</p>
+<h3 id="question-5-prompt-c-bonus">(c) Bonus</h3>
+<p>Show that under the above assumption of conditional independence,</p>
+<p>$$
+P(\theta=1\mid T_1=+,T_2=+)
+=\frac{P(T_2=+\mid\theta=1)P(\theta=1\mid T_1=+)}
+{P(T_2=+\mid\theta=1)P(\theta=1\mid T_1=+)+P(T_2=+\mid\theta=0)P(\theta=0\mid T_1=+)}.
+$$</p></div></section><section class="midterm-question" id="question-6" aria-labelledby="question-6-title"><div class="midterm-question-heading"><span class="midterm-question-number">06</span><h2 id="question-6-title">Two draws without replacement</h2></div><div class="question-prompt prose"><p>An urn contains eight green marbles and twelve blue marbles. We draw sequentially two marbles from the urn without replacement. Define the events</p>
+<p>$$
+\begin{aligned}
+A&amp;=\{\text{the first marble is blue}\},\\
+B&amp;=\{\text{the second marble is blue}\},\\
+C&amp;=\{\text{both are blue}\}.
+\end{aligned}
+$$</p>
+<p>Assume that all marbles are identical except for color and equally likely to be selected at each draw. Find the following probabilities.</p>
+<h3 id="question-6-prompt-a">(a)</h3>
+<p>$P(A)$.</p>
+<h3 id="question-6-prompt-b">(b)</h3>
+<p>$P(C)$.</p>
+<h3 id="question-6-prompt-c">(c)</h3>
+<p>$P(B)$.</p>
+<h3 id="question-6-prompt-d">(d)</h3>
+<p>$P(B\cup\overline C)$.</p>
+<h3 id="question-6-prompt-e">(e)</h3>
+<p>$P(A\mid B)$.</p></div></section></div><nav class="midterm-bottom" aria-label="Continue studying"><a href="../index.html">← All midterms</a><a href="solutions.html">Read the solutions →</a></nav><footer class="footer"><p>Original papers: STAT 5701 · Dobrin Marchev. Source material remains attributed to its author.</p><p>Explanations are an independent personal study companion, not an official course publication.</p></footer></main><aside class="page-toc" aria-label="On this page"><p class="toc-label">On this page</p><a href="#question-1"><span class="midterm-nav-number">01</span><span>A joint density on a triangular region</span></a><a href="#question-2"><span class="midterm-nav-number">02</span><span>A piecewise continuous density</span></a><a href="#question-3"><span class="midterm-nav-number">03</span><span>A joint probability mass function</span></a><a href="#question-4"><span class="midterm-nav-number">04</span><span>Probabilities from a discrete CDF</span></a><a href="#question-5"><span class="midterm-nav-number">05</span><span>Disease testing and updating probabilities</span></a><a href="#question-6"><span class="midterm-nav-number">06</span><span>Two draws without replacement</span></a><a href="#lesson">Back to the top ↑</a></aside></div></div></body></html>

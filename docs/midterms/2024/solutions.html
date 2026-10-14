@@ -1,0 +1,667 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Fall 2024: the full questions with step-by-step worked solutions."><title>Fall 2024 · Questions with solutions — Probability, understood</title><link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../../assets/site.css"><link rel="stylesheet" href="../../assets/midterms.css"><link rel="stylesheet" href="../../assets/vendor/katex/katex.min.css"><script defer src="../../assets/vendor/katex/katex.min.js"></script><script defer src="../../assets/vendor/katex/contrib/auto-render.min.js"></script><script defer src="../../assets/site.js"></script></head>
+<body class="midterms-page midterm-solutions"><a class="skip" href="#lesson">Skip to the questions</a>
+<aside class="sidebar" aria-label="Midterm navigation"><a class="brand" href="../../index.html"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>Probability,<br>understood.</span></a><button class="nav-close" data-close-nav aria-label="Close navigation">×</button><p class="course-label">Your study companion</p><details class="chapter-picker"><summary>Change chapter</summary><nav class="chapter-nav" aria-label="Choose a chapter"><a href="../../slides/01.html"><span>01</span> Data Summary</a><a href="../../probability-part1/01.html"><span>02</span> Probability · Part 1</a><a href="../../counting/01.html"><span>03</span> Counting</a><a href="../../probability-part2/01.html"><span>04</span> Probability · Part 2</a><a href="../../probability-part3/01.html"><span>05</span> Probability · Part 3</a><a href="../../random-variables/01.html"><span>06</span> Random Variables</a><a href="../../random-variables-part2/01.html"><span>07</span> Random Variables · Part 2</a><a href="../../random-variables-part3/01.html"><span>08</span> Random Variables · Part 3</a><a href="../../expectation/01.html"><span>09</span> Expectation</a><a href="../../special-distributions/01.html"><span>10</span> Special Distributions</a></nav></details><p class="course-title">Midterms</p><nav class="slide-nav midterm-nav" aria-label="Papers and questions"><div class="nav-group"><div class="nav-group-title">Fall 2024</div><a href="questions.html">Questions</a><a href="solutions.html" aria-current="page">Questions with solutions</a></div><div class="nav-group"><div class="nav-group-title">Jump to a question</div><a href="#question-1"><span class="midterm-nav-number">01</span><span>A joint density on a triangular region</span></a><a href="#question-2"><span class="midterm-nav-number">02</span><span>A piecewise continuous density</span></a><a href="#question-3"><span class="midterm-nav-number">03</span><span>A joint probability mass function</span></a><a href="#question-4"><span class="midterm-nav-number">04</span><span>Probabilities from a discrete CDF</span></a><a href="#question-5"><span class="midterm-nav-number">05</span><span>Disease testing and updating probabilities</span></a><a href="#question-6"><span class="midterm-nav-number">06</span><span>Two draws without replacement</span></a></div><div class="nav-group"><div class="nav-group-title">Other papers</div><a href="../2025/questions.html">Fall 2025</a></div></nav><div class="nav-footer"><a class="appendix-link" href="../../midterms/index.html">All midterms</a><a class="appendix-link" href="../../appendix/calculus.html">Calculus appendix</a><span>Try it yourself. Then understand every step.</span></div></aside>
+<button class="scrim" data-close-nav aria-label="Close navigation"></button><div class="site-body"><header class="topbar"><button class="menu-button" aria-expanded="false" aria-label="Open midterm navigation">☰ Menu</button><div class="breadcrumb"><span class="crumb-course"><a href="../index.html">Midterms</a> / </span><strong>Fall 2024</strong></div><div class="top-tools"><button class="plain-button print-button" data-print>Print with solutions</button></div></header><div class="reading-progress" aria-hidden="true"><i data-reading-progress></i></div>
+<div class="page-layout"><main class="lesson" id="lesson"><p class="eyebrow">Midterms · Questions with solutions</p><h1>Fall 2024</h1><p class="lead">Midterm practice paper</p><nav class="midterm-mode" aria-label="Choose questions or solutions"><a href="questions.html">Questions</a><a href="solutions.html" aria-current="page">Questions with solutions</a></nav><div class="paper-intro prose"><p>STAT 5701 midterm practice paper, labeled Fall 2024 in the original. All six questions and their original subparts are included.</p></div><p class="midterm-mode-note">Each question is followed by its complete worked solution. To practise first, open the questions page.</p><aside class="midterm-notes prose" aria-label="Reading the source paper"><h2 id="source-notes">About the source</h2><p>The original practice paper says the previous year’s midterm was given earlier in the semester and did not cover every topic expected on the current midterm. It mentions an additional problem to be provided separately; that problem is not present in this six-page paper.</p><p>Show your work for all parts. Original hints are retained with the questions.</p></aside><div class="midterm-questions"><section class="midterm-question" id="question-1" aria-labelledby="question-1-title"><div class="midterm-question-heading"><span class="midterm-question-number">01</span><h2 id="question-1-title">A joint density on a triangular region</h2></div><div class="question-prompt prose"><p>Let the joint pdf for continuous random variables $(X,Y)$ be</p>
+<p>$$
+f(x,y)=cx+1,\qquad x,y\ge0,\quad x+y\le1.
+$$</p>
+<p>The density is zero outside this triangular region.</p>
+<h3 id="question-1-prompt-a">(a)</h3>
+<p>Find the constant $c$.</p>
+<h3 id="question-1-prompt-b">(b)</h3>
+<p>Find both marginal pdfs $f_X(x)$ and $f_Y(y)$.</p>
+<p><em>Original hint: If you couldn’t find the constant $c$ from part (a), assume $c=2$.</em></p></div><div class="question-solution"><h3 class="solution-label" id="question-1-worked-solution">Worked solution</h3><div class="prose"><h3 id="question-1-solution-a-make-the-total-probability-equal-to-one">(a) Make the total probability equal to one</h3>
+<p>The support is the triangle bounded by $x=0$, $y=0$, and $x+y=1$. We take the density to be zero outside this stated region. Before integrating, translate that triangle into limits: $x$ can run from $0$ to $1$, and <strong>once $x$ is fixed, $y$ runs from $0$ to $1-x$</strong>.</p>
+<p>A joint density must integrate to one over its entire support, so</p>
+<p>$$
+1=\int_0^1\int_0^{1-x}(cx+1)\,dy\,dx.
+$$</p>
+<p>In the inner integral, $x$ is fixed. The expression $cx+1$ therefore acts as a constant while $y$ moves through an interval of length $1-x$:</p>
+<p>$$
+\int_0^{1-x}(cx+1)\,dy=(cx+1)(1-x).
+$$</p>
+<p>Now integrate over $x$:</p>
+<p>$$
+\begin{aligned}
+1
+&amp;=\int_0^1(cx+1)(1-x)\,dx\\
+&amp;=c\int_0^1(x-x^2)\,dx+\int_0^1(1-x)\,dx\\
+&amp;=c\left(\frac12-\frac13\right)+\left(1-\frac12\right)\\
+&amp;=\frac c6+\frac12.
+\end{aligned}
+$$</p>
+<p>Thus $c/6=1/2$, giving</p>
+<p>$$
+\boxed{c=3.}
+$$</p>
+<p>The other requirement for a density is nonnegativity. With this value, $3x+1\ge1$ throughout the triangle, so that requirement is satisfied too.</p>
+<p>Geometrically, the constant part $1$ contributes the triangle’s area, $1/2$. The $3x$ part contributes the remaining $1/2$.</p>
+<h3 id="question-1-solution-b-accumulate-over-the-variable-we-are-not-keeping">(b) Accumulate over the variable we are not keeping</h3>
+<p><strong>For $f_X(x)$, keep $x$ fixed and include every allowed value of $y$.</strong> This collects all the joint density above that particular $x$:</p>
+<p>$$
+\begin{aligned}
+f_X(x)
+&amp;=\int_0^{1-x}f(x,y)\,dy\\
+&amp;=\int_0^{1-x}(3x+1)\,dy\\
+&amp;=(3x+1)(1-x).
+\end{aligned}
+$$</p>
+<p>Therefore the full marginal density is</p>
+<p>$$
+\boxed{
+f_X(x)=
+\begin{cases}
+(3x+1)(1-x),&amp;0\le x\le1,\\
+0,&amp;\text{otherwise}.
+\end{cases}}
+$$</p>
+<p><strong>For $f_Y(y)$, keep $y$ fixed and include every allowed value of $x$.</strong> The same triangle now tells us that $0\le x\le1-y$:</p>
+<p>$$
+\begin{aligned}
+f_Y(y)
+&amp;=\int_0^{1-y}(3x+1)\,dx\\
+&amp;=\left[\frac32x^2+x\right]_0^{1-y}\\
+&amp;=\frac32(1-y)^2+(1-y)\\
+&amp;=\frac12(1-y)(5-3y).
+\end{aligned}
+$$</p>
+<p>Hence</p>
+<p>$$
+\boxed{
+f_Y(y)=
+\begin{cases}
+\frac12(1-y)(5-3y),&amp;0\le y\le1,\\
+0,&amp;\text{otherwise}.
+\end{cases}}
+$$</p>
+<p>The integration limits matter: integrating to $1$ regardless of the fixed variable would include points outside the triangle. For instance, at $x=0.8$, only $0\le y\le0.2$ is allowed.</p>
+<p>Both answers are nonnegative and each integrates to one. For example,</p>
+<p>$$
+\int_0^1(3x+1)(1-x)\,dx
+=\int_0^1(1+2x-3x^2)\,dx
+=1+1-1=1.
+$$</p>
+<p><strong>About the original hint:</strong> $c=2$ is a fallback instruction for attempting part (b); it is not the value obtained in part (a). If you follow that fallback, the corresponding integrals are $(2x+1)(1-x)$ and $(1-y)^2+(1-y)$ on $[0,1]$. Their total integral is $5/6$, so they are not normalized marginal pdfs for the original model. The actual density and marginals use $c=3$.</p></div></div><p class="midterm-source">Source: original paper, page 1.</p></section><section class="midterm-question" id="question-2" aria-labelledby="question-2-title"><div class="midterm-question-heading"><span class="midterm-question-number">02</span><h2 id="question-2-title">A piecewise continuous density</h2></div><div class="question-prompt prose"><p>Suppose the pdf of the continuous random variable $X$ is given by</p>
+<p>$$
+f(x)=
+\begin{cases}
+1+x,&amp;x\in[-1,0),\\
+1-x,&amp;x\in[0,1],\\
+0,&amp;x\notin[-1,1].
+\end{cases}
+$$</p>
+<h3 id="question-2-prompt-a">(a)</h3>
+<p>Show $f(x)$ is a proper pdf.</p>
+<p><em>Original hint:</em></p>
+<p>$$
+\int_{-1}^{1}f(x)\,dx
+=\int_{-1}^{0}f(x)\,dx+\int_0^1f(x)\,dx.
+$$</p>
+<h3 id="question-2-prompt-b">(b)</h3>
+<p>Derive the cdf $F(x)$.</p>
+<h3 id="question-2-prompt-c">(c)</h3>
+<p>Find $P(-1\le X\le-0.4)$.</p>
+<h3 id="question-2-prompt-d">(d)</h3>
+<p>Find $E(X)$.</p></div><div class="question-solution"><h3 class="solution-label" id="question-2-worked-solution">Worked solution</h3><div class="prose"><h3 id="question-2-solution-a-check-nonnegativity-and-total-area">(a) Check nonnegativity and total area</h3>
+<p>A proper pdf satisfies two requirements: its values are never negative, and its total area is one.</p>
+<p>On $[-1,0)$, $1+x\ge0$. On $[0,1]$, $1-x\ge0$. Everywhere else the density is zero, so nonnegativity holds.</p>
+<p>Since the formula changes at zero, split the integral there:</p>
+<p>$$
+\begin{aligned}
+\int_{-\infty}^{\infty}f(x)\,dx
+&amp;=\int_{-1}^0(1+x)\,dx+\int_0^1(1-x)\,dx\\
+&amp;=\left[x+\frac{x^2}{2}\right]_{-1}^0
+ +\left[x-\frac{x^2}{2}\right]_0^1\\
+&amp;=\left(0-\left(-1+\frac12\right)\right)
+ +\left(1-\frac12-0\right)\\
+&amp;=\frac12+\frac12=1.
+\end{aligned}
+$$</p>
+<p>Thus $f$ is a proper pdf. Its graph is a triangle with base length $2$ and height $1$, which gives the same area: $\frac12\times2\times1=1$.</p>
+<h3 id="question-2-solution-b-derive-the-cdf-by-accumulating-area">(b) Derive the CDF by accumulating area</h3>
+<p>The CDF is <strong>the total probability accumulated to the left of $x$</strong>:</p>
+<p>$$
+F(x)=P(X\le x)=\int_{-\infty}^{x}f(t)\,dt.
+$$</p>
+<p>We use $t$ inside the integral because $x$ marks where we stop accumulating. Since the density changes at $-1,0,1$, consider four cases.</p>
+<p><strong>1. When $x&lt;-1$</strong></p>
+<p>There is no probability before $-1$, so</p>
+<p>$$
+F(x)=0.
+$$</p>
+<p><strong>2. When $-1\le x&lt;0$</strong></p>
+<p>We accumulate from $-1$ to $x$, where the density is $1+t$:</p>
+<p>$$
+\begin{aligned}
+F(x)
+&amp;=\int_{-1}^{x}(1+t)\,dt\\
+&amp;=\left[t+\frac{t^2}{2}\right]_{-1}^{x}\\
+&amp;=x+\frac{x^2}{2}-\left(-1+\frac12\right)\\
+&amp;=\boxed{\frac{(x+1)^2}{2}}.
+\end{aligned}
+$$</p>
+<p>At $x=0$, this accumulated area reaches $1/2$.</p>
+<p><strong>3. When $0\le x\le1$</strong></p>
+<p>Now the accumulated area includes <strong>the entire left half, from $-1$ to $0$, plus the area from $0$ to $x$</strong>:</p>
+<p>$$
+\begin{aligned}
+F(x)
+&amp;=\int_{-1}^{0}(1+t)\,dt+\int_{0}^{x}(1-t)\,dt\\
+&amp;=\frac12+\left[t-\frac{t^2}{2}\right]_{0}^{x}\\
+&amp;=\boxed{\frac12+x-\frac{x^2}{2}}.
+\end{aligned}
+$$</p>
+<p>The initial $1/2$ is essential. Using only $\int_0^x(1-t)\,dt$ would calculate $P(0&lt;X\le x)$, leaving out all the probability below zero.</p>
+<p><strong>4. When $x&gt;1$</strong></p>
+<p>We have passed the entire support and accumulated all the probability:</p>
+<p>$$
+F(x)=1.
+$$</p>
+<p>Combining these,</p>
+<p>$$
+\boxed{
+F(x)=
+\begin{cases}
+0,&amp;x&lt;-1,\\[4pt]
+\dfrac{(x+1)^2}{2},&amp;-1\le x&lt;0,\\[7pt]
+\dfrac12+x-\dfrac{x^2}{2},&amp;0\le x\le1,\\[7pt]
+1,&amp;x&gt;1.
+\end{cases}}
+$$</p>
+<p>Geometrically, the density forms a triangle. For negative $x$, the accumulated region is a smaller triangle with width and height $x+1$, giving $\frac12(x+1)^2$. For positive $x$, the <strong>remaining</strong> triangle to the right has width and height $1-x$, so</p>
+<p>$$
+F(x)=1-\frac{(1-x)^2}{2}
+=\frac12+x-\frac{x^2}{2}.
+$$</p>
+<h3 id="question-2-solution-c-find-the-probability-of-the-interval">(c) Find the probability of the interval</h3>
+<p>We want the area from $-1$ to $-0.4$. Both endpoints lie in the left part of the density. Because $X$ is continuous, there is zero probability at either individual endpoint, so</p>
+<p>$$
+\begin{aligned}
+P(-1\le X\le-0.4)
+&amp;=F(-0.4)-F(-1)\\
+&amp;=\frac{(-0.4+1)^2}{2}-0\\
+&amp;=\frac{0.6^2}{2}\\
+&amp;=\boxed{0.18}.
+\end{aligned}
+$$</p>
+<p>You can also see a triangle of width $0.6$ and height $f(-0.4)=0.6$: its area is $\frac12(0.6)(0.6)=0.18$.</p>
+<h3 id="question-2-solution-d-find-the-mean">(d) Find the mean</h3>
+<p>The mean is the density-weighted average of all possible values:</p>
+<p>$$
+E(X)=\int_{-\infty}^{\infty}x f(x)\,dx.
+$$</p>
+<p>For every positive value $x$, the equally distant negative value $-x$ has the same density. Their weighted contributions cancel, so symmetry gives $E(X)=0$.</p>
+<p>To verify that directly,</p>
+<p>$$
+\begin{aligned}
+E(X)
+&amp;=\int_{-1}^{0}x(1+x)\,dx+\int_0^1x(1-x)\,dx\\
+&amp;=\left[\frac{x^2}{2}+\frac{x^3}{3}\right]_{-1}^0
+ +\left[\frac{x^2}{2}-\frac{x^3}{3}\right]_0^1\\
+&amp;=-\left(\frac12-\frac13\right)
+  +\left(\frac12-\frac13\right)\\
+&amp;=-\frac16+\frac16=\boxed{0}.
+\end{aligned}
+$$</p></div></div><p class="midterm-source">Source: original paper, page 2.</p></section><section class="midterm-question" id="question-3" aria-labelledby="question-3-title"><div class="midterm-question-heading"><span class="midterm-question-number">03</span><h2 id="question-3-title">A joint probability mass function</h2></div><div class="question-prompt prose"><p>The discrete random variables $X$ and $Y$ have a joint probability mass function</p>
+<p>$$
+f(x,y)=
+\begin{cases}
+cxy,&amp;x=1,2,3,\quad y=1,2,\\
+0,&amp;\text{otherwise}.
+\end{cases}
+$$</p>
+<h3 id="question-3-prompt-a">(a)</h3>
+<p>Find the value of the constant $c$.</p>
+<h3 id="question-3-prompt-b">(b)</h3>
+<p>Compute the marginal pmf $f_Y(y)$.</p>
+<h3 id="question-3-prompt-c">(c)</h3>
+<p>Determine the conditional pmf $f(x\mid y=1)$.</p></div><div class="question-solution"><h3 class="solution-label" id="question-3-worked-solution">Worked solution</h3><div class="prose"><h3 id="question-3-solution-a-add-the-probabilities-of-all-six-possible-pairs">(a) Add the probabilities of all six possible pairs</h3>
+<p>Here $f(x,y)$ is the probability of the exact pair $(X,Y)=(x,y)$. There are three possible $x$ values and two possible $y$ values, giving six pairs. Their probabilities must add to one:</p>
+<p>$$
+\begin{aligned}
+1
+&amp;=\sum_{x=1}^3\sum_{y=1}^2 cxy\\
+&amp;=c\bigl(1\cdot1+1\cdot2+2\cdot1+2\cdot2+3\cdot1+3\cdot2\bigr)\\
+&amp;=c(1+2+2+4+3+6)\\
+&amp;=18c.
+\end{aligned}
+$$</p>
+<p>Therefore</p>
+<p>$$
+\boxed{c=\frac1{18}.}
+$$</p>
+<p>A useful way to organize the resulting probabilities is a table. Every entry is a joint probability, and the margins collect entries with the same value of one variable:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>$X\backslash Y$</th>
+<th style="text-align: right;">$1$</th>
+<th style="text-align: right;">$2$</th>
+<th style="text-align: right;">Row total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$1$</td>
+<td style="text-align: right;">$1/18$</td>
+<td style="text-align: right;">$2/18$</td>
+<td style="text-align: right;">$3/18$</td>
+</tr>
+<tr>
+<td>$2$</td>
+<td style="text-align: right;">$2/18$</td>
+<td style="text-align: right;">$4/18$</td>
+<td style="text-align: right;">$6/18$</td>
+</tr>
+<tr>
+<td>$3$</td>
+<td style="text-align: right;">$3/18$</td>
+<td style="text-align: right;">$6/18$</td>
+<td style="text-align: right;">$9/18$</td>
+</tr>
+<tr>
+<td>Column total</td>
+<td style="text-align: right;">$6/18$</td>
+<td style="text-align: right;">$12/18$</td>
+<td style="text-align: right;">$1$</td>
+</tr>
+</tbody>
+</table></div>
+<p>All entries are nonnegative and their total is one, as required.</p>
+<h3 id="question-3-solution-b-collect-all-pairs-with-the-same-mathplaceholder00024end-value">(b) Collect all pairs with the same $Y$ value</h3>
+<p>For the marginal probability $f_Y(y)=P(Y=y)$, we care about $Y$ and allow $X$ to take any of its possible values. The events $(X=1,Y=y)$, $(X=2,Y=y)$, and $(X=3,Y=y)$ are disjoint, so we add their probabilities:</p>
+<p>$$
+\begin{aligned}
+f_Y(y)
+&amp;=\sum_{x=1}^3 f(x,y)\\
+&amp;=\frac{1\cdot y}{18}+\frac{2\cdot y}{18}+\frac{3\cdot y}{18}\\
+&amp;=\frac{6y}{18}=\frac y3,
+\qquad y\in\{1,2\}.
+\end{aligned}
+$$</p>
+<p>Thus</p>
+<p>$$
+\boxed{
+f_Y(y)=
+\begin{cases}
+1/3,&amp;y=1,\\
+2/3,&amp;y=2,\\
+0,&amp;\text{otherwise}.
+\end{cases}}
+$$</p>
+<p>This is exactly what the table’s column totals show. It is a pmf on the two values $1$ and $2$, not a density on the interval between them.</p>
+<h3 id="question-3-solution-c-restrict-to-mathplaceholder00035end-then-rescale-to-total-probability-one">(c) Restrict to $Y=1$, then rescale to total probability one</h3>
+<p>The condition $Y=1$ tells us to keep only the first column. Before conditioning, that column has total probability $P(Y=1)=1/3$. Within this smaller set of possibilities, divide each entry by $1/3$ so the conditional probabilities add to one:</p>
+<p>$$
+\begin{aligned}
+f(x\mid y=1)
+&amp;=P(X=x\mid Y=1)\\
+&amp;=\frac{P(X=x,Y=1)}{P(Y=1)}\\
+&amp;=\frac{x/18}{1/3}\\
+&amp;=\frac x6,\qquad x\in\{1,2,3\}.
+\end{aligned}
+$$</p>
+<p>Therefore</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>$x$</th>
+<th style="text-align: right;">$1$</th>
+<th style="text-align: right;">$2$</th>
+<th style="text-align: right;">$3$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$P(X=x\mid Y=1)$</td>
+<td style="text-align: right;">$1/6$</td>
+<td style="text-align: right;">$1/3$</td>
+<td style="text-align: right;">$1/2$</td>
+</tr>
+</tbody>
+</table></div>
+<p>The conditional pmf is zero at other $x$ values, and the displayed probabilities sum to $1/6+1/3+1/2=1$.</p>
+<p>The distinction is useful: <strong>marginalizing adds the relevant joint probabilities; conditioning divides by the probability of the information we have been given.</strong> Here the allowed relative weights in the $Y=1$ column are $1:2:3$, so after conditioning those six weight units become probabilities $1/6,2/6,3/6$.</p></div></div><p class="midterm-source">Source: original paper, page 3.</p></section><section class="midterm-question" id="question-4" aria-labelledby="question-4-title"><div class="midterm-question-heading"><span class="midterm-question-number">04</span><h2 id="question-4-title">Probabilities from a discrete CDF</h2></div><div class="question-prompt prose"><p>A discrete random variable $X$ has a cumulative distribution function with jumps at the points $x=1,\ldots,6$, and given by the formula</p>
+<p>$$
+F(x)=
+\begin{cases}
+0,&amp;x\le0,\\
+\dfrac{x^3}{216},&amp;x=1,\ldots,6,\\
+1,&amp;x&gt;6.
+\end{cases}
+$$</p>
+<h3 id="question-4-prompt-a">(a)</h3>
+<p>Find $P(5&lt;X\le6)$.</p>
+<h3 id="question-4-prompt-b">(b)</h3>
+<p>Find $P(1&lt;X&lt;5\mid2\le X&lt;3)$.</p>
+<h3 id="question-4-prompt-c">(c)</h3>
+<p>Derive the table with the probability mass function $p(x)$ of $X$.</p></div><div class="question-solution"><h3 class="solution-label" id="question-4-worked-solution">Worked solution</h3><div class="prose"><p>The statement describes a <strong>discrete</strong> variable supported on $1,2,3,4,5,6$. The expression $x^3/216$ specifies its CDF <strong>at those integers</strong>. Between consecutive integers, no new possible value is crossed, so the CDF stays constant.</p>
+<p>For example, $F(2.5)=P(X\le2.5)=P(X\le2)=8/216$, not $2.5^3/216$. The complete staircase interpretation is</p>
+<p>$$
+F(x)=
+\begin{cases}
+0,&amp;x&lt;1,\\
+1/216,&amp;1\le x&lt;2,\\
+8/216,&amp;2\le x&lt;3,\\
+27/216,&amp;3\le x&lt;4,\\
+64/216,&amp;4\le x&lt;5,\\
+125/216,&amp;5\le x&lt;6,\\
+1,&amp;x\ge6.
+\end{cases}
+$$</p>
+<h3 id="question-4-solution-a-subtract-accumulated-probabilities-at-the-two-cutoffs">(a) Subtract accumulated probabilities at the two cutoffs</h3>
+<p>$F(6)=P(X\le6)$ includes the value $6$ and everything below it. $F(5)=P(X\le5)$ includes everything we want to exclude. Their difference leaves exactly $5&lt;X\le6$:</p>
+<p>$$
+\begin{aligned}
+P(5&lt;X\le6)
+&amp;=F(6)-F(5)\\
+&amp;=\frac{6^3-5^3}{216}\\
+&amp;=\frac{216-125}{216}\\
+&amp;=\boxed{\frac{91}{216}\approx0.4213}.
+\end{aligned}
+$$</p>
+<p>Since $X$ is integer-valued, this is also simply $P(X=6)$. It is the size of the CDF’s final jump, not the total height $F(6)=1$.</p>
+<h3 id="question-4-solution-b-first-understand-what-the-condition-permits">(b) First understand what the condition permits</h3>
+<p>Let</p>
+<p>$$
+A=\{1&lt;X&lt;5\}=\{X=2,3,4\},
+\qquad
+B=\{2\le X&lt;3\}=\{X=2\}.
+$$</p>
+<p>We have been told $B$ occurred. That tells us $X=2$, which certainly satisfies $1&lt;X&lt;5$. Thus $B$ is entirely contained in $A$.</p>
+<p>Using the definition of conditional probability makes this precise:</p>
+<p>$$
+P(A\mid B)=\frac{P(A\cap B)}{P(B)}.
+$$</p>
+<p>Here $A\cap B=B$ and</p>
+<p>$$
+P(B)=P(X=2)=F(2)-F(1)=\frac{8-1}{216}=\frac7{216}&gt;0.
+$$</p>
+<p>Therefore</p>
+<p>$$
+\boxed{P(1&lt;X&lt;5\mid2\le X&lt;3)
+=\frac{7/216}{7/216}=1.}
+$$</p>
+<p>The unconditional probability of $1&lt;X&lt;5$ need not be one. It becomes one after the given information restricts us to $X=2$.</p>
+<h3 id="question-4-solution-c-recover-each-probability-from-a-jump-in-the-cdf">(c) Recover each probability from a jump in the CDF</h3>
+<p>$F(k)$ contains all probability up to and including $k$, while $F(k-1)$ contains all the earlier possible values. Therefore</p>
+<p>$$
+\begin{aligned}
+p(k)
+&amp;=P(X=k)\\
+&amp;=F(k)-F(k-1)\\
+&amp;=\frac{k^3-(k-1)^3}{216}\\
+&amp;=\frac{3k^2-3k+1}{216},
+\qquad k=1,\ldots,6.
+\end{aligned}
+$$</p>
+<p>For $k=1$, this uses $F(0)=0$. Applying the subtraction to every jump gives</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>$k$</th>
+<th style="text-align: right;">$F(k)$</th>
+<th style="text-align: right;">$F(k-1)$</th>
+<th style="text-align: right;">$p(k)=P(X=k)$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$1$</td>
+<td style="text-align: right;">$1/216$</td>
+<td style="text-align: right;">$0$</td>
+<td style="text-align: right;">$1/216$</td>
+</tr>
+<tr>
+<td>$2$</td>
+<td style="text-align: right;">$8/216$</td>
+<td style="text-align: right;">$1/216$</td>
+<td style="text-align: right;">$7/216$</td>
+</tr>
+<tr>
+<td>$3$</td>
+<td style="text-align: right;">$27/216$</td>
+<td style="text-align: right;">$8/216$</td>
+<td style="text-align: right;">$19/216$</td>
+</tr>
+<tr>
+<td>$4$</td>
+<td style="text-align: right;">$64/216$</td>
+<td style="text-align: right;">$27/216$</td>
+<td style="text-align: right;">$37/216$</td>
+</tr>
+<tr>
+<td>$5$</td>
+<td style="text-align: right;">$125/216$</td>
+<td style="text-align: right;">$64/216$</td>
+<td style="text-align: right;">$61/216$</td>
+</tr>
+<tr>
+<td>$6$</td>
+<td style="text-align: right;">$216/216$</td>
+<td style="text-align: right;">$125/216$</td>
+<td style="text-align: right;">$91/216$</td>
+</tr>
+</tbody>
+</table></div>
+<p>At all other values, $p(x)=0$. As a check,</p>
+<p>$$
+\frac{1+7+19+37+61+91}{216}=1.
+$$</p>
+<p>For a discrete distribution, we recover a pmf by <strong>subtracting CDF heights across jumps</strong>. Differentiating $x^3/216$ would mistakenly treat the given integer values as a continuous CDF formula.</p></div></div><p class="midterm-source">Source: original paper, page 4.</p></section><section class="midterm-question" id="question-5" aria-labelledby="question-5-title"><div class="midterm-question-heading"><span class="midterm-question-number">05</span><h2 id="question-5-title">Disease testing and updating probabilities</h2></div><div class="question-prompt prose"><p>Suppose that in the general population, the probability of having a certain common disease (the base rate) is $0.44$. We denote the true presence or absence of the disease as the value of a parameter, $\theta$, that can have the value $\theta=1$ if disease is present in a person, or $\theta=0$ if the disease is absent.</p>
+<p>Suppose that there is a test for the disease that has an $87\%$ sensitivity rate, which means that if a person has the disease, then the test result is positive $87\%$ of the time. We denote a positive test result as $T=+$ and a negative test result as $T=-$. Then the sensitivity is expressed formally as</p>
+<p>$$
+P(T=+\mid\theta=1)=0.87.
+$$</p>
+<p>Suppose also that the test has a false alarm rate of $7\%$. We denote the false alarm rate as</p>
+<p>$$
+P(T=+\mid\theta=0)=0.07.
+$$</p>
+<h3 id="question-5-prompt-a">(a)</h3>
+<p>Suppose we sample a person at random from the population, administer the test, and it comes up positive. What is the posterior probability that the person has the disease? Mathematically expressed, what is $P(\theta=1\mid T=+)$?</p>
+<h3 id="question-5-prompt-b">(b)</h3>
+<p>Suppose that the same randomly selected person as in part (a) gets re-tested after the first test result was positive, and on the re-test the result is also positive. Given the results of both tests, and assuming conditional independence of the test results, what is the probability that the person has the disease?</p>
+<p>Mathematically expressed, find $P(\theta=1\mid T_1=+,T_2=+)$ under the assumption that</p>
+<p>$$
+P(T_1=+,T_2=+\mid\theta)
+=P(T_1=+\mid\theta)P(T_2=+\mid\theta).
+$$</p>
+<h3 id="question-5-prompt-c-bonus">(c) Bonus</h3>
+<p>Show that under the above assumption of conditional independence,</p>
+<p>$$
+P(\theta=1\mid T_1=+,T_2=+)
+=\frac{P(T_2=+\mid\theta=1)P(\theta=1\mid T_1=+)}
+{P(T_2=+\mid\theta=1)P(\theta=1\mid T_1=+)+P(T_2=+\mid\theta=0)P(\theta=0\mid T_1=+)}.
+$$</p></div><div class="question-solution"><h3 class="solution-label" id="question-5-worked-solution">Worked solution</h3><div class="prose"><p>Let $D=\{\theta=1\}$ mean the person has the disease. Its complement $D^c=\{\theta=0\}$ means the person does not. The given probabilities are</p>
+<p>$$
+P(D)=0.44,\quad P(D^c)=0.56,\quad
+P(+\mid D)=0.87,\quad P(+\mid D^c)=0.07.
+$$</p>
+<p>Here the parameter $\theta$ records the person’s underlying disease status. The test result is evidence about that status; the result and the status are different things.</p>
+<h3 id="question-5-solution-a-among-positive-results-what-fraction-come-from-people-with-the-disease">(a) Among positive results, what fraction come from people with the disease?</h3>
+<p>A positive result can arise in two disjoint ways:</p>
+<ul>
+<li>The person has the disease and tests positive: probability $0.44\times0.87=0.3828$.</li>
+<li>The person does not have the disease and tests positive: probability $0.56\times0.07=0.0392$.</li>
+</ul>
+<p>The multiplication rule produces each joint probability. The addition rule then gives the total probability of a positive result:</p>
+<p>$$
+P(+)=P(D\cap\{+\})+P(D^c\cap\{+\})
+=0.3828+0.0392=0.422.
+$$</p>
+<p>The condition “positive” restricts our attention to that total group. Within it, the part that actually has the disease has probability weight $0.3828$. Therefore</p>
+<p>$$
+\begin{aligned}
+P(D\mid+)
+&amp;=\frac{P(D\cap\{+\})}{P(+)}\\
+&amp;=\frac{P(+\mid D)P(D)}
+{P(+\mid D)P(D)+P(+\mid D^c)P(D^c)}\\
+&amp;=\frac{0.3828}{0.422}\\
+&amp;=\boxed{0.907109\ldots\approx90.71\%}.
+\end{aligned}
+$$</p>
+<p>A frequency picture makes the denominator concrete. In a hypothetical population of $10{,}000$ people with exactly these proportions, $4{,}400$ have the disease and $5{,}600$ do not. The corresponding positive-result counts are $3{,}828$ and $392$. Among all $4{,}220$ positives, the fraction with the disease is $3{,}828/4{,}220$.</p>
+<p>The <strong>prior</strong> $0.44$ is our probability before observing the test. The <strong>likelihoods</strong> $0.87$ and $0.07$ describe how readily each possible disease status produces the observed positive result. The <strong>posterior</strong> $0.907109\ldots$ is our probability after using that evidence.</p>
+<h3 id="question-5-solution-b-use-both-positive-results-as-the-observed-event">(b) Use both positive results as the observed event</h3>
+<p>Now let $E=\{T_1=+,T_2=+\}$. We want $P(D\mid E)$.</p>
+<p>The same test is used twice with the stated sensitivity and false alarm rate. Conditional independence says that <strong>within each fixed disease-status group</strong>, the chance of two positives is the product of the two positive-result probabilities:</p>
+<p>$$
+P(E\mid D)=0.87^2=0.7569,
+\qquad
+P(E\mid D^c)=0.07^2=0.0049.
+$$</p>
+<p>So the two ways to get two positive results have probability weights</p>
+<p>$$
+P(D\cap E)=0.44(0.7569)=0.333036,
+$$</p>
+<p>$$
+P(D^c\cap E)=0.56(0.0049)=0.002744.
+$$</p>
+<p>Again, the desired group is divided by the total observed group:</p>
+<p>$$
+\begin{aligned}
+P(D\mid E)
+&amp;=\frac{0.333036}{0.333036+0.002744}\\
+&amp;=\frac{0.333036}{0.335780}\\
+&amp;=\boxed{0.991828\ldots\approx99.18\%}.
+\end{aligned}
+$$</p>
+<p>Two positives are much more likely when the person has the disease than when they do not: the likelihoods are $0.7569$ versus $0.0049$. That is why the second positive raises the probability further.</p>
+<p>We did not square $P(D\mid+)$, and we did not use $P(T_1=+)P(T_2=+)$ for the evidence probability. The independence assumption applies <strong>after disease status is fixed</strong>. It does not say that the two results are independent when disease status is unknown.</p>
+<h3 id="question-5-solution-c-prove-that-the-first-posterior-becomes-the-next-prior">(c) Prove that the first posterior becomes the next prior</h3>
+<p>For shorter notation, write</p>
+<p>$$
+E_1=\{T_1=+\},\qquad E_2=\{T_2=+\}.
+$$</p>
+<p>After the first result, our possible cases are still $D$ and $D^c$, but their probabilities have become $P(D\mid E_1)$ and $P(D^c\mid E_1)$.</p>
+<p><strong>Step 1: Work within the group that already had the first positive.</strong> The definition of conditional probability gives</p>
+<p>$$
+P(D\mid E_1\cap E_2)
+=\frac{P(D\cap E_2\mid E_1)}{P(E_2\mid E_1)}.
+$$</p>
+<p>This works because both numerator and denominator condition on $E_1$: dividing them cancels the common factor $P(E_1)$ and leaves $P(D\cap E_1\cap E_2)/P(E_1\cap E_2)$.</p>
+<p><strong>Step 2: Split the numerator using the multiplication rule.</strong></p>
+<p>$$
+P(D\cap E_2\mid E_1)
+=P(E_2\mid D\cap E_1)P(D\mid E_1).
+$$</p>
+<p><strong>Step 3: Split the denominator into the two disease-status cases.</strong></p>
+<p>$$
+\begin{aligned}
+P(E_2\mid E_1)
+={}&amp;P(E_2\mid D\cap E_1)P(D\mid E_1)\\
+ &amp;+P(E_2\mid D^c\cap E_1)P(D^c\mid E_1).
+\end{aligned}
+$$</p>
+<p><strong>Step 4: Use conditional independence.</strong> Once we know whether the disease is present, the first result adds no further information about the second result:</p>
+<p>$$
+P(E_2\mid D\cap E_1)=P(E_2\mid D),
+\qquad
+P(E_2\mid D^c\cap E_1)=P(E_2\mid D^c).
+$$</p>
+<p>Substitute these identities into the fraction:</p>
+<p>$$
+\boxed{
+P(D\mid E_1\cap E_2)
+=\frac{P(E_2\mid D)P(D\mid E_1)}
+{P(E_2\mid D)P(D\mid E_1)+P(E_2\mid D^c)P(D^c\mid E_1)}.}
+$$</p>
+<p>Replacing $D,E_1,E_2$ with their definitions gives exactly the requested formula. It is Bayes’ rule applied again, using the first posterior as the starting probability for the second update.</p>
+<p>Numerically, using the unrounded result $p_1=0.3828/0.422$,</p>
+<p>$$
+\frac{0.87p_1}{0.87p_1+0.07(1-p_1)}
+=0.991828\ldots,
+$$</p>
+<p>the same answer as processing both positives together in part (b).</p></div></div><p class="midterm-source">Source: original paper, page 5.</p></section><section class="midterm-question" id="question-6" aria-labelledby="question-6-title"><div class="midterm-question-heading"><span class="midterm-question-number">06</span><h2 id="question-6-title">Two draws without replacement</h2></div><div class="question-prompt prose"><p>An urn contains eight green marbles and twelve blue marbles. We draw sequentially two marbles from the urn without replacement. Define the events</p>
+<p>$$
+\begin{aligned}
+A&amp;=\{\text{the first marble is blue}\},\\
+B&amp;=\{\text{the second marble is blue}\},\\
+C&amp;=\{\text{both are blue}\}.
+\end{aligned}
+$$</p>
+<p>Assume that all marbles are identical except for color and equally likely to be selected at each draw. Find the following probabilities.</p>
+<h3 id="question-6-prompt-a">(a)</h3>
+<p>$P(A)$.</p>
+<h3 id="question-6-prompt-b">(b)</h3>
+<p>$P(C)$.</p>
+<h3 id="question-6-prompt-c">(c)</h3>
+<p>$P(B)$.</p>
+<h3 id="question-6-prompt-d">(d)</h3>
+<p>$P(B\cup\overline C)$.</p>
+<h3 id="question-6-prompt-e">(e)</h3>
+<p>$P(A\mid B)$.</p></div><div class="question-solution"><h3 class="solution-label" id="question-6-worked-solution">Worked solution</h3><div class="prose"><p>There are $20$ marbles initially. Because we do not replace the first marble, there are $19$ left for the second draw. Which colors remain depends on the first draw.</p>
+<h3 id="question-6-solution-a-probability-that-the-first-marble-is-blue">(a) Probability that the first marble is blue</h3>
+<p>Twelve of the twenty equally likely choices are blue, so</p>
+<p>$$
+\boxed{P(A)=\frac{12}{20}=\frac35=0.6.}
+$$</p>
+<h3 id="question-6-solution-b-probability-that-both-marbles-are-blue">(b) Probability that both marbles are blue</h3>
+<p>Both blue means the first is blue <strong>and</strong> the second is blue: $C=A\cap B$.</p>
+<p>If the first marble was blue, $11$ blue marbles remain among the $19$ remaining marbles. Hence $P(B\mid A)=11/19$. Apply the multiplication rule:</p>
+<p>$$
+\begin{aligned}
+P(C)
+&amp;=P(A\cap B)\\
+&amp;=P(A)P(B\mid A)\\
+&amp;=\frac{12}{20}\frac{11}{19}\\
+&amp;=\boxed{\frac{33}{95}\approx0.3474}.
+\end{aligned}
+$$</p>
+<p>The second factor is $11/19$, not $12/20$, because the first draw changes the urn.</p>
+<h3 id="question-6-solution-c-probability-that-the-second-marble-is-blue">(c) Probability that the second marble is blue</h3>
+<p>A blue second marble can follow either a blue first marble or a green first marble. These possibilities are disjoint and together cover every way the second marble can be blue:</p>
+<p>$$
+P(B)=P(A\cap B)+P(A^c\cap B).
+$$</p>
+<p>If the first marble was green, there are still $12$ blue marbles among $19$ remaining. Therefore</p>
+<p>$$
+\begin{aligned}
+P(B)
+&amp;=P(A)P(B\mid A)+P(A^c)P(B\mid A^c)\\
+&amp;=\frac{12}{20}\frac{11}{19}
+ +\frac8{20}\frac{12}{19}\\
+&amp;=\frac{132+96}{380}\\
+&amp;=\frac{228}{380}\\
+&amp;=\boxed{\frac35=0.6}.
+\end{aligned}
+$$</p>
+<p>The probability of a blue second marble equals the probability of a blue first marble. This does not make the draws independent: knowing the first was blue changes the second-blue probability to $11/19$.</p>
+<p>A direct counting check explains the equal marginal probabilities. Temporarily label the marbles so there are $20\times19$ equally likely ordered pairs. To make the second marble blue, choose its identity in $12$ ways, then choose the first marble from the other $19$. Thus $P(B)=12\times19/(20\times19)=12/20$.</p>
+<h3 id="question-6-solution-d-probability-of-mathplaceholder00019end">(d) Probability of $B\cup\overline C$</h3>
+<p>This event means <strong>the second marble is blue, or it is not the case that both marbles are blue</strong>. The “or” includes outcomes where both statements hold.</p>
+<p>First observe that $C\subseteq B$: if both marbles are blue, the second is certainly blue.</p>
+<p>Now consider any possible outcome:</p>
+<ul>
+<li>If both marbles are blue, it belongs to $B$.</li>
+<li>If they are not both blue, it belongs to $\overline C$.</li>
+</ul>
+<p>Every outcome is covered, so</p>
+<p>$$
+\boxed{P(B\cup\overline C)=1.}
+$$</p>
+<p>The complement gives the same conclusion:</p>
+<p>$$
+\begin{aligned}
+P(B\cup\overline C)
+&amp;=1-P\bigl((B\cup\overline C)^c\bigr)\\
+&amp;=1-P(B^c\cap C)\\
+&amp;=1-0=1.
+\end{aligned}
+$$</p>
+<p>$B^c\cap C$ is impossible: the second marble cannot be non-blue while both marbles are blue.</p>
+<h3 id="question-6-solution-e-probability-that-the-first-was-blue-given-that-the-second-is-blue">(e) Probability that the first was blue, given that the second is blue</h3>
+<p>We are now looking only at outcomes in $B$. Among those, we want the ones also in $A$. Their intersection is $C$, so</p>
+<p>$$
+\begin{aligned}
+P(A\mid B)
+&amp;=\frac{P(A\cap B)}{P(B)}\\
+&amp;=\frac{P(C)}{P(B)}\\
+&amp;=\frac{(12/20)(11/19)}{12/20}\\
+&amp;=\boxed{\frac{11}{19}\approx0.5789}.
+\end{aligned}
+$$</p>
+<p>For a counting interpretation, the $12\times19$ equally likely ordered pairs with a blue second marble form the new sample space. Among them, $12\times11$ have a blue first marble too. Dividing yields $11/19$.</p>
+<p>This is slightly below the original $P(A)=12/20$: learning that one of the blue marbles occupied the second position leaves a slightly smaller proportion of blue possibilities for the first position.</p></div></div><p class="midterm-source">Source: original paper, page 6.</p></section></div><section class="midterm-source-end" id="original-paper"><h2>Original answer key</h2><p>Compare these explanations with the preserved source.</p><a href="../../assets/source/midterms/midterm-2024-source-solutions.pdf" target="_blank" rel="noopener">Open original answer key PDF ↗</a></section><nav class="midterm-bottom" aria-label="Continue studying"><a href="../index.html">← All midterms</a><a href="questions.html">Try the questions →</a></nav><footer class="footer"><p>Original papers: STAT 5701 · Dobrin Marchev. Source material remains attributed to its author.</p><p>Explanations are an independent personal study companion, not an official course publication.</p></footer></main><aside class="page-toc" aria-label="On this page"><p class="toc-label">On this page</p><a href="#question-1"><span class="midterm-nav-number">01</span><span>A joint density on a triangular region</span></a><a href="#question-2"><span class="midterm-nav-number">02</span><span>A piecewise continuous density</span></a><a href="#question-3"><span class="midterm-nav-number">03</span><span>A joint probability mass function</span></a><a href="#question-4"><span class="midterm-nav-number">04</span><span>Probabilities from a discrete CDF</span></a><a href="#question-5"><span class="midterm-nav-number">05</span><span>Disease testing and updating probabilities</span></a><a href="#question-6"><span class="midterm-nav-number">06</span><span>Two draws without replacement</span></a><a href="#lesson">Back to the top ↑</a></aside></div></div></body></html>

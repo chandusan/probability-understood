@@ -1,0 +1,636 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Fall 2025: the full questions with step-by-step worked solutions."><title>Fall 2025 · Questions with solutions — Probability, understood</title><link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../../assets/site.css"><link rel="stylesheet" href="../../assets/midterms.css"><link rel="stylesheet" href="../../assets/vendor/katex/katex.min.css"><script defer src="../../assets/vendor/katex/katex.min.js"></script><script defer src="../../assets/vendor/katex/contrib/auto-render.min.js"></script><script defer src="../../assets/site.js"></script></head>
+<body class="midterms-page midterm-solutions"><a class="skip" href="#lesson">Skip to the questions</a>
+<aside class="sidebar" aria-label="Midterm navigation"><a class="brand" href="../../index.html"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>Probability,<br>understood.</span></a><button class="nav-close" data-close-nav aria-label="Close navigation">×</button><p class="course-label">Your study companion</p><details class="chapter-picker"><summary>Change chapter</summary><nav class="chapter-nav" aria-label="Choose a chapter"><a href="../../slides/01.html"><span>01</span> Data Summary</a><a href="../../probability-part1/01.html"><span>02</span> Probability · Part 1</a><a href="../../counting/01.html"><span>03</span> Counting</a><a href="../../probability-part2/01.html"><span>04</span> Probability · Part 2</a><a href="../../probability-part3/01.html"><span>05</span> Probability · Part 3</a><a href="../../random-variables/01.html"><span>06</span> Random Variables</a><a href="../../random-variables-part2/01.html"><span>07</span> Random Variables · Part 2</a><a href="../../random-variables-part3/01.html"><span>08</span> Random Variables · Part 3</a><a href="../../expectation/01.html"><span>09</span> Expectation</a><a href="../../special-distributions/01.html"><span>10</span> Special Distributions</a></nav></details><p class="course-title">Midterms</p><nav class="slide-nav midterm-nav" aria-label="Papers and questions"><div class="nav-group"><div class="nav-group-title">Fall 2025</div><a href="questions.html">Questions</a><a href="solutions.html" aria-current="page">Questions with solutions</a></div><div class="nav-group"><div class="nav-group-title">Jump to a question</div><a href="#question-1"><span class="midterm-nav-number">01</span><span>A joint continuous density</span></a><a href="#question-2"><span class="midterm-nav-number">02</span><span>A continuous density on an unbounded interval</span></a><a href="#question-3"><span class="midterm-nav-number">03</span><span>Events in four coin tosses</span></a><a href="#question-4"><span class="midterm-nav-number">04</span><span>Complete and use a joint probability table</span></a><a href="#question-5"><span class="midterm-nav-number">05</span><span>A discrete distribution and its summaries</span></a><a href="#question-6"><span class="midterm-nav-number">06</span><span>A noisy binary communication channel</span></a></div><div class="nav-group"><div class="nav-group-title">Other papers</div><a href="../2024/questions.html">Fall 2024</a></div></nav><div class="nav-footer"><a class="appendix-link" href="../../midterms/index.html">All midterms</a><a class="appendix-link" href="../../appendix/calculus.html">Calculus appendix</a><span>Try it yourself. Then understand every step.</span></div></aside>
+<button class="scrim" data-close-nav aria-label="Close navigation"></button><div class="site-body"><header class="topbar"><button class="menu-button" aria-expanded="false" aria-label="Open midterm navigation">☰ Menu</button><div class="breadcrumb"><span class="crumb-course"><a href="../index.html">Midterms</a> / </span><strong>Fall 2025</strong></div><div class="top-tools"><button class="plain-button print-button" data-print>Print with solutions</button></div></header><div class="reading-progress" aria-hidden="true"><i data-reading-progress></i></div>
+<div class="page-layout"><main class="lesson" id="lesson"><p class="eyebrow">Midterms · Questions with solutions</p><h1>Fall 2025</h1><p class="lead">Midterm exam</p><nav class="midterm-mode" aria-label="Choose questions or solutions"><a href="questions.html">Questions</a><a href="solutions.html" aria-current="page">Questions with solutions</a></nav><div class="paper-intro prose"><p>STAT 5701 midterm exam, Fall 2025. Six questions covering joint distributions, continuous and discrete random variables, event probabilities, and conditional probability.</p></div><p class="midterm-mode-note">Each question is followed by its complete worked solution. To practise first, open the questions page.</p><aside class="midterm-notes prose" aria-label="Reading the source paper"><h2 id="source-notes">About the source</h2><p>Show your work for all parts, as requested on the original exam.</p><p>The available source is the solutions paper. The questions-only version reproduces the questions and original table givens, with the supplied answers removed.</p></aside><div class="midterm-questions"><section class="midterm-question" id="question-1" aria-labelledby="question-1-title"><div class="midterm-question-heading"><span class="midterm-question-number">01</span><h2 id="question-1-title">A joint continuous density</h2></div><div class="question-prompt prose"><p>Let $X$ and $Y$ be two continuous random variables with a joint pdf given by</p>
+<p>$$
+f(x,y)=cx^2y(1+y),\qquad 0\le x\le3,\quad 0\le y\le3.
+$$</p>
+<p>The density is zero outside this region.</p>
+<h3 id="question-1-prompt-a-6-points">(a) · 6 points</h3>
+<p>Find the value of $c$ that makes this a valid density function.</p>
+<h3 id="question-1-prompt-b-6-points">(b) · 6 points</h3>
+<p>Find the marginal pdf $f_X(x)$.</p></div><div class="question-solution"><h3 class="solution-label" id="question-1-worked-solution">Worked solution</h3><div class="prose"><h3 id="question-1-solution-a-find-the-normalizing-constant">(a) Find the normalizing constant</h3>
+<p>A joint density describes how probability is spread across the $(x,y)$ plane. To be a valid density, it must be nonnegative, and the probability over its entire support must add up to $1$.</p>
+<p>Here the support is the square $0\le x\le3$, $0\le y\le3$. Both $x^2$ and $y(1+y)$ are nonnegative there, so choosing a positive $c$ will ensure nonnegativity. To determine its value, impose</p>
+<p>$$
+\int_0^3\int_0^3 cx^2y(1+y)\,dx\,dy=1.
+$$</p>
+<p><strong>First integrate with respect to $x$.</strong> During this inner integral, $y$ is held fixed. Therefore $cy(1+y)$ acts as a constant, and</p>
+<p>$$
+\int_0^3 cx^2y(1+y)\,dx
+=cy(1+y)\left[\frac{x^3}{3}\right]_0^3
+=9cy(1+y).
+$$</p>
+<p>This has added up the density along the entire horizontal range for each fixed $y$. Now add over all $y$:</p>
+<p>$$
+\begin{aligned}
+\int_0^3 9cy(1+y)\,dy
+&amp;=9c\int_0^3(y+y^2)\,dy\\
+&amp;=9c\left[\frac{y^2}{2}+\frac{y^3}{3}\right]_0^3\\
+&amp;=9c\left(\frac92+9\right)\\
+&amp;=9c\cdot\frac{27}{2}
+=\frac{243c}{2}.
+\end{aligned}
+$$</p>
+<p>Set this total probability equal to $1$:</p>
+<p>$$
+\frac{243c}{2}=1
+\quad\Longrightarrow\quad
+\boxed{c=\frac{2}{243}}.
+$$</p>
+<p>This value is positive, so both requirements for a density are satisfied. The density is understood to be zero outside the stated square.</p>
+<h3 id="question-1-solution-b-find-the-marginal-density-of-mathplaceholder00017end">(b) Find the marginal density of $X$</h3>
+<p>The joint density keeps track of both $X$ and $Y$. The marginal density of $X$ answers a question about $X$ alone, allowing <strong>every possible value of $Y$</strong>. That is why we integrate out $y$:</p>
+<p>$$
+f_X(x)=\int_{-\infty}^{\infty}f(x,y)\,dy.
+$$</p>
+<p>For a fixed $x$ between $0$ and $3$, only $0\le y\le3$ contributes. Here $x$ stays fixed, so $2x^2/243$ can be taken outside the integral:</p>
+<p>$$
+\begin{aligned}
+f_X(x)
+&amp;=\int_0^3\frac{2}{243}x^2y(1+y)\,dy\\
+&amp;=\frac{2x^2}{243}\int_0^3(y+y^2)\,dy\\
+&amp;=\frac{2x^2}{243}\left[\frac{y^2}{2}+\frac{y^3}{3}\right]_0^3\\
+&amp;=\frac{2x^2}{243}\cdot\frac{27}{2}
+=\frac{x^2}{9}.
+\end{aligned}
+$$</p>
+<p>Outside $[0,3]$, there are no possible pairs with that $x$ value. Thus the complete marginal pdf is</p>
+<p>$$
+\boxed{
+f_X(x)=
+\begin{cases}
+\dfrac{x^2}{9},&amp;0\le x\le3,\\[4pt]
+0,&amp;\text{otherwise}.
+\end{cases}}
+$$</p>
+<p><strong>Check the result:</strong> a marginal density must itself integrate to $1$:</p>
+<p>$$
+\int_0^3\frac{x^2}{9}\,dx
+=\left[\frac{x^3}{27}\right]_0^3=1.
+$$</p>
+<p>Remember the direction: to keep $X$, sum or integrate over $Y$. No assumption that $X$ and $Y$ are independent is needed for this marginalization rule.</p></div></div><p class="midterm-source">Source: original paper, page 1.</p></section><section class="midterm-question" id="question-2" aria-labelledby="question-2-title"><div class="midterm-question-heading"><span class="midterm-question-number">02</span><h2 id="question-2-title">A continuous density on an unbounded interval</h2></div><div class="question-prompt prose"><p>Let the probability density function of a continuous random variable $X$ be given by</p>
+<p>$$
+f(x)=\frac{c}{x^3},\qquad x\ge1.
+$$</p>
+<p>The density is zero for $x&lt;1$.</p>
+<h3 id="question-2-prompt-a-6-points">(a) · 6 points</h3>
+<p>Find $c$. (If you can't find $c$, assume $c=1$ and move on.)</p>
+<h3 id="question-2-prompt-b-6-points">(b) · 6 points</h3>
+<p>Find the cumulative distribution function $F(x)$.</p>
+<h3 id="question-2-prompt-c-5-points">(c) · 5 points</h3>
+<p>Find $P(2&lt;X&lt;3)$.</p>
+<h3 id="question-2-prompt-d-bonus-5-points">(d) · Bonus, +5 points</h3>
+<p>Does the moment generating function of $X$ exist? Explain why or why not.</p></div><div class="question-solution"><h3 class="solution-label" id="question-2-worked-solution">Worked solution</h3><div class="prose"><h3 id="question-2-solution-a-find-mathplaceholder00000end">(a) Find $c$</h3>
+<p>A density must assign a total probability of $1$. Since $X$ can only take values at least $1$, we require</p>
+<p>$$
+\int_1^\infty\frac{c}{x^3}\,dx=1.
+$$</p>
+<p>The upper endpoint is infinite, so first integrate to a finite endpoint $b$, and then let $b$ grow:</p>
+<p>$$
+\begin{aligned}
+\int_1^\infty\frac{c}{x^3}\,dx
+&amp;=\lim_{b\to\infty}c\int_1^b x^{-3}\,dx\\
+&amp;=\lim_{b\to\infty}c\left[-\frac{1}{2x^2}\right]_1^b\\
+&amp;=\lim_{b\to\infty}\frac c2\left(1-\frac1{b^2}\right)
+=\frac c2.
+\end{aligned}
+$$</p>
+<p>Therefore $c/2=1$, giving</p>
+<p>$$
+\boxed{c=2}.
+$$</p>
+<p>This also makes the density nonnegative. The fallback $c=1$ in the question is an exam instruction for continuing if stuck; the normalized model uses $c=2$ in the remaining parts.</p>
+<h3 id="question-2-solution-b-build-the-entire-cdf">(b) Build the entire CDF</h3>
+<p>The CDF $F(x)=P(X\le x)$ adds up all probability up to the cutoff $x$.</p>
+<p><strong>If $x&lt;1$</strong>, the cutoff is below every possible value of $X$, so $F(x)=0$.</p>
+<p><strong>If $x\ge1$</strong>, accumulate the density from $1$ to $x$. We use $u$ as the variable inside the integral so that $x$ remains the stopping point:</p>
+<p>$$
+\begin{aligned}
+F(x)
+&amp;=\int_1^x\frac{2}{u^3}\,du\\
+&amp;=\left[-\frac1{u^2}\right]_1^x\\
+&amp;=-\frac1{x^2}-(-1)
+=1-\frac1{x^2}.
+\end{aligned}
+$$</p>
+<p>Thus</p>
+<p>$$
+\boxed{
+F(x)=
+\begin{cases}
+0,&amp;x&lt;1,\\[3pt]
+1-\dfrac1{x^2},&amp;x\ge1.
+\end{cases}}
+$$</p>
+<p>At the lower endpoint, $F(1)=0$: a continuous density gives zero probability to the single point $X=1$. As $x$ tends to infinity, $F(x)$ tends to $1$. Also, differentiating $1-x^{-2}$ gives $2x^{-3}$, recovering the density on $x&gt;1$.</p>
+<h3 id="question-2-solution-c-find-the-probability-between-mathplaceholder00032end-and-mathplaceholder00033end">(c) Find the probability between $2$ and $3$</h3>
+<p>$F(3)$ includes all probability up to $3$. Subtracting $F(2)$ removes the probability up to $2$, leaving the interval between them. Because $X$ is continuous, including or excluding either individual endpoint does not change its probability.</p>
+<p>$$
+\begin{aligned}
+P(2&lt;X&lt;3)
+&amp;=F(3)-F(2)\\
+&amp;=\left(1-\frac19\right)-\left(1-\frac14\right)\\
+&amp;=\frac14-\frac19\\
+&amp;=\boxed{\frac5{36}}\approx0.1389.
+\end{aligned}
+$$</p>
+<p>The same answer comes directly from $\int_2^3 2x^{-3}\,dx$.</p>
+<h3 id="question-2-solution-d-does-the-mgf-exist">(d) Does the MGF exist?</h3>
+<p>A moment generating function is</p>
+<p>$$
+M_X(t)=E[e^{tX}]=\int_1^\infty e^{tx}\frac{2}{x^3}\,dx.
+$$</p>
+<p><strong>For an MGF to exist in the usual sense, this expectation must be finite for every $t$ in some open interval containing $0$.</strong> Being finite at $t=0$ alone is not enough: every probability distribution has $E[e^{0X}]=1$.</p>
+<p>Here it diverges for <strong>every positive $t$</strong>. Intuitively, the exponential weight $e^{tx}$ grows so quickly that the factor $x^{-3}$ cannot keep the weighted area finite.</p>
+<p>We can make this precise without evaluating a difficult integral. For $t&gt;0$ and $x\ge1$, the expansion</p>
+<p>$$
+e^{tx}=1+tx+\frac{(tx)^2}{2!}+\cdots
+$$</p>
+<p>has nonnegative terms. Therefore it is at least its quadratic term, $(tx)^2/2$. Consequently,</p>
+<p>$$
+\frac{2e^{tx}}{x^3}
+\ge\frac{2}{x^3}\cdot\frac{t^2x^2}{2}
+=\frac{t^2}{x}.
+$$</p>
+<p>But</p>
+<p>$$
+\int_1^b\frac{t^2}{x}\,dx=t^2\log b\longrightarrow\infty.
+$$</p>
+<p>The MGF integral is at least this divergent integral. Hence $M_X(t)=\infty$ for every $t&gt;0$, so there is no finite open interval around zero:</p>
+<p>$$
+\boxed{\text{The MGF does not exist in a neighborhood of }0.}
+$$</p>
+<p>For comparison, it is finite for $t\le0$, because $0&lt;e^{tX}\le1$. That one-sided finiteness does not meet the MGF requirement.</p>
+<p>The source solution's shorter observation, “not all moments exist,” can also be checked explicitly:</p>
+<p>$$
+E[X^2]=\int_1^\infty x^2\frac{2}{x^3}\,dx
+=2\int_1^\infty\frac1x\,dx=\infty.
+$$</p>
+<p>An MGF finite in a neighborhood of zero would imply finite moments of all orders; the infinite second moment rules that out here.</p></div></div><p class="midterm-source">Source: original paper, page 2.</p></section><section class="midterm-question" id="question-3" aria-labelledby="question-3-title"><div class="midterm-question-heading"><span class="midterm-question-number">03</span><h2 id="question-3-title">Events in four coin tosses</h2></div><div class="question-prompt prose"><p>A fair coin is tossed four times, and the resulting sequence of heads and tails is recorded. Define the following events:</p>
+<ul>
+<li>$A=\{\text{exactly two heads appear}\}$;</li>
+<li>$B=\{\text{heads and tails alternate}\}$;</li>
+<li>$C=\{\text{the last toss is tails}\}$.</li>
+</ul>
+<p>Assume tosses are independent and each toss is equally likely to be tails or heads. Find the following probabilities:</p>
+<h3 id="question-3-prompt-a-5-points">(a) · 5 points</h3>
+<p>$P(B\cap\overline C)$.</p>
+<h3 id="question-3-prompt-b-5-points">(b) · 5 points</h3>
+<p>$P(A\mid C)$.</p>
+<h3 id="question-3-prompt-c-5-points">(c) · 5 points</h3>
+<p>$P(\overline B\cup\overline C)$.</p></div><div class="question-solution"><h3 class="solution-label" id="question-3-worked-solution">Worked solution</h3><div class="prose"><p>There are two possible results on each of four tosses, so there are $2^4=16$ ordered sequences. Independence and fairness make each particular sequence have probability</p>
+<p>$$
+\left(\frac12\right)^4=\frac1{16}.
+$$</p>
+<p>This justifies using “number of favorable sequences divided by $16$” for an unconditional event. A conditional probability will use a restricted collection of sequences instead.</p>
+<h3 id="question-3-solution-a-alternate-and-do-not-finish-with-tails">(a) Alternate, and do not finish with tails</h3>
+<p>Translate the event before counting. $B\cap\overline C$ requires <strong>both</strong> alternating heads and tails <strong>and</strong> a final head, since $\overline C$ means the last toss is not tails.</p>
+<p>There are exactly two alternating sequences:</p>
+<p>$$
+B=\{HTHT,THTH\}.
+$$</p>
+<p>The first ends with tails; the second ends with heads. Therefore</p>
+<p>$$
+B\cap\overline C=\{THTH\},
+\qquad
+\boxed{P(B\cap\overline C)=\frac1{16}}.
+$$</p>
+<p>The complement bar applies to $C$ only. It does not complement the entire intersection.</p>
+<h3 id="question-3-solution-b-exactly-two-heads-given-a-final-tail">(b) Exactly two heads, given a final tail</h3>
+<p>The phrase “given $C$” tells us the last toss is already known to be tails. We restrict attention to sequences ending in $T$; the first three positions remain free, so there are $2^3=8$ equally likely sequences in this restricted collection.</p>
+<p>For the full sequence to contain exactly two heads, <strong>two of those first three positions must be heads</strong>. The possibilities are</p>
+<p>$$
+A\cap C=\{HHTT,HTHT,THHT\}.
+$$</p>
+<p>There are three favorable sequences out of the eight allowed by the condition:</p>
+<p>$$
+\boxed{P(A\mid C)=\frac38}.
+$$</p>
+<p>To see the same reasoning in the conditional probability formula,</p>
+<p>$$
+P(A\mid C)
+=\frac{P(A\cap C)}{P(C)}
+=\frac{3/16}{8/16}
+=\frac38.
+$$</p>
+<p>The denominator is $8/16$, not $1$: we are asking what fraction of the sequences <strong>that finish with tails</strong> have exactly two heads. Equivalently, choose the two head positions among the first three: $\binom32/2^3=3/8$.</p>
+<h3 id="question-3-solution-c-do-not-alternate-or-do-not-finish-with-tails">(c) Do not alternate, or do not finish with tails</h3>
+<p>The event $\overline B\cup\overline C$ includes a sequence if at least one condition holds: it does not alternate, or it ends in heads. Here “or” includes sequences satisfying both.</p>
+<p>It is easier to find what this event leaves out. A sequence is excluded only if neither condition holds: it <strong>does</strong> alternate and it <strong>does</strong> finish with tails. Thus</p>
+<p>$$
+\overline{\overline B\cup\overline C}=B\cap C,
+$$</p>
+<p>or equivalently, by De Morgan's law,</p>
+<p>$$
+\overline B\cup\overline C=\overline{B\cap C}.
+$$</p>
+<p>Among the two alternating sequences, only $HTHT$ ends with tails:</p>
+<p>$$
+B\cap C=\{HTHT\},\qquad P(B\cap C)=\frac1{16}.
+$$</p>
+<p>Remove this one excluded sequence from the full sample space:</p>
+<p>$$
+\boxed{P(\overline B\cup\overline C)
+=1-P(B\cap C)
+=1-\frac1{16}
+=\frac{15}{16}}.
+$$</p>
+<p>Notice the distinction from part (a): part (a) selected $THTH$, whereas part (c) excludes $HTHT$. Reading each complement bar carefully keeps these two events separate.</p></div></div><p class="midterm-source">Source: original paper, page 3.</p></section><section class="midterm-question" id="question-4" aria-labelledby="question-4-title"><div class="midterm-question-heading"><span class="midterm-question-number">04</span><h2 id="question-4-title">Complete and use a joint probability table</h2></div><div class="question-prompt prose"><p>Let $X$ and $Y$ be two discrete random variables whose joint and marginal distributions are partially given in the following table:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>$X\backslash Y$</th>
+<th style="text-align: right;">$1$</th>
+<th style="text-align: right;">$2$</th>
+<th style="text-align: right;">$3$</th>
+<th style="text-align: right;">$p_X(x)$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$1$</td>
+<td style="text-align: right;">$1/6$</td>
+<td style="text-align: right;">$0$</td>
+<td style="text-align: right;">—</td>
+<td style="text-align: right;">$1/3$</td>
+</tr>
+<tr>
+<td>$2$</td>
+<td style="text-align: right;">—</td>
+<td style="text-align: right;">$1/4$</td>
+<td style="text-align: right;">—</td>
+<td style="text-align: right;">$1/3$</td>
+</tr>
+<tr>
+<td>$3$</td>
+<td style="text-align: right;">—</td>
+<td style="text-align: right;">—</td>
+<td style="text-align: right;">$1/4$</td>
+<td style="text-align: right;">—</td>
+</tr>
+<tr>
+<td>$p_Y(y)$</td>
+<td style="text-align: right;">$1/6$</td>
+<td style="text-align: right;">$1/3$</td>
+<td style="text-align: right;">—</td>
+<td style="text-align: right;">—</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="question-4-prompt-a-6-points">(a) · 6 points</h3>
+<p>Complete the table.</p>
+<h3 id="question-4-prompt-b-5-points">(b) · 5 points</h3>
+<p>Find $P(X=Y)$.</p>
+<h3 id="question-4-prompt-c-5-points">(c) · 5 points</h3>
+<p>Find $E(Y)$.</p>
+<h3 id="question-4-prompt-d-5-points">(d) · 5 points</h3>
+<p>Determine the conditional pmf $p(x\mid y=2)$.</p></div><div class="question-solution"><h3 class="solution-label" id="question-4-worked-solution">Worked solution</h3><div class="prose"><p>Each interior cell contains a <strong>joint probability</strong> $p(x,y)=P(X=x,Y=y)$. A row total is $p_X(x)=P(X=x)$, obtained by adding across all $Y$ values. A column total is $p_Y(y)=P(Y=y)$, obtained by adding across all $X$ values.</p>
+<h3 id="question-4-solution-a-fill-the-table-using-its-totals">(a) Fill the table using its totals</h3>
+<p><strong>Start with row $X=1$.</strong> Its entries must add to $1/3$:</p>
+<p>$$
+\frac16+0+p(1,3)=\frac13
+\quad\Longrightarrow\quad
+p(1,3)=\frac16.
+$$</p>
+<p><strong>Now use column $Y=1$.</strong> Its total is already exhausted by the $1/6$ in the first row:</p>
+<p>$$
+\frac16+p(2,1)+p(3,1)=\frac16.
+$$</p>
+<p>Therefore $p(2,1)+p(3,1)=0$. Each is a probability and must be nonnegative, so neither can be positive:</p>
+<p>$$
+p(2,1)=p(3,1)=0.
+$$</p>
+<p><strong>Use row $X=2$</strong> to find its last missing entry:</p>
+<p>$$
+0+\frac14+p(2,3)=\frac13
+\quad\Longrightarrow\quad
+p(2,3)=\frac13-\frac14=\frac1{12}.
+$$</p>
+<p><strong>Use column $Y=2$</strong> for the remaining interior entry:</p>
+<p>$$
+0+\frac14+p(3,2)=\frac13
+\quad\Longrightarrow\quad
+p(3,2)=\frac1{12}.
+$$</p>
+<p>All interior cells are now known. Add the last row and last column to find their marginal probabilities:</p>
+<p>$$
+p_X(3)=0+\frac1{12}+\frac14=\frac13,
+$$</p>
+<p>$$
+p_Y(3)=\frac16+\frac1{12}+\frac14
+=\frac2{12}+\frac1{12}+\frac3{12}
+=\frac12.
+$$</p>
+<p>The completed table is</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>$X\backslash Y$</th>
+<th style="text-align: right;">$1$</th>
+<th style="text-align: right;">$2$</th>
+<th style="text-align: right;">$3$</th>
+<th style="text-align: right;">$p_X(x)$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$1$</td>
+<td style="text-align: right;">$1/6$</td>
+<td style="text-align: right;">$0$</td>
+<td style="text-align: right;">$1/6$</td>
+<td style="text-align: right;">$1/3$</td>
+</tr>
+<tr>
+<td>$2$</td>
+<td style="text-align: right;">$0$</td>
+<td style="text-align: right;">$1/4$</td>
+<td style="text-align: right;">$1/12$</td>
+<td style="text-align: right;">$1/3$</td>
+</tr>
+<tr>
+<td>$3$</td>
+<td style="text-align: right;">$0$</td>
+<td style="text-align: right;">$1/12$</td>
+<td style="text-align: right;">$1/4$</td>
+<td style="text-align: right;">$1/3$</td>
+</tr>
+<tr>
+<td>$p_Y(y)$</td>
+<td style="text-align: right;">$1/6$</td>
+<td style="text-align: right;">$1/3$</td>
+<td style="text-align: right;">$1/2$</td>
+<td style="text-align: right;">$1$</td>
+</tr>
+</tbody>
+</table></div>
+<p>The bottom-right $1$ records the total probability. Both the row totals and the column totals sum to $1$, and every cell is nonnegative.</p>
+<h3 id="question-4-solution-b-find-mathplaceholder00046end">(b) Find $P(X=Y)$</h3>
+<p>$X=Y$ happens at the three diagonal cells: $(1,1)$, $(2,2)$, and $(3,3)$. These outcomes cannot happen simultaneously, so add their probabilities:</p>
+<p>$$
+\begin{aligned}
+P(X=Y)
+&amp;=p(1,1)+p(2,2)+p(3,3)\\
+&amp;=\frac16+\frac14+\frac14\\
+&amp;=\boxed{\frac23}.
+\end{aligned}
+$$</p>
+<p>Use the joint cells directly. Multiplying row and column totals would require independence, which has not been given.</p>
+<h3 id="question-4-solution-c-find-the-expected-value-of-mathplaceholder00052end">(c) Find the expected value of $Y$</h3>
+<p>Expectation is a probability-weighted average of the possible values of $Y$. Since we only care about $Y$, use its marginal distribution along the bottom of the table:</p>
+<p>$$
+P(Y=1)=\frac16,\qquad P(Y=2)=\frac13,\qquad P(Y=3)=\frac12.
+$$</p>
+<p>Multiply each value by its probability and add:</p>
+<p>$$
+\begin{aligned}
+E[Y]
+&amp;=1\cdot\frac16+2\cdot\frac13+3\cdot\frac12\\
+&amp;=\frac16+\frac46+\frac96\\
+&amp;=\boxed{\frac73}\approx2.333.
+\end{aligned}
+$$</p>
+<p>This is above $2$ because higher $Y$ values receive more probability: $Y=3$ is three times as likely as $Y=1$.</p>
+<h3 id="question-4-solution-d-find-the-distribution-of-mathplaceholder00061end-given-mathplaceholder00062end">(d) Find the distribution of $X$ given $Y=2$</h3>
+<p>Once we are told $Y=2$, only the <strong>middle column</strong> remains possible. That column originally contains total probability $1/3$. Divide each entry by $1/3$ so that the retained column becomes a full probability distribution:</p>
+<p>$$
+P(X=x\mid Y=2)=\frac{P(X=x,Y=2)}{P(Y=2)}
+=\frac{p(x,2)}{1/3}.
+$$</p>
+<p>For the three possible $x$ values,</p>
+<p>$$
+P(X=1\mid Y=2)=\frac0{1/3}=0,
+$$</p>
+<p>$$
+P(X=2\mid Y=2)=\frac{1/4}{1/3}=\frac34,
+$$</p>
+<p>$$
+P(X=3\mid Y=2)=\frac{1/12}{1/3}=\frac14.
+$$</p>
+<p>Thus</p>
+<p>$$
+\boxed{
+p_{X\mid Y}(x\mid2)=
+\begin{cases}
+3/4,&amp;x=2,\\
+1/4,&amp;x=3,\\
+0,&amp;\text{otherwise}.
+\end{cases}}
+$$</p>
+<p>The conditional probabilities sum to $1$. The denominator is the column total $P(Y=2)$ because the condition restricts $Y$; it is not the row total associated with whichever $x$ we are considering.</p></div></div><p class="midterm-source">Source: original paper, page 4.</p></section><section class="midterm-question" id="question-5" aria-labelledby="question-5-title"><div class="midterm-question-heading"><span class="midterm-question-number">05</span><h2 id="question-5-title">A discrete distribution and its summaries</h2></div><div class="question-prompt prose"><p>A discrete random variable $X$ has the following probability distribution:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>$x$</th>
+<th style="text-align: right;">$1$</th>
+<th style="text-align: right;">$2$</th>
+<th style="text-align: right;">$3$</th>
+<th style="text-align: right;">$4$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$p(x)$</td>
+<td style="text-align: right;">$0.5$</td>
+<td style="text-align: right;">$0.2$</td>
+<td style="text-align: right;">$0.1$</td>
+<td style="text-align: right;">$0.2$</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="question-5-prompt-a-6-points">(a) · 6 points</h3>
+<p>Find the cumulative distribution function $F(x)$.</p>
+<h3 id="question-5-prompt-b-6-points">(b) · 6 points</h3>
+<p>Find $\operatorname{Var}(X)$.</p>
+<h3 id="question-5-prompt-c-5-points">(c) · 5 points</h3>
+<p>Find the mgf $m_X(t)$.</p></div><div class="question-solution"><h3 class="solution-label" id="question-5-worked-solution">Worked solution</h3><div class="prose"><h3 id="question-5-solution-a-accumulate-probability-to-obtain-the-cdf">(a) Accumulate probability to obtain the CDF</h3>
+<p>The CDF is $F(x)=P(X\le x)$. Think of moving a cutoff $x$ from left to right and including the probability at each possible value as soon as the cutoff reaches it.</p>
+<ul>
+<li><strong>For $x&lt;1$:</strong> no possible value has been included, so $F(x)=0$.</li>
+<li><strong>For $1\le x&lt;2$:</strong> only $X=1$ is included, so $F(x)=0.5$.</li>
+<li><strong>For $2\le x&lt;3$:</strong> include $X=1$ and $X=2$, giving $F(x)=0.5+0.2=0.7$.</li>
+<li><strong>For $3\le x&lt;4$:</strong> also include $X=3$, giving $F(x)=0.5+0.2+0.1=0.8$.</li>
+<li><strong>For $x\ge4$:</strong> include all four possible values, so $F(x)=1$.</li>
+</ul>
+<p>Therefore</p>
+<p>$$
+\boxed{
+F(x)=
+\begin{cases}
+0,&amp;x&lt;1,\\
+0.5,&amp;1\le x&lt;2,\\
+0.7,&amp;2\le x&lt;3,\\
+0.8,&amp;3\le x&lt;4,\\
+1,&amp;x\ge4.
+\end{cases}}
+$$</p>
+<p>Pay attention to the endpoints. Because the definition uses $X\le x$, the new probability is included <strong>at</strong> each possible value. For example, $F(2)=0.7$, while the value just before $2$ is $F(2^-)=0.5$. The jump $0.7-0.5=0.2$ is exactly $P(X=2)$. Between possible values, the CDF stays constant because there is no additional probability to collect.</p>
+<h3 id="question-5-solution-b-calculate-the-variance">(b) Calculate the variance</h3>
+<p>Variance measures the probability-weighted squared distance from the mean:</p>
+<p>$$
+\operatorname{Var}(X)=E[(X-\mu)^2],\qquad \mu=E[X].
+$$</p>
+<p>An equivalent formula that is convenient for a probability table is</p>
+<p>$$
+\operatorname{Var}(X)=E[X^2]-(E[X])^2.
+$$</p>
+<p><strong>First find the mean.</strong> Multiply each possible value by its probability:</p>
+<p>$$
+\begin{aligned}
+E[X]
+&amp;=1(0.5)+2(0.2)+3(0.1)+4(0.2)\\
+&amp;=0.5+0.4+0.3+0.8\\
+&amp;=2.
+\end{aligned}
+$$</p>
+<p><strong>Then find the mean of the squared values.</strong> Square the values of $X$, while keeping the same probabilities:</p>
+<p>$$
+\begin{aligned}
+E[X^2]
+&amp;=1^2(0.5)+2^2(0.2)+3^2(0.1)+4^2(0.2)\\
+&amp;=0.5+0.8+0.9+3.2\\
+&amp;=5.4.
+\end{aligned}
+$$</p>
+<p>Subtract the square of the mean:</p>
+<p>$$
+\boxed{\operatorname{Var}(X)=5.4-2^2=1.4}.
+$$</p>
+<p>$E[X^2]$ and $(E[X])^2$ are different operations. The first squares each outcome before averaging; the second averages first and then squares the resulting mean.</p>
+<p>As a direct check, use squared distances from $\mu=2$:</p>
+<p>$$
+\begin{aligned}
+E[(X-2)^2]
+&amp;=(1-2)^2(0.5)+(2-2)^2(0.2)\\
+&amp;\quad +(3-2)^2(0.1)+(4-2)^2(0.2)\\
+&amp;=0.5+0+0.1+0.8=1.4.
+\end{aligned}
+$$</p>
+<h3 id="question-5-solution-c-form-the-moment-generating-function">(c) Form the moment generating function</h3>
+<p>The MGF is the expectation of $e^{tX}$. Here $t$ is a real input to the function; for a chosen $t$, transform each possible value $x$ into $e^{tx}$ and take its weighted average:</p>
+<p>$$
+m_X(t)=E[e^{tX}]=\sum_x e^{tx}P(X=x).
+$$</p>
+<p>For this table,</p>
+<p>$$
+\boxed{m_X(t)=0.5e^t+0.2e^{2t}+0.1e^{3t}+0.2e^{4t}}.
+$$</p>
+<p>This finite sum is finite for every real $t$, so the MGF exists everywhere on the real line. At $t=0$, each exponential becomes $1$, giving $m_X(0)=0.5+0.2+0.1+0.2=1$, as required.</p>
+<p>Its connection to part (b) explains the name “moment generating.” Differentiating brings down the factors $x$, and setting $t=0$ removes the exponentials:</p>
+<p>$$
+m_X'(0)=0.5+0.4+0.3+0.8=2=E[X],
+$$</p>
+<p>$$
+m_X''(0)=0.5+0.8+0.9+3.2=5.4=E[X^2].
+$$</p>
+<p>The derivatives recover the same first and second moments used to calculate the variance.</p></div></div><p class="midterm-source">Source: original paper, page 5.</p></section><section class="midterm-question" id="question-6" aria-labelledby="question-6-title"><div class="midterm-question-heading"><span class="midterm-question-number">06</span><h2 id="question-6-title">A noisy binary communication channel</h2></div><div class="question-prompt prose"><p>A message is transmitted as a binary code of $0$s and $1$s. Experience with the equipment being used suggests that if a $0$ is sent, it will be received as $0$ $94\%$ of the time. If a $1$ is sent, it will be received as a $1$ $95\%$ of the time (and as a $0$ $5\%$ of the time). The text being sent is known to be $7\%$ $1$s and $93\%$ $0$s.</p>
+<h3 id="question-6-prompt-a-6-points">(a) · 6 points</h3>
+<p>What is the probability that the received message is $1$?</p>
+<h3 id="question-6-prompt-b-6-points">(b) · 6 points</h3>
+<p>Suppose the next signal sent is received as a $1$. What is the probability it was sent as a $0$?</p>
+<h3 id="question-6-prompt-c-6-points">(c) · 6 points</h3>
+<p>If the same message is sent twice, and assuming the received messages are conditionally independent, what is the probability that it is received as two $1$s?</p></div><div class="question-solution"><h3 class="solution-label" id="question-6-worked-solution">Worked solution</h3><div class="prose"><p>Let $S$ denote the bit sent and $R$ the bit received. The question gives two kinds of information: how often each bit is sent, and what the channel does <strong>given</strong> that bit.</p>
+<p>$$
+P(S=0)=0.93,\qquad P(S=1)=0.07.
+$$</p>
+<p>If a $0$ is sent, the receiver must report either $0$ or $1$. Therefore</p>
+<p>$$
+P(R=1\mid S=0)=1-0.94=0.06.
+$$</p>
+<p>If a $1$ is sent, the chance of receiving a $1$ is already given:</p>
+<p>$$
+P(R=1\mid S=1)=0.95.
+$$</p>
+<h3 id="question-6-solution-a-find-the-chance-of-receiving-a-mathplaceholder00010end">(a) Find the chance of receiving a $1$</h3>
+<p>A received $1$ has two possible sources:</p>
+<ol>
+<li>A $0$ was sent, and the channel changed it to a $1$.</li>
+<li>A $1$ was sent, and the channel preserved it.</li>
+</ol>
+<p>These cases are disjoint and cover every way to receive a $1$. Within each case, use the multiplication rule to combine the chance of sending the bit with the conditional chance of receiving a $1$:</p>
+<p>$$
+P(S=0,R=1)=P(S=0)P(R=1\mid S=0)
+=0.93(0.06)=0.0558,
+$$</p>
+<p>$$
+P(S=1,R=1)=P(S=1)P(R=1\mid S=1)
+=0.07(0.95)=0.0665.
+$$</p>
+<p>Now add the two routes:</p>
+<p>$$
+\boxed{P(R=1)=0.0558+0.0665=0.1223}.
+$$</p>
+<p>So $12.23\%$ of received bits are $1$s. Notice that $0.95$ alone is not the answer: it applies only after we know a $1$ was sent, whereas this part asks about an arbitrary transmitted bit.</p>
+<h3 id="question-6-solution-b-given-a-received-mathplaceholder00024end-how-likely-was-the-original-bit-mathplaceholder00025end">(b) Given a received $1$, how likely was the original bit $0$?</h3>
+<p>Now we restrict attention to received $1$s and ask what fraction came from sent $0$s. By conditional probability,</p>
+<p>$$
+P(S=0\mid R=1)
+=\frac{P(S=0,R=1)}{P(R=1)}.
+$$</p>
+<p>Both quantities were calculated in part (a), so</p>
+<p>$$
+\boxed{
+P(S=0\mid R=1)
+=\frac{0.0558}{0.1223}
+\approx0.4563
+}.
+$$</p>
+<p>The probability is about $45.63\%$.</p>
+<p>A frequency picture makes the denominator concrete. Out of $10{,}000$ transmitted bits, the model predicts, on average:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Original bit</th>
+<th style="text-align: right;">Number sent</th>
+<th style="text-align: right;">Number received as $1$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$0$</td>
+<td style="text-align: right;">$9{,}300$</td>
+<td style="text-align: right;">$9{,}300(0.06)=558$</td>
+</tr>
+<tr>
+<td>$1$</td>
+<td style="text-align: right;">$700$</td>
+<td style="text-align: right;">$700(0.95)=665$</td>
+</tr>
+<tr>
+<td>Total</td>
+<td style="text-align: right;">$10{,}000$</td>
+<td style="text-align: right;">$1{,}223$</td>
+</tr>
+</tbody>
+</table></div>
+<p>Among the $1{,}223$ received $1$s, $558$ originated as $0$s: $558/1{,}223\approx0.4563$. These are model-based average counts, not a claim that every batch has exactly these numbers.</p>
+<p>This is why a $6\%$ error rate for sent $0$s can produce a much larger fraction of errors among received $1$s: there are far more sent $0$s to begin with. $P(R=1\mid S=0)$ and $P(S=0\mid R=1)$ use different denominators.</p>
+<h3 id="question-6-solution-c-send-the-same-bit-twice">(c) Send the same bit twice</h3>
+<p>Use $R^{(1)}$ and $R^{(2)}$ for the first and second received results. Both transmissions share <strong>one original bit $S$</strong>. The given conditional independence means that <strong>once the original bit is fixed</strong>, the two channel outcomes can be multiplied:</p>
+<p>$$
+P(R^{(1)}=1,R^{(2)}=1\mid S=s)
+=P(R^{(1)}=1\mid S=s)P(R^{(2)}=1\mid S=s).
+$$</p>
+<p>Condition on the original bit before doing that multiplication.</p>
+<p><strong>If the shared original bit is $1$</strong>, each reception is a $1$ with probability $0.95$. Thus</p>
+<p>$$
+P(R^{(1)}=1,R^{(2)}=1\mid S=1)=0.95^2=0.9025.
+$$</p>
+<p><strong>If the shared original bit is $0$</strong>, each reception is a $1$ with probability $0.06$. Both transmissions must be changed by the channel:</p>
+<p>$$
+P(R^{(1)}=1,R^{(2)}=1\mid S=0)=0.06^2=0.0036.
+$$</p>
+<p>Finally, weight these conditional probabilities by how likely their original bits are and add:</p>
+<p>$$
+\begin{aligned}
+P(R^{(1)}=1,R^{(2)}=1)
+&amp;=P(S=1)(0.95)^2+P(S=0)(0.06)^2\\
+&amp;=0.07(0.9025)+0.93(0.0036)\\
+&amp;=0.063175+0.003348\\
+&amp;=\boxed{0.066523}.
+\end{aligned}
+$$</p>
+<p>The probability is $6.6523\%$.</p>
+<p><strong>Why not square $0.1223$ from part (a)?</strong> That would multiply two unconditional receiving probabilities as though the receptions were independent without knowing $S$. They are not: both depend on the same original bit. A first received $1$ gives information about that shared bit and therefore changes our assessment of the second reception. Independence was supplied only <strong>conditional on $S$</strong>, so the correct order is: fix $S$, multiply the two reception probabilities, then average over $S$.</p></div></div><p class="midterm-source">Source: original paper, page 6.</p></section></div><section class="midterm-source-end" id="original-paper"><h2>Original answer key</h2><p>Compare these explanations with the preserved source.</p><a href="../../assets/source/midterms/midterm-2025-source-solutions.pdf" target="_blank" rel="noopener">Open original answer key PDF ↗</a></section><nav class="midterm-bottom" aria-label="Continue studying"><a href="../index.html">← All midterms</a><a href="questions.html">Try the questions →</a></nav><footer class="footer"><p>Original papers: STAT 5701 · Dobrin Marchev. Source material remains attributed to its author.</p><p>Explanations are an independent personal study companion, not an official course publication.</p></footer></main><aside class="page-toc" aria-label="On this page"><p class="toc-label">On this page</p><a href="#question-1"><span class="midterm-nav-number">01</span><span>A joint continuous density</span></a><a href="#question-2"><span class="midterm-nav-number">02</span><span>A continuous density on an unbounded interval</span></a><a href="#question-3"><span class="midterm-nav-number">03</span><span>Events in four coin tosses</span></a><a href="#question-4"><span class="midterm-nav-number">04</span><span>Complete and use a joint probability table</span></a><a href="#question-5"><span class="midterm-nav-number">05</span><span>A discrete distribution and its summaries</span></a><a href="#question-6"><span class="midterm-nav-number">06</span><span>A noisy binary communication channel</span></a><a href="#lesson">Back to the top ↑</a></aside></div></div></body></html>

@@ -24,6 +24,8 @@ A slide-by-slide teaching companion to **01 Data Summary**, **02 Probability · 
 
 **[Open the calculus appendix](https://chandusan.github.io/probability-understood/appendix/calculus.html)** — a short, self-contained reference for differentiation, integration, and the CDF–density connection, with optional product and chain rule examples. The appendix has no outgoing links to slides. It is linked from every lesson and directly from the relevant Random Variables slides.
 
+**[Open Midterms](https://chandusan.github.io/probability-understood/midterms/index.html)** — the Fall 2024 and Fall 2025 papers, each with separate questions and questions-with-solutions pages.
+
 The chapter selector switches between the ten companions. The previous six-lesson site is preserved in Git at `archive/before-slide-rebuild-2026-10-03`.
 
 ## What is included
@@ -38,6 +40,7 @@ The chapter selector switches between the ten companions. The previous six-lesso
 - 5 Random Variables experiments: dependent ad clicks, first-trigger stopping strings, linked outcome/PMF/CDF views for three distributions, distance geometry with its CDF and density, and a mixed distribution with a point mass at zero.
 - 4 Random Variables Part 2 experiments: exact image-audit counts, joint/marginal/conditional dice distributions, engagement-specific churn rates, and posterior tier predictions.
 - 3 new experiments for lessons 08–10: joint-density slices and conditioning, weighted means and variance, and a comparison of binomial, Poisson, geometric, and hypergeometric distributions.
+- Two past midterm papers: 12 questions across Fall 2024 and Fall 2025, with separate practice pages and fully worked solutions.
 - Expandable proofs and worked understanding checks.
 - Slide search, previous/next navigation, a local section outline, and browser-local study progress tracked separately for each chapter.
 - Local math rendering and chart dependencies. Reading and experiments do not require an account or an external service.
@@ -63,6 +66,8 @@ python3 -m venv .venv
 Edit Data Summary explanations in `content/slides/01.md` through `31.md`, Probability Part 1 in `content/probability-part1/01.md` through `43.md`, Counting in `content/counting/01.md` through `53.md`, Probability Part 2 in `content/probability-part2/01.md` through `36.md`, Probability Part 3 in `content/probability-part3/01.md` through `44.md`, Random Variables in `content/random-variables/01.md` through `36.md`, and Random Variables Part 2 in `content/random-variables-part2/01.md` through `36.md`. The new chapters are in `content/random-variables-part3/01.md` through `49.md`, `content/expectation/01.md` through `49.md`, and `content/special-distributions/01.md` through `61.md`. Each file starts with a title and an introductory paragraph. Standard Markdown, TeX math, tables, and `<details markdown="1">` sections are supported.
 
 Edit the calculus reference in `content/appendix/calculus.md`; it builds to `docs/appendix/calculus.html` and is separate from slide counts and completion progress.
+
+Edit midterm question and solution content in `content/midterms/2024.json` and `content/midterms/2025.json`. The `midterms.py` renderer uses the same question field in both modes, then adds worked explanations only on the solutions page. It builds the hub at `docs/midterms/index.html`, with `questions.html` and `solutions.html` under each year. The questions page contains no hidden solutions or source answer-key links. Both modes support printing and local math rendering, and all question and solution headings have unique anchors. Midterms are separate from the 438-slide count and browser-local slide progress. The main build validates paper metadata and source PDFs before replacing `docs/`.
 
 The page layout and slide navigation are assembled in `build.py`; the reading interface is in `src/site.css` and `src/site.js`. Experiments are authored in `src/labs/`, with shared styles and local state/height handling in `src/lab.css` and `src/lab-frame.js`. The Part 2 experiments also share `src/rules-math.js`, `src/rules-labs.js`, and `src/rules-labs.css`. Run their exact-count and probability checks with `node scripts/check_probability_part2.cjs`. Part 3 uses `src/cond-math.js`, `src/cond-labs.js`, and `src/cond-labs.css`; validate its finite outcome counts, Bayes calculations, and independent absorbing-chain solution with `node scripts/check_probability_part3.cjs`. Random Variables uses `src/rv-math.js`, `src/rv-labs.js`, and `src/rv-labs.css`; run `node scripts/check_random_variables.cjs` for exhaustive path counts, CDF endpoint checks, and independent numerical area/derivative checks. Random Variables Part 2 uses `src/joint-math.js`, `src/joint-labs.js`, and `src/joint-labs.css`; run `node scripts/check_random_variables_part2.cjs` for independent finite-outcome enumeration, exact table counts, and conditional-distribution checks.
 
@@ -93,5 +98,14 @@ Random Variables covers all 36 source slides, with complete dependent-click and 
 Random Variables Part 2 covers all 36 source slides: density and mixed-CDF exercises, the complete polynomial-CDF solution, joint hypergeometric and multinomial counting, exact dice tables and event sums, marginalization, conditional-binomial derivations, relative-risk comparisons, and normalization and prediction in the nine-cell tier model. It explains which mixed-CDF jumps to include, requires n > −1 for the power density, distinguishes an overall churn baseline from a disjoint comparison group, and completes the source’s unanswered tier-prediction question with the most probable category and the conditional-mean alternative. Original slides and PDF are preserved unchanged.
 
 Lessons 08–10 add 159 source-aligned explanations: double integrals and their geometry, continuous joint and conditional distributions, the multivariate normal, expectation and moments, variance, moment-generating functions, and the main discrete distributions. Worked problems show the event or quantity before the calculation, state the required assumptions, and explain corrections beside the unchanged original slides. The new explorers share `src/multi-math.js`, `src/multi-labs.js`, and `src/multi-labs.css`; run their independent enumeration and numerical checks with `node scripts/check_lessons_08_10.cjs`.
+
+## Midterm sources
+
+The supplied `Midterm` folder contains two exam years. The source files are preserved under `assets/source/midterms/`:
+
+- **Fall 2024:** [original questions](https://drive.google.com/file/d/1MpULV1JulTh_vqa_7cNefaCCZsHDizGZ/view), saved as `midterm-2024-questions.pdf`; [original solutions](https://drive.google.com/file/d/1u_5OXZ398iQJxbejUvIiKWbjP9P4eKkq/view), saved as `midterm-2024-source-solutions.pdf`.
+- **Fall 2025:** [original solutions paper](https://drive.google.com/file/d/1MBGWcb-6UASCbFPmqa6G3SCvpitEIJyt/view), saved as `midterm-2025-source-solutions.pdf`. Its questions are transcribed into a separate practice page because the supplied PDF also contains answers.
+
+Each paper has six questions. All parts are included, including the Fall 2025 bonus. The solutions repeat the full question before explaining the model, calculation, and reasoning. Where a source answer needs qualification or correction, the explanation makes this explicit. Original papers remain unchanged and attributed to Dobrin Marchev, STAT 5701. The Midterms link appears in every lesson's navigation; the standalone calculus appendix keeps its existing navigation.
 
 Vendored dependencies: KaTeX 0.16.22 (MIT) and D3 7.9.0 (ISC). Their licenses are included under `assets/vendor/`. The build dependency is Python-Markdown 3.8.2.
