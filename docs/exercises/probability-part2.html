@@ -1,0 +1,714 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Exercises from the lesson PDFs, with complete questions and clearly explained solutions you can reveal when ready."><title>Lesson 04 exercises — Probability, understood</title><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/site.css"><link rel="stylesheet" href="../assets/exercises.css"><link rel="stylesheet" href="../assets/vendor/katex/katex.min.css"><script defer src="../assets/vendor/katex/katex.min.js"></script><script defer src="../assets/vendor/katex/contrib/auto-render.min.js"></script><script defer src="../assets/site.js"></script></head>
+<body class="exercises-page"><a class="skip" href="#lesson">Skip to the exercises</a><aside class="sidebar" aria-label="Exercise navigation"><a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>Probability,<br>understood.</span></a><button class="nav-close" data-close-nav aria-label="Close navigation">×</button><p class="course-label">Your study companion</p><details class="chapter-picker"><summary>Change chapter</summary><nav class="chapter-nav" aria-label="Choose a chapter"><a href="../slides/01.html"><span>01</span> Data Summary</a><a href="../probability-part1/01.html"><span>02</span> Probability · Part 1</a><a href="../counting/01.html"><span>03</span> Counting</a><a href="../probability-part2/01.html" aria-current="true"><span>04</span> Probability · Part 2</a><a href="../probability-part3/01.html"><span>05</span> Probability · Part 3</a><a href="../random-variables/01.html"><span>06</span> Random Variables</a><a href="../random-variables-part2/01.html"><span>07</span> Random Variables · Part 2</a><a href="../random-variables-part3/01.html"><span>08</span> Random Variables · Part 3</a><a href="../expectation/01.html"><span>09</span> Expectation</a><a href="../special-distributions/01.html"><span>10</span> Special Distributions</a></nav></details><p class="course-title">Lesson exercises</p><nav class="slide-nav exercise-nav" aria-label="Exercises by lesson"><a href="data-summary.html"><span>01</span><span>Data Summary<small>5 exercises</small></span></a><a href="probability-part1.html"><span>02</span><span>Probability · Part 1<small>8 exercises</small></span></a><a href="counting.html"><span>03</span><span>Counting<small>6 exercises</small></span></a><a href="probability-part2.html" aria-current="page"><span>04</span><span>Probability · Part 2<small>7 exercises</small></span></a><a href="probability-part3.html"><span>05</span><span>Probability · Part 3<small>4 exercises</small></span></a><a href="random-variables.html"><span>06</span><span>Random Variables<small>3 exercises</small></span></a><a href="random-variables-part2.html"><span>07</span><span>Random Variables · Part 2<small>1 exercise</small></span></a><a href="random-variables-part3.html"><span>08</span><span>Random Variables · Part 3<small>3 exercises</small></span></a><a href="expectation.html"><span>09</span><span>Expectation<small>4 exercises</small></span></a><a href="special-distributions.html"><span>10</span><span>Special Distributions<small>5 exercises</small></span></a></nav><div class="nav-footer"><a class="appendix-link" href="index.html">All lesson exercises</a><a class="appendix-link" href="../midterms/index.html">Midterms · questions &amp; solutions</a><a class="appendix-link" href="../appendix/calculus.html">Calculus appendix</a><span>Try the question. Reveal the reasoning.</span></div></aside><button class="scrim" data-close-nav aria-label="Close navigation"></button><div class="site-body"><header class="topbar"><button class="menu-button" aria-expanded="false" aria-label="Open exercise navigation">☰ Menu</button><div class="breadcrumb"><strong>Lesson 04 exercises</strong></div><div class="top-tools"><button class="plain-button print-button" data-print>Print questions</button><button class="plain-button print-button" data-print-solutions>Print with solutions</button></div></header><div class="reading-progress" aria-hidden="true"><i data-reading-progress></i></div><div class="page-layout"><main class="lesson" id="lesson"><p class="eyebrow">Practice · Lesson 04</p><h1>Probability · Part 2</h1><p class="lead">Exercises</p><p class="exercise-intro">Work through the questions independently. Each solution starts closed; open it when you are ready for the reasoning and calculations.</p><div class="lesson-meta"><span>7 exercises</span><span class="meta-sep">/</span><a href="../probability-part2/01.html">Read the lesson</a><span class="meta-sep">/</span><a href="index.html">All lesson exercises</a></div><div class="exercise-list"><h2 class="sr-only">Questions and solutions</h2><section class="exercise-card" id="exercise-slide-07" aria-labelledby="exercise-slide-07-title">
+<p class="exercise-meta">Exercise 01 <span aria-hidden="true">/</span> Slide 7</p>
+<h3 id="exercise-slide-07-title">Six robberies in six districts</h3><div class="prose exercise-question"><p>A city has 6 districts and experiences 6 robberies in a particular week. Treat the robberies as distinguishable, and assume each independently occurs in any of the six districts with probability $1/6$. Thus every assignment specifying where each robbery occurred is equally likely.</p>
+<p>What is the probability that <strong>some district has more than one robbery</strong>?</p></div>
+<details class="exercise-solution" data-exercise-solution><summary><span class="solution-closed-label">Show solution</span><span class="solution-open-label">Hide solution</span><span class="sr-only">: Six robberies in six districts</span></summary>
+<div class="prose exercise-solution-body"><p>An outcome is an ordered list of six district labels, one label for each robbery. Each robbery has six choices, so there are $6^6$ equally likely assignments.</p>
+<p>Let E mean that some district has more than one robbery. Its complement is easier to count: <strong>no district has more than one robbery</strong>.</p>
+<p>Because there are six robberies and exactly six districts, avoiding every repeat forces exactly one robbery into each district. The first robbery has 6 possible districts, the second has 5 unused districts, then 4, 3, 2, and 1. Hence there are</p>
+<p>$$
+6!=6\cdot5\cdot4\cdot3\cdot2\cdot1=720
+$$</p>
+<p>assignments with no repeated district.</p>
+<p>Therefore,</p>
+<p>$$
+P(E^c)=\frac{6!}{6^6}=\frac{720}{46656}=\frac5{324},
+$$</p>
+<p>and</p>
+<p>$$
+\boxed{P(E)=1-\frac5{324}=\frac{319}{324}\approx0.984568.}
+$$</p>
+<p>The complement collects all the complicated ways to have a repeat into one subtraction. We do not need to separately count two robberies together, three together, two different repeated districts, and so on.</p>
+<p>The counts of robberies per district are not equally likely patterns. The pattern with one in every district corresponds to $6!$ assignments of the six distinguishable robberies, whereas the pattern with all six in District 1 corresponds to only one.</p></div><p class="exercise-source">Return to the explanation: <a href="../probability-part2/07.html">Slide 7</a>. <a href="../assets/source/04-probability-part2.pdf#page=7" target="_blank" rel="noopener">Original PDF ↗</a></p></details></section><section class="exercise-card" id="exercise-slide-31" aria-labelledby="exercise-slide-31-title">
+<p class="exercise-meta">Exercise 02 <span aria-hidden="true">/</span> Slide 31</p>
+<h3 id="exercise-slide-31-title">At least one six: find an alternative method</h3><div class="prose exercise-question"><p>Three independent fair six-sided dice are rolled. Find the probability that at least one die shows a six.</p>
+<p>The slide demonstrates inclusion–exclusion and asks for an alternative solution. Find such a method and explain why it works.</p></div>
+<details class="exercise-solution" data-exercise-solution><summary><span class="solution-closed-label">Show solution</span><span class="solution-open-label">Hide solution</span><span class="sr-only">: At least one six: find an alternative method</span></summary>
+<div class="prose exercise-solution-body"><p>“At least one six” and “no sixes” are complementary events: exactly one of them must occur.</p>
+<p>On each die there are five non-six faces out of six. Independence gives</p>
+<p>$$
+P(\text{no sixes})=\frac56\cdot\frac56\cdot\frac56=\left(\frac56\right)^3.
+$$</p>
+<p>Subtract from the probability of the whole sample space:</p>
+<p>$$
+\boxed{P(\text{at least one six})=1-\left(\frac56\right)^3
+=1-\frac{125}{216}=\frac{91}{216}\approx0.421296.}
+$$</p>
+<p>In counting terms, there are $6^3=216$ equally likely outcomes and $5^3=125$ with no sixes, leaving $216-125=91$ favorable outcomes.</p>
+<p>For comparison, inclusion–exclusion gives the same result:</p>
+<p>$$
+3\left(\frac16\right)-3\left(\frac1{36}\right)+\frac1{216}
+=\frac{91}{216}.
+$$</p>
+<p>The three first terms count a six on each specified die. Subtracting the three pair intersections corrects outcomes with two sixes; adding the triple intersection restores the all-sixes outcome after it was over-subtracted. The complement method is shorter because “no sixes” is a single simple restriction on every die.</p></div><p class="exercise-source">Return to the explanation: <a href="../probability-part2/31.html">Slide 31</a>. <a href="../assets/source/04-probability-part2.pdf#page=31" target="_blank" rel="noopener">Original PDF ↗</a></p></details></section><section class="exercise-card" id="exercise-slide-32" aria-labelledby="exercise-slide-32-title">
+<p class="exercise-meta">Exercise 03 <span aria-hidden="true">/</span> Slide 32</p>
+<h3 id="exercise-slide-32-title">Make every die face appear</h3><div class="prose exercise-question"><p>Ten independent standard fair six-sided dice are rolled simultaneously. What is the <strong>exact probability that every face, 1 through 6, appears at least once</strong>?</p></div>
+<details class="exercise-solution" data-exercise-solution><summary><span class="solution-closed-label">Show solution</span><span class="solution-open-label">Hide solution</span><span class="sr-only">: Make every die face appear</span></summary>
+<div class="prose exercise-solution-body"><p>Ten independent, fair six-sided dice are rolled. What is the probability that <strong>every face—1, 2, 3, 4, 5 and 6—appears at least once</strong>? We will solve this using a binomial distribution and then using direct counting, with a full explanation of the inclusion–exclusion corrections both approaches need.</p>
+<h3 id="exercise-slide-32-solution-state-the-requirement-and-define-the-six-events">State the requirement and define the six events</h3>
+<p>For example,</p>
+<p>$$
+(1,2,3,4,5,6,1,2,3,4)
+$$</p>
+<p>satisfies the requirement. Repetitions are allowed; we only need every face to occur somewhere among the ten dice.</p>
+<p>Label the dice $D_1,\ldots,D_{10}$. An outcome records their results in that order. Rolling simultaneously does not make the dice indistinguishable. Since each die has six equally likely results and the dice are independent, there are $6^{10}$ equally likely ordered outcomes.</p>
+<p>The useful idea is: <strong>instead of directly requiring all six faces to appear, exclude outcomes in which some face is missing.</strong> Define</p>
+<p>$$
+\begin{aligned}
+A_1&amp;=\{\text{face 1 is missing}\},\\
+A_2&amp;=\{\text{face 2 is missing}\},\\
+A_3&amp;=\{\text{face 3 is missing}\},\\
+A_4&amp;=\{\text{face 4 is missing}\},\\
+A_5&amp;=\{\text{face 5 is missing}\},\\
+A_6&amp;=\{\text{face 6 is missing}\}.
+\end{aligned}
+$$</p>
+<p>Then</p>
+<p>$$
+U=A_1\cup A_2\cup A_3\cup A_4\cup A_5\cup A_6
+$$</p>
+<p>means <strong>at least one face is missing</strong>. We will calculate $P(U)$ first. Our desired probability is then</p>
+<p>$$
+P(\text{every face appears})=1-P(U).
+$$</p>
+<h3 id="exercise-slide-32-solution-method-1-use-the-binomial-distribution">Method 1: use the binomial distribution</h3>
+<p><strong>Start with one particular face, say 1.</strong> For each die, define:</p>
+<ul>
+<li>Success: the die shows 1, with probability $1/6$.</li>
+<li>Failure: the die shows something else, with probability $5/6$.</li>
+</ul>
+<p>There are ten independent trials with the same success probability. Therefore, if $X_1$ counts how many dice show 1,</p>
+<p>$$
+X_1\sim\operatorname{Binomial}\left(10,\frac16\right).
+$$</p>
+<p>Face 1 is missing exactly when $X_1=0$. Using the binomial formula,</p>
+<p>$$
+\begin{aligned}
+P(A_1)
+&amp;=P(X_1=0)\\
+&amp;=\binom{10}{0}\left(\frac16\right)^0
+\left(\frac56\right)^{10}\\
+&amp;=\left(\frac56\right)^{10}.
+\end{aligned}
+$$</p>
+<p>The same calculation works for each of the six faces.</p>
+<p><strong>Now consider two particular faces, say 1 and 2.</strong> To calculate the probability that both are missing, redefine success on each die as <strong>“shows either 1 or 2.”</strong> The success probability is now $2/6$. If $X_{\{1,2\}}$ counts such dice,</p>
+<p>$$
+X_{\{1,2\}}\sim\operatorname{Binomial}\left(10,\frac26\right).
+$$</p>
+<p>Both faces are missing precisely when this count is zero:</p>
+<p>$$
+\begin{aligned}
+P(A_1\cap A_2)
+&amp;=P(X_{\{1,2\}}=0)\\
+&amp;=\binom{10}{0}\left(\frac26\right)^0
+\left(\frac46\right)^{10}\\
+&amp;=\left(\frac46\right)^{10}.
+\end{aligned}
+$$</p>
+<p><strong>Extend this to any specified set $S$ of $k$ faces.</strong> Let $X_S$ count dice showing any face in that set. Then</p>
+<p>$$
+X_S\sim\operatorname{Binomial}\left(10,\frac{k}{6}\right),
+$$</p>
+<p>and</p>
+<p>$$
+\begin{aligned}
+P(\text{all faces in }S\text{ are missing})
+&amp;=P(X_S=0)\\
+&amp;=\boxed{\left(\frac{6-k}{6}\right)^{10}}.
+\end{aligned}
+$$</p>
+<p>Other faces may also be missing. This is <strong>not</strong> the probability that <em>exactly</em> $k$ faces are missing. For example, an outcome missing 1, 2 and 3 still belongs to $A_1\cap A_2$.</p>
+<p>The binomial distribution gives each missing-face probability. We now need inclusion–exclusion to combine these overlapping events and enforce the requirement that every face appears.</p>
+<h3 id="exercise-slide-32-solution-why-inclusionexclusion-alternates-between-adding-and-subtracting">Why inclusion–exclusion alternates between adding and subtracting</h3>
+<p><strong>We add and subtract because the same dice outcome can belong to several missing-face events. Inclusion–exclusion makes sure each outcome is counted exactly once.</strong> Here we are counting outcomes in $U$, the event that at least one face is missing.</p>
+<p><strong>Step 1: add the six individual probabilities.</strong> Start with</p>
+<p>$$
+\begin{aligned}
+&amp;P(A_1)+P(A_2)+P(A_3)\\
+&amp;\quad+P(A_4)+P(A_5)+P(A_6).
+\end{aligned}
+$$</p>
+<p>An outcome missing only face 1 appears in just $A_1$, so it is counted once. Good.</p>
+<p>But consider this outcome:</p>
+<p>$$
+(3,4,5,6,3,4,5,6,3,4).
+$$</p>
+<p>It is missing <strong>exactly faces 1 and 2</strong>. It belongs to both $A_1$ and $A_2$, so the sum counts its probability twice. We want to count it once.</p>
+<p><strong>Step 2: subtract all pairwise intersections.</strong> The intersection $A_1\cap A_2$ means <strong>both faces 1 and 2 are missing</strong>. Subtracting $P(A_1\cap A_2)$ corrects the outcome above:</p>
+<p>$$
+\underbrace{2}_{\text{individual events}}
+-\underbrace{1}_{\text{pair intersection}}=1.
+$$</p>
+<p>We must do this for all 15 pairs. Explicitly, the sum we subtract is</p>
+<p>$$
+\begin{aligned}
+&amp;P(A_1\cap A_2)+P(A_1\cap A_3)+P(A_1\cap A_4)\\
+&amp;+P(A_1\cap A_5)+P(A_1\cap A_6)+P(A_2\cap A_3)\\
+&amp;+P(A_2\cap A_4)+P(A_2\cap A_5)+P(A_2\cap A_6)\\
+&amp;+P(A_3\cap A_4)+P(A_3\cap A_5)+P(A_3\cap A_6)\\
+&amp;+P(A_4\cap A_5)+P(A_4\cap A_6)+P(A_5\cap A_6).
+\end{aligned}
+$$</p>
+<p>But this creates another issue. Consider an outcome missing <strong>exactly faces 1, 2 and 3</strong>:</p>
+<p>$$
+(4,5,6,4,5,6,4,5,6,4).
+$$</p>
+<p>It belongs to three individual events:</p>
+<p>$$
+A_1,\quad A_2,\quad A_3,
+$$</p>
+<p>and three pairwise intersections:</p>
+<p>$$
+A_1\cap A_2,\quad A_1\cap A_3,\quad A_2\cap A_3.
+$$</p>
+<p>So far, its net count is</p>
+<p>$$
+3-3=0.
+$$</p>
+<p><strong>We have accidentally removed it completely</strong>, even though it belongs to the event “at least one face is missing.”</p>
+<p><strong>Step 3: add all triple intersections.</strong> Our outcome belongs to $A_1\cap A_2\cap A_3$. Adding that intersection restores its count:</p>
+<p>$$
+\underbrace{3}_{\text{individual events}}
+-\underbrace{3}_{\text{pair intersections}}
++\underbrace{1}_{\text{triple intersection}}=1.
+$$</p>
+<p>We therefore add all $\binom63=20$ triple-intersection probabilities. This is why we add here: <strong>the previous subtraction removed too much.</strong></p>
+<p><strong>Steps 4–6: continue correcting overlaps.</strong> For an outcome missing exactly four faces, its count after the first three steps is</p>
+<p>$$
+\binom41-\binom42+\binom43=4-6+4=2.
+$$</p>
+<p>We subtract its four-event intersection:</p>
+<p>$$
+4-6+4-1=1.
+$$</p>
+<p>For an outcome missing exactly five faces, its count after four steps is</p>
+<p>$$
+5-10+10-5=0.
+$$</p>
+<p>We add its five-event intersection:</p>
+<p>$$
+5-10+10-5+1=1.
+$$</p>
+<p>Finally, the general formula subtracts the six-event intersection. Here that intersection is impossible: ten dice cannot show none of the six faces. Its probability is zero.</p>
+<p>The corrections work because an outcome missing $r$ faces belongs to:</p>
+<ul>
+<li>$r$ individual missing-face events;</li>
+<li>$\binom r2$ pair intersections;</li>
+<li>$\binom r3$ triple intersections;</li>
+<li>and so on.</li>
+</ul>
+<p>The alternating corrections leave it counted exactly once. An outcome with no missing faces belongs to none of these events, so it contributes zero to $P(U)$, as it should.</p>
+<h3 id="exercise-slide-32-solution-apply-inclusionexclusion-to-all-six-events">Apply inclusion–exclusion to all six events</h3>
+<p>All indices below run from 1 through 6. The inequalities such as $i&lt;j$ ensure we include each pair or larger group only once:</p>
+<p>$$
+\boxed{
+\begin{aligned}
+P(U)
+={}&amp;\sum_i P(A_i)\\
+&amp;-\sum_{i&lt;j}P(A_i\cap A_j)\\
+&amp;+\sum_{i&lt;j&lt;k}P(A_i\cap A_j\cap A_k)\\
+&amp;-\sum_{i&lt;j&lt;k&lt;\ell}P(A_i\cap A_j\cap A_k\cap A_\ell)\\
+&amp;+\sum_{i&lt;j&lt;k&lt;\ell&lt;m}
+P(A_i\cap A_j\cap A_k\cap A_\ell\cap A_m)\\
+&amp;-P(A_1\cap A_2\cap A_3\cap A_4\cap A_5\cap A_6).
+\end{aligned}
+}
+$$</p>
+<p>There are $\binom6k$ ways to choose which $k$ faces are specified as missing. Each corresponding intersection has the binomial zero-success probability $((6-k)/6)^{10}$ calculated above. Substituting gives:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Intersections</th>
+<th style="text-align: right;">Number of terms</th>
+<th style="text-align: right;">Probability for each specified set</th>
+<th style="text-align: right;">Contribution to $P(U)$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Single events</td>
+<td style="text-align: right;">$\binom61=6$</td>
+<td style="text-align: right;">$(5/6)^{10}$</td>
+<td style="text-align: right;">$+6(5/6)^{10}$</td>
+</tr>
+<tr>
+<td>Pairs</td>
+<td style="text-align: right;">$\binom62=15$</td>
+<td style="text-align: right;">$(4/6)^{10}$</td>
+<td style="text-align: right;">$-15(4/6)^{10}$</td>
+</tr>
+<tr>
+<td>Triples</td>
+<td style="text-align: right;">$\binom63=20$</td>
+<td style="text-align: right;">$(3/6)^{10}$</td>
+<td style="text-align: right;">$+20(3/6)^{10}$</td>
+</tr>
+<tr>
+<td>Groups of four</td>
+<td style="text-align: right;">$\binom64=15$</td>
+<td style="text-align: right;">$(2/6)^{10}$</td>
+<td style="text-align: right;">$-15(2/6)^{10}$</td>
+</tr>
+<tr>
+<td>Groups of five</td>
+<td style="text-align: right;">$\binom65=6$</td>
+<td style="text-align: right;">$(1/6)^{10}$</td>
+<td style="text-align: right;">$+6(1/6)^{10}$</td>
+</tr>
+<tr>
+<td>All six</td>
+<td style="text-align: right;">$\binom66=1$</td>
+<td style="text-align: right;">$(0/6)^{10}=0$</td>
+<td style="text-align: right;">$0$</td>
+</tr>
+</tbody>
+</table></div>
+<p>Therefore,</p>
+<p>$$
+\begin{aligned}
+P(U)={}&amp;6\left(\frac56\right)^{10}
+-15\left(\frac46\right)^{10}
++20\left(\frac36\right)^{10}\\
+&amp;-15\left(\frac26\right)^{10}
++6\left(\frac16\right)^{10}.
+\end{aligned}
+$$</p>
+<p><strong>This counts outcomes with at least one missing face.</strong> Taking its complement reverses all those signs:</p>
+<p>$$
+\boxed{
+\begin{aligned}
+P(\text{every face appears})
+={}&amp;1-6\left(\frac56\right)^{10}
++15\left(\frac46\right)^{10}\\
+&amp;-20\left(\frac36\right)^{10}
++15\left(\frac26\right)^{10}
+-6\left(\frac16\right)^{10}.
+\end{aligned}
+}
+$$</p>
+<p>In this final formula, we start with all outcomes, subtract those missing individual faces, add back the pair overlaps that were subtracted twice, and continue the corrections.</p>
+<h3 id="exercise-slide-32-solution-method-2-count-outcomes-without-a-binomial-distribution">Method 2: count outcomes without a binomial distribution</h3>
+<p>We can obtain every term using direct counting. There are $6^{10}$ equally likely outcomes, so</p>
+<p>$$
+P(\text{every face appears})
+=\frac{\text{number of outcomes containing all six faces}}{6^{10}}.
+$$</p>
+<p>Now count outcomes to exclude:</p>
+<ul>
+<li><strong>Face 1 is missing:</strong> each die has five allowed results, so there are $5^{10}$ outcomes.</li>
+<li><strong>Faces 1 and 2 are both missing:</strong> each die has four allowed results, so there are $4^{10}$ outcomes.</li>
+<li><strong>Any specified $k$ faces are missing:</strong> each die has $6-k$ allowed results, so there are $(6-k)^{10}$ outcomes.</li>
+</ul>
+<p>No binomial-distribution formula is needed—these counts follow directly from multiplying the number of choices for each die.</p>
+<p>Accounting for overlaps as before, the number of favorable outcomes is</p>
+<p>$$
+\begin{aligned}
+N={}&amp;6^{10}-\binom61 5^{10}+\binom62 4^{10}
+-\binom63 3^{10}\\
+&amp;+\binom64 2^{10}-\binom65 1^{10}+\binom66 0^{10}\\
+={}&amp;60{,}466{,}176-58{,}593{,}750+15{,}728{,}640\\
+&amp;-1{,}180{,}980+15{,}360-6\\
+={}&amp;\boxed{16{,}435{,}440}.
+\end{aligned}
+$$</p>
+<p>Here, $\binom6k$ simply counts choices of excluded faces. Using combinations does not mean we are using a binomial distribution.</p>
+<p>Divide by the total number of equally likely outcomes:</p>
+<p>$$
+\boxed{
+\begin{aligned}
+P(\text{every face appears})
+&amp;=\frac{16{,}435{,}440}{60{,}466{,}176}\\
+&amp;=\frac{38{,}045}{139{,}968}\\
+&amp;\approx0.271812\approx27.18\%.
+\end{aligned}
+}
+$$</p>
+<p>Both approaches express the same counting logic. For any specified $k$ missing faces, the direct-counting probability is</p>
+<p>$$
+\frac{(6-k)^{10}}{6^{10}}
+=\left(\frac{6-k}{6}\right)^{10},
+$$</p>
+<p>which is exactly the zero-success probability we obtained from the binomial distribution. The complete calculation can also be written compactly as</p>
+<p>$$
+P(\text{every face appears})
+=\frac{1}{6^{10}}\sum_{k=0}^{6}(-1)^k\binom6k(6-k)^{10}.
+$$</p>
+<p>The $k=0$ term is the unrestricted sample space. The $k=6$ term is zero because ten dice cannot take values from an empty set. Even with ten rolls, complete coverage occurs only about $27.18\%$ of the time. Repeated faces consume rolls without introducing a missing face.</p></div><p class="exercise-source">Return to the explanation: <a href="../probability-part2/32.html">Slide 32</a>. <a href="../assets/source/04-probability-part2.pdf#page=32" target="_blank" rel="noopener">Original PDF ↗</a></p></details></section><section class="exercise-card" id="exercise-slide-33" aria-labelledby="exercise-slide-33-title">
+<p class="exercise-meta">Exercise 04 <span aria-hidden="true">/</span> Slide 33</p>
+<h3 id="exercise-slide-33-title">Divisibility and repeated digit runs</h3><div class="prose exercise-question"><h3 id="exercise-slide-33-question-a-divisibility">(a) Divisibility</h3>
+<p>An integer is chosen uniformly from $\{1,2,\ldots,2019\}$. Find the probability that it is divisible by 2 or 3 or 7.</p>
+<h3 id="exercise-slide-33-question-b-consecutive-equal-digits">(b) Consecutive equal digits</h3>
+<p>A seven-digit string is chosen uniformly from all strings of length 7 using digits 0 through 9. Leading zeroes are allowed; equivalently, the seven digits are chosen independently and uniformly.</p>
+<p>Find the probability that the string contains <strong>at least five consecutive equal digits</strong>.</p></div>
+<details class="exercise-solution" data-exercise-solution><summary><span class="solution-closed-label">Show solution</span><span class="solution-open-label">Hide solution</span><span class="sr-only">: Divisibility and repeated digit runs</span></summary>
+<div class="prose exercise-solution-body"><p>Inclusion–exclusion applies whenever one outcome can satisfy several descriptions of success. An integer may have several required divisors; a long run of equal digits may contain several qualifying five-digit windows. The essential work is defining events whose intersections are countable.</p>
+<h3 id="exercise-slide-33-solution-a-divisible-by-2-3-or-7">(a) Divisible by 2, 3, or 7</h3>
+<p>Choose an integer uniformly from $\{1,2,\ldots,2019\}$. Let A, B, and C be divisibility by 2, 3, and 7, respectively. All 2019 integers have equal weight, so calculate a union count and divide by 2019.</p>
+<p>The number of multiples of a positive integer d up to 2019 is</p>
+<p>$$
+\left\lfloor\frac{2019}{d}\right\rfloor.
+$$</p>
+<p>The floor is needed because an incomplete final block contributes no additional multiple. Thus</p>
+<p>$$
+|A|=1009,\qquad |B|=673,\qquad |C|=288.
+$$</p>
+<p>An integer lies in an intersection when it is divisible by the <strong>least common multiple</strong> of the corresponding divisors. Here 2, 3, and 7 are pairwise coprime, so the relevant least common multiples are their products:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Intersection</th>
+<th style="text-align: right;">Required divisor</th>
+<th style="text-align: right;">Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$A\cap B$</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">336</td>
+</tr>
+<tr>
+<td>$A\cap C$</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">144</td>
+</tr>
+<tr>
+<td>$B\cap C$</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">96</td>
+</tr>
+<tr>
+<td>$A\cap B\cap C$</td>
+<td style="text-align: right;">42</td>
+<td style="text-align: right;">48</td>
+</tr>
+</tbody>
+</table></div>
+<p>Therefore</p>
+<p>$$
+|A\cup B\cup C|=1009+673+288-336-144-96+48=1442,
+$$</p>
+<p>and the requested probability is</p>
+<p>$$
+\boxed{\frac{1442}{2019}\approx0.71421496.}
+$$</p>
+<p>Do not always multiply divisors when forming intersections: “divisible by 4 and 6” means divisible by 12, not necessarily by 24.</p>
+<h3 id="exercise-slide-33-solution-b-five-or-more-consecutive-equal-digits">(b) Five or more consecutive equal digits</h3>
+<p><strong>Example (b) asks:</strong> What is the probability that a random seven-digit string contains <strong>at least five consecutive equal digits</strong>?</p>
+<p>For example:</p>
+<ul>
+<li><code>1111123</code> qualifies: five consecutive 1s.</li>
+<li><code>1111112</code> qualifies: six consecutive 1s.</li>
+<li><code>1111111</code> qualifies: seven consecutive 1s.</li>
+</ul>
+<p>We assume each position independently takes a digit from 0 through 9, with equal probability. Leading zeroes are allowed because we are choosing a <strong>string</strong>.</p>
+<p><strong>1. Count all possible strings</strong></p>
+<p>Each of the seven positions has ten choices:</p>
+<p>$$
+\boxed{\text{Total strings}=10^7.}
+$$</p>
+<p>We need to count how many contain the required run.</p>
+<p><strong>2. Define the three possible five-digit windows</strong></p>
+<p>A block of five consecutive digits can start only at position <strong>1, 2 or 3</strong>:</p>
+<p>$$
+\begin{array}{c|ccccccc}
+\text{Position}&amp;1&amp;2&amp;3&amp;4&amp;5&amp;6&amp;7\\ \hline
+A&amp;d&amp;d&amp;d&amp;d&amp;d&amp;x&amp;y\\
+B&amp;x&amp;d&amp;d&amp;d&amp;d&amp;d&amp;y\\
+C&amp;x&amp;y&amp;d&amp;d&amp;d&amp;d&amp;d
+\end{array}
+$$</p>
+<p>Here:</p>
+<ul>
+<li>$d$ is the repeated digit.</li>
+<li>$x,y$ are unrestricted digits. They may equal $d$, or each other.</li>
+</ul>
+<p>Thus,</p>
+<p>$$
+\begin{aligned}
+A&amp;=\{\text{positions 1–5 are equal}\},\\
+B&amp;=\{\text{positions 2–6 are equal}\},\\
+C&amp;=\{\text{positions 3–7 are equal}\}.
+\end{aligned}
+$$</p>
+<p><strong>Any run of at least five equal digits satisfies at least one of these events.</strong> Therefore, our desired event is</p>
+<p>$$
+A\cup B\cup C.
+$$</p>
+<p><strong>3. Count each individual event</strong></p>
+<p>For $A$, the pattern is</p>
+<p>$$
+d\,d\,d\,d\,d\,x\,y.
+$$</p>
+<p>Choose:</p>
+<p>$$
+\underbrace{10}_{d}
+\times
+\underbrace{10}_{x}
+\times
+\underbrace{10}_{y}
+=1000.
+$$</p>
+<p>The same reasoning applies to $B$ and $C$:</p>
+<p>$$
+|A|=|B|=|C|=1000.
+$$</p>
+<p>The outside digits are unrestricted because the problem allows runs of six or seven too.</p>
+<p>Adding gives $3000$, but some strings have been counted more than once.</p>
+<p>For example, <code>1111112</code> belongs to both $A$ and $B$.</p>
+<p><strong>4. Count—and subtract—the pairwise overlaps</strong></p>
+<p>For <strong>$A\cap B$</strong>, we require both</p>
+<p>$$
+X_1=X_2=X_3=X_4=X_5
+$$</p>
+<p>and</p>
+<p>$$
+X_2=X_3=X_4=X_5=X_6.
+$$</p>
+<p>These blocks share positions 2–5. Their repeated digits must therefore agree, forcing <strong>positions 1–6 to be equal</strong>.</p>
+<p>The pattern is</p>
+<p>$$
+d\,d\,d\,d\,d\,d\,x,
+$$</p>
+<p>so</p>
+<p>$$
+\boxed{|A\cap B|=10\cdot10=100.}
+$$</p>
+<p>Similarly, <strong>$B\cap C$</strong> forces positions 2–7 to be equal:</p>
+<p>$$
+x\,d\,d\,d\,d\,d\,d,
+$$</p>
+<p>giving</p>
+<p>$$
+\boxed{|B\cap C|=100.}
+$$</p>
+<p>Now consider <strong>$A\cap C$</strong>. This requires:</p>
+<p>$$
+\underbrace{X_1=X_2=X_3=X_4=X_5}_{A},
+\qquad
+\underbrace{X_3=X_4=X_5=X_6=X_7}_{C}.
+$$</p>
+<p>These blocks share positions <strong>3, 4 and 5</strong>, so their repeated digits must agree. Together, they cover every position.</p>
+<p>Consequently, <strong>all seven digits must be equal</strong>:</p>
+<p>$$
+d\,d\,d\,d\,d\,d\,d.
+$$</p>
+<p>Only the common digit needs to be chosen:</p>
+<p>$$
+\boxed{|A\cap C|=10.}
+$$</p>
+<p><strong>5. Add back the triple overlap</strong></p>
+<p>A string belongs to $A\cap B\cap C$ exactly when all seven digits are equal. Hence,</p>
+<p>$$
+\boxed{|A\cap B\cap C|=10.}
+$$</p>
+<p>Why add these back?</p>
+<p>Take <code>7777777</code>. It was:</p>
+<ul>
+<li>Counted <strong>three times</strong> in $|A|+|B|+|C|$.</li>
+<li>Subtracted <strong>three times</strong> in the three pairwise intersections.</li>
+</ul>
+<p>Its current count is $3-3=0$. Adding the triple intersection restores it:</p>
+<p>$$
+3-3+1=1.
+$$</p>
+<p>Compare the corrections for these three examples:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>String</th>
+<th style="text-align: right;">Individual events containing it</th>
+<th style="text-align: right;">Pair overlaps</th>
+<th style="text-align: right;">Triple overlap</th>
+<th style="text-align: right;">Final count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>1111123</code></td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">$1$</td>
+</tr>
+<tr>
+<td><code>1111112</code></td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">$2-1=1$</td>
+</tr>
+<tr>
+<td><code>1111111</code></td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">$3-3+1=1$</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Each qualifying string ends up counted exactly once.</strong></p>
+<p>Putting everything together,</p>
+<p>$$
+\begin{aligned}
+|A\cup B\cup C|
+={}&amp;|A|+|B|+|C|\\
+&amp;-|A\cap B|-|A\cap C|-|B\cap C|\\
+&amp;+|A\cap B\cap C|\\[4pt]
+={}&amp;1000+1000+1000-100-10-100+10\\
+={}&amp;\boxed{2800}.
+\end{aligned}
+$$</p>
+<p>Finally, divide by the total number of equally likely strings:</p>
+<p>$$
+\boxed{
+P(\text{at least five consecutive equal digits})
+=\frac{2800}{10^7}
+=0.00028
+=0.028\%.
+}
+$$</p></div><p class="exercise-source">Return to the explanation: <a href="../probability-part2/33.html">Slide 33</a>. <a href="../assets/source/04-probability-part2.pdf#page=33" target="_blank" rel="noopener">Original PDF ↗</a></p></details></section><section class="exercise-card" id="exercise-slide-35" aria-labelledby="exercise-slide-35-title">
+<p class="exercise-meta">Exercise 05 <span aria-hidden="true">/</span> Slide 35</p>
+<h3 id="exercise-slide-35-title">Drawing names for presents</h3><div class="prose exercise-question"><p>A family of $n\ge1$ people puts their n distinct names into a hat. Each person draws one name without replacement and buys a present for that person. Assume every complete assignment of names is equally likely; a person who draws their own name keeps it rather than redrawing.</p>
+<h3 id="exercise-slide-35-question-a">(a)</h3>
+<p>What is the probability that at least one person draws their own name?</p>
+<h3 id="exercise-slide-35-question-b">(b)</h3>
+<p>What happens to this probability as $n$ increases to infinity?</p></div>
+<details class="exercise-solution" data-exercise-solution><summary><span class="solution-closed-label">Show solution</span><span class="solution-open-label">Hide solution</span><span class="sr-only">: Drawing names for presents</span></summary>
+<div class="prose exercise-solution-body"><h3 id="exercise-slide-35-solution-a-define-the-self-match-events">(a) Define the self-match events</h3>
+<p>Label the people $1,\ldots,n$. Let $A_i$ be the event that person i draws their own name. We want</p>
+<p>$$
+P(A_1\cup\cdots\cup A_n).
+$$</p>
+<p>All $n!$ assignments are equally likely. If one specified person must draw their own name, that assignment is fixed and the other $n-1$ names may be arranged freely, giving $(n-1)!$ assignments. More generally, fixing the self-matches of <strong>k specified people</strong> leaves $(n-k)!$ assignments:</p>
+<p>$$
+P(A_{i_1}\cap\cdots\cap A_{i_k})=\frac{(n-k)!}{n!}.
+$$</p>
+<p>There are $\binom nk$ ways to choose which k people are fixed.</p>
+<h3 id="exercise-slide-35-solution-correct-the-overlaps">Correct the overlaps</h3>
+<p>Adding the individual self-match probabilities counts an assignment once for every self-match it contains. An assignment with two self-matches is counted twice, so subtract their intersection. With three self-matches, the first two stages give $3-3=0$, so add the triple intersection. Continue alternating to leave each qualifying assignment counted exactly once.</p>
+<p>Therefore,</p>
+<p>$$
+\begin{aligned}
+p_n
+&amp;=\binom n1\frac{(n-1)!}{n!}
+-\binom n2\frac{(n-2)!}{n!}
++\cdots+(-1)^{n+1}\binom nn\frac{0!}{n!}\\
+&amp;=\boxed{1-\frac1{2!}+\frac1{3!}-\cdots+\frac{(-1)^{n+1}}{n!}}.
+\end{aligned}
+$$</p>
+<p>Each term simplifies because</p>
+<p>$$
+\binom nk\frac{(n-k)!}{n!}
+=\frac{n!}{k!(n-k)!}\frac{(n-k)!}{n!}=\frac1{k!}.
+$$</p>
+<p>For example, with three people, $p_3=1-1/2+1/6=2/3$.</p>
+<h3 id="exercise-slide-35-solution-the-complement-method-gives-the-same-answer">The complement method gives the same answer</h3>
+<p>The complement is <strong>nobody draws their own name</strong>. Such an assignment is called a derangement. Starting with all $n!$ assignments and excluding self-matches by the same corrections gives the number</p>
+<p>$$
+D_n=n!\sum_{k=0}^{n}\frac{(-1)^k}{k!}.
+$$</p>
+<p>Thus</p>
+<p>$$
+\boxed{p_n=1-\frac{D_n}{n!}
+=1-\sum_{k=0}^{n}\frac{(-1)^k}{k!}.}
+$$</p>
+<p>The complement is valid, but counting it is not simply $(n-1)(n-2)\cdots$. After an earlier draw, the next person's own name might still be available or might already be gone. The number of allowed choices depends on <strong>which</strong> names were drawn, not only on how many remain.</p>
+<p>For instance, with people A,B,C, if A draws B, then B may draw either A or C. Choosing A forces C to draw their own name, while choosing C lets C draw A. Both choices existed at B's turn, but only one can finish without a self-match.</p>
+<h3 id="exercise-slide-35-solution-b-take-the-limit">(b) Take the limit</h3>
+<p>The exponential series at $-1$ is</p>
+<p>$$
+e^{-1}=\sum_{k=0}^{\infty}\frac{(-1)^k}{k!}
+=1-1+\frac1{2!}-\frac1{3!}+\cdots.
+$$</p>
+<p>Therefore,</p>
+<p>$$
+\boxed{\lim_{n\to\infty}p_n=1-e^{-1}\approx0.63212056.}
+$$</p>
+<p>The probability approaches about $63.2\%$, not 100%. It alternates around this limit rather than increasing at every step: for example, $p_2=1/2$, $p_3=2/3$, and $p_4=5/8$.</p></div><p class="exercise-source">Return to the explanation: <a href="../probability-part2/35.html">Slide 35</a>. <a href="../assets/source/04-probability-part2.pdf#page=35" target="_blank" rel="noopener">Original PDF ↗</a></p></details></section><section class="exercise-card" id="exercise-slide-36-subset" aria-labelledby="exercise-slide-36-subset-title">
+<p class="exercise-meta">Exercise 06 <span aria-hidden="true">/</span> Slide 36</p>
+<h3 id="exercise-slide-36-subset-title">Only a specified subset must avoid its own names</h3><div class="prose exercise-question"><p>A group of n people draws its n distinct names from a hat, one name per person, without replacement. All $n!$ complete assignments are equally likely.</p>
+<p>Fix a <strong>specific subset of m people</strong>, where $0\le m\le n$. What is the probability that every person in this subset draws a name other than their own, while the other $n-m$ people may draw anyone's name, including their own?</p></div>
+<details class="exercise-solution" data-exercise-solution><summary><span class="solution-closed-label">Show solution</span><span class="solution-open-label">Hide solution</span><span class="sr-only">: Only a specified subset must avoid its own names</span></summary>
+<div class="prose exercise-solution-body"><p>Only the m specified people are restricted. Label them $1,\ldots,m$, and let $A_i$ mean that specified person i draws their own name.</p>
+<p>We want none of these events to occur:</p>
+<p>$$
+P(A_1^c\cap\cdots\cap A_m^c)=1-P(A_1\cup\cdots\cup A_m).
+$$</p>
+<p>Start with all $n!$ assignments. For any one restricted person, there are $(n-1)!$ assignments in which they draw themselves. Subtract those, for all m people.</p>
+<p>But an assignment where two restricted people draw themselves was subtracted twice. Add back $(n-2)!$ assignments for each pair of restricted people. There are $\binom m2$ such pairs. Continue the overlap corrections.</p>
+<p>For k specified restricted people to draw themselves, their k assignments are fixed and all other $n-k$ people can be assigned the remaining names in $(n-k)!$ ways. Choose those k people from <strong>m</strong>, not n. This yields</p>
+<p>$$
+\begin{aligned}
+N
+&amp;=n!-\binom m1(n-1)!+\binom m2(n-2)!-\cdots+(-1)^m(n-m)!,\\[3pt]
+\boxed{P}
+&amp;=\boxed{\frac{N}{n!}
+=\sum_{k=0}^{m}(-1)^k\binom mk\frac{(n-k)!}{n!}.}
+\end{aligned}
+$$</p>
+<p>The k=0 term is 1. It represents starting with the entire sample space before removing any forbidden self-matches.</p>
+<h3 id="exercise-slide-36-subset-solution-a-small-example">A small example</h3>
+<p>For $n=5$ and a specified subset of $m=3$ people,</p>
+<p>$$
+\begin{aligned}
+P
+&amp;=1-3\frac{4!}{5!}+3\frac{3!}{5!}-\frac{2!}{5!}\\
+&amp;=1-\frac35+\frac3{20}-\frac1{60}
+=\boxed{\frac8{15}}.
+\end{aligned}
+$$</p>
+<p>Equivalently, $120-72+18-2=64$ of the 120 assignments satisfy the restrictions. The other two people are unrestricted; they may or may not draw themselves.</p>
+<p>Useful checks: m=0 gives probability 1 because no one is restricted; m=1 gives $1-1/n$; and m=n gives the usual no-self-match probability $\sum_{k=0}^{n}(-1)^k/k!$.</p></div><p class="exercise-source">Return to the explanation: <a href="../probability-part2/36.html">Slide 36</a>. <a href="../assets/source/04-probability-part2.pdf#page=36" target="_blank" rel="noopener">Original PDF ↗</a></p></details></section><section class="exercise-card" id="exercise-slide-36-norepeatword" aria-labelledby="exercise-slide-36-norepeatword-title">
+<p class="exercise-meta">Exercise 07 <span aria-hidden="true">/</span> Slide 36</p>
+<h3 id="exercise-slide-36-norepeatword-title">Choose a word without repeated letters</h3><div class="prose exercise-question"><p>A <strong>norepeatword</strong> is a sequence of at least one, and possibly all, of the 26 letters a,b,c,...,z, with no repetitions. For example, <code>course</code> is a norepeatword, but <code>statistics</code> is not. Order matters: <code>course</code> and <code>source</code> are different words. The sequence need not be an English dictionary word.</p>
+<p>Choose one norepeatword randomly, with <strong>all individual norepeatwords of all allowed lengths equally likely</strong>. Show that the probability it uses all 26 letters is very close to $1/e$.</p></div>
+<details class="exercise-solution" data-exercise-solution><summary><span class="solution-closed-label">Show solution</span><span class="solution-open-label">Hide solution</span><span class="sr-only">: Choose a word without repeated letters</span></summary>
+<div class="prose exercise-solution-body"><h3 id="exercise-slide-36-norepeatword-solution-count-the-words-of-each-length">Count the words of each length</h3>
+<p>For length $\ell$, choose a first letter in 26 ways, a second unused letter in 25 ways, and continue for $\ell$ positions:</p>
+<p>$$
+N_\ell=26\cdot25\cdots(26-\ell+1)=\frac{26!}{(26-\ell)!},
+\qquad1\le\ell\le26.
+$$</p>
+<p>Words of different lengths cannot be the same word. Add these disjoint counts to obtain the sample-space size:</p>
+<p>$$
+N=\sum_{\ell=1}^{26}\frac{26!}{(26-\ell)!}.
+$$</p>
+<p>Exactly $26!$ words use all letters, because they are permutations of the alphabet.</p>
+<h3 id="exercise-slide-36-norepeatword-solution-divide-favorable-words-by-all-words">Divide favorable words by all words</h3>
+<p>$$
+\begin{aligned}
+P(\text{uses all 26 letters})
+&amp;=\frac{26!}{\displaystyle\sum_{\ell=1}^{26}26!/(26-\ell)!}\\
+&amp;=\frac{1}{\displaystyle\sum_{\ell=1}^{26}1/(26-\ell)!}\\
+&amp;=\boxed{\frac{1}{\displaystyle\sum_{j=0}^{25}1/j!}}.
+\end{aligned}
+$$</p>
+<p>In the last line, $j=26-\ell$ counts the unused letters. A length-26 word gives j=0; a length-1 word gives j=25. The empty word is not allowed, which is why there is no j=26 term.</p>
+<h3 id="exercise-slide-36-norepeatword-solution-recognize-why-this-is-close-to-mathplaceholder00007end">Recognize why this is close to $1/e$</h3>
+<p>The denominator is</p>
+<p>$$
+1+1+\frac1{2!}+\frac1{3!}+\cdots+\frac1{25!}.
+$$</p>
+<p>The exponential series says</p>
+<p>$$
+e=1+1+\frac1{2!}+\frac1{3!}+\cdots.
+$$</p>
+<p>Only the tiny terms starting at $1/26!$ are missing. Thus</p>
+<p>$$
+\boxed{P\approx\frac1e\approx0.3678794412.}
+$$</p>
+<p>The exact probability is slightly <strong>larger</strong> than $1/e$, because its denominator is slightly smaller than e.</p>
+<p>To quantify the closeness, write $S=\sum_{j=0}^{25}1/j!$. The first missing term is $1/26!$ and every later ratio is at most $1/27$, so</p>
+<p>$$
+0&lt;e-S&lt;\frac1{26!}\left(1+\frac1{27}+\frac1{27^2}+\cdots\right)
+=\frac{27}{26\cdot26!}.
+$$</p>
+<p>Since $S&gt;2.5$ and $e&gt;2.5$,</p>
+<p>$$
+0&lt;\frac1S-\frac1e=\frac{e-S}{eS}&lt;4.12\times10^{-28}.
+$$</p>
+<p>Uniformly choosing a <strong>word</strong> is not uniformly choosing a <strong>length</strong>. There are vastly more long words than short ones. Choosing the length first with probability $1/26$ for each length would be a different experiment and would produce probability $1/26$ of using all letters.</p></div><p class="exercise-source">Return to the explanation: <a href="../probability-part2/36.html">Slide 36</a>. <a href="../assets/source/04-probability-part2.pdf#page=36" target="_blank" rel="noopener">Original PDF ↗</a></p></details></section></div><footer class="footer"><p>Original exercises: Dobrin Marchev · STAT 5701. Explanations are an independent study companion.</p></footer></main><aside class="page-toc" aria-label="On this page"><p class="toc-label">On this page</p><a href="#exercise-slide-07">01 · Six robberies in six districts</a><a href="#exercise-slide-31">02 · At least one six: find an alternative method</a><a href="#exercise-slide-32">03 · Make every die face appear</a><a href="#exercise-slide-33">04 · Divisibility and repeated digit runs</a><a href="#exercise-slide-35">05 · Drawing names for presents</a><a href="#exercise-slide-36-subset">06 · Only a specified subset must avoid its own names</a><a href="#exercise-slide-36-norepeatword">07 · Choose a word without repeated letters</a><a href="#lesson">Back to the top ↑</a></aside></div></div></body></html>

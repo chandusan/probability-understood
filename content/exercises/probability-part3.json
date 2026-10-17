@@ -1,0 +1,54 @@
+{
+  "chapter_id": "probability-part3",
+  "exercises": [
+    {
+      "id": "slide-11",
+      "title": "Exactly one of three independent events",
+      "source_pages": [
+        11
+      ],
+      "question": "Let $A$, $B$, and $C$ be mutually independent events, with\n\n$$P(A)=P(B)=P(C)=0.1.$$\n\n### (c) Exactly one event\n\nFind the probability that **exactly one** of $A$, $B$, and $C$ occurs.\n\n*This is the part labeled “Exercise” on the slide; parts (a) and (b) belong to its preceding worked example.*",
+      "solution": "### (c) List the three possible ways\n\n“Exactly one” means that one event occurs and the other two do not. It can happen in these three ways:\n\n| Which event occurs? | What must happen | Probability |\n|---|---|---:|\n| Only $A$ | $A\\cap B^c\\cap C^c$ | $0.1(0.9)(0.9)=0.081$ |\n| Only $B$ | $A^c\\cap B\\cap C^c$ | $(0.9)0.1(0.9)=0.081$ |\n| Only $C$ | $A^c\\cap B^c\\cap C$ | $(0.9)(0.9)0.1=0.081$ |\n\nEach complement has probability $1-0.1=0.9$. Mutual independence lets us multiply the three probabilities in each row, including when an event is replaced by its complement.\n\nThe rows are mutually exclusive: “only $A$” and “only $B$” cannot both happen. We therefore add their probabilities:\n\n$$\\boxed{P(\\text{exactly one})=3(0.1)(0.9)^2=0.243.}$$\n\nThe two factors of $0.9$ are essential. Multiplying $3\\times0.1$ alone would not require the other two events to fail.\n\nWe can check one row directly using intersections. Start with all outcomes in $A$, remove those also in $B$ or $C$, and add back the triple overlap because it was removed twice:\n\n$$P(A\\cap B^c\\cap C^c)=0.1-0.01-0.01+0.001=0.081.$$",
+      "parts": [
+        "c"
+      ]
+    },
+    {
+      "id": "slide-13",
+      "title": "Lost fox tags",
+      "source_pages": [
+        13
+      ],
+      "question": "Identical tags are placed on both ears of a fox. After the fox has been released for some time, define\n\n$$C_1=\\{\\text{the left ear tag is lost}\\},\\qquad\nC_2=\\{\\text{the right ear tag is lost}\\}.$$\n\nAssume the two loss events are independent and $P(C_1)=P(C_2)=p$.\n\nFind the probability that **exactly one tag is lost, given that at most one tag is lost**. State when this conditional probability is defined.",
+      "solution": "### Translate the condition carefully\n\nLet $E$ mean “exactly one tag is lost” and $T$ mean “at most one tag is lost.” The condition $T$ allows either zero losses or one loss; it excludes losing both tags.\n\nEven though the tags look identical, the two ears are distinct. These are the four possible states:\n\n| Left tag | Right tag | Probability | Allowed by $T$? |\n|---|---|---:|---|\n| Retained | Retained | $(1-p)^2$ | Yes |\n| Lost | Retained | $p(1-p)$ | Yes |\n| Retained | Lost | $(1-p)p$ | Yes |\n| Lost | Lost | $p^2$ | No |\n\nFor each row, independence lets us multiply the probability of the left outcome by the probability of the right outcome.\n\n### Count the probability in the numerator\n\nExactly one loss is the union of the second and third rows. Those cases cannot overlap, so\n\n$$P(E)=p(1-p)+(1-p)p=2p(1-p).$$\n\n### Count the probability in the denominator\n\n“At most one loss” excludes only the last row:\n\n$$P(T)=1-P(C_1\\cap C_2)=1-p^2.$$\n\nEvery outcome in $E$ already belongs to $T$, so $E\\cap T=E$. Thus\n\n$$\\begin{aligned}\nP(E\\mid T)\n&=\\frac{P(E\\cap T)}{P(T)}\\\\\n&=\\frac{2p(1-p)}{1-p^2}\\\\\n&=\\frac{2p(1-p)}{(1-p)(1+p)}\\\\\n&=\\boxed{\\frac{2p}{1+p}},\\qquad 0\\le p<1.\n\\end{aligned}$$\n\nDividing by $1-p^2$ rescales the three allowed rows so that their conditional probabilities add to one.\n\nAt $p=1$, both tags are always lost. The condition “at most one lost” then has probability zero, so the conditional probability is undefined. Canceling $1-p$ does not make the formula valid at $p=1$.\n\nFor example, if $p=0.2$, exactly one loss has probability $0.32$ and at most one loss has probability $0.96$. The answer is $0.32/0.96=1/3$. The three permitted states generally have different probabilities, so simply counting two favorable states out of three is not valid.",
+      "parts": []
+    },
+    {
+      "id": "slide-20",
+      "title": "Two draws and the last ball",
+      "source_pages": [
+        16,
+        20
+      ],
+      "question": "An urn contains $r$ red balls and $b$ black balls, where $N=r+b\\ge2$. Balls are selected uniformly at random from those remaining, without replacement.\n\n### (a) Exactly one red\n\nIf two balls are drawn sequentially, what is the probability that exactly one of the two is red?\n\n### (b) The final ball\n\nNow suppose every ball is drawn, one by one without replacement, until the urn is empty. Before observing any draws, what is the probability that the very last ball is red?",
+      "solution": "### (a) Include both possible orders\n\nExactly one red can occur as **red then black** or **black then red**. These are disjoint cases.\n\nFor red then black, the first draw has red probability $r/N$. After a red ball is removed, all $b$ black balls remain among $N-1$ balls. Thus\n\n$$P(R_1\\cap B_2)=\\frac rN\\frac b{N-1}.$$\n\nFor black then red, the first draw has black probability $b/N$. Then all $r$ red balls remain among $N-1$ balls:\n\n$$P(B_1\\cap R_2)=\\frac bN\\frac r{N-1}.$$\n\nAdd the two routes:\n\n$$\\boxed{P(\\text{exactly one red})\n=\\frac{rb+br}{N(N-1)}\n=\\frac{2rb}{(r+b)(r+b-1)}.}$$\n\nThe factor $2$ accounts for the two color orders. The draws are not independent: the denominator on the second draw has decreased by one.\n\nA counting check gives the same result. There are $\\binom N2$ equally likely pairs of distinct balls. A favorable pair contains one of the $r$ red balls and one of the $b$ black balls, giving $rb$ favorable pairs. Therefore $rb/\\binom N2=2rb/[N(N-1)]$.\n\n### (b) Count complete orderings\n\nLabel the $N$ individual balls, even if balls of the same color look alike. Any specified ordering has probability\n\n$$\\frac1N\\frac1{N-1}\\cdots\\frac11=\\frac1{N!}.$$\n\nConsequently, all $N!$ complete orderings are equally likely.\n\nTo make the final ball red:\n\n1. Choose which red ball occupies the last position: $r$ choices.\n2. Arrange the other $N-1$ balls in the earlier positions: $(N-1)!$ choices.\n\nThere are $r(N-1)!$ favorable orderings, so\n\n$$\\boxed{P(\\text{last ball is red})\n=\\frac{r(N-1)!}{N!}\n=\\frac rN\n=\\frac r{r+b}.}$$\n\nThis explains why the last position has the same initial red probability as the first. Each individual ball appears last in exactly $(N-1)!$ equally likely orderings.\n\nThe answer is calculated **before** seeing earlier draws. If those earlier colors are revealed, the conditional probability can change; with only one ball remaining, its color may already be known.",
+      "parts": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "id": "slide-36",
+      "title": "A fraud flag followed by SMS verification",
+      "source_pages": [
+        36
+      ],
+      "question": "A bank uses an automated AI system to monitor credit card transactions. In the model, 95% of transactions are legitimate and 5% are fraudulent.\n\n- If a transaction is fraudulent, the AI flags it as suspicious 85% of the time and marks it safe 15% of the time.\n- If a transaction is legitimate, the AI marks it safe 92% of the time and incorrectly flags it as suspicious 8% of the time.\n\n### (a) A suspicious flag\n\nA new transaction has been flagged as suspicious. What is the probability that it is legitimate?\n\n### (b) A flag and an unconfirmed SMS\n\nThe bank adds a second verification step. Whenever the AI flags a transaction, an SMS is sent to the cardholder asking them to confirm it.\n\n- For a legitimate transaction, confirmation succeeds 90% of the time and fails 10% of the time.\n- For a fraudulent transaction, confirmation fails 95% of the time, while a spoofed confirmation succeeds 5% of the time.\n\nAssume the confirmation behavior is independent of the AI flagging mechanism **given whether the transaction is legitimate or fraudulent**.\n\nA new transaction is flagged as suspicious and its SMS goes unconfirmed. What is the probability that this transaction is fraudulent?",
+      "solution": "### Define the events\n\nLet $L$ mean legitimate, $F$ fraudulent, $S$ flagged suspicious, and $U$ unconfirmed. We are given\n\n$$P(L)=0.95,\\quad P(F)=0.05,\\quad\nP(S\\mid L)=0.08,\\quad P(S\\mid F)=0.85.$$\n\n### (a) Restrict to transactions that were flagged\n\nA flag can arise in two ways: a legitimate transaction gets a false alarm, or a fraudulent transaction gets detected. Multiply along each route:\n\n$$P(L\\cap S)=P(L)P(S\\mid L)=0.95(0.08)=0.076,$$\n\n$$P(F\\cap S)=P(F)P(S\\mid F)=0.05(0.85)=0.0425.$$\n\nEvery flagged transaction is in one of these two disjoint groups, so\n\n$$P(S)=0.076+0.0425=0.1185.$$\n\nAmong flagged transactions, the legitimate share is\n\n$$\\boxed{P(L\\mid S)=\\frac{P(L\\cap S)}{P(S)}\n=\\frac{0.076}{0.1185}\n=\\frac{152}{237}\\approx0.64135.}$$\n\nThus about **64.14%** of flagged transactions are legitimate. The legitimate group is initially so much larger that its false alarms outnumber the fraud alerts, despite its lower flagging rate.\n\n### (b) Restrict to transactions with both pieces of evidence\n\nThe question now gives us $S\\cap U$: a flag **and** an unconfirmed message. The denominator must include all transactions satisfying both conditions.\n\nConditional independence means that, after fixing the true status, knowing about the flag does not alter the stated confirmation rate:\n\n$$P(U\\mid S,L)=0.10,\\qquad P(U\\mid S,F)=0.95.$$\n\nFor a fraudulent transaction to produce both observations, follow the complete branch:\n\n$$\\begin{aligned}\nP(F\\cap S\\cap U)\n&=P(F)P(S\\mid F)P(U\\mid S,F)\\\\\n&=0.05(0.85)(0.95)\\\\\n&=0.040375.\n\\end{aligned}$$\n\nFor a legitimate transaction to produce both observations,\n\n$$P(L\\cap S\\cap U)=0.95(0.08)(0.10)=0.0076.$$\n\nAdd these disjoint explanations for the evidence:\n\n$$P(S\\cap U)=0.040375+0.0076=0.047975.$$\n\nTherefore\n\n$$\\boxed{P(F\\mid S\\cap U)\n=\\frac{0.040375}{0.047975}\n=\\frac{1615}{1919}\\approx0.84158.}$$\n\nThe probability of fraud is now about **84.16%**. An unconfirmed message is much more likely for a fraudulent transaction than for a legitimate one, so this additional evidence raises the fraud probability.\n\n### See the same calculation as counts\n\nImagine 40,000 transactions whose proportions match the model exactly:\n\n| True status | Initially | Flagged | Flagged and unconfirmed |\n|---|---:|---:|---:|\n| Legitimate | 38,000 | 3,040 | 304 |\n| Fraudulent | 2,000 | 1,700 | 1,615 |\n| Total | 40,000 | 4,740 | 1,919 |\n\nPart (a) takes $3040/4740$. Part (b) takes $1615/1919$. In each case, the denominator is the group matching what we have observed, and the numerator is the requested status within that group.",
+      "parts": [
+        "a",
+        "b"
+      ]
+    }
+  ]
+}

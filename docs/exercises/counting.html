@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Exercises from the lesson PDFs, with complete questions and clearly explained solutions you can reveal when ready."><title>Lesson 03 exercises — Probability, understood</title><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/site.css"><link rel="stylesheet" href="../assets/exercises.css"><link rel="stylesheet" href="../assets/vendor/katex/katex.min.css"><script defer src="../assets/vendor/katex/katex.min.js"></script><script defer src="../assets/vendor/katex/contrib/auto-render.min.js"></script><script defer src="../assets/site.js"></script></head>
+<body class="exercises-page"><a class="skip" href="#lesson">Skip to the exercises</a><aside class="sidebar" aria-label="Exercise navigation"><a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>Probability,<br>understood.</span></a><button class="nav-close" data-close-nav aria-label="Close navigation">×</button><p class="course-label">Your study companion</p><details class="chapter-picker"><summary>Change chapter</summary><nav class="chapter-nav" aria-label="Choose a chapter"><a href="../slides/01.html"><span>01</span> Data Summary</a><a href="../probability-part1/01.html"><span>02</span> Probability · Part 1</a><a href="../counting/01.html" aria-current="true"><span>03</span> Counting</a><a href="../probability-part2/01.html"><span>04</span> Probability · Part 2</a><a href="../probability-part3/01.html"><span>05</span> Probability · Part 3</a><a href="../random-variables/01.html"><span>06</span> Random Variables</a><a href="../random-variables-part2/01.html"><span>07</span> Random Variables · Part 2</a><a href="../random-variables-part3/01.html"><span>08</span> Random Variables · Part 3</a><a href="../expectation/01.html"><span>09</span> Expectation</a><a href="../special-distributions/01.html"><span>10</span> Special Distributions</a></nav></details><p class="course-title">Lesson exercises</p><nav class="slide-nav exercise-nav" aria-label="Exercises by lesson"><a href="data-summary.html"><span>01</span><span>Data Summary<small>5 exercises</small></span></a><a href="probability-part1.html"><span>02</span><span>Probability · Part 1<small>8 exercises</small></span></a><a href="counting.html" aria-current="page"><span>03</span><span>Counting<small>6 exercises</small></span></a><a href="probability-part2.html"><span>04</span><span>Probability · Part 2<small>7 exercises</small></span></a><a href="probability-part3.html"><span>05</span><span>Probability · Part 3<small>4 exercises</small></span></a><a href="random-variables.html"><span>06</span><span>Random Variables<small>3 exercises</small></span></a><a href="random-variables-part2.html"><span>07</span><span>Random Variables · Part 2<small>1 exercise</small></span></a><a href="random-variables-part3.html"><span>08</span><span>Random Variables · Part 3<small>3 exercises</small></span></a><a href="expectation.html"><span>09</span><span>Expectation<small>4 exercises</small></span></a><a href="special-distributions.html"><span>10</span><span>Special Distributions<small>5 exercises</small></span></a></nav><div class="nav-footer"><a class="appendix-link" href="index.html">All lesson exercises</a><a class="appendix-link" href="../midterms/index.html">Midterms · questions &amp; solutions</a><a class="appendix-link" href="../appendix/calculus.html">Calculus appendix</a><span>Try the question. Reveal the reasoning.</span></div></aside><button class="scrim" data-close-nav aria-label="Close navigation"></button><div class="site-body"><header class="topbar"><button class="menu-button" aria-expanded="false" aria-label="Open exercise navigation">☰ Menu</button><div class="breadcrumb"><strong>Lesson 03 exercises</strong></div><div class="top-tools"><button class="plain-button print-button" data-print>Print questions</button><button class="plain-button print-button" data-print-solutions>Print with solutions</button></div></header><div class="reading-progress" aria-hidden="true"><i data-reading-progress></i></div><div class="page-layout"><main class="lesson" id="lesson"><p class="eyebrow">Practice · Lesson 03</p><h1>Counting</h1><p class="lead">Exercises</p><p class="exercise-intro">Work through the questions independently. Each solution starts closed; open it when you are ready for the reasoning and calculations.</p><div class="lesson-meta"><span>6 exercises</span><span class="meta-sep">/</span><a href="../counting/01.html">Read the lesson</a><span class="meta-sep">/</span><a href="index.html">All lesson exercises</a></div><div class="exercise-list"><h2 class="sr-only">Questions and solutions</h2><section class="exercise-card" id="exercise-slide-06" aria-labelledby="exercise-slide-06-title">
+<p class="exercise-meta">Exercise 01 <span aria-hidden="true">/</span> Slide 6</p>
+<h3 id="exercise-slide-06-title">A sum of at least ten on two dice</h3><div class="prose exercise-question"><p>Two independent fair six-sided dice are rolled. Let $A$ be the event that their sum is greater than or equal to 10. Find $P(A)$.</p></div>
+<details class="exercise-solution" data-exercise-solution><summary><span class="solution-closed-label">Show solution</span><span class="solution-open-label">Hide solution</span><span class="sr-only">: A sum of at least ten on two dice</span></summary>
+<div class="prose exercise-solution-body"><p>Record an outcome as an ordered pair $(d_1,d_2)$, distinguishing the first die from the second. There are $6\cdot6=36$ equally likely outcomes.</p>
+<p>List all outcomes with the required sum:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Sum</th>
+<th>Outcomes</th>
+<th style="text-align: right;">Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10</td>
+<td>$(4,6),(5,5),(6,4)$</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr>
+<td>11</td>
+<td>$(5,6),(6,5)$</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr>
+<td>12</td>
+<td>$(6,6)$</td>
+<td style="text-align: right;">1</td>
+</tr>
+</tbody>
+</table></div>
+<p>These cases cannot overlap: an outcome has only one sum. The favorable count is $3+2+1=6$. Therefore,</p>
+<p>$$
+\boxed{P(A)=\frac{6}{36}=\frac16.}
+$$</p>
+<p>The sums 2 through 12 are not equally likely, so dividing the three favorable sums by eleven possible sums would be incorrect. Ordered die results are the equally likely outcomes.</p></div><p class="exercise-source">Return to the explanation: <a href="../counting/06.html">Slide 6</a>. <a href="../assets/source/03-counting.pdf#page=6" target="_blank" rel="noopener">Original PDF ↗</a></p></details></section><section class="exercise-card" id="exercise-slide-19" aria-labelledby="exercise-slide-19-title">
+<p class="exercise-meta">Exercise 02 <span aria-hidden="true">/</span> Slide 19</p>
+<h3 id="exercise-slide-19-title">Arrange books while keeping subjects together</h3><div class="prose exercise-question"><p>Mr. Jones has 10 distinct books: 4 mathematics books, 3 chemistry books, 2 history books, and 1 language book. He wants to arrange them on one shelf so that all books dealing with the same subject are together.</p>
+<p>How many different arrangements are possible?</p></div>
+<details class="exercise-solution" data-exercise-solution><summary><span class="solution-closed-label">Show solution</span><span class="solution-open-label">Hide solution</span><span class="sr-only">: Arrange books while keeping subjects together</span></summary>
+<div class="prose exercise-solution-body"><p>Treat each subject as one block. The four blocks are mathematics, chemistry, history, and language. They can be ordered in</p>
+<p>$$
+4!=24
+$$</p>
+<p>ways. For example, mathematics–history–language–chemistry is one block order.</p>
+<p>But the books <strong>inside</strong> a block are distinct. Once the block order is fixed:</p>
+<ul>
+<li>The four mathematics books have $4!$ internal orders.</li>
+<li>The three chemistry books have $3!$ internal orders.</li>
+<li>The two history books have $2!$ internal orders.</li>
+<li>The language block has $1!=1$ order.</li>
+</ul>
+<p>Every block order can be combined with every internal ordering. The multiplication rule therefore gives</p>
+<p>$$
+\boxed{4!\,(4!)(3!)(2!)(1!)=24\cdot24\cdot6\cdot2=6912.}
+$$</p>
+<p>This counts each valid shelf arrangement once: its subject-block order and the book order inside each block can be read uniquely from the shelf. Using only $4!$ would ignore internal book arrangements; using $10!$ would include arrangements that split a subject across the shelf.</p></div><p class="exercise-source">Return to the explanation: <a href="../counting/19.html">Slide 19</a>. <a href="../assets/source/03-counting.pdf#page=19" target="_blank" rel="noopener">Original PDF ↗</a></p></details></section><section class="exercise-card" id="exercise-slide-22" aria-labelledby="exercise-slide-22-title">
+<p class="exercise-meta">Exercise 03 <span aria-hidden="true">/</span> Slide 22</p>
+<h3 id="exercise-slide-22-title">Count valid feature pipelines</h3><div class="prose exercise-question"><p>A data scientist builds an <strong>ordered three-stage</strong> feature-engineering pipeline for a credit-risk model using features from</p>
+<p>$$
+\{A,B,C,D,E,F,G\}.
+$$</p>
+<p>Use three distinct features, selected without replacement, as in the slide's permutations setting. The constraints are:</p>
+<ul>
+<li>The first feature must be A or B, the two baseline financial metrics.</li>
+<li>C and D cannot both occur in the same pipeline because they are highly correlated.</li>
+</ul>
+<p>How many valid pipelines are possible?</p></div>
+<details class="exercise-solution" data-exercise-solution><summary><span class="solution-closed-label">Show solution</span><span class="solution-open-label">Hide solution</span><span class="sr-only">: Count valid feature pipelines</span></summary>
+<div class="prose exercise-solution-body"><p>First enforce the first-stage requirement, temporarily ignoring the C/D restriction.</p>
+<p>There are 2 choices for stage 1, then 6 unused features for stage 2 and 5 for stage 3. This gives</p>
+<p>$$
+2\cdot6\cdot5=60
+$$</p>
+<p>candidate pipelines.</p>
+<p>Now remove the invalid ones. Because stage 1 is A or B, a pipeline contains both C and D only when its last two stages are C,D or D,C:</p>
+<p>$$
+ACD,\quad ADC,\quad BCD,\quad BDC.
+$$</p>
+<p>There are $2\cdot2=4$ invalid pipelines, so</p>
+<p>$$
+\boxed{60-4=56.}
+$$</p>
+<p>The positions matter: ACD and ADC are different ordered pipelines, even though they use the same features. No division by $3!$ is appropriate.</p>
+<p>An alternative count makes the restriction directly: after choosing A or B first, choose an unordered pair from the six remaining features, excluding the one pair $\{C,D\}$. Then order that pair:</p>
+<p>$$
+2\left[\binom62-1\right]2!=2(15-1)2=56.
+$$</p>
+<p>Both counts use the stated no-repetition model. Allowing repeated features would define a different problem.</p></div><p class="exercise-source">Return to the explanation: <a href="../counting/22.html">Slide 22</a>. <a href="../assets/source/03-counting.pdf#page=22" target="_blank" rel="noopener">Original PDF ↗</a></p></details></section><section class="exercise-card" id="exercise-slide-24" aria-labelledby="exercise-slide-24-title">
+<p class="exercise-meta">Exercise 04 <span aria-hidden="true">/</span> Slide 24</p>
+<h3 id="exercise-slide-24-title">Select three committee officers</h3><div class="prose exercise-question"><p>A committee has 10 members: 6 male and 4 female. Three different people are chosen to be chairperson, vice-chairperson, and treasurer. Assume all ordered assignments of distinct people to these three roles are equally likely.</p>
+<p>What is the probability that all three selected officers are male?</p></div>
+<details class="exercise-solution" data-exercise-solution><summary><span class="solution-closed-label">Show solution</span><span class="solution-open-label">Hide solution</span><span class="sr-only">: Select three committee officers</span></summary>
+<div class="prose exercise-solution-body"><p>There are $10\cdot9\cdot8$ possible ordered assignments: choose the chair, then a different vice-chair, then a different treasurer.</p>
+<p>For all three to be male, the choices are $6\cdot5\cdot4$: six males initially, then five, then four. Thus</p>
+<p>$$
+\boxed{P(\text{all three male})=
+\frac{6\cdot5\cdot4}{10\cdot9\cdot8}
+=\frac{120}{720}=\frac16.}
+$$</p>
+<p>The same calculation can be read sequentially:</p>
+<p>$$
+\underbrace{\frac6{10}}_{\text{chair male}}
+\underbrace{\frac59}_{\text{vice-chair male given first is male}}
+\underbrace{\frac48}_{\text{treasurer male given first two are male}}
+=\frac16.
+$$</p>
+<p>The factors change because people are selected without replacement. Using $(6/10)^3$ would incorrectly keep the composition unchanged after each choice.</p>
+<p>You may also count unordered groups consistently:</p>
+<p>$$
+\frac{\binom63}{\binom{10}3}=\frac{20}{120}=\frac16.
+$$</p>
+<p>Each three-person group has the same $3!$ role assignments, so those factors cancel. Do not mix an ordered numerator with an unordered denominator.</p></div><p class="exercise-source">Return to the explanation: <a href="../counting/24.html">Slide 24</a>. <a href="../assets/source/03-counting.pdf#page=24" target="_blank" rel="noopener">Original PDF ↗</a></p></details></section><section class="exercise-card" id="exercise-slide-52" aria-labelledby="exercise-slide-52-title">
+<p class="exercise-meta">Exercise 05 <span aria-hidden="true">/</span> Slide 52</p>
+<h3 id="exercise-slide-52-title">Count heads in ten tosses</h3><div class="prose exercise-question"><p>A fair coin is tossed independently 10 times. Find the probability of obtaining:</p>
+<h3 id="exercise-slide-52-question-a">(a)</h3>
+<p>Exactly 3 heads.</p>
+<h3 id="exercise-slide-52-question-b">(b)</h3>
+<p>Three or fewer heads.</p></div>
+<details class="exercise-solution" data-exercise-solution><summary><span class="solution-closed-label">Show solution</span><span class="solution-open-label">Hide solution</span><span class="sr-only">: Count heads in ten tosses</span></summary>
+<div class="prose exercise-solution-body"><p>An outcome is a length-10 sequence of H and T. There are $2^{10}=1024$ such sequences, each with probability $(1/2)^{10}$.</p>
+<h3 id="exercise-slide-52-solution-a-exactly-3-heads">(a) Exactly 3 heads</h3>
+<p>Choose the three positions that contain heads. Once those positions are chosen, every other position must be a tail, so no additional choices remain:</p>
+<p>$$
+\#\{\text{exactly 3 heads}\}=\binom{10}{3}=120.
+$$</p>
+<p>Therefore,</p>
+<p>$$
+\boxed{P(\text{exactly 3 heads})=\frac{120}{1024}=\frac{15}{128}=0.1171875.}
+$$</p>
+<h3 id="exercise-slide-52-solution-b-three-or-fewer-heads">(b) Three or fewer heads</h3>
+<p>“Three or fewer” includes 0, 1, 2, and 3 heads. These cases are disjoint, so add their counts:</p>
+<p>$$
+\begin{aligned}
+\#\{\text{at most 3 heads}\}
+&amp;=\binom{10}{0}+\binom{10}{1}+\binom{10}{2}+\binom{10}{3}\\
+&amp;=1+10+45+120=176.
+\end{aligned}
+$$</p>
+<p>Consequently,</p>
+<p>$$
+\boxed{P(\text{at most 3 heads})=\frac{176}{1024}=\frac{11}{64}=0.171875.}
+$$</p>
+<p>The head counts 0 through 10 are not equally likely: many more sequences contain 5 heads than 0 heads. Counting equally likely sequences is what makes these ratios valid.</p></div><p class="exercise-source">Return to the explanation: <a href="../counting/52.html">Slide 52</a>. <a href="../assets/source/03-counting.pdf#page=52" target="_blank" rel="noopener">Original PDF ↗</a></p></details></section><section class="exercise-card" id="exercise-slide-53" aria-labelledby="exercise-slide-53-title">
+<p class="exercise-meta">Exercise 06 <span aria-hidden="true">/</span> Slide 53</p>
+<h3 id="exercise-slide-53-title">Will two specified tournament players meet?</h3><div class="prose exercise-question"><p>There are $n\ge2$ tennis players in a single-elimination tournament, including two specified players A and B. The tournament follows these rules in every round:</p>
+<ol>
+<li>If an odd number of players remains, choose one of them uniformly at random to receive a bye and advance automatically.</li>
+<li>Pair the remaining players uniformly at random.</li>
+<li>Each pair plays once. The loser is eliminated and the winner advances.</li>
+<li>Repeat with fresh random pairings until only the champion remains.</li>
+</ol>
+<p>All players have equal ability: each match has either player as winner with probability $1/2$, independently of the other match results.</p>
+<p>Find the probability that A and B ever play each other during the tournament.</p></div>
+<details class="exercise-solution" data-exercise-solution><summary><span class="solution-closed-label">Show solution</span><span class="solution-open-label">Hide solution</span><span class="sr-only">: Will two specified tournament players meet?</span></summary>
+<div class="prose exercise-solution-body"><h3 id="exercise-slide-53-solution-count-how-many-different-pairs-actually-play">Count how many different pairs actually play</h3>
+<p>Start with n players and finish with one. Exactly $n-1$ players must be eliminated. Each match eliminates one person, while a bye eliminates nobody. Therefore every completed tournament has exactly</p>
+<p>$$
+n-1
+$$</p>
+<p>matches. No pair can meet twice, because its first meeting eliminates one member.</p>
+<p>There are $\binom n2=n(n-1)/2$ possible unordered pairs of players. We now explain with <strong>counting</strong> why the fixed pair A,B has probability $(n-1)/\binom n2$.</p>
+<h3 id="exercise-slide-53-solution-put-names-onto-an-already-completed-tournament">Put names onto an already completed tournament</h3>
+<p>Imagine recording a completed tournament using anonymous numbered entrants. Keep all its pairings, byes, and winners fixed, and then assign the n player names to its n entrants.</p>
+<p>Every one of the $n!$ assignments of names is equally likely: the pairing rules, bye rules, and fair winning chances treat all names alike. Assigning the names afterward is an equivalent way of generating the same random experiment.</p>
+<p>Focus on one particular played match. How many assignments put A and B into its two entrants?</p>
+<ul>
+<li>Put A and B into those two places in 2 ways: A on the first entrant and B on the second, or the reverse.</li>
+<li>Assign the other $n-2$ names to the other entrants in $(n-2)!$ ways.</li>
+</ul>
+<p>Thus this one match accounts for $2(n-2)!$ favorable name assignments.</p>
+<p>There are $n-1$ matches. The favorable assignments for different matches do not overlap: A and B cannot play twice in a single-elimination tournament. We can therefore add the counts:</p>
+<p>$$
+\#\{\text{assignments where A meets B}\}=(n-1)\,2(n-2)!.
+$$</p>
+<p>Divide by all $n!$ assignments:</p>
+<p>$$
+\begin{aligned}
+P(\text{A and B meet})
+&amp;=\frac{(n-1)\,2(n-2)!}{n!}\\
+&amp;=\frac{2(n-1)(n-2)!}{n(n-1)(n-2)!}\\
+&amp;=\boxed{\frac2n}.
+\end{aligned}
+$$</p>
+<p>This calculation gives the same answer for <strong>every possible anonymous tournament</strong>, so averaging over the randomly generated tournament does not change it.</p>
+<h3 id="exercise-slide-53-solution-connect-the-count-to-the-simple-ratio">Connect the count to the simple ratio</h3>
+<p>For any one match, the ratio $2(n-2)!/n!$ equals $1/\binom n2$: all possible pairs have equal chances of occupying it. Add over the $n-1$ disjoint opportunities for A,B to meet:</p>
+<p>$$
+\boxed{P(\text{ever meet})=\frac{n-1}{\binom n2}=\frac2n.}
+$$</p>
+<p>For example, with five players there are four matches and ten possible pairs, so the answer is $4/10=2/5$.</p>
+<p>The symmetry here comes from the rules treating names identically. Counting $n-1$ matches alone would not justify the answer if certain players were stronger or given special placements. Nor do we need to claim that every group of $n-1$ pairs is a possible tournament; many such groups are impossible.</p></div><p class="exercise-source">Return to the explanation: <a href="../counting/53.html">Slide 53</a>. <a href="../assets/source/03-counting.pdf#page=53" target="_blank" rel="noopener">Original PDF ↗</a></p></details></section></div><footer class="footer"><p>Original exercises: Dobrin Marchev · STAT 5701. Explanations are an independent study companion.</p></footer></main><aside class="page-toc" aria-label="On this page"><p class="toc-label">On this page</p><a href="#exercise-slide-06">01 · A sum of at least ten on two dice</a><a href="#exercise-slide-19">02 · Arrange books while keeping subjects together</a><a href="#exercise-slide-22">03 · Count valid feature pipelines</a><a href="#exercise-slide-24">04 · Select three committee officers</a><a href="#exercise-slide-52">05 · Count heads in ten tosses</a><a href="#exercise-slide-53">06 · Will two specified tournament players meet?</a><a href="#lesson">Back to the top ↑</a></aside></div></div></body></html>

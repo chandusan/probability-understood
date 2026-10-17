@@ -41,8 +41,9 @@
   addEventListener('hashchange',revealHashTarget);revealHashTarget();
   const savedDetails=new Map();
   window.addEventListener('beforeprint',()=>{document.querySelectorAll('details').forEach(d=>{savedDetails.set(d,d.open);d.open=true;});});
-  window.addEventListener('afterprint',()=>{savedDetails.forEach((open,d)=>d.open=open);savedDetails.clear();});
-  document.querySelector('[data-print]').addEventListener('click',()=>window.print());
+  window.addEventListener('afterprint',()=>{savedDetails.forEach((open,d)=>d.open=open);savedDetails.clear();document.body.classList.remove('print-exercise-solutions');});
+  document.querySelector('[data-print]').addEventListener('click',()=>{document.body.classList.remove('print-exercise-solutions');window.print();});
+  document.querySelector('[data-print-solutions]')?.addEventListener('click',()=>{document.body.classList.add('print-exercise-solutions');window.print();});
   window.addEventListener('message',e=>{if(!e.data||e.data.type!=='lesson-lab-height')return;document.querySelectorAll('.experiment iframe').forEach(f=>{if(f.contentWindow===e.source){const h=Number(e.data.height);if(Number.isFinite(h))f.style.height=`${Math.max(180,Math.min(2400,h))}px`;}});});
   if(window.renderMathInElement){renderMathInElement(document.querySelector('.lesson'),{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false},{left:'\\[',right:'\\]',display:true}],throwOnError:false,strict:'ignore',ignoredClasses:['no-math'],ignoredTags:['script','noscript','style','textarea','pre','code']});}
   const tocLinks=[...document.querySelectorAll('.page-toc a[href^="#"]')].filter(a=>a.hash!=='#lesson');

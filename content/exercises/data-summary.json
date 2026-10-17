@@ -1,0 +1,68 @@
+{
+  "chapter_id": "data-summary",
+  "exercises": [
+    {
+      "id": "slide-12",
+      "title": "Compare the mean and median from a histogram",
+      "source_pages": [
+        12
+      ],
+      "question": "The slide shows three histograms, described here so that the exercise can be attempted without opening the slide:\n\n| Histogram | Shape shown |\n|---|---|\n| Shoe sizes | One central peak, with roughly balanced tails on the two sides. |\n| Years of car ownership | Most observations are toward the smaller values, with a long tail toward larger values. |\n| Winter daily low temperatures | Most observations are toward the warmer values, with a long tail toward colder, more negative temperatures. |\n\nFor each histogram, would you expect the mean and median to be approximately equal, the mean to be greater than the median, or the mean to be less than the median? Explain your choices.\n\n**Hint from the slide:** the mean tends to follow the skew of the histogram.",
+      "solution": "The **median** locates the middle observation after sorting. The **mean** adds every value and divides by the count, so values far from the center can pull it toward themselves.\n\n| Histogram | Expected comparison | Why |\n|---|---|---|\n| Shoe sizes | Mean approximately equals median. | The two sides roughly balance, so neither tail pulls the mean much more than the other. |\n| Car ownership | Mean greater than median. | The long right tail contains unusually large values that pull the mean upward. |\n| Winter daily lows | Mean less than median. | The long left tail contains unusually low, negative temperatures that pull the mean downward. |\n\n“Warmer” is to the right even when all the temperatures are negative: for example, $-3>-12$. A tail toward $-12$ pulls the mean left.\n\nThese are qualitative expectations for the displayed shapes. A rough histogram does not give the exact mean or median, and the tail heuristic is not a theorem for every possible irregular distribution.",
+      "parts": [
+        "shoe-sizes",
+        "car-ownership",
+        "winter-temperatures"
+      ]
+    },
+    {
+      "id": "slide-13",
+      "title": "Interpret a score in two classes",
+      "source_pages": [
+        13
+      ],
+      "question": "A midterm is scored out of 100. The class mean is 76, and your score is 88. Compare your performance in the two scenarios depicted on the slide:\n\n- **Scenario 1:** scores are tightly concentrated around 76; only a small right-hand tail extends to 88 and beyond.\n- **Scenario 2:** scores are spread much more widely around the same mean; a visibly larger fraction extends to 88 and beyond.\n\nHow would you interpret your score in each scenario? What does the comparison show about reporting an average without reporting spread?",
+      "solution": "In both classes, your score is $88-76=12$ points above the mean. That fact alone is identical in the two scenarios.\n\nIn **Scenario 1**, most classmates are close to 76. A score of 88 is unusually high compared with this concentrated group; few classmates scored as high.\n\nIn **Scenario 2**, scores vary widely. A 12-point difference from the mean is less unusual, and more classmates scored around or above 88.\n\nThus the same raw score and same mean can imply different relative standing. We need information about **spread** as well as the center. If the standard deviations were supplied, the standardized distance would be\n\n$$\nz=\\frac{88-76}{s}=\\frac{12}{s}.\n$$\n\nA smaller $s$ makes the same 12-point difference a larger number of standard deviations. The picture supports a qualitative comparison, but it does not supply enough exact data to calculate a percentile or a numerical $z$-score.",
+      "parts": []
+    },
+    {
+      "id": "slide-20-21",
+      "title": "Diamond prices before and after two outliers",
+      "source_pages": [
+        20,
+        21
+      ],
+      "question": "The original dataset contains sale prices of 42 low-quality diamonds, each smaller than one carat. Two high-quality diamonds priced at 7,393 and 8,979 US dollars are accidentally added. The slide supplies these summaries; monetary entries are in US dollars.\n\n| Statistic | Original 42 diamonds | After adding the two diamonds |\n|---|---:|---:|\n| Sample size | 42 | 44 |\n| Minimum | 416 | 416 |\n| First quartile $Q_1$ | 1,416 | 1,429 |\n| Median | 1,882 | 1,899 |\n| Mean | 1,924 | 2,209 |\n| Third quartile $Q_3$ | 2,497 | 2,537 |\n| Maximum | 3,154 | 8,979 |\n| Sample standard deviation $s$ | 703 | 1,497 |\n\n### (a) Original dataset\n\nCompute its interquartile range (IQR) and range.\n\n### (b) After adding the outliers\n\nCompute the new IQR and range. How do these summaries change, and what does this show about their sensitivity to outliers?",
+      "solution": "The two measures use different parts of the data:\n\n$$\n\\operatorname{IQR}=Q_3-Q_1,\n\\qquad\n\\operatorname{Range}=\\operatorname{Maximum}-\\operatorname{Minimum}.\n$$\n\nThe IQR measures the width of the middle half of the observations. The range measures the distance between the two most extreme observations.\n\n### (a) Original dataset\n\n$$\n\\operatorname{IQR}=2497-1416=\\boxed{1081\\text{ dollars}},\n$$\n\n$$\n\\operatorname{Range}=3154-416=\\boxed{2738\\text{ dollars}}.\n$$\n\n### (b) After adding the outliers\n\n$$\n\\operatorname{IQR}=2537-1429=\\boxed{1108\\text{ dollars}},\n$$\n\n$$\n\\operatorname{Range}=8979-416=\\boxed{8563\\text{ dollars}}.\n$$\n\nThe IQR increases by only $1108-1081=27$ dollars, about $2.5\\%$. The range increases by $8563-2738=5825$ dollars and becomes more than three times its old size.\n\nThe new maximum enters the range calculation directly. The two outliers have much less effect on the middle half of the data, so the IQR changes only slightly. **Robust** means resistant to extreme observations, not completely unchanged by them.\n\nThe other supplied summaries tell the same story: the mean rises by 285 dollars and the standard deviation rises by 794 dollars, while the median rises by only 17 dollars.",
+      "parts": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "id": "slide-30",
+      "title": "Rank the variability of professor ratings",
+      "source_pages": [
+        30
+      ],
+      "question": "Students rate four hypothetical professors on a scale from 1 to 5. The following table transcribes the number of dots at each rating in the slide's dot plots.\n\n| Professor | Rating 1 | Rating 2 | Rating 3 | Rating 4 | Rating 5 |\n|---|---:|---:|---:|---:|---:|\n| A | 1 | 2 | 4 | 2 | 1 |\n| B | 0 | 0 | 6 | 0 | 0 |\n| C | 5 | 0 | 0 | 0 | 5 |\n| D | 2 | 2 | 2 | 2 | 2 |\n\nArrange the professors from **smallest to largest variability** in ratings. Explain your reasoning from the distributions before calculating.",
+      "solution": "All four distributions have mean 3, but their distances from 3 differ.\n\n- **B:** all six ratings equal 3. Every distance from the mean is zero, so there is no variability.\n- **A:** most ratings are at 3 or close to it. Only two are at the extreme values 1 and 5.\n- **D:** ratings are evenly spread across the five values. Compared with A, more ratings lie at the extremes and fewer lie at the center.\n- **C:** every rating is at 1 or 5, two units from the mean. This has the greatest spread.\n\nTherefore,\n\n$$\n\\boxed{B<A<D<C.}\n$$\n\nTo verify, weight each squared distance by its count. For A,\n\n$$\nSS_A=1(1-3)^2+2(2-3)^2+4(3-3)^2+2(4-3)^2+1(5-3)^2=12.\n$$\n\nSimilarly, $SS_B=0$, $SS_D=2(4+1+0+1+4)=20$, and $SS_C=5(4)+5(4)=40$.\n\n| Professor | Number of ratings | Sum of squared distances | Sample variance |\n|---|---:|---:|---:|\n| B | 6 | 0 | $0/5=0$ |\n| A | 10 | 12 | $12/9=4/3$ |\n| D | 10 | 20 | $20/9$ |\n| C | 10 | 40 | $40/9$ |\n\nTaking square roots preserves the order, so the standard deviations have the same ranking. The unequal sample size for B causes no difficulty: its squared-distance total is zero.",
+      "parts": []
+    },
+    {
+      "id": "slide-31",
+      "title": "Compare standard deviations after changing the data",
+      "source_pages": [
+        31
+      ],
+      "question": "For each row, compare the standard deviations of the two datasets. First try to reason **without calculating** the standard deviations. Choose:\n\n- **I:** the standard deviation in column A is greater.\n- **II:** the standard deviation in column B is greater.\n- **III:** the standard deviations are equal.\n- **IV:** the relationship cannot be determined from the information given.\n\n| Row | Column A | Column B |\n|---|---|---|\n| 1 | $\\{0.2,0.4,0.6,0.8\\}$ | $\\{2,4,6,8\\}$ |\n| 2 | $\\{1,3,5,7,9\\}$ | $\\{3,5,7,9,1\\}$ |\n| 3 | $\\{1,3,5,7,9\\}$ | $\\{1,3,5,7,9,9\\}$ |\n| 4 | $\\{1,3,5,7,9\\}$ | $\\{1,3,5,5,7,9\\}$ |",
+      "solution": "The answers, in order, are **II, III, II, I**.\n\n### Row 1: all values are multiplied by 10\n\nColumn B stretches every distance from the mean by a factor of 10. Therefore its standard deviation is ten times as large: $s_B=10s_A$. **Answer: II.**\n\n### Row 2: only the order changes\n\nThese are exactly the same observations. Reordering does not change the mean or the distances from it. **Answer: III.**\n\n### Row 3: another 9 is added\n\nColumn B gives the upper extreme additional weight. For these particular values its standard deviation is slightly larger. **Answer: II.** The important qualification is that adding an extreme value does not always increase standard deviation: the center and the divisor change as well.\n\nA short verification resolves this less obvious comparison. For A, the mean is 5 and\n\n$$\nSS_A=16+4+0+4+16=40,\\qquad s_A^2=40/4=10.\n$$\n\nFor B, the mean is $34/6=17/3$. Its deviations are $-14/3,-8/3,-2/3,4/3,10/3,10/3$, so\n\n$$\nSS_B=\\frac{196+64+4+16+100+100}{9}=\\frac{160}{3},\n$$\n\n$$\ns_B^2=\\frac{160/3}{5}=\\frac{32}{3}>10.\n$$\n\nComparing variances is sufficient: square root preserves their order.\n\n### Row 4: another observation at the mean is added\n\nThe added value is 5, exactly the original mean. The mean stays 5. The new squared distance is zero, so the squared-distance total remains 40. But the sample-variance divisor grows from 4 to 5:\n\n$$\ns_A^2=40/4=10,\\qquad s_B^2=40/5=8.\n$$\n\nTherefore A has the larger standard deviation. **Answer: I.**\n\nThese calculations use sample standard deviations. If population standard deviations are used consistently instead, the same four comparisons hold for these datasets.",
+      "parts": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ]
+    }
+  ]
+}

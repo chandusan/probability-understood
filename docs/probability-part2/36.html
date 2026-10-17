@@ -1,7 +1,7 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Slide 36 of Probability · Part 2: Partial derangements and nonrepeatwords. Original slide, first-principles explanation, examples and worked practice."><title>36 · Partial derangements and nonrepeatwords — Probability, understood</title><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/site.css"><link rel="stylesheet" href="../assets/vendor/katex/katex.min.css"><script defer src="../assets/vendor/katex/katex.min.js"></script><script defer src="../assets/vendor/katex/contrib/auto-render.min.js"></script><script defer src="../assets/site.js"></script></head>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Slide 36 of Probability · Part 2: Partial derangements and nonrepeatwords. Original slide, first-principles explanation, examples and worked practice."><title>36 · Partial derangements and nonrepeatwords — Probability, understood</title><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/site.css"><link rel="stylesheet" href="../assets/exercises.css"><link rel="stylesheet" href="../assets/vendor/katex/katex.min.css"><script defer src="../assets/vendor/katex/katex.min.js"></script><script defer src="../assets/vendor/katex/contrib/auto-render.min.js"></script><script defer src="../assets/site.js"></script></head>
 <body data-slide="36" data-slide-prefix="" data-chapter="probability-part2" data-slide-count="36"><a class="skip" href="#lesson">Skip to the lesson</a>
-<aside class="sidebar" aria-label="Course navigation"><a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>Probability,<br>understood.</span></a><button class="nav-close" data-close-nav aria-label="Close slide navigation">×</button><p class="course-label">Your study companion</p><details class="chapter-picker"><summary>Change chapter</summary><nav class="chapter-nav" aria-label="Choose a chapter"><a href="../slides/01.html"><span>01</span> Data Summary</a><a href="../probability-part1/01.html"><span>02</span> Probability · Part 1</a><a href="../counting/01.html"><span>03</span> Counting</a><a href="../probability-part2/01.html" aria-current="true"><span>04</span> Probability · Part 2</a><a href="../probability-part3/01.html"><span>05</span> Probability · Part 3</a><a href="../random-variables/01.html"><span>06</span> Random Variables</a><a href="../random-variables-part2/01.html"><span>07</span> Random Variables · Part 2</a><a href="../random-variables-part3/01.html"><span>08</span> Random Variables · Part 3</a><a href="../expectation/01.html"><span>09</span> Expectation</a><a href="../special-distributions/01.html"><span>10</span> Special Distributions</a></nav></details><p class="course-title">Probability · Part 2</p><label class="sr-only" for="slide-search">Find a slide</label><input class="nav-search" id="slide-search" type="search" placeholder="Find a slide…" autocomplete="off"><nav class="slide-nav" aria-label="All 36 slides"><div class="nav-group"><div class="nav-group-title">Symmetry before enumeration</div><a class="slide-link" data-slide="1" data-search="01 turn probability rules into a problem-solving method choose a probability strategy" href="01.html"><span class="slide-num">01</span><span>Choose a probability strategy</span></a><a class="slide-link" data-slide="2" data-search="02 will two particular tennis players ever meet? will two tennis players meet?" href="02.html"><span class="slide-num">02</span><span>Will two tennis players meet?</span></a><a class="slide-link" data-slide="3" data-search="03 count valid draws, then add across rounds count matches with symmetry" href="03.html"><span class="slide-num">03</span><span>Count matches with symmetry</span></a><a class="slide-link" data-slide="4" data-search="04 crossing chords depend on the order of their endpoints why random chords cross one third of the time" href="04.html"><span class="slide-num">04</span><span>Why random chords cross one third of the time</span></a></div><div class="nav-group"><div class="nav-group-title">The power of the complement</div><a class="slide-link" data-slide="5" data-search="05 the complement rule turns “at least one” into “none” prove the complement rule" href="05.html"><span class="slide-num">05</span><span>Prove the complement rule</span></a><a class="slide-link" data-slide="6" data-search="06 count lottery tickets by how many numbers match lotto: count matches and define a prize" href="06.html"><span class="slide-num">06</span><span>Lotto: count matches and define a prize</span></a><a class="slide-link" data-slide="7" data-search="07 six robberies in six districts: collisions are overwhelmingly likely six robberies in six districts" href="07.html"><span class="slide-num">07</span><span>Six robberies in six districts</span></a></div><div class="nav-group"><div class="nav-group-title">Occupancy & birthday collisions</div><a class="slide-link" data-slide="8" data-search="08 one specific bin: define the question before counting the load of one specified bin" href="08.html"><span class="slide-num">08</span><span>The load of one specified bin</span></a><a class="slide-link" data-slide="9" data-search="09 build the numerator without omissions or double counting choose the hits, then place the rest" href="09.html"><span class="slide-num">09</span><span>Choose the hits, then place the rest</span></a><a class="slide-link" data-slide="10" data-search="10 recognize the binomial distribution inside the bin problem recognize the binomial distribution" href="10.html"><span class="slide-num">10</span><span>Recognize the binomial distribution</span></a><a class="slide-link" data-slide="11" data-search="11 the birthday problem asks whether any pair matches birthdays: count the collision-free rooms" href="11.html"><span class="slide-num">11</span><span>Birthdays: count the collision-free rooms</span></a><a class="slide-link" data-slide="12" data-search="12 three equivalent forms of the birthday calculation derive the birthday product" href="12.html"><span class="slide-num">12</span><span>Derive the birthday product</span></a><a class="slide-link" data-slide="13" data-search="13 why 23 people are enough for a better-than-even chance why twenty-three people are enough" href="13.html"><span class="slide-num">13</span><span>Why twenty-three people are enough</span></a></div><div class="nav-group"><div class="nav-group-title">Repeated objects & rare patterns</div><a class="slide-link" data-slide="14" data-search="14 arrange repeated objects without counting duplicates arrange a multiset of repeated objects" href="14.html"><span class="slide-num">14</span><span>Arrange a multiset of repeated objects</span></a><a class="slide-link" data-slide="15" data-search="15 can a random arrangement spell a poem? can shuffled letters become poetry?" href="15.html"><span class="slide-num">15</span><span>Can shuffled letters become poetry?</span></a><a class="slide-link" data-slide="16" data-search="16 two sample spaces, one tiny probability compute the probability of one exact string" href="16.html"><span class="slide-num">16</span><span>Compute the probability of one exact string</span></a></div><div class="nav-group"><div class="nav-group-title">Add probabilities without double counting</div><a class="slide-link" data-slide="17" data-search="17 add the events, then remove the duplicate overlap add two events and remove the overlap" href="17.html"><span class="slide-num">17</span><span>Add two events and remove the overlap</span></a><a class="slide-link" data-slide="18" data-search="18 split the union into three disjoint regions partition a union into disjoint regions" href="18.html"><span class="slide-num">18</span><span>Partition a union into disjoint regions</span></a><a class="slide-link" data-slide="19" data-search="19 finish the addition-rule proof derive the addition rule step by step" href="19.html"><span class="slide-num">19</span><span>Derive the addition rule step by step</span></a><a class="slide-link" data-slide="20" data-search="20 translate the olympic-city question into events two cities in the final five" href="20.html"><span class="slide-num">20</span><span>Two cities in the final five</span></a><a class="slide-link" data-slide="21" data-search="21 solve the city example and recover every region translate or, both, neither and exactly one" href="21.html"><span class="slide-num">21</span><span>Translate or, both, neither and exactly one</span></a></div><div class="nav-group"><div class="nav-group-title">Bridge hands & overlapping events</div><a class="slide-link" data-slide="22" data-search="22 a bridge hand is an unordered set of thirteen cards what makes a bridge hand equally likely?" href="22.html"><span class="slide-num">22</span><span>What makes a bridge hand equally likely?</span></a><a class="slide-link" data-slide="23" data-search="23 turn four bridge questions into two events four questions about two major suits" href="23.html"><span class="slide-num">23</span><span>Four questions about two major suits</span></a><a class="slide-link" data-slide="24" data-search="24 count exactly five spades by filling two categories exactly five spades" href="24.html"><span class="slide-num">24</span><span>Exactly five spades</span></a><a class="slide-link" data-slide="25" data-search="25 use suit symmetry without assuming independence hearts, symmetry and dependence" href="25.html"><span class="slide-num">25</span><span>Hearts, symmetry and dependence</span></a><a class="slide-link" data-slide="26" data-search="26 count the overlap: five spades and five hearts five spades and five hearts together" href="26.html"><span class="slide-num">26</span><span>Five spades and five hearts together</span></a><a class="slide-link" data-slide="27" data-search="27 at least one major suit has exactly five cards exactly five versus at least five" href="27.html"><span class="slide-num">27</span><span>Exactly five versus at least five</span></a></div><div class="nav-group"><div class="nav-group-title">Inclusion–exclusion in action</div><a class="slide-link" data-slide="28" data-search="28 three events need one final overlap correction add three events without overcounting" href="28.html"><span class="slide-num">28</span><span>Add three events without overcounting</span></a><a class="slide-link" data-slide="29" data-search="29 seven disjoint regions explain the three-event picture read the seven regions of a venn diagram" href="29.html"><span class="slide-num">29</span><span>Read the seven regions of a Venn diagram</span></a><a class="slide-link" data-slide="30" data-search="30 prove inclusion–exclusion by tracking each region check every region in the proof" href="30.html"><span class="slide-num">30</span><span>Check every region in the proof</span></a><a class="slide-link" data-slide="31" data-search="31 at least one six: solve the same event two ways at least one six in three rolls" href="31.html"><span class="slide-num">31</span><span>At least one six in three rolls</span></a><a class="slide-link" data-slide="32" data-search="32 ten dice: make every face appear at least once all six faces in ten rolls" href="32.html"><span class="slide-num">32</span><span>All six faces in ten rolls</span></a><a class="slide-link" data-slide="33" data-search="33 two overlap puzzles: divisibility and long digit runs divisibility and long runs of digits" href="33.html"><span class="slide-num">33</span><span>Divisibility and long runs of digits</span></a><a class="slide-link" data-slide="34" data-search="34 inclusion–exclusion corrects overlaps of every size general inclusion–exclusion" href="34.html"><span class="slide-num">34</span><span>General inclusion–exclusion</span></a></div><div class="nav-group"><div class="nav-group-title">Permutations & the appearance of e</div><a class="slide-link" data-slide="35" data-search="35 names in a hat lead to derangements and one over e names in a hat and derangements" href="35.html"><span class="slide-num">35</span><span>Names in a hat and derangements</span></a><a class="slide-link" data-slide="36" data-search="36 two extensions reveal why the sampling model matters partial derangements and nonrepeatwords" href="36.html" aria-current="page"><span class="slide-num">36</span><span>Partial derangements and nonrepeatwords</span></a></div><p class="no-results" hidden>No matching slides.</p></nav><div class="nav-footer"><a class="appendix-link" href="../midterms/index.html">Midterms · questions &amp; solutions</a><a class="appendix-link" href="../appendix/calculus.html">Calculus appendix</a><span><strong data-completed-count>0</strong> of 36 slides understood</span><div class="progress-track" aria-hidden="true"><i data-course-progress></i></div><span>One idea at a time.</span><br><a data-resume hidden></a></div></aside>
+<aside class="sidebar" aria-label="Course navigation"><a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>Probability,<br>understood.</span></a><button class="nav-close" data-close-nav aria-label="Close slide navigation">×</button><p class="course-label">Your study companion</p><details class="chapter-picker"><summary>Change chapter</summary><nav class="chapter-nav" aria-label="Choose a chapter"><a href="../slides/01.html"><span>01</span> Data Summary</a><a href="../probability-part1/01.html"><span>02</span> Probability · Part 1</a><a href="../counting/01.html"><span>03</span> Counting</a><a href="../probability-part2/01.html" aria-current="true"><span>04</span> Probability · Part 2</a><a href="../probability-part3/01.html"><span>05</span> Probability · Part 3</a><a href="../random-variables/01.html"><span>06</span> Random Variables</a><a href="../random-variables-part2/01.html"><span>07</span> Random Variables · Part 2</a><a href="../random-variables-part3/01.html"><span>08</span> Random Variables · Part 3</a><a href="../expectation/01.html"><span>09</span> Expectation</a><a href="../special-distributions/01.html"><span>10</span> Special Distributions</a></nav></details><p class="course-title">Probability · Part 2</p><label class="sr-only" for="slide-search">Find a slide</label><input class="nav-search" id="slide-search" type="search" placeholder="Find a slide…" autocomplete="off"><nav class="slide-nav" aria-label="All 36 slides"><div class="nav-group"><div class="nav-group-title">Symmetry before enumeration</div><a class="slide-link" data-slide="1" data-search="01 turn probability rules into a problem-solving method choose a probability strategy" href="01.html"><span class="slide-num">01</span><span>Choose a probability strategy</span></a><a class="slide-link" data-slide="2" data-search="02 will two particular tennis players ever meet? will two tennis players meet?" href="02.html"><span class="slide-num">02</span><span>Will two tennis players meet?</span></a><a class="slide-link" data-slide="3" data-search="03 count valid draws, then add across rounds count matches with symmetry" href="03.html"><span class="slide-num">03</span><span>Count matches with symmetry</span></a><a class="slide-link" data-slide="4" data-search="04 crossing chords depend on the order of their endpoints why random chords cross one third of the time" href="04.html"><span class="slide-num">04</span><span>Why random chords cross one third of the time</span></a></div><div class="nav-group"><div class="nav-group-title">The power of the complement</div><a class="slide-link" data-slide="5" data-search="05 the complement rule turns “at least one” into “none” prove the complement rule" href="05.html"><span class="slide-num">05</span><span>Prove the complement rule</span></a><a class="slide-link" data-slide="6" data-search="06 count lottery tickets by how many numbers match lotto: count matches and define a prize" href="06.html"><span class="slide-num">06</span><span>Lotto: count matches and define a prize</span></a><a class="slide-link" data-slide="7" data-search="07 six robberies in six districts: collisions are overwhelmingly likely six robberies in six districts" href="07.html"><span class="slide-num">07</span><span>Six robberies in six districts</span></a></div><div class="nav-group"><div class="nav-group-title">Occupancy & birthday collisions</div><a class="slide-link" data-slide="8" data-search="08 one specific bin: define the question before counting the load of one specified bin" href="08.html"><span class="slide-num">08</span><span>The load of one specified bin</span></a><a class="slide-link" data-slide="9" data-search="09 build the numerator without omissions or double counting choose the hits, then place the rest" href="09.html"><span class="slide-num">09</span><span>Choose the hits, then place the rest</span></a><a class="slide-link" data-slide="10" data-search="10 recognize the binomial distribution inside the bin problem recognize the binomial distribution" href="10.html"><span class="slide-num">10</span><span>Recognize the binomial distribution</span></a><a class="slide-link" data-slide="11" data-search="11 the birthday problem asks whether any pair matches birthdays: count the collision-free rooms" href="11.html"><span class="slide-num">11</span><span>Birthdays: count the collision-free rooms</span></a><a class="slide-link" data-slide="12" data-search="12 three equivalent forms of the birthday calculation derive the birthday product" href="12.html"><span class="slide-num">12</span><span>Derive the birthday product</span></a><a class="slide-link" data-slide="13" data-search="13 why 23 people are enough for a better-than-even chance why twenty-three people are enough" href="13.html"><span class="slide-num">13</span><span>Why twenty-three people are enough</span></a></div><div class="nav-group"><div class="nav-group-title">Repeated objects & rare patterns</div><a class="slide-link" data-slide="14" data-search="14 arrange repeated objects without counting duplicates arrange a multiset of repeated objects" href="14.html"><span class="slide-num">14</span><span>Arrange a multiset of repeated objects</span></a><a class="slide-link" data-slide="15" data-search="15 can a random arrangement spell a poem? can shuffled letters become poetry?" href="15.html"><span class="slide-num">15</span><span>Can shuffled letters become poetry?</span></a><a class="slide-link" data-slide="16" data-search="16 two sample spaces, one tiny probability compute the probability of one exact string" href="16.html"><span class="slide-num">16</span><span>Compute the probability of one exact string</span></a></div><div class="nav-group"><div class="nav-group-title">Add probabilities without double counting</div><a class="slide-link" data-slide="17" data-search="17 add the events, then remove the duplicate overlap add two events and remove the overlap" href="17.html"><span class="slide-num">17</span><span>Add two events and remove the overlap</span></a><a class="slide-link" data-slide="18" data-search="18 split the union into three disjoint regions partition a union into disjoint regions" href="18.html"><span class="slide-num">18</span><span>Partition a union into disjoint regions</span></a><a class="slide-link" data-slide="19" data-search="19 finish the addition-rule proof derive the addition rule step by step" href="19.html"><span class="slide-num">19</span><span>Derive the addition rule step by step</span></a><a class="slide-link" data-slide="20" data-search="20 translate the olympic-city question into events two cities in the final five" href="20.html"><span class="slide-num">20</span><span>Two cities in the final five</span></a><a class="slide-link" data-slide="21" data-search="21 solve the city example and recover every region translate or, both, neither and exactly one" href="21.html"><span class="slide-num">21</span><span>Translate or, both, neither and exactly one</span></a></div><div class="nav-group"><div class="nav-group-title">Bridge hands & overlapping events</div><a class="slide-link" data-slide="22" data-search="22 a bridge hand is an unordered set of thirteen cards what makes a bridge hand equally likely?" href="22.html"><span class="slide-num">22</span><span>What makes a bridge hand equally likely?</span></a><a class="slide-link" data-slide="23" data-search="23 turn four bridge questions into two events four questions about two major suits" href="23.html"><span class="slide-num">23</span><span>Four questions about two major suits</span></a><a class="slide-link" data-slide="24" data-search="24 count exactly five spades by filling two categories exactly five spades" href="24.html"><span class="slide-num">24</span><span>Exactly five spades</span></a><a class="slide-link" data-slide="25" data-search="25 use suit symmetry without assuming independence hearts, symmetry and dependence" href="25.html"><span class="slide-num">25</span><span>Hearts, symmetry and dependence</span></a><a class="slide-link" data-slide="26" data-search="26 count the overlap: five spades and five hearts five spades and five hearts together" href="26.html"><span class="slide-num">26</span><span>Five spades and five hearts together</span></a><a class="slide-link" data-slide="27" data-search="27 at least one major suit has exactly five cards exactly five versus at least five" href="27.html"><span class="slide-num">27</span><span>Exactly five versus at least five</span></a></div><div class="nav-group"><div class="nav-group-title">Inclusion–exclusion in action</div><a class="slide-link" data-slide="28" data-search="28 three events need one final overlap correction add three events without overcounting" href="28.html"><span class="slide-num">28</span><span>Add three events without overcounting</span></a><a class="slide-link" data-slide="29" data-search="29 seven disjoint regions explain the three-event picture read the seven regions of a venn diagram" href="29.html"><span class="slide-num">29</span><span>Read the seven regions of a Venn diagram</span></a><a class="slide-link" data-slide="30" data-search="30 prove inclusion–exclusion by tracking each region check every region in the proof" href="30.html"><span class="slide-num">30</span><span>Check every region in the proof</span></a><a class="slide-link" data-slide="31" data-search="31 at least one six: solve the same event two ways at least one six in three rolls" href="31.html"><span class="slide-num">31</span><span>At least one six in three rolls</span></a><a class="slide-link" data-slide="32" data-search="32 ten dice: make every face appear at least once all six faces in ten rolls" href="32.html"><span class="slide-num">32</span><span>All six faces in ten rolls</span></a><a class="slide-link" data-slide="33" data-search="33 two overlap puzzles: divisibility and long digit runs divisibility and long runs of digits" href="33.html"><span class="slide-num">33</span><span>Divisibility and long runs of digits</span></a><a class="slide-link" data-slide="34" data-search="34 inclusion–exclusion corrects overlaps of every size general inclusion–exclusion" href="34.html"><span class="slide-num">34</span><span>General inclusion–exclusion</span></a></div><div class="nav-group"><div class="nav-group-title">Permutations & the appearance of e</div><a class="slide-link" data-slide="35" data-search="35 names in a hat lead to derangements and one over e names in a hat and derangements" href="35.html"><span class="slide-num">35</span><span>Names in a hat and derangements</span></a><a class="slide-link" data-slide="36" data-search="36 two extensions reveal why the sampling model matters partial derangements and nonrepeatwords" href="36.html" aria-current="page"><span class="slide-num">36</span><span>Partial derangements and nonrepeatwords</span></a></div><p class="no-results" hidden>No matching slides.</p></nav><div class="nav-footer"><a class="appendix-link" href="../exercises/index.html">Lesson exercises</a><a class="exercise-current-link" href="../exercises/probability-part2.html">This lesson’s 7 exercises →</a><a class="appendix-link" href="../midterms/index.html">Midterms · questions &amp; solutions</a><a class="appendix-link" href="../appendix/calculus.html">Calculus appendix</a><span><strong data-completed-count>0</strong> of 36 slides understood</span><div class="progress-track" aria-hidden="true"><i data-course-progress></i></div><span>One idea at a time.</span><br><a data-resume hidden></a></div></aside>
 <button class="scrim" data-close-nav aria-label="Close navigation"></button><div class="site-body"><header class="topbar"><button class="menu-button" aria-expanded="false" aria-label="Open slide navigation">☰ Slides</button><div class="breadcrumb"><span class="crumb-course">Probability · Part 2 <span aria-hidden="true">/</span> </span><strong>Slide 36 of 36</strong></div><div class="top-tools"><a href="../assets/source/04-probability-part2.pdf#page=36" target="_blank" rel="noopener">Original PDF ↗</a><button class="plain-button print-button" data-print>Print this slide</button></div></header><div class="reading-progress" aria-hidden="true"><i data-reading-progress></i></div>
 <div class="page-layout"><main class="lesson" id="lesson"><p class="eyebrow">Permutations &amp; the appearance of e · Slide 36</p><h1>Two extensions reveal why the sampling model matters</h1><p class="lead">The final exercises reuse factorial counting in two different ways. Restricting only some people's name draws requires a partial inclusion–exclusion sum. Choosing uniformly among all words with distinct letters produces a reciprocal exponential sum, with a probability astonishingly close to one over e.</p><div class="lesson-meta"><span>~3 min reading</span><span class="meta-sep">/</span><span>Source + intuition + practice</span></div>
 <figure class="slide-figure" id="source-slide"><button class="slide-image-button" data-zoom-slide aria-label="Enlarge original slide 36"><img class="slide-image" src="../assets/slides/probability-part2/36.webp" alt="Original slide 36: Partial derangements and nonrepeatwords. The concepts and figures are explained below." width="2000" height="1500" fetchpriority="high"></button><figcaption class="slide-caption"><span>Original slide · STAT 5701 · Dobrin Marchev</span><button data-zoom-slide>Enlarge slide ↗</button></figcaption></figure>
@@ -75,7 +75,719 @@ $$</p>
 <h2 id="uniform-words-do-not-imply-uniform-lengths">Uniform words do not imply uniform lengths</h2>
 <p>Choosing a length uniformly from 1 through 26 and then choosing a word of that length would give probability $1/26$ of using all letters. That is a different experiment: it gives the same total weight to length-one and length-26 words despite their very different counts.</p>
 <p>Under the slide's model, lengths 26 and 25 each have $26!$ words; length 24 has $26!/2!$; length 23 has $26!/3!$. Thus short words receive little total probability even though every individual word has equal weight. The factorial counts explain why the answer resembles $1/e$: the normalization sums reciprocal factorials. In the derangement problem, $1/e$ arose instead from an alternating exclusion sum.</p></article>
+<section class="lesson-exercises" id="lesson-exercises" aria-labelledby="lesson-exercises-title"><p class="eyebrow">Try it yourself</p><h2 id="lesson-exercises-title">Lesson 04 exercises</h2><p class="exercise-intro">7 exercises from this lesson. Try each question first, then open its solution for a step-by-step explanation.</p><p class="exercise-collection-link"><a href="../exercises/probability-part2.html">Open this lesson’s exercise collection →</a> <span>·</span> <a href="../exercises/index.html">All lessons</a></p><section class="exercise-card" id="exercise-slide-07" aria-labelledby="exercise-slide-07-title">
+<p class="exercise-meta">Exercise 01 <span aria-hidden="true">/</span> Slide 7</p>
+<h3 id="exercise-slide-07-title">Six robberies in six districts</h3><div class="prose exercise-question"><p>A city has 6 districts and experiences 6 robberies in a particular week. Treat the robberies as distinguishable, and assume each independently occurs in any of the six districts with probability $1/6$. Thus every assignment specifying where each robbery occurred is equally likely.</p>
+<p>What is the probability that <strong>some district has more than one robbery</strong>?</p></div>
+<details class="exercise-solution" data-exercise-solution><summary><span class="solution-closed-label">Show solution</span><span class="solution-open-label">Hide solution</span><span class="sr-only">: Six robberies in six districts</span></summary>
+<div class="prose exercise-solution-body"><p>An outcome is an ordered list of six district labels, one label for each robbery. Each robbery has six choices, so there are $6^6$ equally likely assignments.</p>
+<p>Let E mean that some district has more than one robbery. Its complement is easier to count: <strong>no district has more than one robbery</strong>.</p>
+<p>Because there are six robberies and exactly six districts, avoiding every repeat forces exactly one robbery into each district. The first robbery has 6 possible districts, the second has 5 unused districts, then 4, 3, 2, and 1. Hence there are</p>
+<p>$$
+6!=6\cdot5\cdot4\cdot3\cdot2\cdot1=720
+$$</p>
+<p>assignments with no repeated district.</p>
+<p>Therefore,</p>
+<p>$$
+P(E^c)=\frac{6!}{6^6}=\frac{720}{46656}=\frac5{324},
+$$</p>
+<p>and</p>
+<p>$$
+\boxed{P(E)=1-\frac5{324}=\frac{319}{324}\approx0.984568.}
+$$</p>
+<p>The complement collects all the complicated ways to have a repeat into one subtraction. We do not need to separately count two robberies together, three together, two different repeated districts, and so on.</p>
+<p>The counts of robberies per district are not equally likely patterns. The pattern with one in every district corresponds to $6!$ assignments of the six distinguishable robberies, whereas the pattern with all six in District 1 corresponds to only one.</p></div><p class="exercise-source">Return to the explanation: <a href="../probability-part2/07.html">Slide 7</a>. <a href="../assets/source/04-probability-part2.pdf#page=7" target="_blank" rel="noopener">Original PDF ↗</a></p></details></section><section class="exercise-card" id="exercise-slide-31" aria-labelledby="exercise-slide-31-title">
+<p class="exercise-meta">Exercise 02 <span aria-hidden="true">/</span> Slide 31</p>
+<h3 id="exercise-slide-31-title">At least one six: find an alternative method</h3><div class="prose exercise-question"><p>Three independent fair six-sided dice are rolled. Find the probability that at least one die shows a six.</p>
+<p>The slide demonstrates inclusion–exclusion and asks for an alternative solution. Find such a method and explain why it works.</p></div>
+<details class="exercise-solution" data-exercise-solution><summary><span class="solution-closed-label">Show solution</span><span class="solution-open-label">Hide solution</span><span class="sr-only">: At least one six: find an alternative method</span></summary>
+<div class="prose exercise-solution-body"><p>“At least one six” and “no sixes” are complementary events: exactly one of them must occur.</p>
+<p>On each die there are five non-six faces out of six. Independence gives</p>
+<p>$$
+P(\text{no sixes})=\frac56\cdot\frac56\cdot\frac56=\left(\frac56\right)^3.
+$$</p>
+<p>Subtract from the probability of the whole sample space:</p>
+<p>$$
+\boxed{P(\text{at least one six})=1-\left(\frac56\right)^3
+=1-\frac{125}{216}=\frac{91}{216}\approx0.421296.}
+$$</p>
+<p>In counting terms, there are $6^3=216$ equally likely outcomes and $5^3=125$ with no sixes, leaving $216-125=91$ favorable outcomes.</p>
+<p>For comparison, inclusion–exclusion gives the same result:</p>
+<p>$$
+3\left(\frac16\right)-3\left(\frac1{36}\right)+\frac1{216}
+=\frac{91}{216}.
+$$</p>
+<p>The three first terms count a six on each specified die. Subtracting the three pair intersections corrects outcomes with two sixes; adding the triple intersection restores the all-sixes outcome after it was over-subtracted. The complement method is shorter because “no sixes” is a single simple restriction on every die.</p></div><p class="exercise-source">Return to the explanation: <a href="../probability-part2/31.html">Slide 31</a>. <a href="../assets/source/04-probability-part2.pdf#page=31" target="_blank" rel="noopener">Original PDF ↗</a></p></details></section><section class="exercise-card" id="exercise-slide-32" aria-labelledby="exercise-slide-32-title">
+<p class="exercise-meta">Exercise 03 <span aria-hidden="true">/</span> Slide 32</p>
+<h3 id="exercise-slide-32-title">Make every die face appear</h3><div class="prose exercise-question"><p>Ten independent standard fair six-sided dice are rolled simultaneously. What is the <strong>exact probability that every face, 1 through 6, appears at least once</strong>?</p></div>
+<details class="exercise-solution" data-exercise-solution><summary><span class="solution-closed-label">Show solution</span><span class="solution-open-label">Hide solution</span><span class="sr-only">: Make every die face appear</span></summary>
+<div class="prose exercise-solution-body"><p>Ten independent, fair six-sided dice are rolled. What is the probability that <strong>every face—1, 2, 3, 4, 5 and 6—appears at least once</strong>? We will solve this using a binomial distribution and then using direct counting, with a full explanation of the inclusion–exclusion corrections both approaches need.</p>
+<h3 id="exercise-slide-32-solution-state-the-requirement-and-define-the-six-events">State the requirement and define the six events</h3>
+<p>For example,</p>
+<p>$$
+(1,2,3,4,5,6,1,2,3,4)
+$$</p>
+<p>satisfies the requirement. Repetitions are allowed; we only need every face to occur somewhere among the ten dice.</p>
+<p>Label the dice $D_1,\ldots,D_{10}$. An outcome records their results in that order. Rolling simultaneously does not make the dice indistinguishable. Since each die has six equally likely results and the dice are independent, there are $6^{10}$ equally likely ordered outcomes.</p>
+<p>The useful idea is: <strong>instead of directly requiring all six faces to appear, exclude outcomes in which some face is missing.</strong> Define</p>
+<p>$$
+\begin{aligned}
+A_1&amp;=\{\text{face 1 is missing}\},\\
+A_2&amp;=\{\text{face 2 is missing}\},\\
+A_3&amp;=\{\text{face 3 is missing}\},\\
+A_4&amp;=\{\text{face 4 is missing}\},\\
+A_5&amp;=\{\text{face 5 is missing}\},\\
+A_6&amp;=\{\text{face 6 is missing}\}.
+\end{aligned}
+$$</p>
+<p>Then</p>
+<p>$$
+U=A_1\cup A_2\cup A_3\cup A_4\cup A_5\cup A_6
+$$</p>
+<p>means <strong>at least one face is missing</strong>. We will calculate $P(U)$ first. Our desired probability is then</p>
+<p>$$
+P(\text{every face appears})=1-P(U).
+$$</p>
+<h3 id="exercise-slide-32-solution-method-1-use-the-binomial-distribution">Method 1: use the binomial distribution</h3>
+<p><strong>Start with one particular face, say 1.</strong> For each die, define:</p>
+<ul>
+<li>Success: the die shows 1, with probability $1/6$.</li>
+<li>Failure: the die shows something else, with probability $5/6$.</li>
+</ul>
+<p>There are ten independent trials with the same success probability. Therefore, if $X_1$ counts how many dice show 1,</p>
+<p>$$
+X_1\sim\operatorname{Binomial}\left(10,\frac16\right).
+$$</p>
+<p>Face 1 is missing exactly when $X_1=0$. Using the binomial formula,</p>
+<p>$$
+\begin{aligned}
+P(A_1)
+&amp;=P(X_1=0)\\
+&amp;=\binom{10}{0}\left(\frac16\right)^0
+\left(\frac56\right)^{10}\\
+&amp;=\left(\frac56\right)^{10}.
+\end{aligned}
+$$</p>
+<p>The same calculation works for each of the six faces.</p>
+<p><strong>Now consider two particular faces, say 1 and 2.</strong> To calculate the probability that both are missing, redefine success on each die as <strong>“shows either 1 or 2.”</strong> The success probability is now $2/6$. If $X_{\{1,2\}}$ counts such dice,</p>
+<p>$$
+X_{\{1,2\}}\sim\operatorname{Binomial}\left(10,\frac26\right).
+$$</p>
+<p>Both faces are missing precisely when this count is zero:</p>
+<p>$$
+\begin{aligned}
+P(A_1\cap A_2)
+&amp;=P(X_{\{1,2\}}=0)\\
+&amp;=\binom{10}{0}\left(\frac26\right)^0
+\left(\frac46\right)^{10}\\
+&amp;=\left(\frac46\right)^{10}.
+\end{aligned}
+$$</p>
+<p><strong>Extend this to any specified set $S$ of $k$ faces.</strong> Let $X_S$ count dice showing any face in that set. Then</p>
+<p>$$
+X_S\sim\operatorname{Binomial}\left(10,\frac{k}{6}\right),
+$$</p>
+<p>and</p>
+<p>$$
+\begin{aligned}
+P(\text{all faces in }S\text{ are missing})
+&amp;=P(X_S=0)\\
+&amp;=\boxed{\left(\frac{6-k}{6}\right)^{10}}.
+\end{aligned}
+$$</p>
+<p>Other faces may also be missing. This is <strong>not</strong> the probability that <em>exactly</em> $k$ faces are missing. For example, an outcome missing 1, 2 and 3 still belongs to $A_1\cap A_2$.</p>
+<p>The binomial distribution gives each missing-face probability. We now need inclusion–exclusion to combine these overlapping events and enforce the requirement that every face appears.</p>
+<h3 id="exercise-slide-32-solution-why-inclusionexclusion-alternates-between-adding-and-subtracting">Why inclusion–exclusion alternates between adding and subtracting</h3>
+<p><strong>We add and subtract because the same dice outcome can belong to several missing-face events. Inclusion–exclusion makes sure each outcome is counted exactly once.</strong> Here we are counting outcomes in $U$, the event that at least one face is missing.</p>
+<p><strong>Step 1: add the six individual probabilities.</strong> Start with</p>
+<p>$$
+\begin{aligned}
+&amp;P(A_1)+P(A_2)+P(A_3)\\
+&amp;\quad+P(A_4)+P(A_5)+P(A_6).
+\end{aligned}
+$$</p>
+<p>An outcome missing only face 1 appears in just $A_1$, so it is counted once. Good.</p>
+<p>But consider this outcome:</p>
+<p>$$
+(3,4,5,6,3,4,5,6,3,4).
+$$</p>
+<p>It is missing <strong>exactly faces 1 and 2</strong>. It belongs to both $A_1$ and $A_2$, so the sum counts its probability twice. We want to count it once.</p>
+<p><strong>Step 2: subtract all pairwise intersections.</strong> The intersection $A_1\cap A_2$ means <strong>both faces 1 and 2 are missing</strong>. Subtracting $P(A_1\cap A_2)$ corrects the outcome above:</p>
+<p>$$
+\underbrace{2}_{\text{individual events}}
+-\underbrace{1}_{\text{pair intersection}}=1.
+$$</p>
+<p>We must do this for all 15 pairs. Explicitly, the sum we subtract is</p>
+<p>$$
+\begin{aligned}
+&amp;P(A_1\cap A_2)+P(A_1\cap A_3)+P(A_1\cap A_4)\\
+&amp;+P(A_1\cap A_5)+P(A_1\cap A_6)+P(A_2\cap A_3)\\
+&amp;+P(A_2\cap A_4)+P(A_2\cap A_5)+P(A_2\cap A_6)\\
+&amp;+P(A_3\cap A_4)+P(A_3\cap A_5)+P(A_3\cap A_6)\\
+&amp;+P(A_4\cap A_5)+P(A_4\cap A_6)+P(A_5\cap A_6).
+\end{aligned}
+$$</p>
+<p>But this creates another issue. Consider an outcome missing <strong>exactly faces 1, 2 and 3</strong>:</p>
+<p>$$
+(4,5,6,4,5,6,4,5,6,4).
+$$</p>
+<p>It belongs to three individual events:</p>
+<p>$$
+A_1,\quad A_2,\quad A_3,
+$$</p>
+<p>and three pairwise intersections:</p>
+<p>$$
+A_1\cap A_2,\quad A_1\cap A_3,\quad A_2\cap A_3.
+$$</p>
+<p>So far, its net count is</p>
+<p>$$
+3-3=0.
+$$</p>
+<p><strong>We have accidentally removed it completely</strong>, even though it belongs to the event “at least one face is missing.”</p>
+<p><strong>Step 3: add all triple intersections.</strong> Our outcome belongs to $A_1\cap A_2\cap A_3$. Adding that intersection restores its count:</p>
+<p>$$
+\underbrace{3}_{\text{individual events}}
+-\underbrace{3}_{\text{pair intersections}}
++\underbrace{1}_{\text{triple intersection}}=1.
+$$</p>
+<p>We therefore add all $\binom63=20$ triple-intersection probabilities. This is why we add here: <strong>the previous subtraction removed too much.</strong></p>
+<p><strong>Steps 4–6: continue correcting overlaps.</strong> For an outcome missing exactly four faces, its count after the first three steps is</p>
+<p>$$
+\binom41-\binom42+\binom43=4-6+4=2.
+$$</p>
+<p>We subtract its four-event intersection:</p>
+<p>$$
+4-6+4-1=1.
+$$</p>
+<p>For an outcome missing exactly five faces, its count after four steps is</p>
+<p>$$
+5-10+10-5=0.
+$$</p>
+<p>We add its five-event intersection:</p>
+<p>$$
+5-10+10-5+1=1.
+$$</p>
+<p>Finally, the general formula subtracts the six-event intersection. Here that intersection is impossible: ten dice cannot show none of the six faces. Its probability is zero.</p>
+<p>The corrections work because an outcome missing $r$ faces belongs to:</p>
+<ul>
+<li>$r$ individual missing-face events;</li>
+<li>$\binom r2$ pair intersections;</li>
+<li>$\binom r3$ triple intersections;</li>
+<li>and so on.</li>
+</ul>
+<p>The alternating corrections leave it counted exactly once. An outcome with no missing faces belongs to none of these events, so it contributes zero to $P(U)$, as it should.</p>
+<h3 id="exercise-slide-32-solution-apply-inclusionexclusion-to-all-six-events">Apply inclusion–exclusion to all six events</h3>
+<p>All indices below run from 1 through 6. The inequalities such as $i&lt;j$ ensure we include each pair or larger group only once:</p>
+<p>$$
+\boxed{
+\begin{aligned}
+P(U)
+={}&amp;\sum_i P(A_i)\\
+&amp;-\sum_{i&lt;j}P(A_i\cap A_j)\\
+&amp;+\sum_{i&lt;j&lt;k}P(A_i\cap A_j\cap A_k)\\
+&amp;-\sum_{i&lt;j&lt;k&lt;\ell}P(A_i\cap A_j\cap A_k\cap A_\ell)\\
+&amp;+\sum_{i&lt;j&lt;k&lt;\ell&lt;m}
+P(A_i\cap A_j\cap A_k\cap A_\ell\cap A_m)\\
+&amp;-P(A_1\cap A_2\cap A_3\cap A_4\cap A_5\cap A_6).
+\end{aligned}
+}
+$$</p>
+<p>There are $\binom6k$ ways to choose which $k$ faces are specified as missing. Each corresponding intersection has the binomial zero-success probability $((6-k)/6)^{10}$ calculated above. Substituting gives:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Intersections</th>
+<th style="text-align: right;">Number of terms</th>
+<th style="text-align: right;">Probability for each specified set</th>
+<th style="text-align: right;">Contribution to $P(U)$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Single events</td>
+<td style="text-align: right;">$\binom61=6$</td>
+<td style="text-align: right;">$(5/6)^{10}$</td>
+<td style="text-align: right;">$+6(5/6)^{10}$</td>
+</tr>
+<tr>
+<td>Pairs</td>
+<td style="text-align: right;">$\binom62=15$</td>
+<td style="text-align: right;">$(4/6)^{10}$</td>
+<td style="text-align: right;">$-15(4/6)^{10}$</td>
+</tr>
+<tr>
+<td>Triples</td>
+<td style="text-align: right;">$\binom63=20$</td>
+<td style="text-align: right;">$(3/6)^{10}$</td>
+<td style="text-align: right;">$+20(3/6)^{10}$</td>
+</tr>
+<tr>
+<td>Groups of four</td>
+<td style="text-align: right;">$\binom64=15$</td>
+<td style="text-align: right;">$(2/6)^{10}$</td>
+<td style="text-align: right;">$-15(2/6)^{10}$</td>
+</tr>
+<tr>
+<td>Groups of five</td>
+<td style="text-align: right;">$\binom65=6$</td>
+<td style="text-align: right;">$(1/6)^{10}$</td>
+<td style="text-align: right;">$+6(1/6)^{10}$</td>
+</tr>
+<tr>
+<td>All six</td>
+<td style="text-align: right;">$\binom66=1$</td>
+<td style="text-align: right;">$(0/6)^{10}=0$</td>
+<td style="text-align: right;">$0$</td>
+</tr>
+</tbody>
+</table></div>
+<p>Therefore,</p>
+<p>$$
+\begin{aligned}
+P(U)={}&amp;6\left(\frac56\right)^{10}
+-15\left(\frac46\right)^{10}
++20\left(\frac36\right)^{10}\\
+&amp;-15\left(\frac26\right)^{10}
++6\left(\frac16\right)^{10}.
+\end{aligned}
+$$</p>
+<p><strong>This counts outcomes with at least one missing face.</strong> Taking its complement reverses all those signs:</p>
+<p>$$
+\boxed{
+\begin{aligned}
+P(\text{every face appears})
+={}&amp;1-6\left(\frac56\right)^{10}
++15\left(\frac46\right)^{10}\\
+&amp;-20\left(\frac36\right)^{10}
++15\left(\frac26\right)^{10}
+-6\left(\frac16\right)^{10}.
+\end{aligned}
+}
+$$</p>
+<p>In this final formula, we start with all outcomes, subtract those missing individual faces, add back the pair overlaps that were subtracted twice, and continue the corrections.</p>
+<h3 id="exercise-slide-32-solution-method-2-count-outcomes-without-a-binomial-distribution">Method 2: count outcomes without a binomial distribution</h3>
+<p>We can obtain every term using direct counting. There are $6^{10}$ equally likely outcomes, so</p>
+<p>$$
+P(\text{every face appears})
+=\frac{\text{number of outcomes containing all six faces}}{6^{10}}.
+$$</p>
+<p>Now count outcomes to exclude:</p>
+<ul>
+<li><strong>Face 1 is missing:</strong> each die has five allowed results, so there are $5^{10}$ outcomes.</li>
+<li><strong>Faces 1 and 2 are both missing:</strong> each die has four allowed results, so there are $4^{10}$ outcomes.</li>
+<li><strong>Any specified $k$ faces are missing:</strong> each die has $6-k$ allowed results, so there are $(6-k)^{10}$ outcomes.</li>
+</ul>
+<p>No binomial-distribution formula is needed—these counts follow directly from multiplying the number of choices for each die.</p>
+<p>Accounting for overlaps as before, the number of favorable outcomes is</p>
+<p>$$
+\begin{aligned}
+N={}&amp;6^{10}-\binom61 5^{10}+\binom62 4^{10}
+-\binom63 3^{10}\\
+&amp;+\binom64 2^{10}-\binom65 1^{10}+\binom66 0^{10}\\
+={}&amp;60{,}466{,}176-58{,}593{,}750+15{,}728{,}640\\
+&amp;-1{,}180{,}980+15{,}360-6\\
+={}&amp;\boxed{16{,}435{,}440}.
+\end{aligned}
+$$</p>
+<p>Here, $\binom6k$ simply counts choices of excluded faces. Using combinations does not mean we are using a binomial distribution.</p>
+<p>Divide by the total number of equally likely outcomes:</p>
+<p>$$
+\boxed{
+\begin{aligned}
+P(\text{every face appears})
+&amp;=\frac{16{,}435{,}440}{60{,}466{,}176}\\
+&amp;=\frac{38{,}045}{139{,}968}\\
+&amp;\approx0.271812\approx27.18\%.
+\end{aligned}
+}
+$$</p>
+<p>Both approaches express the same counting logic. For any specified $k$ missing faces, the direct-counting probability is</p>
+<p>$$
+\frac{(6-k)^{10}}{6^{10}}
+=\left(\frac{6-k}{6}\right)^{10},
+$$</p>
+<p>which is exactly the zero-success probability we obtained from the binomial distribution. The complete calculation can also be written compactly as</p>
+<p>$$
+P(\text{every face appears})
+=\frac{1}{6^{10}}\sum_{k=0}^{6}(-1)^k\binom6k(6-k)^{10}.
+$$</p>
+<p>The $k=0$ term is the unrestricted sample space. The $k=6$ term is zero because ten dice cannot take values from an empty set. Even with ten rolls, complete coverage occurs only about $27.18\%$ of the time. Repeated faces consume rolls without introducing a missing face.</p></div><p class="exercise-source">Return to the explanation: <a href="../probability-part2/32.html">Slide 32</a>. <a href="../assets/source/04-probability-part2.pdf#page=32" target="_blank" rel="noopener">Original PDF ↗</a></p></details></section><section class="exercise-card" id="exercise-slide-33" aria-labelledby="exercise-slide-33-title">
+<p class="exercise-meta">Exercise 04 <span aria-hidden="true">/</span> Slide 33</p>
+<h3 id="exercise-slide-33-title">Divisibility and repeated digit runs</h3><div class="prose exercise-question"><h3 id="exercise-slide-33-question-a-divisibility">(a) Divisibility</h3>
+<p>An integer is chosen uniformly from $\{1,2,\ldots,2019\}$. Find the probability that it is divisible by 2 or 3 or 7.</p>
+<h3 id="exercise-slide-33-question-b-consecutive-equal-digits">(b) Consecutive equal digits</h3>
+<p>A seven-digit string is chosen uniformly from all strings of length 7 using digits 0 through 9. Leading zeroes are allowed; equivalently, the seven digits are chosen independently and uniformly.</p>
+<p>Find the probability that the string contains <strong>at least five consecutive equal digits</strong>.</p></div>
+<details class="exercise-solution" data-exercise-solution><summary><span class="solution-closed-label">Show solution</span><span class="solution-open-label">Hide solution</span><span class="sr-only">: Divisibility and repeated digit runs</span></summary>
+<div class="prose exercise-solution-body"><p>Inclusion–exclusion applies whenever one outcome can satisfy several descriptions of success. An integer may have several required divisors; a long run of equal digits may contain several qualifying five-digit windows. The essential work is defining events whose intersections are countable.</p>
+<h3 id="exercise-slide-33-solution-a-divisible-by-2-3-or-7">(a) Divisible by 2, 3, or 7</h3>
+<p>Choose an integer uniformly from $\{1,2,\ldots,2019\}$. Let A, B, and C be divisibility by 2, 3, and 7, respectively. All 2019 integers have equal weight, so calculate a union count and divide by 2019.</p>
+<p>The number of multiples of a positive integer d up to 2019 is</p>
+<p>$$
+\left\lfloor\frac{2019}{d}\right\rfloor.
+$$</p>
+<p>The floor is needed because an incomplete final block contributes no additional multiple. Thus</p>
+<p>$$
+|A|=1009,\qquad |B|=673,\qquad |C|=288.
+$$</p>
+<p>An integer lies in an intersection when it is divisible by the <strong>least common multiple</strong> of the corresponding divisors. Here 2, 3, and 7 are pairwise coprime, so the relevant least common multiples are their products:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Intersection</th>
+<th style="text-align: right;">Required divisor</th>
+<th style="text-align: right;">Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$A\cap B$</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">336</td>
+</tr>
+<tr>
+<td>$A\cap C$</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">144</td>
+</tr>
+<tr>
+<td>$B\cap C$</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">96</td>
+</tr>
+<tr>
+<td>$A\cap B\cap C$</td>
+<td style="text-align: right;">42</td>
+<td style="text-align: right;">48</td>
+</tr>
+</tbody>
+</table></div>
+<p>Therefore</p>
+<p>$$
+|A\cup B\cup C|=1009+673+288-336-144-96+48=1442,
+$$</p>
+<p>and the requested probability is</p>
+<p>$$
+\boxed{\frac{1442}{2019}\approx0.71421496.}
+$$</p>
+<p>Do not always multiply divisors when forming intersections: “divisible by 4 and 6” means divisible by 12, not necessarily by 24.</p>
+<h3 id="exercise-slide-33-solution-b-five-or-more-consecutive-equal-digits">(b) Five or more consecutive equal digits</h3>
+<p><strong>Example (b) asks:</strong> What is the probability that a random seven-digit string contains <strong>at least five consecutive equal digits</strong>?</p>
+<p>For example:</p>
+<ul>
+<li><code>1111123</code> qualifies: five consecutive 1s.</li>
+<li><code>1111112</code> qualifies: six consecutive 1s.</li>
+<li><code>1111111</code> qualifies: seven consecutive 1s.</li>
+</ul>
+<p>We assume each position independently takes a digit from 0 through 9, with equal probability. Leading zeroes are allowed because we are choosing a <strong>string</strong>.</p>
+<p><strong>1. Count all possible strings</strong></p>
+<p>Each of the seven positions has ten choices:</p>
+<p>$$
+\boxed{\text{Total strings}=10^7.}
+$$</p>
+<p>We need to count how many contain the required run.</p>
+<p><strong>2. Define the three possible five-digit windows</strong></p>
+<p>A block of five consecutive digits can start only at position <strong>1, 2 or 3</strong>:</p>
+<p>$$
+\begin{array}{c|ccccccc}
+\text{Position}&amp;1&amp;2&amp;3&amp;4&amp;5&amp;6&amp;7\\ \hline
+A&amp;d&amp;d&amp;d&amp;d&amp;d&amp;x&amp;y\\
+B&amp;x&amp;d&amp;d&amp;d&amp;d&amp;d&amp;y\\
+C&amp;x&amp;y&amp;d&amp;d&amp;d&amp;d&amp;d
+\end{array}
+$$</p>
+<p>Here:</p>
+<ul>
+<li>$d$ is the repeated digit.</li>
+<li>$x,y$ are unrestricted digits. They may equal $d$, or each other.</li>
+</ul>
+<p>Thus,</p>
+<p>$$
+\begin{aligned}
+A&amp;=\{\text{positions 1–5 are equal}\},\\
+B&amp;=\{\text{positions 2–6 are equal}\},\\
+C&amp;=\{\text{positions 3–7 are equal}\}.
+\end{aligned}
+$$</p>
+<p><strong>Any run of at least five equal digits satisfies at least one of these events.</strong> Therefore, our desired event is</p>
+<p>$$
+A\cup B\cup C.
+$$</p>
+<p><strong>3. Count each individual event</strong></p>
+<p>For $A$, the pattern is</p>
+<p>$$
+d\,d\,d\,d\,d\,x\,y.
+$$</p>
+<p>Choose:</p>
+<p>$$
+\underbrace{10}_{d}
+\times
+\underbrace{10}_{x}
+\times
+\underbrace{10}_{y}
+=1000.
+$$</p>
+<p>The same reasoning applies to $B$ and $C$:</p>
+<p>$$
+|A|=|B|=|C|=1000.
+$$</p>
+<p>The outside digits are unrestricted because the problem allows runs of six or seven too.</p>
+<p>Adding gives $3000$, but some strings have been counted more than once.</p>
+<p>For example, <code>1111112</code> belongs to both $A$ and $B$.</p>
+<p><strong>4. Count—and subtract—the pairwise overlaps</strong></p>
+<p>For <strong>$A\cap B$</strong>, we require both</p>
+<p>$$
+X_1=X_2=X_3=X_4=X_5
+$$</p>
+<p>and</p>
+<p>$$
+X_2=X_3=X_4=X_5=X_6.
+$$</p>
+<p>These blocks share positions 2–5. Their repeated digits must therefore agree, forcing <strong>positions 1–6 to be equal</strong>.</p>
+<p>The pattern is</p>
+<p>$$
+d\,d\,d\,d\,d\,d\,x,
+$$</p>
+<p>so</p>
+<p>$$
+\boxed{|A\cap B|=10\cdot10=100.}
+$$</p>
+<p>Similarly, <strong>$B\cap C$</strong> forces positions 2–7 to be equal:</p>
+<p>$$
+x\,d\,d\,d\,d\,d\,d,
+$$</p>
+<p>giving</p>
+<p>$$
+\boxed{|B\cap C|=100.}
+$$</p>
+<p>Now consider <strong>$A\cap C$</strong>. This requires:</p>
+<p>$$
+\underbrace{X_1=X_2=X_3=X_4=X_5}_{A},
+\qquad
+\underbrace{X_3=X_4=X_5=X_6=X_7}_{C}.
+$$</p>
+<p>These blocks share positions <strong>3, 4 and 5</strong>, so their repeated digits must agree. Together, they cover every position.</p>
+<p>Consequently, <strong>all seven digits must be equal</strong>:</p>
+<p>$$
+d\,d\,d\,d\,d\,d\,d.
+$$</p>
+<p>Only the common digit needs to be chosen:</p>
+<p>$$
+\boxed{|A\cap C|=10.}
+$$</p>
+<p><strong>5. Add back the triple overlap</strong></p>
+<p>A string belongs to $A\cap B\cap C$ exactly when all seven digits are equal. Hence,</p>
+<p>$$
+\boxed{|A\cap B\cap C|=10.}
+$$</p>
+<p>Why add these back?</p>
+<p>Take <code>7777777</code>. It was:</p>
+<ul>
+<li>Counted <strong>three times</strong> in $|A|+|B|+|C|$.</li>
+<li>Subtracted <strong>three times</strong> in the three pairwise intersections.</li>
+</ul>
+<p>Its current count is $3-3=0$. Adding the triple intersection restores it:</p>
+<p>$$
+3-3+1=1.
+$$</p>
+<p>Compare the corrections for these three examples:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>String</th>
+<th style="text-align: right;">Individual events containing it</th>
+<th style="text-align: right;">Pair overlaps</th>
+<th style="text-align: right;">Triple overlap</th>
+<th style="text-align: right;">Final count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>1111123</code></td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">$1$</td>
+</tr>
+<tr>
+<td><code>1111112</code></td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">$2-1=1$</td>
+</tr>
+<tr>
+<td><code>1111111</code></td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">$3-3+1=1$</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Each qualifying string ends up counted exactly once.</strong></p>
+<p>Putting everything together,</p>
+<p>$$
+\begin{aligned}
+|A\cup B\cup C|
+={}&amp;|A|+|B|+|C|\\
+&amp;-|A\cap B|-|A\cap C|-|B\cap C|\\
+&amp;+|A\cap B\cap C|\\[4pt]
+={}&amp;1000+1000+1000-100-10-100+10\\
+={}&amp;\boxed{2800}.
+\end{aligned}
+$$</p>
+<p>Finally, divide by the total number of equally likely strings:</p>
+<p>$$
+\boxed{
+P(\text{at least five consecutive equal digits})
+=\frac{2800}{10^7}
+=0.00028
+=0.028\%.
+}
+$$</p></div><p class="exercise-source">Return to the explanation: <a href="../probability-part2/33.html">Slide 33</a>. <a href="../assets/source/04-probability-part2.pdf#page=33" target="_blank" rel="noopener">Original PDF ↗</a></p></details></section><section class="exercise-card" id="exercise-slide-35" aria-labelledby="exercise-slide-35-title">
+<p class="exercise-meta">Exercise 05 <span aria-hidden="true">/</span> Slide 35</p>
+<h3 id="exercise-slide-35-title">Drawing names for presents</h3><div class="prose exercise-question"><p>A family of $n\ge1$ people puts their n distinct names into a hat. Each person draws one name without replacement and buys a present for that person. Assume every complete assignment of names is equally likely; a person who draws their own name keeps it rather than redrawing.</p>
+<h3 id="exercise-slide-35-question-a">(a)</h3>
+<p>What is the probability that at least one person draws their own name?</p>
+<h3 id="exercise-slide-35-question-b">(b)</h3>
+<p>What happens to this probability as $n$ increases to infinity?</p></div>
+<details class="exercise-solution" data-exercise-solution><summary><span class="solution-closed-label">Show solution</span><span class="solution-open-label">Hide solution</span><span class="sr-only">: Drawing names for presents</span></summary>
+<div class="prose exercise-solution-body"><h3 id="exercise-slide-35-solution-a-define-the-self-match-events">(a) Define the self-match events</h3>
+<p>Label the people $1,\ldots,n$. Let $A_i$ be the event that person i draws their own name. We want</p>
+<p>$$
+P(A_1\cup\cdots\cup A_n).
+$$</p>
+<p>All $n!$ assignments are equally likely. If one specified person must draw their own name, that assignment is fixed and the other $n-1$ names may be arranged freely, giving $(n-1)!$ assignments. More generally, fixing the self-matches of <strong>k specified people</strong> leaves $(n-k)!$ assignments:</p>
+<p>$$
+P(A_{i_1}\cap\cdots\cap A_{i_k})=\frac{(n-k)!}{n!}.
+$$</p>
+<p>There are $\binom nk$ ways to choose which k people are fixed.</p>
+<h3 id="exercise-slide-35-solution-correct-the-overlaps">Correct the overlaps</h3>
+<p>Adding the individual self-match probabilities counts an assignment once for every self-match it contains. An assignment with two self-matches is counted twice, so subtract their intersection. With three self-matches, the first two stages give $3-3=0$, so add the triple intersection. Continue alternating to leave each qualifying assignment counted exactly once.</p>
+<p>Therefore,</p>
+<p>$$
+\begin{aligned}
+p_n
+&amp;=\binom n1\frac{(n-1)!}{n!}
+-\binom n2\frac{(n-2)!}{n!}
++\cdots+(-1)^{n+1}\binom nn\frac{0!}{n!}\\
+&amp;=\boxed{1-\frac1{2!}+\frac1{3!}-\cdots+\frac{(-1)^{n+1}}{n!}}.
+\end{aligned}
+$$</p>
+<p>Each term simplifies because</p>
+<p>$$
+\binom nk\frac{(n-k)!}{n!}
+=\frac{n!}{k!(n-k)!}\frac{(n-k)!}{n!}=\frac1{k!}.
+$$</p>
+<p>For example, with three people, $p_3=1-1/2+1/6=2/3$.</p>
+<h3 id="exercise-slide-35-solution-the-complement-method-gives-the-same-answer">The complement method gives the same answer</h3>
+<p>The complement is <strong>nobody draws their own name</strong>. Such an assignment is called a derangement. Starting with all $n!$ assignments and excluding self-matches by the same corrections gives the number</p>
+<p>$$
+D_n=n!\sum_{k=0}^{n}\frac{(-1)^k}{k!}.
+$$</p>
+<p>Thus</p>
+<p>$$
+\boxed{p_n=1-\frac{D_n}{n!}
+=1-\sum_{k=0}^{n}\frac{(-1)^k}{k!}.}
+$$</p>
+<p>The complement is valid, but counting it is not simply $(n-1)(n-2)\cdots$. After an earlier draw, the next person's own name might still be available or might already be gone. The number of allowed choices depends on <strong>which</strong> names were drawn, not only on how many remain.</p>
+<p>For instance, with people A,B,C, if A draws B, then B may draw either A or C. Choosing A forces C to draw their own name, while choosing C lets C draw A. Both choices existed at B's turn, but only one can finish without a self-match.</p>
+<h3 id="exercise-slide-35-solution-b-take-the-limit">(b) Take the limit</h3>
+<p>The exponential series at $-1$ is</p>
+<p>$$
+e^{-1}=\sum_{k=0}^{\infty}\frac{(-1)^k}{k!}
+=1-1+\frac1{2!}-\frac1{3!}+\cdots.
+$$</p>
+<p>Therefore,</p>
+<p>$$
+\boxed{\lim_{n\to\infty}p_n=1-e^{-1}\approx0.63212056.}
+$$</p>
+<p>The probability approaches about $63.2\%$, not 100%. It alternates around this limit rather than increasing at every step: for example, $p_2=1/2$, $p_3=2/3$, and $p_4=5/8$.</p></div><p class="exercise-source">Return to the explanation: <a href="../probability-part2/35.html">Slide 35</a>. <a href="../assets/source/04-probability-part2.pdf#page=35" target="_blank" rel="noopener">Original PDF ↗</a></p></details></section><section class="exercise-card" id="exercise-slide-36-subset" aria-labelledby="exercise-slide-36-subset-title">
+<p class="exercise-meta">Exercise 06 <span aria-hidden="true">/</span> Slide 36</p>
+<h3 id="exercise-slide-36-subset-title">Only a specified subset must avoid its own names</h3><div class="prose exercise-question"><p>A group of n people draws its n distinct names from a hat, one name per person, without replacement. All $n!$ complete assignments are equally likely.</p>
+<p>Fix a <strong>specific subset of m people</strong>, where $0\le m\le n$. What is the probability that every person in this subset draws a name other than their own, while the other $n-m$ people may draw anyone's name, including their own?</p></div>
+<details class="exercise-solution" data-exercise-solution><summary><span class="solution-closed-label">Show solution</span><span class="solution-open-label">Hide solution</span><span class="sr-only">: Only a specified subset must avoid its own names</span></summary>
+<div class="prose exercise-solution-body"><p>Only the m specified people are restricted. Label them $1,\ldots,m$, and let $A_i$ mean that specified person i draws their own name.</p>
+<p>We want none of these events to occur:</p>
+<p>$$
+P(A_1^c\cap\cdots\cap A_m^c)=1-P(A_1\cup\cdots\cup A_m).
+$$</p>
+<p>Start with all $n!$ assignments. For any one restricted person, there are $(n-1)!$ assignments in which they draw themselves. Subtract those, for all m people.</p>
+<p>But an assignment where two restricted people draw themselves was subtracted twice. Add back $(n-2)!$ assignments for each pair of restricted people. There are $\binom m2$ such pairs. Continue the overlap corrections.</p>
+<p>For k specified restricted people to draw themselves, their k assignments are fixed and all other $n-k$ people can be assigned the remaining names in $(n-k)!$ ways. Choose those k people from <strong>m</strong>, not n. This yields</p>
+<p>$$
+\begin{aligned}
+N
+&amp;=n!-\binom m1(n-1)!+\binom m2(n-2)!-\cdots+(-1)^m(n-m)!,\\[3pt]
+\boxed{P}
+&amp;=\boxed{\frac{N}{n!}
+=\sum_{k=0}^{m}(-1)^k\binom mk\frac{(n-k)!}{n!}.}
+\end{aligned}
+$$</p>
+<p>The k=0 term is 1. It represents starting with the entire sample space before removing any forbidden self-matches.</p>
+<h3 id="exercise-slide-36-subset-solution-a-small-example">A small example</h3>
+<p>For $n=5$ and a specified subset of $m=3$ people,</p>
+<p>$$
+\begin{aligned}
+P
+&amp;=1-3\frac{4!}{5!}+3\frac{3!}{5!}-\frac{2!}{5!}\\
+&amp;=1-\frac35+\frac3{20}-\frac1{60}
+=\boxed{\frac8{15}}.
+\end{aligned}
+$$</p>
+<p>Equivalently, $120-72+18-2=64$ of the 120 assignments satisfy the restrictions. The other two people are unrestricted; they may or may not draw themselves.</p>
+<p>Useful checks: m=0 gives probability 1 because no one is restricted; m=1 gives $1-1/n$; and m=n gives the usual no-self-match probability $\sum_{k=0}^{n}(-1)^k/k!$.</p></div><p class="exercise-source">Return to the explanation: <a href="../probability-part2/36.html">Slide 36</a>. <a href="../assets/source/04-probability-part2.pdf#page=36" target="_blank" rel="noopener">Original PDF ↗</a></p></details></section><section class="exercise-card" id="exercise-slide-36-norepeatword" aria-labelledby="exercise-slide-36-norepeatword-title">
+<p class="exercise-meta">Exercise 07 <span aria-hidden="true">/</span> Slide 36</p>
+<h3 id="exercise-slide-36-norepeatword-title">Choose a word without repeated letters</h3><div class="prose exercise-question"><p>A <strong>norepeatword</strong> is a sequence of at least one, and possibly all, of the 26 letters a,b,c,...,z, with no repetitions. For example, <code>course</code> is a norepeatword, but <code>statistics</code> is not. Order matters: <code>course</code> and <code>source</code> are different words. The sequence need not be an English dictionary word.</p>
+<p>Choose one norepeatword randomly, with <strong>all individual norepeatwords of all allowed lengths equally likely</strong>. Show that the probability it uses all 26 letters is very close to $1/e$.</p></div>
+<details class="exercise-solution" data-exercise-solution><summary><span class="solution-closed-label">Show solution</span><span class="solution-open-label">Hide solution</span><span class="sr-only">: Choose a word without repeated letters</span></summary>
+<div class="prose exercise-solution-body"><h3 id="exercise-slide-36-norepeatword-solution-count-the-words-of-each-length">Count the words of each length</h3>
+<p>For length $\ell$, choose a first letter in 26 ways, a second unused letter in 25 ways, and continue for $\ell$ positions:</p>
+<p>$$
+N_\ell=26\cdot25\cdots(26-\ell+1)=\frac{26!}{(26-\ell)!},
+\qquad1\le\ell\le26.
+$$</p>
+<p>Words of different lengths cannot be the same word. Add these disjoint counts to obtain the sample-space size:</p>
+<p>$$
+N=\sum_{\ell=1}^{26}\frac{26!}{(26-\ell)!}.
+$$</p>
+<p>Exactly $26!$ words use all letters, because they are permutations of the alphabet.</p>
+<h3 id="exercise-slide-36-norepeatword-solution-divide-favorable-words-by-all-words">Divide favorable words by all words</h3>
+<p>$$
+\begin{aligned}
+P(\text{uses all 26 letters})
+&amp;=\frac{26!}{\displaystyle\sum_{\ell=1}^{26}26!/(26-\ell)!}\\
+&amp;=\frac{1}{\displaystyle\sum_{\ell=1}^{26}1/(26-\ell)!}\\
+&amp;=\boxed{\frac{1}{\displaystyle\sum_{j=0}^{25}1/j!}}.
+\end{aligned}
+$$</p>
+<p>In the last line, $j=26-\ell$ counts the unused letters. A length-26 word gives j=0; a length-1 word gives j=25. The empty word is not allowed, which is why there is no j=26 term.</p>
+<h3 id="exercise-slide-36-norepeatword-solution-recognize-why-this-is-close-to-mathplaceholder00007end">Recognize why this is close to $1/e$</h3>
+<p>The denominator is</p>
+<p>$$
+1+1+\frac1{2!}+\frac1{3!}+\cdots+\frac1{25!}.
+$$</p>
+<p>The exponential series says</p>
+<p>$$
+e=1+1+\frac1{2!}+\frac1{3!}+\cdots.
+$$</p>
+<p>Only the tiny terms starting at $1/26!$ are missing. Thus</p>
+<p>$$
+\boxed{P\approx\frac1e\approx0.3678794412.}
+$$</p>
+<p>The exact probability is slightly <strong>larger</strong> than $1/e$, because its denominator is slightly smaller than e.</p>
+<p>To quantify the closeness, write $S=\sum_{j=0}^{25}1/j!$. The first missing term is $1/26!$ and every later ratio is at most $1/27$, so</p>
+<p>$$
+0&lt;e-S&lt;\frac1{26!}\left(1+\frac1{27}+\frac1{27^2}+\cdots\right)
+=\frac{27}{26\cdot26!}.
+$$</p>
+<p>Since $S&gt;2.5$ and $e&gt;2.5$,</p>
+<p>$$
+0&lt;\frac1S-\frac1e=\frac{e-S}{eS}&lt;4.12\times10^{-28}.
+$$</p>
+<p>Uniformly choosing a <strong>word</strong> is not uniformly choosing a <strong>length</strong>. There are vastly more long words than short ones. Choosing the length first with probability $1/26$ for each length would be a different experiment and would produce probability $1/26$ of using all letters.</p></div><p class="exercise-source">Return to the explanation: <a href="../probability-part2/36.html">Slide 36</a>. <a href="../assets/source/04-probability-part2.pdf#page=36" target="_blank" rel="noopener">Original PDF ↗</a></p></details></section></section>
 <section class="lesson-end" aria-label="Study progress"><button class="complete-button" data-complete aria-pressed="false">Mark this slide as understood</button><p class="completion-note">Your reading progress stays in this browser. Revisit any idea whenever you need.</p><nav class="page-turn" aria-label="Previous and next slides"><a href="35.html"><span>← Previous slide</span>Names in a hat and derangements</a><a href="../probability-part3/01.html"><span>Next chapter →</span>Probability · Part 3</a></nav></section>
 <footer class="footer"><p>A personal teaching companion built from our questions, examples and explanations.</p><p>Original slides: Dobrin Marchev · STAT 5701. Slide images remain attributed to their author. This is an independent study resource.</p></footer></main>
-<aside class="page-toc" aria-label="On this slide"><p class="toc-label">On this slide</p><a class="toc-source" href="#source-slide">The original slide</a><a href="#exercise-1-only-a-specified-subset-must-avoid-itself">Exercise 1: only a specified subset must avoid itself</a><a href="#calculate-an-example-and-test-the-boundaries">Calculate an example and test the boundaries</a><a href="#exercise-2-choose-a-norepeatword-uniformly">Exercise 2: choose a norepeatword uniformly</a><a href="#explain-both-the-approximation-and-its-direction">Explain both the approximation and its direction</a><a href="#uniform-words-do-not-imply-uniform-lengths">Uniform words do not imply uniform lengths</a><a href="#lesson">Back to the top ↑</a></aside></div></div>
+<aside class="page-toc" aria-label="On this slide"><p class="toc-label">On this slide</p><a class="toc-source" href="#source-slide">The original slide</a><a href="#exercise-1-only-a-specified-subset-must-avoid-itself">Exercise 1: only a specified subset must avoid itself</a><a href="#calculate-an-example-and-test-the-boundaries">Calculate an example and test the boundaries</a><a href="#exercise-2-choose-a-norepeatword-uniformly">Exercise 2: choose a norepeatword uniformly</a><a href="#explain-both-the-approximation-and-its-direction">Explain both the approximation and its direction</a><a href="#uniform-words-do-not-imply-uniform-lengths">Uniform words do not imply uniform lengths</a><a href="#lesson-exercises">Lesson exercises</a><a href="#lesson">Back to the top ↑</a></aside></div></div>
 <dialog class="image-dialog" aria-label="Original slide 36, enlarged"><div class="dialog-tools"><span>Slide 36 / 36</span><button data-close-dialog>Close ×</button></div><img src="../assets/slides/probability-part2/36.webp" alt="Enlarged original slide 36: Partial derangements and nonrepeatwords"><div class="dialog-tools"><a href="../assets/source/04-probability-part2.pdf#page=36" target="_blank" rel="noopener">Read the source PDF ↗</a></div></dialog></body></html>

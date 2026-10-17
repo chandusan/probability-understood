@@ -1,7 +1,7 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Slide 31 of Data Summary: Four ways to change the spread. Original slide, first-principles explanation, examples and worked practice."><title>31 · Four ways to change the spread — Probability, understood</title><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/site.css"><link rel="stylesheet" href="../assets/vendor/katex/katex.min.css"><script defer src="../assets/vendor/katex/katex.min.js"></script><script defer src="../assets/vendor/katex/contrib/auto-render.min.js"></script><script defer src="../assets/site.js"></script></head>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Slide 31 of Data Summary: Four ways to change the spread. Original slide, first-principles explanation, examples and worked practice."><title>31 · Four ways to change the spread — Probability, understood</title><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/site.css"><link rel="stylesheet" href="../assets/exercises.css"><link rel="stylesheet" href="../assets/vendor/katex/katex.min.css"><script defer src="../assets/vendor/katex/katex.min.js"></script><script defer src="../assets/vendor/katex/contrib/auto-render.min.js"></script><script defer src="../assets/site.js"></script></head>
 <body data-slide="31" data-slide-prefix="" data-chapter="data-summary" data-slide-count="31"><a class="skip" href="#lesson">Skip to the lesson</a>
-<aside class="sidebar" aria-label="Course navigation"><a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>Probability,<br>understood.</span></a><button class="nav-close" data-close-nav aria-label="Close slide navigation">×</button><p class="course-label">Your study companion</p><details class="chapter-picker"><summary>Change chapter</summary><nav class="chapter-nav" aria-label="Choose a chapter"><a href="../slides/01.html" aria-current="true"><span>01</span> Data Summary</a><a href="../probability-part1/01.html"><span>02</span> Probability · Part 1</a><a href="../counting/01.html"><span>03</span> Counting</a><a href="../probability-part2/01.html"><span>04</span> Probability · Part 2</a><a href="../probability-part3/01.html"><span>05</span> Probability · Part 3</a><a href="../random-variables/01.html"><span>06</span> Random Variables</a><a href="../random-variables-part2/01.html"><span>07</span> Random Variables · Part 2</a><a href="../random-variables-part3/01.html"><span>08</span> Random Variables · Part 3</a><a href="../expectation/01.html"><span>09</span> Expectation</a><a href="../special-distributions/01.html"><span>10</span> Special Distributions</a></nav></details><p class="course-title">Data Summary</p><label class="sr-only" for="slide-search">Find a slide</label><input class="nav-search" id="slide-search" type="search" placeholder="Find a slide…" autocomplete="off"><nav class="slide-nav" aria-label="All 31 slides"><div class="nav-group"><div class="nav-group-title">The starting point</div><a class="slide-link" data-slide="1" data-search="01 why one number is not enough a story inside the data" href="01.html"><span class="slide-num">01</span><span>A story inside the data</span></a><a class="slide-link" data-slide="2" data-search="02 two meanings of the center what does “centre” mean?" href="02.html"><span class="slide-num">02</span><span>What does “centre” mean?</span></a></div><div class="nav-group"><div class="nav-group-title">Finding the centre</div><a class="slide-link" data-slide="3" data-search="03 the mean preserves the total the mean: equal shares" href="03.html"><span class="slide-num">03</span><span>The mean: equal shares</span></a><a class="slide-link" data-slide="4" data-search="04 why squared errors choose the mean why squared error finds the mean" href="04.html"><span class="slide-num">04</span><span>Why squared error finds the mean</span></a><a class="slide-link" data-slide="5" data-search="05 the mean is the closest constant point the geometry of the mean" href="05.html"><span class="slide-num">05</span><span>The geometry of the mean</span></a><a class="slide-link" data-slide="6" data-search="06 the median finds the middle finding the median" href="06.html"><span class="slide-num">06</span><span>Finding the median</span></a><a class="slide-link" data-slide="7" data-search="07 why absolute errors choose the median why absolute error finds the median" href="07.html"><span class="slide-num">07</span><span>Why absolute error finds the median</span></a><a class="slide-link" data-slide="8" data-search="08 two distances, two shapes spheres, diamonds &amp; octahedra" href="08.html"><span class="slide-num">08</span><span>Spheres, diamonds &amp; octahedra</span></a><a class="slide-link" data-slide="9" data-search="09 one changing observation, two centers one observation changes" href="09.html"><span class="slide-num">09</span><span>One observation changes</span></a><a class="slide-link" data-slide="10" data-search="10 read the three-dimensional comparison reading the geometric picture" href="10.html"><span class="slide-num">10</span><span>Reading the geometric picture</span></a><a class="slide-link" data-slide="11" data-search="11 choose the center your question needs which centre should we use?" href="11.html"><span class="slide-num">11</span><span>Which centre should we use?</span></a><a class="slide-link" data-slide="12" data-search="12 follow the tail of the histogram skewness &amp; the long tail" href="12.html"><span class="slide-num">12</span><span>Skewness &amp; the long tail</span></a></div><div class="nav-group"><div class="nav-group-title">Understanding spread</div><a class="slide-link" data-slide="13" data-search="13 an 88 needs a comparison scale why an 88 needs context" href="13.html"><span class="slide-num">13</span><span>Why an 88 needs context</span></a><a class="slide-link" data-slide="14" data-search="14 choose the kind of spread you need what spread tells us" href="14.html"><span class="slide-num">14</span><span>What spread tells us</span></a><a class="slide-link" data-slide="15" data-search="15 range: observed endpoints and possible values range &amp; population support" href="15.html"><span class="slide-num">15</span><span>Range &amp; population support</span></a><a class="slide-link" data-slide="16" data-search="16 one faulty reading can squeeze the scale min–max scaling &amp; outliers" href="16.html"><span class="slide-num">16</span><span>Min–max scaling &amp; outliers</span></a><a class="slide-link" data-slide="17" data-search="17 a fractional rank is a position, not a value percentiles &amp; interpolation" href="17.html"><span class="slide-num">17</span><span>Percentiles &amp; interpolation</span></a><a class="slide-link" data-slide="18" data-search="18 quartiles divide probability, not distance quartiles &amp; probability" href="18.html"><span class="slide-num">18</span><span>Quartiles &amp; probability</span></a><a class="slide-link" data-slide="19" data-search="19 iqr protects the middle of the story the middle half: iqr" href="19.html"><span class="slide-num">19</span><span>The middle half: IQR</span></a><a class="slide-link" data-slide="20" data-search="20 diamonds: measure the middle and the endpoints diamonds: the first sample" href="20.html"><span class="slide-num">20</span><span>Diamonds: the first sample</span></a><a class="slide-link" data-slide="21" data-search="21 two expensive diamonds change the story add two expensive diamonds" href="21.html"><span class="slide-num">21</span><span>Add two expensive diamonds</span></a><a class="slide-link" data-slide="22" data-search="22 boxplots: endpoints are not always whiskers reading a boxplot" href="22.html"><span class="slide-num">22</span><span>Reading a boxplot</span></a></div><div class="nav-group"><div class="nav-group-title">Variance & its uses</div><a class="slide-link" data-slide="23" data-search="23 why sample variance divides by n − 1 variance, estimation &amp; n − 1" href="23.html"><span class="slide-num">23</span><span>Variance, estimation &amp; n − 1</span></a><a class="slide-link" data-slide="24" data-search="24 give features a common ruler, then find their main direction pca, scaling &amp; model variance" href="24.html"><span class="slide-num">24</span><span>PCA, scaling &amp; model variance</span></a><a class="slide-link" data-slide="25" data-search="25 the population target and the sample in your hand population versus sample" href="25.html"><span class="slide-num">25</span><span>Population versus sample</span></a><a class="slide-link" data-slide="26" data-search="26 standard deviation is a ruler for spread interpreting standard deviation" href="26.html"><span class="slide-num">26</span><span>Interpreting standard deviation</span></a></div><div class="nav-group"><div class="nav-group-title">Normal models & practice</div><a class="slide-link" data-slide="27" data-search="27 read a bell-shaped distribution with a spread ruler birth weights &amp; the bell curve" href="27.html"><span class="slide-num">27</span><span>Birth weights &amp; the bell curve</span></a><a class="slide-link" data-slide="28" data-search="28 the 68–95–99.7 rule the 68–95–99.7 rule" href="28.html"><span class="slide-num">28</span><span>The 68–95–99.7 rule</span></a><a class="slide-link" data-slide="29" data-search="29 calculate spread from eight heart rates heart rates: every calculation" href="29.html"><span class="slide-num">29</span><span>Heart rates: every calculation</span></a><a class="slide-link" data-slide="30" data-search="30 equal average ratings, very different agreement which professor varies most?" href="30.html"><span class="slide-num">30</span><span>Which professor varies most?</span></a><a class="slide-link" data-slide="31" data-search="31 see what changed before calculating sd four ways to change the spread" href="31.html" aria-current="page"><span class="slide-num">31</span><span>Four ways to change the spread</span></a></div><p class="no-results" hidden>No matching slides.</p></nav><div class="nav-footer"><a class="appendix-link" href="../midterms/index.html">Midterms · questions &amp; solutions</a><a class="appendix-link" href="../appendix/calculus.html">Calculus appendix</a><span><strong data-completed-count>0</strong> of 31 slides understood</span><div class="progress-track" aria-hidden="true"><i data-course-progress></i></div><span>One idea at a time.</span><br><a data-resume hidden></a></div></aside>
+<aside class="sidebar" aria-label="Course navigation"><a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>Probability,<br>understood.</span></a><button class="nav-close" data-close-nav aria-label="Close slide navigation">×</button><p class="course-label">Your study companion</p><details class="chapter-picker"><summary>Change chapter</summary><nav class="chapter-nav" aria-label="Choose a chapter"><a href="../slides/01.html" aria-current="true"><span>01</span> Data Summary</a><a href="../probability-part1/01.html"><span>02</span> Probability · Part 1</a><a href="../counting/01.html"><span>03</span> Counting</a><a href="../probability-part2/01.html"><span>04</span> Probability · Part 2</a><a href="../probability-part3/01.html"><span>05</span> Probability · Part 3</a><a href="../random-variables/01.html"><span>06</span> Random Variables</a><a href="../random-variables-part2/01.html"><span>07</span> Random Variables · Part 2</a><a href="../random-variables-part3/01.html"><span>08</span> Random Variables · Part 3</a><a href="../expectation/01.html"><span>09</span> Expectation</a><a href="../special-distributions/01.html"><span>10</span> Special Distributions</a></nav></details><p class="course-title">Data Summary</p><label class="sr-only" for="slide-search">Find a slide</label><input class="nav-search" id="slide-search" type="search" placeholder="Find a slide…" autocomplete="off"><nav class="slide-nav" aria-label="All 31 slides"><div class="nav-group"><div class="nav-group-title">The starting point</div><a class="slide-link" data-slide="1" data-search="01 why one number is not enough a story inside the data" href="01.html"><span class="slide-num">01</span><span>A story inside the data</span></a><a class="slide-link" data-slide="2" data-search="02 two meanings of the center what does “centre” mean?" href="02.html"><span class="slide-num">02</span><span>What does “centre” mean?</span></a></div><div class="nav-group"><div class="nav-group-title">Finding the centre</div><a class="slide-link" data-slide="3" data-search="03 the mean preserves the total the mean: equal shares" href="03.html"><span class="slide-num">03</span><span>The mean: equal shares</span></a><a class="slide-link" data-slide="4" data-search="04 why squared errors choose the mean why squared error finds the mean" href="04.html"><span class="slide-num">04</span><span>Why squared error finds the mean</span></a><a class="slide-link" data-slide="5" data-search="05 the mean is the closest constant point the geometry of the mean" href="05.html"><span class="slide-num">05</span><span>The geometry of the mean</span></a><a class="slide-link" data-slide="6" data-search="06 the median finds the middle finding the median" href="06.html"><span class="slide-num">06</span><span>Finding the median</span></a><a class="slide-link" data-slide="7" data-search="07 why absolute errors choose the median why absolute error finds the median" href="07.html"><span class="slide-num">07</span><span>Why absolute error finds the median</span></a><a class="slide-link" data-slide="8" data-search="08 two distances, two shapes spheres, diamonds &amp; octahedra" href="08.html"><span class="slide-num">08</span><span>Spheres, diamonds &amp; octahedra</span></a><a class="slide-link" data-slide="9" data-search="09 one changing observation, two centers one observation changes" href="09.html"><span class="slide-num">09</span><span>One observation changes</span></a><a class="slide-link" data-slide="10" data-search="10 read the three-dimensional comparison reading the geometric picture" href="10.html"><span class="slide-num">10</span><span>Reading the geometric picture</span></a><a class="slide-link" data-slide="11" data-search="11 choose the center your question needs which centre should we use?" href="11.html"><span class="slide-num">11</span><span>Which centre should we use?</span></a><a class="slide-link" data-slide="12" data-search="12 follow the tail of the histogram skewness &amp; the long tail" href="12.html"><span class="slide-num">12</span><span>Skewness &amp; the long tail</span></a></div><div class="nav-group"><div class="nav-group-title">Understanding spread</div><a class="slide-link" data-slide="13" data-search="13 an 88 needs a comparison scale why an 88 needs context" href="13.html"><span class="slide-num">13</span><span>Why an 88 needs context</span></a><a class="slide-link" data-slide="14" data-search="14 choose the kind of spread you need what spread tells us" href="14.html"><span class="slide-num">14</span><span>What spread tells us</span></a><a class="slide-link" data-slide="15" data-search="15 range: observed endpoints and possible values range &amp; population support" href="15.html"><span class="slide-num">15</span><span>Range &amp; population support</span></a><a class="slide-link" data-slide="16" data-search="16 one faulty reading can squeeze the scale min–max scaling &amp; outliers" href="16.html"><span class="slide-num">16</span><span>Min–max scaling &amp; outliers</span></a><a class="slide-link" data-slide="17" data-search="17 a fractional rank is a position, not a value percentiles &amp; interpolation" href="17.html"><span class="slide-num">17</span><span>Percentiles &amp; interpolation</span></a><a class="slide-link" data-slide="18" data-search="18 quartiles divide probability, not distance quartiles &amp; probability" href="18.html"><span class="slide-num">18</span><span>Quartiles &amp; probability</span></a><a class="slide-link" data-slide="19" data-search="19 iqr protects the middle of the story the middle half: iqr" href="19.html"><span class="slide-num">19</span><span>The middle half: IQR</span></a><a class="slide-link" data-slide="20" data-search="20 diamonds: measure the middle and the endpoints diamonds: the first sample" href="20.html"><span class="slide-num">20</span><span>Diamonds: the first sample</span></a><a class="slide-link" data-slide="21" data-search="21 two expensive diamonds change the story add two expensive diamonds" href="21.html"><span class="slide-num">21</span><span>Add two expensive diamonds</span></a><a class="slide-link" data-slide="22" data-search="22 boxplots: endpoints are not always whiskers reading a boxplot" href="22.html"><span class="slide-num">22</span><span>Reading a boxplot</span></a></div><div class="nav-group"><div class="nav-group-title">Variance & its uses</div><a class="slide-link" data-slide="23" data-search="23 why sample variance divides by n − 1 variance, estimation &amp; n − 1" href="23.html"><span class="slide-num">23</span><span>Variance, estimation &amp; n − 1</span></a><a class="slide-link" data-slide="24" data-search="24 give features a common ruler, then find their main direction pca, scaling &amp; model variance" href="24.html"><span class="slide-num">24</span><span>PCA, scaling &amp; model variance</span></a><a class="slide-link" data-slide="25" data-search="25 the population target and the sample in your hand population versus sample" href="25.html"><span class="slide-num">25</span><span>Population versus sample</span></a><a class="slide-link" data-slide="26" data-search="26 standard deviation is a ruler for spread interpreting standard deviation" href="26.html"><span class="slide-num">26</span><span>Interpreting standard deviation</span></a></div><div class="nav-group"><div class="nav-group-title">Normal models & practice</div><a class="slide-link" data-slide="27" data-search="27 read a bell-shaped distribution with a spread ruler birth weights &amp; the bell curve" href="27.html"><span class="slide-num">27</span><span>Birth weights &amp; the bell curve</span></a><a class="slide-link" data-slide="28" data-search="28 the 68–95–99.7 rule the 68–95–99.7 rule" href="28.html"><span class="slide-num">28</span><span>The 68–95–99.7 rule</span></a><a class="slide-link" data-slide="29" data-search="29 calculate spread from eight heart rates heart rates: every calculation" href="29.html"><span class="slide-num">29</span><span>Heart rates: every calculation</span></a><a class="slide-link" data-slide="30" data-search="30 equal average ratings, very different agreement which professor varies most?" href="30.html"><span class="slide-num">30</span><span>Which professor varies most?</span></a><a class="slide-link" data-slide="31" data-search="31 see what changed before calculating sd four ways to change the spread" href="31.html" aria-current="page"><span class="slide-num">31</span><span>Four ways to change the spread</span></a></div><p class="no-results" hidden>No matching slides.</p></nav><div class="nav-footer"><a class="appendix-link" href="../exercises/index.html">Lesson exercises</a><a class="exercise-current-link" href="../exercises/data-summary.html">This lesson’s 5 exercises →</a><a class="appendix-link" href="../midterms/index.html">Midterms · questions &amp; solutions</a><a class="appendix-link" href="../appendix/calculus.html">Calculus appendix</a><span><strong data-completed-count>0</strong> of 31 slides understood</span><div class="progress-track" aria-hidden="true"><i data-course-progress></i></div><span>One idea at a time.</span><br><a data-resume hidden></a></div></aside>
 <button class="scrim" data-close-nav aria-label="Close navigation"></button><div class="site-body"><header class="topbar"><button class="menu-button" aria-expanded="false" aria-label="Open slide navigation">☰ Slides</button><div class="breadcrumb"><span class="crumb-course">Data Summary <span aria-hidden="true">/</span> </span><strong>Slide 31 of 31</strong></div><div class="top-tools"><a href="../assets/source/01-data-summary.pdf#page=31" target="_blank" rel="noopener">Original PDF ↗</a><button class="plain-button print-button" data-print>Print this slide</button></div></header><div class="reading-progress" aria-hidden="true"><i data-reading-progress></i></div>
 <div class="page-layout"><main class="lesson" id="lesson"><p class="eyebrow">Normal models &amp; practice · Slide 31</p><h1>See what changed before calculating SD</h1><p class="lead">Ask three questions: did the center move, did distances stretch, and did the sample size change? These structural questions explain the four comparisons in the slide more clearly than memorizing separate answers.</p><div class="lesson-meta"><span>~4 min reading</span><span class="meta-sep">/</span><span>Source + intuition + practice</span></div>
 <figure class="slide-figure" id="source-slide"><button class="slide-image-button" data-zoom-slide aria-label="Enlarge original slide 31"><img class="slide-image" src="../assets/slides/31.webp" alt="Original slide 31: Four ways to change the spread. The concepts and figures are explained below." width="2000" height="1125" fetchpriority="high"></button><figcaption class="slide-caption"><span>Original slide · STAT 5701 · Dobrin Marchev</span><button data-zoom-slide>Enlarge slide ↗</button></figcaption></figure>
@@ -208,7 +208,331 @@ s_{\mathrm{new}}^2=\frac{n-1}{n}s_{\mathrm{old}}^2.
 $$</p>
 <p>It decreases when the original variance is positive. If the original variance is zero, it remains zero.</p>
 </details></article>
+<section class="lesson-exercises" id="lesson-exercises" aria-labelledby="lesson-exercises-title"><p class="eyebrow">Try it yourself</p><h2 id="lesson-exercises-title">Lesson 01 exercises</h2><p class="exercise-intro">5 exercises from this lesson. Try each question first, then open its solution for a step-by-step explanation.</p><p class="exercise-collection-link"><a href="../exercises/data-summary.html">Open this lesson’s exercise collection →</a> <span>·</span> <a href="../exercises/index.html">All lessons</a></p><section class="exercise-card" id="exercise-slide-12" aria-labelledby="exercise-slide-12-title">
+<p class="exercise-meta">Exercise 01 <span aria-hidden="true">/</span> Slide 12</p>
+<h3 id="exercise-slide-12-title">Compare the mean and median from a histogram</h3><div class="prose exercise-question"><p>The slide shows three histograms, described here so that the exercise can be attempted without opening the slide:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Histogram</th>
+<th>Shape shown</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Shoe sizes</td>
+<td>One central peak, with roughly balanced tails on the two sides.</td>
+</tr>
+<tr>
+<td>Years of car ownership</td>
+<td>Most observations are toward the smaller values, with a long tail toward larger values.</td>
+</tr>
+<tr>
+<td>Winter daily low temperatures</td>
+<td>Most observations are toward the warmer values, with a long tail toward colder, more negative temperatures.</td>
+</tr>
+</tbody>
+</table></div>
+<p>For each histogram, would you expect the mean and median to be approximately equal, the mean to be greater than the median, or the mean to be less than the median? Explain your choices.</p>
+<p><strong>Hint from the slide:</strong> the mean tends to follow the skew of the histogram.</p></div>
+<details class="exercise-solution" data-exercise-solution><summary><span class="solution-closed-label">Show solution</span><span class="solution-open-label">Hide solution</span><span class="sr-only">: Compare the mean and median from a histogram</span></summary>
+<div class="prose exercise-solution-body"><p>The <strong>median</strong> locates the middle observation after sorting. The <strong>mean</strong> adds every value and divides by the count, so values far from the center can pull it toward themselves.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Histogram</th>
+<th>Expected comparison</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Shoe sizes</td>
+<td>Mean approximately equals median.</td>
+<td>The two sides roughly balance, so neither tail pulls the mean much more than the other.</td>
+</tr>
+<tr>
+<td>Car ownership</td>
+<td>Mean greater than median.</td>
+<td>The long right tail contains unusually large values that pull the mean upward.</td>
+</tr>
+<tr>
+<td>Winter daily lows</td>
+<td>Mean less than median.</td>
+<td>The long left tail contains unusually low, negative temperatures that pull the mean downward.</td>
+</tr>
+</tbody>
+</table></div>
+<p>“Warmer” is to the right even when all the temperatures are negative: for example, $-3&gt;-12$. A tail toward $-12$ pulls the mean left.</p>
+<p>These are qualitative expectations for the displayed shapes. A rough histogram does not give the exact mean or median, and the tail heuristic is not a theorem for every possible irregular distribution.</p></div><p class="exercise-source">Return to the explanation: <a href="../slides/12.html">Slide 12</a>. <a href="../assets/source/01-data-summary.pdf#page=12" target="_blank" rel="noopener">Original PDF ↗</a></p></details></section><section class="exercise-card" id="exercise-slide-13" aria-labelledby="exercise-slide-13-title">
+<p class="exercise-meta">Exercise 02 <span aria-hidden="true">/</span> Slide 13</p>
+<h3 id="exercise-slide-13-title">Interpret a score in two classes</h3><div class="prose exercise-question"><p>A midterm is scored out of 100. The class mean is 76, and your score is 88. Compare your performance in the two scenarios depicted on the slide:</p>
+<ul>
+<li><strong>Scenario 1:</strong> scores are tightly concentrated around 76; only a small right-hand tail extends to 88 and beyond.</li>
+<li><strong>Scenario 2:</strong> scores are spread much more widely around the same mean; a visibly larger fraction extends to 88 and beyond.</li>
+</ul>
+<p>How would you interpret your score in each scenario? What does the comparison show about reporting an average without reporting spread?</p></div>
+<details class="exercise-solution" data-exercise-solution><summary><span class="solution-closed-label">Show solution</span><span class="solution-open-label">Hide solution</span><span class="sr-only">: Interpret a score in two classes</span></summary>
+<div class="prose exercise-solution-body"><p>In both classes, your score is $88-76=12$ points above the mean. That fact alone is identical in the two scenarios.</p>
+<p>In <strong>Scenario 1</strong>, most classmates are close to 76. A score of 88 is unusually high compared with this concentrated group; few classmates scored as high.</p>
+<p>In <strong>Scenario 2</strong>, scores vary widely. A 12-point difference from the mean is less unusual, and more classmates scored around or above 88.</p>
+<p>Thus the same raw score and same mean can imply different relative standing. We need information about <strong>spread</strong> as well as the center. If the standard deviations were supplied, the standardized distance would be</p>
+<p>$$
+z=\frac{88-76}{s}=\frac{12}{s}.
+$$</p>
+<p>A smaller $s$ makes the same 12-point difference a larger number of standard deviations. The picture supports a qualitative comparison, but it does not supply enough exact data to calculate a percentile or a numerical $z$-score.</p></div><p class="exercise-source">Return to the explanation: <a href="../slides/13.html">Slide 13</a>. <a href="../assets/source/01-data-summary.pdf#page=13" target="_blank" rel="noopener">Original PDF ↗</a></p></details></section><section class="exercise-card" id="exercise-slide-20-21" aria-labelledby="exercise-slide-20-21-title">
+<p class="exercise-meta">Exercise 03 <span aria-hidden="true">/</span> Slides 20, 21</p>
+<h3 id="exercise-slide-20-21-title">Diamond prices before and after two outliers</h3><div class="prose exercise-question"><p>The original dataset contains sale prices of 42 low-quality diamonds, each smaller than one carat. Two high-quality diamonds priced at 7,393 and 8,979 US dollars are accidentally added. The slide supplies these summaries; monetary entries are in US dollars.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Statistic</th>
+<th style="text-align: right;">Original 42 diamonds</th>
+<th style="text-align: right;">After adding the two diamonds</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sample size</td>
+<td style="text-align: right;">42</td>
+<td style="text-align: right;">44</td>
+</tr>
+<tr>
+<td>Minimum</td>
+<td style="text-align: right;">416</td>
+<td style="text-align: right;">416</td>
+</tr>
+<tr>
+<td>First quartile $Q_1$</td>
+<td style="text-align: right;">1,416</td>
+<td style="text-align: right;">1,429</td>
+</tr>
+<tr>
+<td>Median</td>
+<td style="text-align: right;">1,882</td>
+<td style="text-align: right;">1,899</td>
+</tr>
+<tr>
+<td>Mean</td>
+<td style="text-align: right;">1,924</td>
+<td style="text-align: right;">2,209</td>
+</tr>
+<tr>
+<td>Third quartile $Q_3$</td>
+<td style="text-align: right;">2,497</td>
+<td style="text-align: right;">2,537</td>
+</tr>
+<tr>
+<td>Maximum</td>
+<td style="text-align: right;">3,154</td>
+<td style="text-align: right;">8,979</td>
+</tr>
+<tr>
+<td>Sample standard deviation $s$</td>
+<td style="text-align: right;">703</td>
+<td style="text-align: right;">1,497</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="exercise-slide-20-21-question-a-original-dataset">(a) Original dataset</h3>
+<p>Compute its interquartile range (IQR) and range.</p>
+<h3 id="exercise-slide-20-21-question-b-after-adding-the-outliers">(b) After adding the outliers</h3>
+<p>Compute the new IQR and range. How do these summaries change, and what does this show about their sensitivity to outliers?</p></div>
+<details class="exercise-solution" data-exercise-solution><summary><span class="solution-closed-label">Show solution</span><span class="solution-open-label">Hide solution</span><span class="sr-only">: Diamond prices before and after two outliers</span></summary>
+<div class="prose exercise-solution-body"><p>The two measures use different parts of the data:</p>
+<p>$$
+\operatorname{IQR}=Q_3-Q_1,
+\qquad
+\operatorname{Range}=\operatorname{Maximum}-\operatorname{Minimum}.
+$$</p>
+<p>The IQR measures the width of the middle half of the observations. The range measures the distance between the two most extreme observations.</p>
+<h3 id="exercise-slide-20-21-solution-a-original-dataset">(a) Original dataset</h3>
+<p>$$
+\operatorname{IQR}=2497-1416=\boxed{1081\text{ dollars}},
+$$</p>
+<p>$$
+\operatorname{Range}=3154-416=\boxed{2738\text{ dollars}}.
+$$</p>
+<h3 id="exercise-slide-20-21-solution-b-after-adding-the-outliers">(b) After adding the outliers</h3>
+<p>$$
+\operatorname{IQR}=2537-1429=\boxed{1108\text{ dollars}},
+$$</p>
+<p>$$
+\operatorname{Range}=8979-416=\boxed{8563\text{ dollars}}.
+$$</p>
+<p>The IQR increases by only $1108-1081=27$ dollars, about $2.5\%$. The range increases by $8563-2738=5825$ dollars and becomes more than three times its old size.</p>
+<p>The new maximum enters the range calculation directly. The two outliers have much less effect on the middle half of the data, so the IQR changes only slightly. <strong>Robust</strong> means resistant to extreme observations, not completely unchanged by them.</p>
+<p>The other supplied summaries tell the same story: the mean rises by 285 dollars and the standard deviation rises by 794 dollars, while the median rises by only 17 dollars.</p></div><p class="exercise-source">Return to the explanation: <a href="../slides/20.html">Slide 20</a> · <a href="../slides/21.html">Slide 21</a>. <a href="../assets/source/01-data-summary.pdf#page=20" target="_blank" rel="noopener">Original PDF ↗</a></p></details></section><section class="exercise-card" id="exercise-slide-30" aria-labelledby="exercise-slide-30-title">
+<p class="exercise-meta">Exercise 04 <span aria-hidden="true">/</span> Slide 30</p>
+<h3 id="exercise-slide-30-title">Rank the variability of professor ratings</h3><div class="prose exercise-question"><p>Students rate four hypothetical professors on a scale from 1 to 5. The following table transcribes the number of dots at each rating in the slide's dot plots.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Professor</th>
+<th style="text-align: right;">Rating 1</th>
+<th style="text-align: right;">Rating 2</th>
+<th style="text-align: right;">Rating 3</th>
+<th style="text-align: right;">Rating 4</th>
+<th style="text-align: right;">Rating 5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr>
+<td>B</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td>C</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr>
+<td>D</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+</tr>
+</tbody>
+</table></div>
+<p>Arrange the professors from <strong>smallest to largest variability</strong> in ratings. Explain your reasoning from the distributions before calculating.</p></div>
+<details class="exercise-solution" data-exercise-solution><summary><span class="solution-closed-label">Show solution</span><span class="solution-open-label">Hide solution</span><span class="sr-only">: Rank the variability of professor ratings</span></summary>
+<div class="prose exercise-solution-body"><p>All four distributions have mean 3, but their distances from 3 differ.</p>
+<ul>
+<li><strong>B:</strong> all six ratings equal 3. Every distance from the mean is zero, so there is no variability.</li>
+<li><strong>A:</strong> most ratings are at 3 or close to it. Only two are at the extreme values 1 and 5.</li>
+<li><strong>D:</strong> ratings are evenly spread across the five values. Compared with A, more ratings lie at the extremes and fewer lie at the center.</li>
+<li><strong>C:</strong> every rating is at 1 or 5, two units from the mean. This has the greatest spread.</li>
+</ul>
+<p>Therefore,</p>
+<p>$$
+\boxed{B&lt;A&lt;D&lt;C.}
+$$</p>
+<p>To verify, weight each squared distance by its count. For A,</p>
+<p>$$
+SS_A=1(1-3)^2+2(2-3)^2+4(3-3)^2+2(4-3)^2+1(5-3)^2=12.
+$$</p>
+<p>Similarly, $SS_B=0$, $SS_D=2(4+1+0+1+4)=20$, and $SS_C=5(4)+5(4)=40$.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Professor</th>
+<th style="text-align: right;">Number of ratings</th>
+<th style="text-align: right;">Sum of squared distances</th>
+<th style="text-align: right;">Sample variance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>B</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">$0/5=0$</td>
+</tr>
+<tr>
+<td>A</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">$12/9=4/3$</td>
+</tr>
+<tr>
+<td>D</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">$20/9$</td>
+</tr>
+<tr>
+<td>C</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">40</td>
+<td style="text-align: right;">$40/9$</td>
+</tr>
+</tbody>
+</table></div>
+<p>Taking square roots preserves the order, so the standard deviations have the same ranking. The unequal sample size for B causes no difficulty: its squared-distance total is zero.</p></div><p class="exercise-source">Return to the explanation: <a href="../slides/30.html">Slide 30</a>. <a href="../assets/source/01-data-summary.pdf#page=30" target="_blank" rel="noopener">Original PDF ↗</a></p></details></section><section class="exercise-card" id="exercise-slide-31" aria-labelledby="exercise-slide-31-title">
+<p class="exercise-meta">Exercise 05 <span aria-hidden="true">/</span> Slide 31</p>
+<h3 id="exercise-slide-31-title">Compare standard deviations after changing the data</h3><div class="prose exercise-question"><p>For each row, compare the standard deviations of the two datasets. First try to reason <strong>without calculating</strong> the standard deviations. Choose:</p>
+<ul>
+<li><strong>I:</strong> the standard deviation in column A is greater.</li>
+<li><strong>II:</strong> the standard deviation in column B is greater.</li>
+<li><strong>III:</strong> the standard deviations are equal.</li>
+<li><strong>IV:</strong> the relationship cannot be determined from the information given.</li>
+</ul>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Row</th>
+<th>Column A</th>
+<th>Column B</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>$\{0.2,0.4,0.6,0.8\}$</td>
+<td>$\{2,4,6,8\}$</td>
+</tr>
+<tr>
+<td>2</td>
+<td>$\{1,3,5,7,9\}$</td>
+<td>$\{3,5,7,9,1\}$</td>
+</tr>
+<tr>
+<td>3</td>
+<td>$\{1,3,5,7,9\}$</td>
+<td>$\{1,3,5,7,9,9\}$</td>
+</tr>
+<tr>
+<td>4</td>
+<td>$\{1,3,5,7,9\}$</td>
+<td>$\{1,3,5,5,7,9\}$</td>
+</tr>
+</tbody>
+</table></div></div>
+<details class="exercise-solution" data-exercise-solution><summary><span class="solution-closed-label">Show solution</span><span class="solution-open-label">Hide solution</span><span class="sr-only">: Compare standard deviations after changing the data</span></summary>
+<div class="prose exercise-solution-body"><p>The answers, in order, are <strong>II, III, II, I</strong>.</p>
+<h3 id="exercise-slide-31-solution-row-1-all-values-are-multiplied-by-10">Row 1: all values are multiplied by 10</h3>
+<p>Column B stretches every distance from the mean by a factor of 10. Therefore its standard deviation is ten times as large: $s_B=10s_A$. <strong>Answer: II.</strong></p>
+<h3 id="exercise-slide-31-solution-row-2-only-the-order-changes">Row 2: only the order changes</h3>
+<p>These are exactly the same observations. Reordering does not change the mean or the distances from it. <strong>Answer: III.</strong></p>
+<h3 id="exercise-slide-31-solution-row-3-another-9-is-added">Row 3: another 9 is added</h3>
+<p>Column B gives the upper extreme additional weight. For these particular values its standard deviation is slightly larger. <strong>Answer: II.</strong> The important qualification is that adding an extreme value does not always increase standard deviation: the center and the divisor change as well.</p>
+<p>A short verification resolves this less obvious comparison. For A, the mean is 5 and</p>
+<p>$$
+SS_A=16+4+0+4+16=40,\qquad s_A^2=40/4=10.
+$$</p>
+<p>For B, the mean is $34/6=17/3$. Its deviations are $-14/3,-8/3,-2/3,4/3,10/3,10/3$, so</p>
+<p>$$
+SS_B=\frac{196+64+4+16+100+100}{9}=\frac{160}{3},
+$$</p>
+<p>$$
+s_B^2=\frac{160/3}{5}=\frac{32}{3}&gt;10.
+$$</p>
+<p>Comparing variances is sufficient: square root preserves their order.</p>
+<h3 id="exercise-slide-31-solution-row-4-another-observation-at-the-mean-is-added">Row 4: another observation at the mean is added</h3>
+<p>The added value is 5, exactly the original mean. The mean stays 5. The new squared distance is zero, so the squared-distance total remains 40. But the sample-variance divisor grows from 4 to 5:</p>
+<p>$$
+s_A^2=40/4=10,\qquad s_B^2=40/5=8.
+$$</p>
+<p>Therefore A has the larger standard deviation. <strong>Answer: I.</strong></p>
+<p>These calculations use sample standard deviations. If population standard deviations are used consistently instead, the same four comparisons hold for these datasets.</p></div><p class="exercise-source">Return to the explanation: <a href="../slides/31.html">Slide 31</a>. <a href="../assets/source/01-data-summary.pdf#page=31" target="_blank" rel="noopener">Original PDF ↗</a></p></details></section></section>
 <section class="lesson-end" aria-label="Study progress"><button class="complete-button" data-complete aria-pressed="false">Mark this slide as understood</button><p class="completion-note">Your reading progress stays in this browser. Revisit any idea whenever you need.</p><nav class="page-turn" aria-label="Previous and next slides"><a href="30.html"><span>← Previous slide</span>Which professor varies most?</a><a href="../probability-part1/01.html"><span>Next chapter →</span>Probability · Part 1</a></nav></section>
 <footer class="footer"><p>A personal teaching companion built from our questions, examples and explanations.</p><p>Original slides: Dobrin Marchev · STAT 5701. Slide images remain attributed to their author. This is an independent study resource.</p></footer></main>
-<aside class="page-toc" aria-label="On this slide"><p class="toc-label">On this slide</p><a class="toc-source" href="#source-slide">The original slide</a><a href="#the-four-choices">The four choices</a><a href="#1-multiply-every-distance-by-ten">1. Multiply every distance by ten</a><a href="#2-change-the-order-keep-the-observations">2. Change the order, keep the observations</a><a href="#3-add-another-upper-end-observation">3. Add another upper-end observation</a><a href="#4-add-an-observation-exactly-at-the-mean">4. Add an observation exactly at the mean</a><a href="#keep-the-patterns-together">Keep the patterns together</a><a href="#check-your-understanding">Check your understanding</a><a href="#lesson">Back to the top ↑</a></aside></div></div>
+<aside class="page-toc" aria-label="On this slide"><p class="toc-label">On this slide</p><a class="toc-source" href="#source-slide">The original slide</a><a href="#the-four-choices">The four choices</a><a href="#1-multiply-every-distance-by-ten">1. Multiply every distance by ten</a><a href="#2-change-the-order-keep-the-observations">2. Change the order, keep the observations</a><a href="#3-add-another-upper-end-observation">3. Add another upper-end observation</a><a href="#4-add-an-observation-exactly-at-the-mean">4. Add an observation exactly at the mean</a><a href="#keep-the-patterns-together">Keep the patterns together</a><a href="#check-your-understanding">Check your understanding</a><a href="#lesson-exercises">Lesson exercises</a><a href="#lesson">Back to the top ↑</a></aside></div></div>
 <dialog class="image-dialog" aria-label="Original slide 31, enlarged"><div class="dialog-tools"><span>Slide 31 / 31</span><button data-close-dialog>Close ×</button></div><img src="../assets/slides/31.webp" alt="Enlarged original slide 31: Four ways to change the spread"><div class="dialog-tools"><a href="../assets/source/01-data-summary.pdf#page=31" target="_blank" rel="noopener">Read the source PDF ↗</a></div></dialog></body></html>

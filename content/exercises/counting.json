@@ -1,0 +1,68 @@
+{
+  "chapter_id": "counting",
+  "exercises": [
+    {
+      "id": "slide-06",
+      "title": "A sum of at least ten on two dice",
+      "source_pages": [
+        6
+      ],
+      "question": "Two independent fair six-sided dice are rolled. Let $A$ be the event that their sum is greater than or equal to 10. Find $P(A)$.",
+      "solution": "Record an outcome as an ordered pair $(d_1,d_2)$, distinguishing the first die from the second. There are $6\\cdot6=36$ equally likely outcomes.\n\nList all outcomes with the required sum:\n\n| Sum | Outcomes | Count |\n|---|---|---:|\n| 10 | $(4,6),(5,5),(6,4)$ | 3 |\n| 11 | $(5,6),(6,5)$ | 2 |\n| 12 | $(6,6)$ | 1 |\n\nThese cases cannot overlap: an outcome has only one sum. The favorable count is $3+2+1=6$. Therefore,\n\n$$\n\\boxed{P(A)=\\frac{6}{36}=\\frac16.}\n$$\n\nThe sums 2 through 12 are not equally likely, so dividing the three favorable sums by eleven possible sums would be incorrect. Ordered die results are the equally likely outcomes.",
+      "parts": []
+    },
+    {
+      "id": "slide-19",
+      "title": "Arrange books while keeping subjects together",
+      "source_pages": [
+        19
+      ],
+      "question": "Mr. Jones has 10 distinct books: 4 mathematics books, 3 chemistry books, 2 history books, and 1 language book. He wants to arrange them on one shelf so that all books dealing with the same subject are together.\n\nHow many different arrangements are possible?",
+      "solution": "Treat each subject as one block. The four blocks are mathematics, chemistry, history, and language. They can be ordered in\n\n$$\n4!=24\n$$\n\nways. For example, mathematics–history–language–chemistry is one block order.\n\nBut the books **inside** a block are distinct. Once the block order is fixed:\n\n- The four mathematics books have $4!$ internal orders.\n- The three chemistry books have $3!$ internal orders.\n- The two history books have $2!$ internal orders.\n- The language block has $1!=1$ order.\n\nEvery block order can be combined with every internal ordering. The multiplication rule therefore gives\n\n$$\n\\boxed{4!\\,(4!)(3!)(2!)(1!)=24\\cdot24\\cdot6\\cdot2=6912.}\n$$\n\nThis counts each valid shelf arrangement once: its subject-block order and the book order inside each block can be read uniquely from the shelf. Using only $4!$ would ignore internal book arrangements; using $10!$ would include arrangements that split a subject across the shelf.",
+      "parts": []
+    },
+    {
+      "id": "slide-22",
+      "title": "Count valid feature pipelines",
+      "source_pages": [
+        22
+      ],
+      "question": "A data scientist builds an **ordered three-stage** feature-engineering pipeline for a credit-risk model using features from\n\n$$\n\\{A,B,C,D,E,F,G\\}.\n$$\n\nUse three distinct features, selected without replacement, as in the slide's permutations setting. The constraints are:\n\n- The first feature must be A or B, the two baseline financial metrics.\n- C and D cannot both occur in the same pipeline because they are highly correlated.\n\nHow many valid pipelines are possible?",
+      "solution": "First enforce the first-stage requirement, temporarily ignoring the C/D restriction.\n\nThere are 2 choices for stage 1, then 6 unused features for stage 2 and 5 for stage 3. This gives\n\n$$\n2\\cdot6\\cdot5=60\n$$\n\ncandidate pipelines.\n\nNow remove the invalid ones. Because stage 1 is A or B, a pipeline contains both C and D only when its last two stages are C,D or D,C:\n\n$$\nACD,\\quad ADC,\\quad BCD,\\quad BDC.\n$$\n\nThere are $2\\cdot2=4$ invalid pipelines, so\n\n$$\n\\boxed{60-4=56.}\n$$\n\nThe positions matter: ACD and ADC are different ordered pipelines, even though they use the same features. No division by $3!$ is appropriate.\n\nAn alternative count makes the restriction directly: after choosing A or B first, choose an unordered pair from the six remaining features, excluding the one pair $\\{C,D\\}$. Then order that pair:\n\n$$\n2\\left[\\binom62-1\\right]2!=2(15-1)2=56.\n$$\n\nBoth counts use the stated no-repetition model. Allowing repeated features would define a different problem.",
+      "parts": []
+    },
+    {
+      "id": "slide-24",
+      "title": "Select three committee officers",
+      "source_pages": [
+        24
+      ],
+      "question": "A committee has 10 members: 6 male and 4 female. Three different people are chosen to be chairperson, vice-chairperson, and treasurer. Assume all ordered assignments of distinct people to these three roles are equally likely.\n\nWhat is the probability that all three selected officers are male?",
+      "solution": "There are $10\\cdot9\\cdot8$ possible ordered assignments: choose the chair, then a different vice-chair, then a different treasurer.\n\nFor all three to be male, the choices are $6\\cdot5\\cdot4$: six males initially, then five, then four. Thus\n\n$$\n\\boxed{P(\\text{all three male})=\n\\frac{6\\cdot5\\cdot4}{10\\cdot9\\cdot8}\n=\\frac{120}{720}=\\frac16.}\n$$\n\nThe same calculation can be read sequentially:\n\n$$\n\\underbrace{\\frac6{10}}_{\\text{chair male}}\n\\underbrace{\\frac59}_{\\text{vice-chair male given first is male}}\n\\underbrace{\\frac48}_{\\text{treasurer male given first two are male}}\n=\\frac16.\n$$\n\nThe factors change because people are selected without replacement. Using $(6/10)^3$ would incorrectly keep the composition unchanged after each choice.\n\nYou may also count unordered groups consistently:\n\n$$\n\\frac{\\binom63}{\\binom{10}3}=\\frac{20}{120}=\\frac16.\n$$\n\nEach three-person group has the same $3!$ role assignments, so those factors cancel. Do not mix an ordered numerator with an unordered denominator.",
+      "parts": []
+    },
+    {
+      "id": "slide-52",
+      "title": "Count heads in ten tosses",
+      "source_pages": [
+        52
+      ],
+      "question": "A fair coin is tossed independently 10 times. Find the probability of obtaining:\n\n### (a)\n\nExactly 3 heads.\n\n### (b)\n\nThree or fewer heads.",
+      "solution": "An outcome is a length-10 sequence of H and T. There are $2^{10}=1024$ such sequences, each with probability $(1/2)^{10}$.\n\n### (a) Exactly 3 heads\n\nChoose the three positions that contain heads. Once those positions are chosen, every other position must be a tail, so no additional choices remain:\n\n$$\n\\#\\{\\text{exactly 3 heads}\\}=\\binom{10}{3}=120.\n$$\n\nTherefore,\n\n$$\n\\boxed{P(\\text{exactly 3 heads})=\\frac{120}{1024}=\\frac{15}{128}=0.1171875.}\n$$\n\n### (b) Three or fewer heads\n\n“Three or fewer” includes 0, 1, 2, and 3 heads. These cases are disjoint, so add their counts:\n\n$$\n\\begin{aligned}\n\\#\\{\\text{at most 3 heads}\\}\n&=\\binom{10}{0}+\\binom{10}{1}+\\binom{10}{2}+\\binom{10}{3}\\\\\n&=1+10+45+120=176.\n\\end{aligned}\n$$\n\nConsequently,\n\n$$\n\\boxed{P(\\text{at most 3 heads})=\\frac{176}{1024}=\\frac{11}{64}=0.171875.}\n$$\n\nThe head counts 0 through 10 are not equally likely: many more sequences contain 5 heads than 0 heads. Counting equally likely sequences is what makes these ratios valid.",
+      "parts": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "id": "slide-53",
+      "title": "Will two specified tournament players meet?",
+      "source_pages": [
+        53
+      ],
+      "question": "There are $n\\ge2$ tennis players in a single-elimination tournament, including two specified players A and B. The tournament follows these rules in every round:\n\n1. If an odd number of players remains, choose one of them uniformly at random to receive a bye and advance automatically.\n2. Pair the remaining players uniformly at random.\n3. Each pair plays once. The loser is eliminated and the winner advances.\n4. Repeat with fresh random pairings until only the champion remains.\n\nAll players have equal ability: each match has either player as winner with probability $1/2$, independently of the other match results.\n\nFind the probability that A and B ever play each other during the tournament.",
+      "solution": "### Count how many different pairs actually play\n\nStart with n players and finish with one. Exactly $n-1$ players must be eliminated. Each match eliminates one person, while a bye eliminates nobody. Therefore every completed tournament has exactly\n\n$$\nn-1\n$$\n\nmatches. No pair can meet twice, because its first meeting eliminates one member.\n\nThere are $\\binom n2=n(n-1)/2$ possible unordered pairs of players. We now explain with **counting** why the fixed pair A,B has probability $(n-1)/\\binom n2$.\n\n### Put names onto an already completed tournament\n\nImagine recording a completed tournament using anonymous numbered entrants. Keep all its pairings, byes, and winners fixed, and then assign the n player names to its n entrants.\n\nEvery one of the $n!$ assignments of names is equally likely: the pairing rules, bye rules, and fair winning chances treat all names alike. Assigning the names afterward is an equivalent way of generating the same random experiment.\n\nFocus on one particular played match. How many assignments put A and B into its two entrants?\n\n- Put A and B into those two places in 2 ways: A on the first entrant and B on the second, or the reverse.\n- Assign the other $n-2$ names to the other entrants in $(n-2)!$ ways.\n\nThus this one match accounts for $2(n-2)!$ favorable name assignments.\n\nThere are $n-1$ matches. The favorable assignments for different matches do not overlap: A and B cannot play twice in a single-elimination tournament. We can therefore add the counts:\n\n$$\n\\#\\{\\text{assignments where A meets B}\\}=(n-1)\\,2(n-2)!.\n$$\n\nDivide by all $n!$ assignments:\n\n$$\n\\begin{aligned}\nP(\\text{A and B meet})\n&=\\frac{(n-1)\\,2(n-2)!}{n!}\\\\\n&=\\frac{2(n-1)(n-2)!}{n(n-1)(n-2)!}\\\\\n&=\\boxed{\\frac2n}.\n\\end{aligned}\n$$\n\nThis calculation gives the same answer for **every possible anonymous tournament**, so averaging over the randomly generated tournament does not change it.\n\n### Connect the count to the simple ratio\n\nFor any one match, the ratio $2(n-2)!/n!$ equals $1/\\binom n2$: all possible pairs have equal chances of occupying it. Add over the $n-1$ disjoint opportunities for A,B to meet:\n\n$$\n\\boxed{P(\\text{ever meet})=\\frac{n-1}{\\binom n2}=\\frac2n.}\n$$\n\nFor example, with five players there are four matches and ten possible pairs, so the answer is $4/10=2/5$.\n\nThe symmetry here comes from the rules treating names identically. Counting $n-1$ matches alone would not justify the answer if certain players were stronger or given special placements. Nor do we need to claim that every group of $n-1$ pairs is a possible tournament; many such groups are impossible.",
+      "parts": []
+    }
+  ]
+}

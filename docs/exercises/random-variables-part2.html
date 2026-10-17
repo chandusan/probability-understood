@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Exercises from the lesson PDFs, with complete questions and clearly explained solutions you can reveal when ready."><title>Lesson 07 exercises — Probability, understood</title><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/site.css"><link rel="stylesheet" href="../assets/exercises.css"><link rel="stylesheet" href="../assets/vendor/katex/katex.min.css"><script defer src="../assets/vendor/katex/katex.min.js"></script><script defer src="../assets/vendor/katex/contrib/auto-render.min.js"></script><script defer src="../assets/site.js"></script></head>
+<body class="exercises-page"><a class="skip" href="#lesson">Skip to the exercises</a><aside class="sidebar" aria-label="Exercise navigation"><a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>Probability,<br>understood.</span></a><button class="nav-close" data-close-nav aria-label="Close navigation">×</button><p class="course-label">Your study companion</p><details class="chapter-picker"><summary>Change chapter</summary><nav class="chapter-nav" aria-label="Choose a chapter"><a href="../slides/01.html"><span>01</span> Data Summary</a><a href="../probability-part1/01.html"><span>02</span> Probability · Part 1</a><a href="../counting/01.html"><span>03</span> Counting</a><a href="../probability-part2/01.html"><span>04</span> Probability · Part 2</a><a href="../probability-part3/01.html"><span>05</span> Probability · Part 3</a><a href="../random-variables/01.html"><span>06</span> Random Variables</a><a href="../random-variables-part2/01.html" aria-current="true"><span>07</span> Random Variables · Part 2</a><a href="../random-variables-part3/01.html"><span>08</span> Random Variables · Part 3</a><a href="../expectation/01.html"><span>09</span> Expectation</a><a href="../special-distributions/01.html"><span>10</span> Special Distributions</a></nav></details><p class="course-title">Lesson exercises</p><nav class="slide-nav exercise-nav" aria-label="Exercises by lesson"><a href="data-summary.html"><span>01</span><span>Data Summary<small>5 exercises</small></span></a><a href="probability-part1.html"><span>02</span><span>Probability · Part 1<small>8 exercises</small></span></a><a href="counting.html"><span>03</span><span>Counting<small>6 exercises</small></span></a><a href="probability-part2.html"><span>04</span><span>Probability · Part 2<small>7 exercises</small></span></a><a href="probability-part3.html"><span>05</span><span>Probability · Part 3<small>4 exercises</small></span></a><a href="random-variables.html"><span>06</span><span>Random Variables<small>3 exercises</small></span></a><a href="random-variables-part2.html" aria-current="page"><span>07</span><span>Random Variables · Part 2<small>1 exercise</small></span></a><a href="random-variables-part3.html"><span>08</span><span>Random Variables · Part 3<small>3 exercises</small></span></a><a href="expectation.html"><span>09</span><span>Expectation<small>4 exercises</small></span></a><a href="special-distributions.html"><span>10</span><span>Special Distributions<small>5 exercises</small></span></a></nav><div class="nav-footer"><a class="appendix-link" href="index.html">All lesson exercises</a><a class="appendix-link" href="../midterms/index.html">Midterms · questions &amp; solutions</a><a class="appendix-link" href="../appendix/calculus.html">Calculus appendix</a><span>Try the question. Reveal the reasoning.</span></div></aside><button class="scrim" data-close-nav aria-label="Close navigation"></button><div class="site-body"><header class="topbar"><button class="menu-button" aria-expanded="false" aria-label="Open exercise navigation">☰ Menu</button><div class="breadcrumb"><strong>Lesson 07 exercises</strong></div><div class="top-tools"><button class="plain-button print-button" data-print>Print questions</button><button class="plain-button print-button" data-print-solutions>Print with solutions</button></div></header><div class="reading-progress" aria-hidden="true"><i data-reading-progress></i></div><div class="page-layout"><main class="lesson" id="lesson"><p class="eyebrow">Practice · Lesson 07</p><h1>Random Variables · Part 2</h1><p class="lead">Exercises</p><p class="exercise-intro">Work through the questions independently. Each solution starts closed; open it when you are ready for the reasoning and calculations.</p><div class="lesson-meta"><span>1 exercise</span><span class="meta-sep">/</span><a href="../random-variables-part2/01.html">Read the lesson</a><span class="meta-sep">/</span><a href="index.html">All lesson exercises</a></div><div class="exercise-list"><h2 class="sr-only">Questions and solutions</h2><section class="exercise-card" id="exercise-slide-7" aria-labelledby="exercise-slide-7-title">
+<p class="exercise-meta">Exercise 01 <span aria-hidden="true">/</span> Slide 7</p>
+<h3 id="exercise-slide-7-title">Probabilities, density, and median from a CDF</h3><div class="prose exercise-question"><p>A continuous random variable $X$ has CDF</p>
+<p>$$F(x)=P(X\le x)=\begin{cases}
+0,&amp;x&lt;-2,\\[2pt]
+\displaystyle\frac12+\frac3{32}\left(4x-\frac{x^3}{3}\right),&amp;-2\le x&lt;2,\\[6pt]
+1,&amp;x\ge2.
+\end{cases}$$</p>
+<h3 id="exercise-slide-7-question-a">(a)</h3>
+<p>Compute $P(X&lt;0)$.</p>
+<h3 id="exercise-slide-7-question-b">(b)</h3>
+<p>Compute $P(-1&lt;X&lt;1)$.</p>
+<h3 id="exercise-slide-7-question-c">(c)</h3>
+<p>Compute $P(0.5&lt;X)$.</p>
+<h3 id="exercise-slide-7-question-d">(d)</h3>
+<p>Find the probability density function $f(x)$.</p>
+<h3 id="exercise-slide-7-question-e">(e)</h3>
+<p>Find the median of $X$.</p></div>
+<details class="exercise-solution" data-exercise-solution><summary><span class="solution-closed-label">Show solution</span><span class="solution-open-label">Hide solution</span><span class="sr-only">: Probabilities, density, and median from a CDF</span></summary>
+<div class="prose exercise-solution-body"><p>Because $X$ is continuous, a single point has probability zero. Thus including or excluding any endpoint does not change the interval probabilities below. The CDF gives all probability accumulated up to its input.</p>
+<h3 id="exercise-slide-7-solution-a-the-probability-to-the-left-of-zero">(a) the probability to the left of zero</h3>
+<p>The CDF already measures probability to the left. Substitute zero into its middle branch:</p>
+<p>$$P(X&lt;0)=F(0)
+=\frac12+\frac3{32}\left(0-0\right)
+=\boxed{\frac12}.$$</p>
+<p>We may use $F(0)=P(X\le0)$ for $P(X&lt;0)$ because $P(X=0)=0$.</p>
+<h3 id="exercise-slide-7-solution-b-the-probability-between-minus-one-and-one">(b) the probability between minus one and one</h3>
+<p>Subtract the probability accumulated through $-1$ from that accumulated through $1$:</p>
+<p>$$P(-1&lt;X&lt;1)=F(1)-F(-1).$$</p>
+<p>Evaluate the two pieces explicitly:</p>
+<p>$$F(1)=\frac12+\frac3{32}\left(4-\frac13\right)
+=\frac12+\frac{11}{32}=\frac{27}{32},$$</p>
+<p>$$F(-1)=\frac12+\frac3{32}\left(-4+\frac13\right)
+=\frac12-\frac{11}{32}=\frac5{32}.$$</p>
+<p>Therefore,</p>
+<p>$$\boxed{P(-1&lt;X&lt;1)=\frac{27-5}{32}=\frac{11}{16}=0.6875.}$$</p>
+<p>The negative sign inside $F(-1)$ matters: $(-1)^3=-1$, so subtracting $(-1)^3/3$ adds $1/3$.</p>
+<h3 id="exercise-slide-7-solution-c-the-probability-above-one-half">(c) the probability above one half</h3>
+<p>The complement of $X&gt;1/2$ is $X\le1/2$. Thus</p>
+<p>$$P(X&gt;1/2)=1-F(1/2).$$</p>
+<p>First evaluate the CDF:</p>
+<p>$$\begin{aligned}
+F(1/2)
+&amp;=\frac12+\frac3{32}\left(2-\frac{1/8}{3}\right)\\
+&amp;=\frac12+\frac3{32}\left(\frac{47}{24}\right)\\
+&amp;=\frac{128}{256}+\frac{47}{256}=\frac{175}{256}.
+\end{aligned}$$</p>
+<p>Hence,</p>
+<p>$$\boxed{P(X&gt;0.5)=\frac{81}{256}=0.31640625.}$$</p>
+<p>This is smaller than $1/2$, as it should be: the event $X&gt;0.5$ is a subset of $X&gt;0$.</p>
+<h3 id="exercise-slide-7-solution-d-introduce-the-whole-expression-then-differentiate-its-pieces">(d) introduce the whole expression, then differentiate its pieces</h3>
+<p>On $-2&lt;x&lt;2$, rewrite the complete middle branch as</p>
+<p>$$F(x)=\frac12+\frac{3x}{8}-\frac{x^3}{32}.$$</p>
+<p>Differentiate each term. The constant contributes zero; the linear term contributes $3/8$; the cubic term contributes $-3x^2/32$:</p>
+<p>$$F'(x)=0+\frac38-\frac{3x^2}{32}
+=\frac3{32}(4-x^2).$$</p>
+<p>Outside the support, the CDF is constant, so its derivative is zero. One convenient complete density is</p>
+<p>$$\boxed{f(x)=\begin{cases}\dfrac3{32}(4-x^2),&amp;-2&lt;x&lt;2,\\0,&amp;\text{otherwise}.\end{cases}}$$</p>
+<p>The density approaches zero at both endpoints, matching the outside branches. It is nonnegative because $x^2\le4$ within this range. Its total area provides a check:</p>
+<p>$$\int_{-2}^{2}\frac3{32}(4-x^2)\,dx
+=\frac3{32}\left[4x-\frac{x^3}{3}\right]_{-2}^{2}
+=\frac3{32}\left(\frac{16}{3}-\left(-\frac{16}{3}\right)\right)=1.$$</p>
+<h3 id="exercise-slide-7-solution-e-find-the-point-that-splits-probability-in-half">(e) find the point that splits probability in half</h3>
+<p>A median $m$ for this continuous distribution satisfies $F(m)=1/2$. Inside the support,</p>
+<p>$$\frac12+\frac3{32}\left(4m-\frac{m^3}{3}\right)=\frac12.$$</p>
+<p>Subtract $1/2$, divide by $3/32$, and factor:</p>
+<p>$$4m-\frac{m^3}{3}=0
+\quad\Longleftrightarrow\quad
+m\left(4-\frac{m^2}{3}\right)=0.$$</p>
+<p>The algebraic candidates are $m=0$ and $m=\pm\sqrt{12}$. The latter two are outside $[-2,2]$, where this polynomial branch does not apply. They cannot be medians. Thus</p>
+<p>$$\boxed{m=0.}$$</p>
+<p>There is also a geometric reason: $f(-x)=f(x)$, so the density is symmetric around zero. Each side has half the total area. The density is positive throughout $(-2,2)$, so the CDF is strictly increasing there and this median is unique.</p></div><p class="exercise-source">Return to the explanation: <a href="../random-variables-part2/07.html">Slide 7</a>. <a href="../assets/source/07-random-variables-part2.pdf#page=7" target="_blank" rel="noopener">Original PDF ↗</a></p></details></section></div><footer class="footer"><p>Original exercises: Dobrin Marchev · STAT 5701. Explanations are an independent study companion.</p></footer></main><aside class="page-toc" aria-label="On this page"><p class="toc-label">On this page</p><a href="#exercise-slide-7">01 · Probabilities, density, and median from a CDF</a><a href="#lesson">Back to the top ↑</a></aside></div></div></body></html>

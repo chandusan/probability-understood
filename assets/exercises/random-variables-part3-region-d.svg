@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 540" role="img" aria-labelledby="exercise-region-d-title exercise-region-d-desc">
+<title id="exercise-region-d-title">Region D: two shaded parabolic pieces</title>
+<desc id="exercise-region-d-desc">The upper piece lies between y equals x squared and y equals one for x from minus one to one. The lower piece lies between y equals minus four and y equals minus x squared for x from minus two to two. They meet at the origin.</desc>
+<rect width="680" height="540" fill="#fcfbf7" rx="12"/>
+<g stroke-linejoin="round" stroke-linecap="round">
+<path d="M 230 100 L 450 100 Q 340 240 230 100 Z" fill="#cee7dc" stroke="#177267" stroke-width="3"/>
+<path d="M 120 450 L 560 450 Q 340 -110 120 450 Z" fill="#cee7dc" stroke="#177267" stroke-width="3"/>
+<path d="M 65 170 H 610 M 340 490 V 45" fill="none" stroke="#53625e" stroke-width="1.5"/>
+<path d="M 604 166 L 612 170 L 604 174 M 336 53 L 340 45 L 344 53" fill="none" stroke="#53625e" stroke-width="1.5"/>
+<path d="M 120 165 V 175 M 230 165 V 175 M 450 165 V 175 M 560 165 V 175 M 335 100 H 345 M 335 240 H 345 M 335 310 H 345 M 335 380 H 345 M 335 450 H 345" fill="none" stroke="#53625e" stroke-width="1.5"/>
+</g>
+<g fill="#233c36" font-family="system-ui, sans-serif" font-size="18">
+<text x="117" y="198" text-anchor="middle">−2</text><text x="227" y="198" text-anchor="middle">−1</text><text x="450" y="198" text-anchor="middle">1</text><text x="560" y="198" text-anchor="middle">2</text>
+<text x="327" y="106" text-anchor="end">1</text><text x="327" y="190" text-anchor="end">0</text><text x="327" y="246" text-anchor="end">−1</text><text x="327" y="316" text-anchor="end">−2</text><text x="327" y="386" text-anchor="end">−3</text><text x="327" y="456" text-anchor="end">−4</text>
+<text x="623" y="176" font-style="italic">x</text><text x="352" y="44" font-style="italic">y</text>
+<text x="470" y="95">y = 1</text><text x="440" y="147">y = x²</text><text x="485" y="290">y = −x²</text><text x="570" y="456">y = −4</text>
+<text x="405" y="345" font-size="28" font-style="italic">D</text>
+</g>
+</svg>

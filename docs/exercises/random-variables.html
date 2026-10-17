@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Exercises from the lesson PDFs, with complete questions and clearly explained solutions you can reveal when ready."><title>Lesson 06 exercises — Probability, understood</title><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/site.css"><link rel="stylesheet" href="../assets/exercises.css"><link rel="stylesheet" href="../assets/vendor/katex/katex.min.css"><script defer src="../assets/vendor/katex/katex.min.js"></script><script defer src="../assets/vendor/katex/contrib/auto-render.min.js"></script><script defer src="../assets/site.js"></script></head>
+<body class="exercises-page"><a class="skip" href="#lesson">Skip to the exercises</a><aside class="sidebar" aria-label="Exercise navigation"><a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>Probability,<br>understood.</span></a><button class="nav-close" data-close-nav aria-label="Close navigation">×</button><p class="course-label">Your study companion</p><details class="chapter-picker"><summary>Change chapter</summary><nav class="chapter-nav" aria-label="Choose a chapter"><a href="../slides/01.html"><span>01</span> Data Summary</a><a href="../probability-part1/01.html"><span>02</span> Probability · Part 1</a><a href="../counting/01.html"><span>03</span> Counting</a><a href="../probability-part2/01.html"><span>04</span> Probability · Part 2</a><a href="../probability-part3/01.html"><span>05</span> Probability · Part 3</a><a href="../random-variables/01.html" aria-current="true"><span>06</span> Random Variables</a><a href="../random-variables-part2/01.html"><span>07</span> Random Variables · Part 2</a><a href="../random-variables-part3/01.html"><span>08</span> Random Variables · Part 3</a><a href="../expectation/01.html"><span>09</span> Expectation</a><a href="../special-distributions/01.html"><span>10</span> Special Distributions</a></nav></details><p class="course-title">Lesson exercises</p><nav class="slide-nav exercise-nav" aria-label="Exercises by lesson"><a href="data-summary.html"><span>01</span><span>Data Summary<small>5 exercises</small></span></a><a href="probability-part1.html"><span>02</span><span>Probability · Part 1<small>8 exercises</small></span></a><a href="counting.html"><span>03</span><span>Counting<small>6 exercises</small></span></a><a href="probability-part2.html"><span>04</span><span>Probability · Part 2<small>7 exercises</small></span></a><a href="probability-part3.html"><span>05</span><span>Probability · Part 3<small>4 exercises</small></span></a><a href="random-variables.html" aria-current="page"><span>06</span><span>Random Variables<small>3 exercises</small></span></a><a href="random-variables-part2.html"><span>07</span><span>Random Variables · Part 2<small>1 exercise</small></span></a><a href="random-variables-part3.html"><span>08</span><span>Random Variables · Part 3<small>3 exercises</small></span></a><a href="expectation.html"><span>09</span><span>Expectation<small>4 exercises</small></span></a><a href="special-distributions.html"><span>10</span><span>Special Distributions<small>5 exercises</small></span></a></nav><div class="nav-footer"><a class="appendix-link" href="index.html">All lesson exercises</a><a class="appendix-link" href="../midterms/index.html">Midterms · questions &amp; solutions</a><a class="appendix-link" href="../appendix/calculus.html">Calculus appendix</a><span>Try the question. Reveal the reasoning.</span></div></aside><button class="scrim" data-close-nav aria-label="Close navigation"></button><div class="site-body"><header class="topbar"><button class="menu-button" aria-expanded="false" aria-label="Open exercise navigation">☰ Menu</button><div class="breadcrumb"><strong>Lesson 06 exercises</strong></div><div class="top-tools"><button class="plain-button print-button" data-print>Print questions</button><button class="plain-button print-button" data-print-solutions>Print with solutions</button></div></header><div class="reading-progress" aria-hidden="true"><i data-reading-progress></i></div><div class="page-layout"><main class="lesson" id="lesson"><p class="eyebrow">Practice · Lesson 06</p><h1>Random Variables</h1><p class="lead">Exercises</p><p class="exercise-intro">Work through the questions independently. Each solution starts closed; open it when you are ready for the reasoning and calculations.</p><div class="lesson-meta"><span>3 exercises</span><span class="meta-sep">/</span><a href="../random-variables/01.html">Read the lesson</a><span class="meta-sep">/</span><a href="index.html">All lesson exercises</a></div><div class="exercise-list"><h2 class="sr-only">Questions and solutions</h2><section class="exercise-card" id="exercise-slide-5" aria-labelledby="exercise-slide-5-title">
+<p class="exercise-meta">Exercise 01 <span aria-hidden="true">/</span> Slide 5</p>
+<h3 id="exercise-slide-5-title">Training stops at consecutive outcomes</h3><div class="prose exercise-question"><p>After each training epoch, an automated tuning script compares a model's validation loss with the previous value. It records one of three outcomes: decrease ($D$), increase ($I$), or unchanged ($U$).</p>
+<p>Training stops immediately when either of these happens:</p>
+<ul>
+<li>The loss increases on <strong>two consecutive epochs</strong> ($II$).</li>
+<li>The loss is unchanged on <strong>three consecutive epochs</strong> ($UUU$).</li>
+</ul>
+<p>Let $N$ be the number of evaluated epochs up to and including the stopping epoch. Use a baseline loss before the first counted epoch, so that the first counted epoch already produces a label $D$, $I$, or $U$.</p>
+<p>State the three smallest possible values of $N$ and list <strong>all exact sequences</strong> of outcomes corresponding to each value.</p></div>
+<details class="exercise-solution" data-exercise-solution><summary><span class="solution-closed-label">Show solution</span><span class="solution-open-label">Hide solution</span><span class="sr-only">: Training stops at consecutive outcomes</span></summary>
+<div class="prose exercise-solution-body"><h3 id="exercise-slide-5-solution-an-exact-sequence-must-stop-for-the-first-time-at-its-end">An exact sequence must stop for the first time at its end</h3>
+<p>A valid stopping sequence must meet both conditions:</p>
+<ol>
+<li>Its final letter completes $II$ or $UUU$.</li>
+<li>No earlier part of the sequence has already completed either pattern.</li>
+</ol>
+<p>For example, $DII$ stops after three epochs. The string $IIU$ cannot be a three-epoch stopping sequence because the process would already have stopped after $II$.</p>
+<h3 id="exercise-slide-5-solution-the-smallest-possible-value-is-2">The smallest possible value is 2</h3>
+<p>One letter cannot complete either stopping rule. After two letters, only $II$ can stop the process:</p>
+<p>$$N=2:\qquad \boxed{II}.$$</p>
+<h3 id="exercise-slide-5-solution-stop-for-the-first-time-at-epoch-3">Stop for the first time at epoch 3</h3>
+<p>There are two possibilities for the final stopping pattern.</p>
+<p><strong>End in $II$:</strong> write the sequence as $aII$. The first letter $a$ cannot be $I$, because $III$ would have stopped after its first two letters. It can be $D$ or $U$, giving $DII$ and $UII$.</p>
+<p><strong>End in $UUU$:</strong> the only three-letter sequence is $UUU$, and none of its earlier prefixes triggers a rule.</p>
+<p>Thus</p>
+<p>$$N=3:\qquad \boxed{DII,\ UII,\ UUU}.$$</p>
+<h3 id="exercise-slide-5-solution-stop-for-the-first-time-at-epoch-4">Stop for the first time at epoch 4</h3>
+<p><strong>End in $II$:</strong> write the sequence as $abII$. The second letter $b$ cannot be $I$, since positions 2 and 3 would then already be $II$.</p>
+<ul>
+<li>If $b=D$, the first letter can be $D$, $I$, or $U$: $DDII$, $IDII$, $UDII$.</li>
+<li>If $b=U$, the first letter can again be $D$, $I$, or $U$: $DUII$, $IUII$, $UUII$.</li>
+</ul>
+<p>These six sequences contain no earlier $II$, and their first three letters cannot be $UUU$ because the third letter is $I$.</p>
+<p><strong>End in $UUU$:</strong> write the sequence as $aUUU$. The first letter cannot be $U$, because $UUUU$ would already stop at epoch 3. Thus $a$ is $D$ or $I$, giving $DUUU$ and $IUUU$.</p>
+<p>Collecting the answer:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: right;">Value of $N$</th>
+<th>All exact stopping sequences</th>
+<th style="text-align: right;">Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">2</td>
+<td>$II$</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td>$DII,UII,UUU$</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td>$DDII,IDII,UDII,DUII,IUII,UUII,DUUU,IUUU$</td>
+<td style="text-align: right;">8</td>
+</tr>
+</tbody>
+</table></div>
+<p>The three smallest possible values are therefore <strong>2, 3, and 4</strong>. The question provides no probabilities for $D$, $I$, and $U$, so these sequence counts alone do not determine probabilities such as $P(N=4)$.</p></div><p class="exercise-source">Return to the explanation: <a href="../random-variables/05.html">Slide 5</a>. <a href="../assets/source/06-random-variables.pdf#page=5" target="_blank" rel="noopener">Original PDF ↗</a></p></details></section><section class="exercise-card" id="exercise-slide-22" aria-labelledby="exercise-slide-22-title">
+<p class="exercise-meta">Exercise 02 <span aria-hidden="true">/</span> Slide 22</p>
+<h3 id="exercise-slide-22-title">Recover a density from a polynomial CDF</h3><div class="prose exercise-question"><p>A random variable $X$ has cumulative distribution function</p>
+<p>$$F_X(x)=\frac{x^2+x^3}{12},\qquad 0\le x\le2.$$</p>
+<p>Find its probability density function $f_X(x)$, including its value outside the given interval.</p></div>
+<details class="exercise-solution" data-exercise-solution><summary><span class="solution-closed-label">Show solution</span><span class="solution-open-label">Hide solution</span><span class="sr-only">: Recover a density from a polynomial CDF</span></summary>
+<div class="prose exercise-solution-body"><h3 id="exercise-slide-22-solution-first-identify-the-full-cdf">First identify the full CDF</h3>
+<p>At the endpoints,</p>
+<p>$$F_X(0)=0,\qquad F_X(2)=\frac{4+8}{12}=1.$$</p>
+<p>A CDF is nondecreasing and stays between $0$ and $1$. Therefore it must be $0$ before $x=0$ and $1$ after $x=2$:</p>
+<p>$$F_X(x)=\begin{cases}
+0,&amp;x&lt;0,\\[2pt]
+\dfrac{x^2+x^3}{12},&amp;0\le x\le2,\\[5pt]
+1,&amp;x&gt;2.
+\end{cases}$$</p>
+<h3 id="exercise-slide-22-solution-differentiate-the-whole-middle-expression-term-by-term">Differentiate the whole middle expression term by term</h3>
+<p>The CDF is accumulated probability; its rate of increase is the density. For $0&lt;x&lt;2$,</p>
+<p>$$\begin{aligned}
+f_X(x)=F_X'(x)
+&amp;=\frac1{12}\left(\frac{d}{dx}x^2+\frac{d}{dx}x^3\right)\\
+&amp;=\frac{2x+3x^2}{12}.
+\end{aligned}$$</p>
+<p>The factor $1/12$ remains unchanged. The power rule changes $x^2$ to $2x$ and $x^3$ to $3x^2$.</p>
+<p>Outside $(0,2)$ the CDF is constant, so the density is zero. One complete version of the PDF is</p>
+<p>$$\boxed{f_X(x)=\begin{cases}
+\dfrac{2x+3x^2}{12},&amp;0&lt;x&lt;2,\\[5pt]
+0,&amp;\text{otherwise}.
+\end{cases}}$$</p>
+<h3 id="exercise-slide-22-solution-check-that-this-is-a-valid-density">Check that this is a valid density</h3>
+<p>The expression is nonnegative on $(0,2)$, and its total area is</p>
+<p>$$\begin{aligned}
+\int_{-\infty}^{\infty}f_X(x)\,dx
+&amp;=\int_0^2\frac{2x+3x^2}{12}\,dx\\
+&amp;=\left[\frac{x^2+x^3}{12}\right]_0^2\\
+&amp;=1.
+\end{aligned}$$</p>
+<p>At $x=2$ the CDF has a corner, so the derivative does not exist there. That causes no problem: the PDF's value at a single point does not change an integral. We chose zero at the endpoints. The CDF has no jump at either endpoint, so neither endpoint carries a point mass.</p></div><p class="exercise-source">Return to the explanation: <a href="../random-variables/22.html">Slide 22</a>. <a href="../assets/source/06-random-variables.pdf#page=22" target="_blank" rel="noopener">Original PDF ↗</a></p></details></section><section class="exercise-card" id="exercise-slide-36" aria-labelledby="exercise-slide-36-title">
+<p class="exercise-meta">Exercise 03 <span aria-hidden="true">/</span> Slide 36</p>
+<h3 id="exercise-slide-36-title">Net gain from one lottery ticket</h3><div class="prose exercise-question"><p>Five thousand lottery tickets are sold for 1 dollar each. One ticket wins 1,000 dollars, two tickets win 500 dollars each, and ten tickets win 100 dollars each. The winning tickets are distinct; each receives just one of these prizes.</p>
+<p>One ticket is selected uniformly at random from the 5,000 tickets. Let $X$ be the buyer's <strong>net gain</strong>, in dollars, from purchasing that ticket.</p>
+<p>Construct the probability distribution of $X$.</p></div>
+<details class="exercise-solution" data-exercise-solution><summary><span class="solution-closed-label">Show solution</span><span class="solution-open-label">Hide solution</span><span class="sr-only">: Net gain from one lottery ticket</span></summary>
+<div class="prose exercise-solution-body"><h3 id="exercise-slide-36-solution-subtract-the-cost-in-every-outcome">Subtract the cost in every outcome</h3>
+<p>Net gain means money received minus money paid. If $W$ is the prize, then</p>
+<p>$$X=W-1.$$</p>
+<p>A losing ticket pays no prize, so its net gain is $-1$, not zero. The four possibilities are:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: right;">Prize in dollars</th>
+<th style="text-align: right;">Net gain $X$</th>
+<th style="text-align: right;">Number of tickets</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">$0-1=-1$</td>
+<td style="text-align: right;">$5000-(1+2+10)=4987$</td>
+</tr>
+<tr>
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">$100-1=99$</td>
+<td style="text-align: right;">10</td>
+</tr>
+<tr>
+<td style="text-align: right;">500</td>
+<td style="text-align: right;">$500-1=499$</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr>
+<td style="text-align: right;">1,000</td>
+<td style="text-align: right;">$1000-1=999$</td>
+<td style="text-align: right;">1</td>
+</tr>
+</tbody>
+</table></div>
+<p>The 13 winning tickets are distinct, so the number of losing tickets is 4,987.</p>
+<h3 id="exercise-slide-36-solution-divide-each-group-size-by-5000">Divide each group size by 5,000</h3>
+<p>Each individual ticket has probability $1/5000$ of being selected. A net gain's probability is therefore the number of tickets producing that gain divided by 5,000:</p>
+<p>$$\boxed{p_X(x)=P(X=x)=\begin{cases}
+\dfrac{4987}{5000},&amp;x=-1,\\[4pt]
+\dfrac{10}{5000},&amp;x=99,\\[4pt]
+\dfrac{2}{5000},&amp;x=499,\\[4pt]
+\dfrac{1}{5000},&amp;x=999,\\[4pt]
+0,&amp;\text{otherwise}.
+\end{cases}}$$</p>
+<p>These probabilities add to one:</p>
+<p>$$\frac{4987+10+2+1}{5000}=1.$$</p>
+<p>The four gain values are not equally likely. They collect different numbers of equally likely tickets. Subtracting the ticket cost changes the gain values while leaving those ticket counts, and hence their probabilities, unchanged.</p></div><p class="exercise-source">Return to the explanation: <a href="../random-variables/36.html">Slide 36</a>. <a href="../assets/source/06-random-variables.pdf#page=36" target="_blank" rel="noopener">Original PDF ↗</a></p></details></section></div><footer class="footer"><p>Original exercises: Dobrin Marchev · STAT 5701. Explanations are an independent study companion.</p></footer></main><aside class="page-toc" aria-label="On this page"><p class="toc-label">On this page</p><a href="#exercise-slide-5">01 · Training stops at consecutive outcomes</a><a href="#exercise-slide-22">02 · Recover a density from a polynomial CDF</a><a href="#exercise-slide-36">03 · Net gain from one lottery ticket</a><a href="#lesson">Back to the top ↑</a></aside></div></div></body></html>

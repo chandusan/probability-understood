@@ -1,0 +1,35 @@
+{
+  "chapter_id": "random-variables",
+  "exercises": [
+    {
+      "id": "slide-5",
+      "title": "Training stops at consecutive outcomes",
+      "source_pages": [
+        5
+      ],
+      "question": "After each training epoch, an automated tuning script compares a model's validation loss with the previous value. It records one of three outcomes: decrease ($D$), increase ($I$), or unchanged ($U$).\n\nTraining stops immediately when either of these happens:\n\n- The loss increases on **two consecutive epochs** ($II$).\n- The loss is unchanged on **three consecutive epochs** ($UUU$).\n\nLet $N$ be the number of evaluated epochs up to and including the stopping epoch. Use a baseline loss before the first counted epoch, so that the first counted epoch already produces a label $D$, $I$, or $U$.\n\nState the three smallest possible values of $N$ and list **all exact sequences** of outcomes corresponding to each value.",
+      "solution": "### An exact sequence must stop for the first time at its end\n\nA valid stopping sequence must meet both conditions:\n\n1. Its final letter completes $II$ or $UUU$.\n2. No earlier part of the sequence has already completed either pattern.\n\nFor example, $DII$ stops after three epochs. The string $IIU$ cannot be a three-epoch stopping sequence because the process would already have stopped after $II$.\n\n### The smallest possible value is 2\n\nOne letter cannot complete either stopping rule. After two letters, only $II$ can stop the process:\n\n$$N=2:\\qquad \\boxed{II}.$$\n\n### Stop for the first time at epoch 3\n\nThere are two possibilities for the final stopping pattern.\n\n**End in $II$:** write the sequence as $aII$. The first letter $a$ cannot be $I$, because $III$ would have stopped after its first two letters. It can be $D$ or $U$, giving $DII$ and $UII$.\n\n**End in $UUU$:** the only three-letter sequence is $UUU$, and none of its earlier prefixes triggers a rule.\n\nThus\n\n$$N=3:\\qquad \\boxed{DII,\\ UII,\\ UUU}.$$\n\n### Stop for the first time at epoch 4\n\n**End in $II$:** write the sequence as $abII$. The second letter $b$ cannot be $I$, since positions 2 and 3 would then already be $II$.\n\n- If $b=D$, the first letter can be $D$, $I$, or $U$: $DDII$, $IDII$, $UDII$.\n- If $b=U$, the first letter can again be $D$, $I$, or $U$: $DUII$, $IUII$, $UUII$.\n\nThese six sequences contain no earlier $II$, and their first three letters cannot be $UUU$ because the third letter is $I$.\n\n**End in $UUU$:** write the sequence as $aUUU$. The first letter cannot be $U$, because $UUUU$ would already stop at epoch 3. Thus $a$ is $D$ or $I$, giving $DUUU$ and $IUUU$.\n\nCollecting the answer:\n\n| Value of $N$ | All exact stopping sequences | Count |\n|---:|---|---:|\n| 2 | $II$ | 1 |\n| 3 | $DII,UII,UUU$ | 3 |\n| 4 | $DDII,IDII,UDII,DUII,IUII,UUII,DUUU,IUUU$ | 8 |\n\nThe three smallest possible values are therefore **2, 3, and 4**. The question provides no probabilities for $D$, $I$, and $U$, so these sequence counts alone do not determine probabilities such as $P(N=4)$.",
+      "parts": []
+    },
+    {
+      "id": "slide-22",
+      "title": "Recover a density from a polynomial CDF",
+      "source_pages": [
+        22
+      ],
+      "question": "A random variable $X$ has cumulative distribution function\n\n$$F_X(x)=\\frac{x^2+x^3}{12},\\qquad 0\\le x\\le2.$$\n\nFind its probability density function $f_X(x)$, including its value outside the given interval.",
+      "solution": "### First identify the full CDF\n\nAt the endpoints,\n\n$$F_X(0)=0,\\qquad F_X(2)=\\frac{4+8}{12}=1.$$\n\nA CDF is nondecreasing and stays between $0$ and $1$. Therefore it must be $0$ before $x=0$ and $1$ after $x=2$:\n\n$$F_X(x)=\\begin{cases}\n0,&x<0,\\\\[2pt]\n\\dfrac{x^2+x^3}{12},&0\\le x\\le2,\\\\[5pt]\n1,&x>2.\n\\end{cases}$$\n\n### Differentiate the whole middle expression term by term\n\nThe CDF is accumulated probability; its rate of increase is the density. For $0<x<2$,\n\n$$\\begin{aligned}\nf_X(x)=F_X'(x)\n&=\\frac1{12}\\left(\\frac{d}{dx}x^2+\\frac{d}{dx}x^3\\right)\\\\\n&=\\frac{2x+3x^2}{12}.\n\\end{aligned}$$\n\nThe factor $1/12$ remains unchanged. The power rule changes $x^2$ to $2x$ and $x^3$ to $3x^2$.\n\nOutside $(0,2)$ the CDF is constant, so the density is zero. One complete version of the PDF is\n\n$$\\boxed{f_X(x)=\\begin{cases}\n\\dfrac{2x+3x^2}{12},&0<x<2,\\\\[5pt]\n0,&\\text{otherwise}.\n\\end{cases}}$$\n\n### Check that this is a valid density\n\nThe expression is nonnegative on $(0,2)$, and its total area is\n\n$$\\begin{aligned}\n\\int_{-\\infty}^{\\infty}f_X(x)\\,dx\n&=\\int_0^2\\frac{2x+3x^2}{12}\\,dx\\\\\n&=\\left[\\frac{x^2+x^3}{12}\\right]_0^2\\\\\n&=1.\n\\end{aligned}$$\n\nAt $x=2$ the CDF has a corner, so the derivative does not exist there. That causes no problem: the PDF's value at a single point does not change an integral. We chose zero at the endpoints. The CDF has no jump at either endpoint, so neither endpoint carries a point mass.",
+      "parts": []
+    },
+    {
+      "id": "slide-36",
+      "title": "Net gain from one lottery ticket",
+      "source_pages": [
+        36
+      ],
+      "question": "Five thousand lottery tickets are sold for 1 dollar each. One ticket wins 1,000 dollars, two tickets win 500 dollars each, and ten tickets win 100 dollars each. The winning tickets are distinct; each receives just one of these prizes.\n\nOne ticket is selected uniformly at random from the 5,000 tickets. Let $X$ be the buyer's **net gain**, in dollars, from purchasing that ticket.\n\nConstruct the probability distribution of $X$.",
+      "solution": "### Subtract the cost in every outcome\n\nNet gain means money received minus money paid. If $W$ is the prize, then\n\n$$X=W-1.$$\n\nA losing ticket pays no prize, so its net gain is $-1$, not zero. The four possibilities are:\n\n| Prize in dollars | Net gain $X$ | Number of tickets |\n|---:|---:|---:|\n| 0 | $0-1=-1$ | $5000-(1+2+10)=4987$ |\n| 100 | $100-1=99$ | 10 |\n| 500 | $500-1=499$ | 2 |\n| 1,000 | $1000-1=999$ | 1 |\n\nThe 13 winning tickets are distinct, so the number of losing tickets is 4,987.\n\n### Divide each group size by 5,000\n\nEach individual ticket has probability $1/5000$ of being selected. A net gain's probability is therefore the number of tickets producing that gain divided by 5,000:\n\n$$\\boxed{p_X(x)=P(X=x)=\\begin{cases}\n\\dfrac{4987}{5000},&x=-1,\\\\[4pt]\n\\dfrac{10}{5000},&x=99,\\\\[4pt]\n\\dfrac{2}{5000},&x=499,\\\\[4pt]\n\\dfrac{1}{5000},&x=999,\\\\[4pt]\n0,&\\text{otherwise}.\n\\end{cases}}$$\n\nThese probabilities add to one:\n\n$$\\frac{4987+10+2+1}{5000}=1.$$\n\nThe four gain values are not equally likely. They collect different numbers of equally likely tickets. Subtracting the ticket cost changes the gain values while leaving those ticket counts, and hence their probabilities, unchanged.",
+      "parts": []
+    }
+  ]
+}

@@ -24,6 +24,8 @@ A slide-by-slide teaching companion to **01 Data Summary**, **02 Probability · 
 
 **[Open the calculus appendix](https://chandusan.github.io/probability-understood/appendix/calculus.html)** — a short, self-contained reference for differentiation, integration, and the CDF–density connection, with optional product and chain rule examples. The appendix has no outgoing links to slides. It is linked from every lesson and directly from the relevant Random Variables slides.
 
+**[Open lesson exercises](https://chandusan.github.io/probability-understood/exercises/index.html)** — exercises and standalone practice questions from all ten PDFs, organized by lesson. Each question has a collapsed, fully worked solution. The same collection appears at the bottom of its lesson’s final slide.
+
 **[Open Midterms](https://chandusan.github.io/probability-understood/midterms/index.html)** — the Fall 2024 and Fall 2025 papers, each with separate questions and questions-with-solutions pages.
 
 The chapter selector switches between the ten companions. The previous six-lesson site is preserved in Git at `archive/before-slide-rebuild-2026-10-03`.
@@ -66,6 +68,8 @@ python3 -m venv .venv
 Edit Data Summary explanations in `content/slides/01.md` through `31.md`, Probability Part 1 in `content/probability-part1/01.md` through `43.md`, Counting in `content/counting/01.md` through `53.md`, Probability Part 2 in `content/probability-part2/01.md` through `36.md`, Probability Part 3 in `content/probability-part3/01.md` through `44.md`, Random Variables in `content/random-variables/01.md` through `36.md`, and Random Variables Part 2 in `content/random-variables-part2/01.md` through `36.md`. The new chapters are in `content/random-variables-part3/01.md` through `49.md`, `content/expectation/01.md` through `49.md`, and `content/special-distributions/01.md` through `61.md`. Each file starts with a title and an introductory paragraph. Standard Markdown, TeX math, tables, and `<details markdown="1">` sections are supported.
 
 Edit the calculus reference in `content/appendix/calculus.md`; it builds to `docs/appendix/calculus.html` and is separate from slide counts and completion progress.
+
+Edit lesson practice in `content/exercises/<chapter-id>.json`. Each entry records its source slide numbers, full question, and standalone solution. `exercises.py` builds the ten collection pages and the exercise hub, and reuses exactly the same cards at the end of each lesson. Solutions use native `<details>` controls and are closed by default. Exercise pages offer separate printing of questions alone or questions with solutions. The source inventory includes explicit exercises and standalone practice prompts; ordinary worked examples remain in the original lessons.
 
 Edit midterm question and solution content in `content/midterms/2024.json` and `content/midterms/2025.json`. The `midterms.py` renderer uses the same question field in both modes, then adds worked explanations only on the solutions page. It builds the hub at `docs/midterms/index.html`, with `questions.html` and `solutions.html` under each year. The questions page contains no hidden solutions or source answer-key links. Both modes support printing and local math rendering, and all question and solution headings have unique anchors. Midterms are separate from the 438-slide count and browser-local slide progress. The main build validates paper metadata and source PDFs before replacing `docs/`.
 

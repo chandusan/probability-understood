@@ -1,0 +1,42 @@
+{
+  "chapter_id": "random-variables-part3",
+  "exercises": [
+    {
+      "id": "slide-09",
+      "title": "An iterated integral over a rectangle",
+      "source_pages": [
+        9
+      ],
+      "question": "Compute\n\n$$\\int_0^2\\int_0^1xy^2\\,dy\\,dx.$$",
+      "solution": "### Read the order before calculating\n\nThe inner differential is $dy$, so integrate $y$ first. Hold $x$ fixed and use the power rule:\n\n$$\n\\int_0^1xy^2\\,dy\n=x\\left[\\frac{y^3}{3}\\right]_0^1\n=\\frac x3.\n$$\n\nNow integrate over the outer range:\n\n$$\n\\int_0^2\\frac x3\\,dx\n=\\left[\\frac{x^2}{6}\\right]_0^2\n=\\boxed{\\frac23}.\n$$\n\nThe full calculation is therefore\n\n$$\n\\boxed{\\int_0^2\\int_0^1xy^2\\,dy\\,dx=\\frac23.}\n$$\n\n### Check by reversing the order\n\nDescribe the same rectangle with $x$ as the inner variable:\n\n$$\n\\begin{aligned}\n\\int_0^1\\int_0^2xy^2\\,dx\\,dy\n&=\\int_0^1\\left[\\frac{x^2y^2}{2}\\right]_0^2dy\\\\\n&=\\int_0^1 2y^2\\,dy\n=\\frac23.\n\\end{aligned}\n$$\n\nThe two orders agree.\n\n### Check by separating the factors\n\nBecause the region is a rectangle and the integrand factors,\n\n$$\n\\left(\\int_0^2x\\,dx\\right)\n\\left(\\int_0^1y^2\\,dy\\right)\n=2\\cdot\\frac13=\\frac23.\n$$\n\nThis is the same repeated integration written compactly.",
+      "parts": [
+        "a"
+      ]
+    },
+    {
+      "id": "slide-18",
+      "title": "Integrals over triangular and parabolic regions",
+      "source_pages": [
+        18
+      ],
+      "question": "### (a) A triangular region\n\nEvaluate the integral of $f(x,y)=2-3x+xy$ over the triangle with vertices $(0,0)$, $(1,0)$, and $(1,3)$.\n\n### (b) Two parabolic regions\n\nEvaluate\n\n$$\\iint_D(3-6xy)\\,dx\\,dy,$$\n\nwhere $D$ is the union of the two shaded pieces described in the source figure:\n\n- The upper piece is between the parabola $y=x^2$ and the horizontal line $y=1$, with endpoints $(-1,1)$ and $(1,1)$.\n- The lower piece is between the horizontal line $y=-4$ and the parabola $y=-x^2$, with endpoints $(-2,-4)$ and $(2,-4)$.\n\nThe pieces meet at the origin.\n\n![Region D: an upper cap between y=x² and y=1, and a lower cap between y=−4 and y=−x².](@assets/exercises/random-variables-part3-region-d.svg)",
+      "solution": "### Part (a): find the sloping boundary\n\nThe line joining $(0,0)$ to $(1,3)$ is $y=3x$. The triangle is therefore\n\n$$\n0\\le x\\le1,\\qquad 0\\le y\\le3x.\n$$\n\nFor example, the vertical slice at $x=1/2$ runs from $y=0$ to $y=3/2$. Thus\n\n$$\nI_a=\\int_0^1\\int_0^{3x}(2-3x+xy)\\,dy\\,dx.\n$$\n\nIntegrate $y$ while holding $x$ fixed:\n\n$$\n\\left[(2-3x)y+\\frac{xy^2}{2}\\right]_0^{3x}\n=6x-9x^2+\\frac92x^3.\n$$\n\nThen\n\n$$\n\\begin{aligned}\nI_a\n&=\\left[3x^2-3x^3+\\frac98x^4\\right]_0^1\\\\\n&=3-3+\\frac98=\\boxed{\\frac98}.\n\\end{aligned}\n$$\n\nThe integrand can be negative near $(1,0)$, so this is a signed integral, not the volume of a nonnegative density.\n\n### Part (b): read both shaded pieces\n\nThe upper piece lies between $y=x^2$ and $y=1$ for $-1\\le x\\le1$. The lower piece lies between $y=-4$ and $y=-x^2$ for $-2\\le x\\le2$. Therefore\n\n$$\nI_b=\n\\int_{-1}^{1}\\int_{x^2}^{1}(3-6xy)\\,dy\\,dx\n+\n\\int_{-2}^{2}\\int_{-4}^{-x^2}(3-6xy)\\,dy\\,dx.\n$$\n\nThe two pieces touch only at the origin, which has zero area.\n\n### Use symmetry before expanding\n\nBoth shaded pieces are symmetric under $x\\mapsto-x$. At mirrored points,\n\n$$\n(-6xy)+(-6(-x)y)=0.\n$$\n\nThe contributions from $-6xy$ therefore cancel in pairs. Only the constant 3 remains:\n\n$$\nI_b=3\\,\\operatorname{Area}(D).\n$$\n\nThe upper area is\n\n$$\n\\int_{-1}^1(1-x^2)\\,dx\n=2\\left[ x-\\frac{x^3}{3}\\right]_0^1\n=\\frac43.\n$$\n\nThe lower area is\n\n$$\n\\int_{-2}^2(4-x^2)\\,dx\n=2\\left[4x-\\frac{x^3}{3}\\right]_0^2\n=\\frac{32}{3}.\n$$\n\nHence\n\n$$\n\\boxed{I_b=3\\left(\\frac43+\\frac{32}{3}\\right)=36.}\n$$\n\n### Why the cancellation is justified\n\nSymmetry here is a precise pairing rule: every point $(x,y)$ in the region has a matching point $(-x,y)$ with the same small area and opposite value of the odd term. The constant term has the same value at both points and adds instead of cancelling.",
+      "parts": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "id": "slide-29",
+      "title": "Two chords in a circle",
+      "source_pages": [
+        29
+      ],
+      "question": "Suppose you choose two chords at random on a circle. What is the probability that they intersect inside the circle?\n\n**Model clarification:** The source does not specify how a random chord is chosen. For this exercise, choose each chord by selecting its two endpoints independently and uniformly around the circumference. Make all four endpoint choices independently.",
+      "solution": "### Fix the first chord and examine its arcs\n\nThe first chord divides the circumference into two arcs. Let one arc occupy fraction $t$ of the circumference; the other occupies fraction $1-t$.\n\nThe second chord crosses the first exactly when its endpoints fall on opposite arcs. There are two disjoint ways:\n\n- First endpoint on the first arc, second on the other: probability $t(1-t)$.\n- First endpoint on the other arc, second on the first: probability $(1-t)t$.\n\nThus\n\n$$\nP(\\text{cross}\\mid t)=2t(1-t).\n$$\n\nCoincident endpoints and boundary coincidences have probability zero in this model.\n\n### Average over the first chord\n\nFix its first endpoint by rotational symmetry. Its second endpoint is uniform around the circumference, so the clockwise arc fraction $T$ is uniform on $(0,1)$. Consequently,\n\n$$\n\\begin{aligned}\nP(\\text{cross})\n&=\\int_0^1 2t(1-t)\\,dt\\\\\n&=\\left[t^2-\\frac23t^3\\right]_0^1\\\\\n&=\\boxed{\\frac13}.\n\\end{aligned}\n$$\n\n### A counting explanation for the same answer\n\nFour distinct uniform endpoints appear around the circle. For any four locations, there are three ways to divide them into two unordered pairs. Label the cyclic positions 1, 2, 3, 4. The pairings are\n\n$$\n(1,2),(3,4);\\qquad\n(1,3),(2,4);\\qquad\n(1,4),(2,3).\n$$\n\nOnly the middle pairing alternates endpoints and therefore crosses. Because the original endpoint labels are exchangeable, each pairing is equally likely. One of the three pairings crosses, giving $1/3$.\n\n### What symmetry justified\n\nSymmetry did not replace counting. It justified the equal-probability denominator: relabeling the independently uniform endpoints cannot favour one pairing over another. Once that equality is established, favorable cases divided by total cases is valid.",
+      "parts": [
+        "a"
+      ]
+    }
+  ]
+}

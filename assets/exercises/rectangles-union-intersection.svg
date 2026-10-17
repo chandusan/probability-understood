@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 460" role="img" aria-labelledby="rectangles-exercise-title rectangles-exercise-desc">
+<title id="rectangles-exercise-title">Union and intersection of two open rectangles</title>
+<desc id="rectangles-exercise-desc">Left: the union is the L-shaped region with outer corners (0,0), (4,0), (4,4), (2,4), (2,3), and (0,3). Its outer boundary is excluded; no internal seam is removed. Right: the intersection is the open rectangle with x between 2 and 4 and y between 2 and 3. Dashed outlines indicate excluded boundaries.</desc>
+<rect width="880" height="460" rx="14" fill="#fcfbf7"/>
+<g font-family="system-ui, sans-serif" fill="#243c36">
+<g transform="translate(20 0)">
+<text x="200" y="42" text-anchor="middle" font-size="24" font-weight="600">Union: A ∪ B</text>
+<g stroke="#dfe3dc" stroke-width="1">
+<path d="M 125 100 V 360 M 190 100 V 360 M 255 100 V 360 M 320 100 V 360 M 60 295 H 320 M 60 230 H 320 M 60 165 H 320 M 60 100 H 320" fill="none"/>
+</g>
+<path d="M 35 360 H 353 M 60 385 V 76 M 346 356 L 353 360 L 346 364 M 56 83 L 60 76 L 64 83" fill="none" stroke="#586762" stroke-width="1.5"/>
+<path d="M 60 360 H 320 V 100 H 190 V 165 H 60 Z" fill="#cae5d9" fill-opacity="0.9"/>
+<path d="M 60 360 H 320 V 100 H 190 V 165 H 60 Z" fill="none" stroke="#fcfbf7" stroke-width="5"/>
+<path d="M 60 360 H 320 V 100 H 190 V 165 H 60 Z" fill="none" stroke="#177267" stroke-width="3" stroke-dasharray="7 5"/>
+<g font-size="16" text-anchor="middle">
+<text x="60" y="408">0</text><text x="125" y="386">1</text><text x="190" y="386">2</text><text x="255" y="386">3</text><text x="320" y="386">4</text>
+</g>
+<g font-size="16" text-anchor="end">
+<text x="47" y="301">1</text><text x="47" y="236">2</text><text x="47" y="171">3</text><text x="47" y="106">4</text>
+</g>
+<text x="364" y="366" font-size="19" font-style="italic">x</text><text x="72" y="80" font-size="19" font-style="italic">y</text>
+<text x="190" y="273" text-anchor="middle" font-size="23">A ∪ B</text>
+</g>
+<path d="M 440 70 V 395" stroke="#dfe3dc" stroke-width="1"/>
+<g transform="translate(460 0)">
+<text x="200" y="42" text-anchor="middle" font-size="24" font-weight="600">Intersection: A ∩ B</text>
+<g stroke="#dfe3dc" stroke-width="1">
+<path d="M 125 100 V 360 M 190 100 V 360 M 255 100 V 360 M 320 100 V 360 M 60 295 H 320 M 60 230 H 320 M 60 165 H 320 M 60 100 H 320" fill="none"/>
+</g>
+<path d="M 35 360 H 353 M 60 385 V 76 M 346 356 L 353 360 L 346 364 M 56 83 L 60 76 L 64 83" fill="none" stroke="#586762" stroke-width="1.5"/>
+<rect x="190" y="165" width="130" height="65" fill="#cae5d9" fill-opacity="0.9"/>
+<rect x="190" y="165" width="130" height="65" fill="none" stroke="#fcfbf7" stroke-width="5"/>
+<rect x="190" y="165" width="130" height="65" fill="none" stroke="#177267" stroke-width="3" stroke-dasharray="7 5"/>
+<g font-size="16" text-anchor="middle">
+<text x="60" y="408">0</text><text x="125" y="386">1</text><text x="190" y="386">2</text><text x="255" y="386">3</text><text x="320" y="386">4</text>
+</g>
+<g font-size="16" text-anchor="end">
+<text x="47" y="301">1</text><text x="47" y="236">2</text><text x="47" y="171">3</text><text x="47" y="106">4</text>
+</g>
+<text x="364" y="366" font-size="19" font-style="italic">x</text><text x="72" y="80" font-size="19" font-style="italic">y</text>
+<text x="255" y="206" text-anchor="middle" font-size="23">A ∩ B</text>
+</g>
+<path d="M 260 436 H 300" stroke="#177267" stroke-width="3" stroke-dasharray="7 5"/>
+<text x="312" y="442" font-size="17">Dashed boundary: excluded</text>
+</g>
+</svg>

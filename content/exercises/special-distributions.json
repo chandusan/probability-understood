@@ -1,0 +1,71 @@
+{
+  "chapter_id": "special-distributions",
+  "exercises": [
+    {
+      "id": "slide-05",
+      "title": "MGF of a two-value distribution",
+      "source_pages": [
+        5
+      ],
+      "question": "Suppose $X$ is a discrete random variable with probability mass function\n\n$$p(x)=\\begin{cases}\\frac13,&x=1,\\\\\\frac23,&x=2,\\\\0,&\\text{otherwise}.\\end{cases}$$\n\nFind the moment generating function $m_X(t)$.",
+      "solution": "### Transform the values, preserving their probabilities\n\nWhen $X=1$, the transformed variable $e^{tX}$ equals $e^t$. When $X=2$, it equals $e^{2t}$. Therefore\n\n$$\\boxed{m_X(t)=\\frac13e^t+\\frac23e^{2t}.}$$\n\nThis is an expectation, so the two terms are added. We are averaging over mutually exclusive possible values of $X$, not multiplying probabilities of successive events.\n\nBecause the sum has only two finite terms, it is finite for every real $t$. In particular, it exists around zero.\n\n### Check normalization\n\nAt zero,\n\n$$m_X(0)=\\frac13+\\frac23=1.$$\n\nThis is a useful check on any proposed MGF. A function with $m(0)\\ne1$ cannot be the MGF of a probability distribution.",
+      "parts": [
+        "a"
+      ]
+    },
+    {
+      "id": "slide-21",
+      "title": "Guessing on a true-or-false exam",
+      "source_pages": [
+        21
+      ],
+      "question": "A student takes a ten-question true-or-false exam and guesses on every question. Assume the guesses are independent and each answer is equally likely to be chosen.\n\n### (a) Exactly six correct\n\nFind the probability that the student answers exactly six questions correctly.\n\n### (b) Passing the exam\n\nFind the probability that the student obtains a passing grade of 60% or greater.",
+      "solution": "### Identify the random variable and its distribution\n\nEach question is a Bernoulli trial with success meaning a correct answer. There are ten fixed trials, and the stated independence and equal guessing probabilities give\n\n$$X\\sim\\operatorname{Binom}(10,1/2).$$\n\nAll $2^{10}=1024$ answer-correctness sequences have equal probability. A count of $k$ correct answers has $\\binom{10}{k}$ such sequences.\n\n### Part a: exactly six correct answers\n\nChoose the six questions answered correctly. Every choice determines which four were answered incorrectly, so\n\n$$\\boxed{P(X=6)=\\binom{10}{6}\\left(\\frac12\\right)^{10}\n=\\frac{210}{1024}=0.205078125.}$$\n\nThe coefficient counts the locations of the six correct answers; it does not assume that the first six questions were correct.\n\n### Part b: a passing grade\n\nAt least 60% of ten means at least six correct answers:\n\n$$\\begin{aligned}\nP(X\\ge6)&=\\frac{\\binom{10}6+\\binom{10}7+\\binom{10}8+\\binom{10}9+\\binom{10}{10}}{1024}\\\\\n&=\\frac{210+120+45+10+1}{1024}\\\\\n&=\\boxed{\\frac{386}{1024}=0.376953125.}\n\\end{aligned}$$\n\nThus the probability of passing by guessing is about 37.70%, larger than the probability of exactly six correct.\n\n### Check using symmetry\n\nA fair guess gives $P(X=k)=P(X=10-k)$. The outcomes below five correct and above five correct therefore have equal total probability. Removing the middle outcome gives\n\n$$P(X\\ge6)=\\frac{1-P(X=5)}2\n=\\frac{1-252/1024}{2}=\\frac{386}{1024}.$$\n\nThe middle probability prevents this tail from being exactly one half.\n\n**Source labeling note:** The slide labels both questions (a). The passing-grade question is labeled (b) here to distinguish the two parts.",
+      "parts": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "id": "slide-22",
+      "title": "Insurance among four homeowners",
+      "source_pages": [
+        22
+      ],
+      "question": "In this exercise's model, 30% of California homeowners are insured against earthquake damage. Four homeowners are selected at random. Let $X$ denote the number among the four with earthquake insurance.\n\nUse independent selections, each with insured probability $0.30$; this makes explicit the sampling assumption used in this lesson.\n\n### (a) Distribution\n\nFind the probability distribution of $X$.\n\n### (b) Exactly two\n\nFind $P(X=2)$.\n\n### (c) Bar plot\n\nDraw the corresponding probability bar plot.\n\n### (d) Most likely value\n\nWhat is the most likely value of $X$, called the mode of the distribution?\n\n### (e) At least two\n\nWhat is the probability that at least two of the four selected homeowners have earthquake insurance?",
+      "solution": "### Part a: the probability distribution\n\nUnder this model, $X\\sim\\operatorname{Binom}(4,0.3)$, so\n\n$$P(X=x)=\\binom4x(0.3)^x(0.7)^{4-x},\\qquad x=0,1,2,3,4.$$\n\n| Insured homeowners $x$ | Calculation | Probability |\n|---|---|---:|\n| 0 | $0.7^4$ | 0.2401 |\n| 1 | $4(0.3)(0.7)^3$ | 0.4116 |\n| 2 | $6(0.3)^2(0.7)^2$ | 0.2646 |\n| 3 | $4(0.3)^3(0.7)$ | 0.0756 |\n| 4 | $0.3^4$ | 0.0081 |\n\nThe entries sum to one.\n\n### Parts b and c: two insured, and the bars\n\nExactly two has probability $\\boxed{0.2646}$. The factor $6=\\binom42$ accounts for which two of the four people are insured.\n\nThe bar plot puts the number insured on the horizontal axis and its probability on the vertical axis. The bar heights are exactly the probabilities in the table.\n\n![Probability bar plot: 0 insured has probability 0.2401; 1 has 0.4116; 2 has 0.2646; 3 has 0.0756; 4 has 0.0081.](@assets/exercises/special-distributions-homeowner-bars.svg)\n\n### Part d: the most likely count\n\nThe highest probability is $0.4116$ at $x=1$. Thus the unique mode is $\\boxed{1}$. The mean is $4(0.3)=1.2$; a most likely value and an average are different concepts.\n\n### Part e: at least two insured\n\n$$\\begin{aligned}\nP(X\\ge2)&=P(X=2)+P(X=3)+P(X=4)\\\\\n&=0.2646+0.0756+0.0081=\\boxed{0.3483}.\n\\end{aligned}$$\n\nEquivalently, $1-P(X=0)-P(X=1)=1-0.2401-0.4116=0.3483$.\n\nIf sampling is strictly without replacement from a specified finite population, the exact model is hypergeometric; the 30% figure alone does not specify that population's size.",
+      "parts": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e"
+      ]
+    },
+    {
+      "id": "slide-25",
+      "title": "Binomial cumulants and the third central moment",
+      "source_pages": [
+        25
+      ],
+      "question": "Let $X\\sim\\operatorname{Bin}(n,p)$, where $n$ is a positive integer and $0\\le p\\le1$. Its probability mass function is\n\n$$P(X=x)=\\binom nxp^x(1-p)^{n-x},\\qquad x=0,1,\\ldots,n,$$\n\nand its moment generating function is\n\n$$m_X(t)=(1-p+pe^t)^n.$$\n\nFind the cumulant generating function $K_X(t)$ and the third central moment\n\n$$\\mu_3^0=E\\big[(X-E(X))^3\\big].$$",
+      "solution": "### Begin with the whole function\n\nWrite $q=1-p$. Then\n\n$$\\boxed{K_X(t)=\\log m_X(t)=n\\log(q+pe^t).}$$\n\nThis is a **cumulant generating function**; the source's phrase “cumulant distribution function” should be read as “cumulant generating function.”\n\n### Introduce a short expression to expose the derivatives\n\nLet\n\n$$r(t)=\\frac{pe^t}{q+pe^t}.$$\n\nDifferentiating the logarithm gives $K_X'(t)=nr(t)$. Use the quotient rule to differentiate $r$:\n\n$$r'(t)=\\frac{pe^t(q+pe^t)-pe^t(pe^t)}{(q+pe^t)^2}\n=\\frac{pq e^t}{(q+pe^t)^2}.$$\n\nSince $1-r(t)=q/(q+pe^t)$, this is\n\n$$r'(t)=r(t)(1-r(t)).$$\n\nTherefore\n\n$$K_X''(t)=nr(t)(1-r(t)).$$\n\n### Differentiate once more\n\nUsing the product rule,\n\n$$\\begin{aligned}\nK_X^{(3)}(t)\n&=n\\{r'(t)(1-r(t))-r(t)r'(t)\\}\\\\\n&=nr'(t)(1-2r(t))\\\\\n&=nr(t)(1-r(t))(1-2r(t)).\n\\end{aligned}$$\n\nAt zero, $r(0)=p/(q+p)=p$. The third cumulant equals the third central moment, so\n\n$$\\boxed{E[(X-np)^3]=np(1-p)(1-2p).}$$\n\n### Interpret the sign\n\nWhen $p=1/2$, the moment is zero, consistent with symmetry about $n/2$. When $p<1/2$, it is positive: the distribution has a longer tail toward larger success counts. When $p>1/2$, it is negative.\n\nThis is an unstandardized measure. For $0<p<1$, dividing by $(npq)^{3/2}$ gives skewness $(1-2p)/\\sqrt{npq}$.",
+      "parts": [
+        "cgf",
+        "third-central-moment"
+      ]
+    },
+    {
+      "id": "slide-44",
+      "title": "Prove the even-count probability for a Poisson variable",
+      "source_pages": [
+        44
+      ],
+      "question": "Let $X$ be a Poisson random variable with parameter $\\lambda>0$. Show that\n\n$$P(X\\text{ is even})=\\frac12\\left(1+e^{-2\\lambda}\\right).$$\n\n**Hint from the source:**\n\n$$\\begin{aligned}\ne^\\lambda+e^{-\\lambda}\n&=\\sum_{k=0}^{\\infty}\\frac{\\lambda^k}{k!}+\\sum_{k=0}^{\\infty}\\frac{(-\\lambda)^k}{k!}\\\\\n&=2\\sum_{k=0}^{\\infty}\\frac{\\lambda^{2k}}{(2k)!}.\n\\end{aligned}$$",
+      "solution": "### Write exactly the terms we want\n\nThe even counts are $0,2,4,\\ldots$, giving\n\n$$P(X\\text{ even})=e^{-\\lambda}\\sum_{j=0}^{\\infty}\\frac{\\lambda^{2j}}{(2j)!}.$$\n\nWe need a way to keep the even powers in the exponential series and remove the odd powers.\n\n### Add the series at opposite inputs\n\nWrite the expansions side by side:\n\n$$e^{\\lambda}=1+\\lambda+\\frac{\\lambda^2}{2!}+\\frac{\\lambda^3}{3!}+\\cdots,$$\n\n$$e^{-\\lambda}=1-\\lambda+\\frac{\\lambda^2}{2!}-\\frac{\\lambda^3}{3!}+\\cdots.$$\n\nOn addition, every odd power cancels and every even power appears twice:\n\n$$e^{\\lambda}+e^{-\\lambda}=2\\sum_{j=0}^{\\infty}\\frac{\\lambda^{2j}}{(2j)!}.$$\n\nTherefore\n\n$$\\begin{aligned}\nP(X\\text{ even})\n&=e^{-\\lambda}\\frac{e^{\\lambda}+e^{-\\lambda}}2\\\\\n&=\\boxed{\\frac{1+e^{-2\\lambda}}2}.\n\\end{aligned}$$\n\nThe complementary odd-count probability is $(1-e^{-2\\lambda})/2$.\n\n### An equivalent probability argument using a sign\n\nThe variable $(-1)^X$ is $+1$ when $X$ is even and $-1$ when it is odd. Its expectation is therefore\n\n$$E[(-1)^X]=P(\\text{even})-P(\\text{odd})=e^{-2\\lambda},$$\n\nwhere the final equality follows from the same exponential series. Combining this difference with $P(\\text{even})+P(\\text{odd})=1$ gives the answer.\n\n### Check the extremes\n\nAs $\\lambda\\to0$, almost all probability is at zero, so the answer tends to one. As $\\lambda$ becomes large, $e^{-2\\lambda}$ becomes tiny and the even and odd probabilities approach one half. They are not exactly equal for a finite positive $\\lambda$.",
+      "parts": [
+        "a"
+      ]
+    }
+  ]
+}
