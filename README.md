@@ -28,6 +28,8 @@ A slide-by-slide teaching companion to **01 Data Summary**, **02 Probability · 
 
 **[Open Midterms](https://chandusan.github.io/probability-understood/midterms/index.html)** — the Fall 2024 and Fall 2025 papers, each with separate questions and questions-with-solutions pages.
 
+**[Open the exam cheat sheet](https://chandusan.github.io/probability-understood/cheat-sheet/index.html)** — formulas and method reminders from all ten lessons, prioritized using both midterms, with a one-page A4 landscape PDF to download and print.
+
 The chapter selector switches between the ten companions. The previous six-lesson site is preserved in Git at `archive/before-slide-rebuild-2026-10-03`.
 
 ## What is included
@@ -74,6 +76,8 @@ Edit lesson practice in `content/exercises/<chapter-id>.json`. Each entry record
 Edit midterm question and solution content in `content/midterms/2024.json` and `content/midterms/2025.json`. The `midterms.py` renderer uses the same question field in both modes, then adds worked explanations only on the solutions page. It builds the hub at `docs/midterms/index.html`, with `questions.html` and `solutions.html` under each year. The questions page contains no hidden solutions or source answer-key links. Both modes support printing and local math rendering, and all question and solution headings have unique anchors. Midterms are separate from the 438-slide count and browser-local slide progress. The main build validates paper metadata and source PDFs before replacing `docs/`.
 
 The page layout and slide navigation are assembled in `build.py`; the reading interface is in `src/site.css` and `src/site.js`. Experiments are authored in `src/labs/`, with shared styles and local state/height handling in `src/lab.css` and `src/lab-frame.js`. The Part 2 experiments also share `src/rules-math.js`, `src/rules-labs.js`, and `src/rules-labs.css`. Run their exact-count and probability checks with `node scripts/check_probability_part2.cjs`. Part 3 uses `src/cond-math.js`, `src/cond-labs.js`, and `src/cond-labs.css`; validate its finite outcome counts, Bayes calculations, and independent absorbing-chain solution with `node scripts/check_probability_part3.cjs`. Random Variables uses `src/rv-math.js`, `src/rv-labs.js`, and `src/rv-labs.css`; run `node scripts/check_random_variables.cjs` for exhaustive path counts, CDF endpoint checks, and independent numerical area/derivative checks. Random Variables Part 2 uses `src/joint-math.js`, `src/joint-labs.js`, and `src/joint-labs.css`; run `node scripts/check_random_variables_part2.cjs` for independent finite-outcome enumeration, exact table counts, and conditional-distribution checks.
+
+The exam reference is built by `cheat_sheet.py` from `content/cheat-sheet.json`. Its checked one-page PDF lives in `assets/downloads/probability-statistics-exam-cheat-sheet.pdf`; keep the PDF and web content synchronized when revising the reference. The build validates these inputs before replacing `docs/`. The page and download are linked from lessons, exercises, and midterms, without changing slide progress.
 
 The builder recreates `docs/` from these sources. Do not edit generated pages directly. It validates all 438 expected source files, slide images, and experiment references before replacing the generated directory.
 

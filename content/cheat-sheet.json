@@ -1,0 +1,518 @@
+[
+  [
+    [
+      "h",
+      "01  Data summaries"
+    ],
+    [
+      "e",
+      "\\bar x=\\frac{\\sum_i x_i}{n},\\quad s^2=\\frac{\\sum_i x_i^2-n\\bar x^2}{n-1},\\quad s=\\sqrt{s^2}"
+    ],
+    [
+      "p",
+      "<b>Sort first.</b> Median = middle value (average the middle two if n is even). IQR = Q<sub>3</sub> - Q<sub>1</sub>. Median/IQR resist outliers; mean/SD do not."
+    ],
+    [
+      "e",
+      "Y=a+bX:\\quad E[Y]=a+bE[X],\\quad \\mathrm{SD}(Y)=|b|\\mathrm{SD}(X)"
+    ],
+    [
+      "s",
+      "For nonlinear g, usually E[g(X)] ≠ g(E[X])."
+    ],
+    [
+      "s",
+      "Adding a constant leaves spread unchanged. Normal shape: 68%, 95%, 99.7% within 1, 2, 3 SD."
+    ],
+    [
+      "h",
+      "02  Events: translate before calculating"
+    ],
+    [
+      "e",
+      "P(A^c)=1-P(A),\\quad P(A\\setminus B)=P(A)-P(A\\cap B)"
+    ],
+    [
+      "e",
+      "(A\\cup B)^c=A^c\\cap B^c,\\quad(A\\cap B)^c=A^c\\cup B^c"
+    ],
+    [
+      "e",
+      "P(A\\cup B)=P(A)+P(B)-P(A\\cap B)"
+    ],
+    [
+      "s",
+      "<b>At least one</b> = 1 - none. If A is contained in B:"
+    ],
+    [
+      "e",
+      "A\\cap B=A,\\quad A\\cup B=B,\\quad P(B\\cup A^c)=1"
+    ],
+    [
+      "h",
+      "03  Counting: order? replacement?"
+    ],
+    [
+      "e",
+      "\\mathrm{Ordered:}\\ n^k\\ (\\mathrm{replace});\\quad (n)_k=\\frac{n!}{(n-k)!}\\ (\\mathrm{no})"
+    ],
+    [
+      "e",
+      "\\mathrm{Unordered:}\\ \\binom{n+k-1}{k}\\ (\\mathrm{replace});\\quad \\binom{n}{k}\\ (\\mathrm{no})"
+    ],
+    [
+      "e",
+      "\\binom{n}{k}=\\frac{n!}{k!(n-k)!};\\quad\\mathrm{repeated\\ objects:}\\ \\frac{n!}{\\prod_i n_i!}"
+    ],
+    [
+      "s",
+      "Multiply choices; add disjoint cases. <b>Equally likely only:</b> P(A) = favorable / total. Fair coins: 2<super>n</super> sequences, C(n,k) with k heads."
+    ],
+    [
+      "h",
+      "04  Inclusion-exclusion and collisions"
+    ],
+    [
+      "e",
+      "P(A\\cup B\\cup C)=\\sum P(A_i)-\\sum_{i<j}P(A_i\\cap A_j)+P(A\\cap B\\cap C)"
+    ],
+    [
+      "s",
+      "Add singles, subtract pairs, add triples, ... . For n independent uniform choices among d labels:"
+    ],
+    [
+      "e",
+      "P(\\mathrm{collision})=1-\\frac{(d)_n}{d^n}\\quad(n\\leq d)"
+    ],
+    [
+      "e",
+      "P(\\mathrm{all}\\ d\\ \\mathrm{seen})=\\sum_{j=0}^d(-1)^j\\binom{d}{j}\\left(1-\\frac{j}{d}\\right)^n"
+    ],
+    [
+      "h",
+      "05  Conditional probability and Bayes"
+    ],
+    [
+      "e",
+      "P(A\\mid B)=\\frac{P(A\\cap B)}{P(B)},\\quad P(A\\cap B)=P(A\\mid B)P(B)"
+    ],
+    [
+      "s",
+      "P(B) &gt; 0. Given B, restrict to B. Without replacement: update numerator and denominator after each draw."
+    ],
+    [
+      "e",
+      "P(E)=\\sum_i \\pi_i L_i,\\quad P(H_i\\mid E)=\\frac{\\pi_iL_i}{\\sum_j\\pi_jL_j}"
+    ],
+    [
+      "s",
+      "H<sub>i</sub> partition outcomes. Prior π<sub>i</sub> = P(H<sub>i</sub>); likelihood L<sub>i</sub> = P(E | H<sub>i</sub>); posterior = updated probability."
+    ],
+    [
+      "b",
+      "Repeated tests / same sent bit [both papers]"
+    ],
+    [
+      "s",
+      "π = P(H), a = P(+ | H), b = P(+ | H<super>c</super>). For m tests independent <b>given the same H</b>:"
+    ],
+    [
+      "e",
+      "P(m+)=\\pi a^m+(1-\\pi)b^m"
+    ],
+    [
+      "e",
+      "P(H\\mid m+)=\\frac{\\pi a^m}{\\pi a^m+(1-\\pi)b^m}"
+    ],
+    [
+      "s",
+      "<b>Mix after multiplying.</b> Do not square P(+). Sequential update: posterior becomes next prior."
+    ]
+  ],
+  [
+    [
+      "h",
+      "06  PMF, PDF and CDF [both papers]"
+    ],
+    [
+      "p",
+      "<b>Support first.</b> PMF: p ≥ 0, Σp = 1. PDF: f ≥ 0, integral = 1. Density height may exceed 1."
+    ],
+    [
+      "e",
+      "F(x)=P(X\\leq x)=\\sum_{u\\leq x}p(u)\\quad\\mathrm{or}\\quad\\int_{-\\infty}^{x}f(u)\\,du"
+    ],
+    [
+      "p",
+      "CDF: nondecreasing, right-continuous, limits 0 and 1. Below support F = 0; above support F = 1."
+    ],
+    [
+      "b",
+      "Endpoints matter when there are atoms"
+    ],
+    [
+      "e",
+      "F(a^-)=P(X<a),\\quad P(X=a)=F(a)-F(a^-)"
+    ],
+    [
+      "e",
+      "P(a<X\\leq b)=F(b)-F(a)"
+    ],
+    [
+      "e",
+      "P(a\\leq X\\leq b)=F(b)-F(a^-)"
+    ],
+    [
+      "e",
+      "P(a<X<b)=F(b^-)-F(a)"
+    ],
+    [
+      "e",
+      "P(a\\leq X<b)=F(b^-)-F(a^-)"
+    ],
+    [
+      "e",
+      "P(X>a)=1-F(a),\\quad P(X\\geq a)=1-F(a^-)"
+    ],
+    [
+      "s",
+      "Integers: p(k) = F(k) - F(k-1); P(X ≥ k) = 1 - F(k-1). CDF is flat between jumps."
+    ],
+    [
+      "p",
+      "<b>Continuous:</b> P(X = a) = 0; endpoints do not matter. f = F′ where differentiable. For mixed laws, the derivative misses atoms."
+    ],
+    [
+      "b",
+      "Piecewise CDF recipe"
+    ],
+    [
+      "p",
+      "Split at formula changes. Add <b>all prior area</b> to each new piece. Check joins and tails."
+    ],
+    [
+      "e",
+      "F(x)=F(c)+\\int_c^x f(u)\\,du\\quad\\mathrm{within\\ the\\ next\\ piece}"
+    ],
+    [
+      "s",
+      "Quantile q<sub>p</sub> = inf{x : F(x) ≥ p}; if continuous and strictly increasing, solve F(q<sub>p</sub>) = p. Median: p = 1/2."
+    ],
+    [
+      "h",
+      "07  Joint tables, marginals, conditioning"
+    ],
+    [
+      "e",
+      "\\sum_x\\sum_y p(x,y)=1,\\qquad p(x,y)\\geq0"
+    ],
+    [
+      "e",
+      "p_X(x)=\\sum_y p(x,y),\\quad p_Y(y)=\\sum_x p(x,y)"
+    ],
+    [
+      "e",
+      "p_{X\\mid Y}(x\\mid y)=\\frac{p(x,y)}{p_Y(y)}\\quad[p_Y(y)>0]"
+    ],
+    [
+      "p",
+      "<b>Tables (X rows, Y columns):</b> missing cell = margin - others. X = Y: sum diagonal. Given Y = y: column / column total; sums to 1."
+    ],
+    [
+      "e",
+      "P((X,Y)\\in D)=\\sum_{(x,y)\\in D}p(x,y)"
+    ],
+    [
+      "h",
+      "05 / 07  Independence checks"
+    ],
+    [
+      "e",
+      "A\\perp B\\Longleftrightarrow P(A\\cap B)=P(A)P(B)"
+    ],
+    [
+      "p",
+      "Pairwise: check every pair. <b>Mutual:</b> product rule for every subset, including triples. Disjoint positive-probability events are dependent."
+    ],
+    [
+      "e",
+      "X\\perp Y\\Longleftrightarrow p(x,y)=p_X(x)p_Y(y)\\quad\\mathrm{for\\ all}\\ (x,y)"
+    ],
+    [
+      "s",
+      "Discrete: one mismatch suffices. Conditional ≠ unconditional independence."
+    ],
+    [
+      "b",
+      "Conditional category counts"
+    ],
+    [
+      "e",
+      "X\\mid(Y=k)\\sim\\mathrm{Bin}\\!\\left(n-k,\\frac{p_X}{1-p_Y}\\right)"
+    ],
+    [
+      "s",
+      "n iid categorical trials; X,Y count distinct categories. Given k Y outcomes, renormalize remaining probabilities."
+    ]
+  ],
+  [
+    [
+      "h",
+      "08  Joint densities and integration"
+    ],
+    [
+      "e",
+      "\\iint_D f(x,y)\\,dA=1,\\quad P((X,Y)\\in R)=\\iint_{R\\cap D}f\\,dA"
+    ],
+    [
+      "s",
+      "For f = cg: c = 1/(integral of g over D). For cx + 1, integrate the <b>whole expression</b> and solve."
+    ],
+    [
+      "e",
+      "f_X(x)=\\int_{\\mathrm{allowed}\\ y} f(x,y)\\,dy,\\quad f_Y(y)=\\int_{\\mathrm{allowed}\\ x}f(x,y)\\,dx"
+    ],
+    [
+      "e",
+      "f_{X\\mid Y}(x\\mid y)=\\frac{f(x,y)}{f_Y(y)}\\quad[f_Y(y)>0]"
+    ],
+    [
+      "p",
+      "<b>Keep the requested variable; integrate out the other.</b> State support; zero elsewhere. Conditional density integrates to 1."
+    ],
+    [
+      "b",
+      "Sketch D, then choose slices [both papers]"
+    ],
+    [
+      "s",
+      "Inner variable moves, outer is fixed. Reverse bounds for the <b>same region</b>."
+    ],
+    [
+      "e",
+      "x,y\\geq0,\\ x+y\\leq1:\\quad\\int_0^1\\!\\int_0^{1-x}f\\,dy\\,dx=\\int_0^1\\!\\int_0^{1-y}f\\,dx\\,dy"
+    ],
+    [
+      "e",
+      "0\\leq y\\leq x\\leq1:\\quad\\int_0^1\\!\\int_0^x f\\,dy\\,dx=\\int_0^1\\!\\int_y^1 f\\,dx\\,dy"
+    ],
+    [
+      "s",
+      "If f depends only on x: inner y integral = f(x) × y-width. Uniform on D: c = 1/area(D), P(R) = area(R ∩ D)/area(D)."
+    ],
+    [
+      "e",
+      "X\\perp Y\\Longleftrightarrow f(x,y)=f_X(x)f_Y(y)\\quad\\mathrm{a.e.}"
+    ],
+    [
+      "s",
+      "Factorization includes support; a positive triangular density fails. <b>For jointly normal X,Y:</b>"
+    ],
+    [
+      "e",
+      "X_i\\sim N(\\mu_i,\\sigma_i^2),\\qquad \\rho=0\\Longleftrightarrow X\\perp Y"
+    ],
+    [
+      "e",
+      "Y\\mid X=x\\sim N\\!\\left(\\mu_Y+\\rho\\frac{\\sigma_Y}{\\sigma_X}(x-\\mu_X),\\;\\sigma_Y^2(1-\\rho^2)\\right)"
+    ],
+    [
+      "s",
+      "N(mean, variance). Zero correlation alone does not imply independence in general."
+    ],
+    [
+      "h",
+      "09  Expectations, moments and variance"
+    ],
+    [
+      "e",
+      "E[g(X)]=\\sum_x g(x)p(x)\\quad\\mathrm{or}\\quad\\int g(x)f(x)\\,dx"
+    ],
+    [
+      "e",
+      "E[g(X,Y)]=\\sum_{x,y}g(x,y)p(x,y)\\quad\\mathrm{or}\\quad\\iint g f\\,dA"
+    ],
+    [
+      "e",
+      "\\mu=E[X],\\quad\\mathrm{Var}(X)=E[X^2]-\\mu^2,\\quad\\sigma=\\sqrt{\\mathrm{Var}(X)}"
+    ],
+    [
+      "e",
+      "E[aX+bY+c]=aE[X]+bE[Y]+c"
+    ],
+    [
+      "s",
+      "Linearity needs no independence. If symmetric about m, E[X] = m (if finite)."
+    ],
+    [
+      "e",
+      "\\mathrm{Var}(aX+b)=a^2\\mathrm{Var}(X)"
+    ],
+    [
+      "e",
+      "\\mathrm{Cov}(X,Y)=E[XY]-E[X]E[Y],\\quad\\rho=\\frac{\\mathrm{Cov}(X,Y)}{\\sigma_X\\sigma_Y}"
+    ],
+    [
+      "e",
+      "\\mathrm{Var}(X+Y)=\\mathrm{Var}(X)+\\mathrm{Var}(Y)+2\\mathrm{Cov}(X,Y)"
+    ],
+    [
+      "s",
+      "Independent: E[XY] = E[X]E[Y], covariance = 0, variances add. E[X²]: square <b>values</b>, not probabilities."
+    ],
+    [
+      "e",
+      "\\mathrm{skew}=\\frac{E[(X-\\mu)^3]}{\\sigma^3},\\quad\\mathrm{excess\\ kurtosis}=\\frac{E[(X-\\mu)^4]}{\\sigma^4}-3"
+    ],
+    [
+      "h",
+      "Calculus used in these papers"
+    ],
+    [
+      "e",
+      "\\int x^r dx=\\frac{x^{r+1}}{r+1}+C\\ (r\\ne-1),\\quad\\int\\frac{dx}{x}=\\ln|x|+C"
+    ],
+    [
+      "e",
+      "\\int e^{ax}dx=\\frac{e^{ax}}{a}+C\\ (a\\ne0),\\quad\\int u\\,dv=uv-\\int v\\,du"
+    ],
+    [
+      "s",
+      "Substitute u = g(x), du = g′(x)dx; change limits too. At ∞, take a limit. ∫<sub>1</sub><super>∞</super>x<super>-r</super>dx converges iff r &gt; 1; then equals 1/(r-1)."
+    ]
+  ],
+  [
+    [
+      "h",
+      "10  MGF and CGF [2025 Q2, Q5]"
+    ],
+    [
+      "e",
+      "M_X(t)=E[e^{tX}]=\\sum_x p(x)e^{tx}\\quad\\mathrm{or}\\quad\\int e^{tx}f(x)\\,dx"
+    ],
+    [
+      "e",
+      "M(0)=1,\\quad M^{(k)}(0)=E[X^k]"
+    ],
+    [
+      "e",
+      "\\mu=M^{\\prime}(0),\\quad\\sigma^2=M^{\\prime\\prime}(0)-[M^{\\prime}(0)]^2"
+    ],
+    [
+      "e",
+      "M_{aX+b}(t)=e^{bt}M_X(at),\\quad M_{X+Y}(t)=M_X(t)M_Y(t)\\ (\\mathrm{indep.})"
+    ],
+    [
+      "s",
+      "Must be finite on an <b>open interval around 0</b>. Finite support always works. MGFs near 0 identify the law. Discrete e<super>tx</super> coefficient = P(X=x)."
+    ],
+    [
+      "s",
+      "<b>Heavy-tail test:</b> f = 2/x³ on x ≥ 1 has E[X²] = 2∫<sub>1</sub><super>∞</super>dx/x = ∞, so no MGF near 0. M(0) = 1 alone is insufficient."
+    ],
+    [
+      "e",
+      "K(t)=\\ln M(t),\\quad K^{\\prime}(0)=\\mu,\\quad K^{\\prime\\prime}(0)=\\sigma^2"
+    ],
+    [
+      "h",
+      "10  Recognize the model; q = 1 - p"
+    ],
+    [
+      "s",
+      "E = mean; V = variance. For geometric/NB: 0 &lt; p ≤ 1. Trial counts and population sizes are integers."
+    ],
+    [
+      "b",
+      "Bernoulli(p): one success indicator"
+    ],
+    [
+      "e",
+      "p_X(k)=p^kq^{1-k},\\ k=0,1;\\quad E=p,\\quad V=pq"
+    ],
+    [
+      "b",
+      "Binomial(n,p): successes in n iid trials"
+    ],
+    [
+      "e",
+      "p_X(k)=\\binom{n}{k}p^kq^{n-k},\\ 0\\leq k\\leq n;\\quad E=np,\\ V=npq"
+    ],
+    [
+      "e",
+      "M(t)=(q+pe^t)^n"
+    ],
+    [
+      "b",
+      "Geometric(p): trials through first success"
+    ],
+    [
+      "e",
+      "p_X(k)=pq^{k-1},\\ k\\geq1;\\quad E=1/p,\\quad V=q/p^2"
+    ],
+    [
+      "e",
+      "P(X>k)=q^k,\\quad M(t)=\\frac{pe^t}{1-qe^t}"
+    ],
+    [
+      "b",
+      "Negative binomial(r,p): trials through rth success"
+    ],
+    [
+      "e",
+      "p_X(k)=\\binom{k-1}{r-1}p^rq^{k-r},\\ k\\geq r;\\quad E=r/p,\\ V=rq/p^2"
+    ],
+    [
+      "s",
+      "Count trials <b>including final success</b>. MGFs need qe<super>t</super> &lt; 1; NB MGF = [geometric MGF]<super>r</super>."
+    ],
+    [
+      "b",
+      "Poisson(λ): count in an interval, λ = rate × length"
+    ],
+    [
+      "e",
+      "p_X(k)=e^{-\\lambda}\\frac{\\lambda^k}{k!},\\ k\\geq0;\\quad E=V=\\lambda"
+    ],
+    [
+      "e",
+      "M(t)=e^{\\lambda(e^t-1)};\\quad \\mathrm{Bin}(n,p)\\approx\\mathrm{Pois}(np)\\ (n\\ \\mathrm{large},p\\ \\mathrm{small})"
+    ],
+    [
+      "b",
+      "Hypergeometric(N,K,n): n draws, no replacement"
+    ],
+    [
+      "e",
+      "p_X(k)=\\frac{\\binom{K}{k}\\binom{N-K}{n-k}}{\\binom{N}{n}},\\quad E=n\\frac{K}{N}"
+    ],
+    [
+      "e",
+      "V=n\\frac{K}{N}\\left(1-\\frac{K}{N}\\right)\\frac{N-n}{N-1}\\quad(N>1)"
+    ],
+    [
+      "s",
+      "K successes in N objects; max(0,n-N+K) ≤ k ≤ min(n,K). Binomial approximation only if n/N is small."
+    ],
+    [
+      "b",
+      "Uniform: equal weights / constant density"
+    ],
+    [
+      "s",
+      "Integers a,...,b: m=b-a+1, P=1/m, E=(a+b)/2, V=(m²-1)/12. Continuous U(a,b): f=1/(b-a), same E, V=(b-a)²/12."
+    ],
+    [
+      "b",
+      "Multinomial: n iid trials, category probabilities pᵢ"
+    ],
+    [
+      "e",
+      "P(\\mathbf{X}=\\mathbf{k})=\\frac{n!}{\\prod_i k_i!}\\prod_i p_i^{k_i},\\quad\\sum_i k_i=n,\\ \\sum_i p_i=1"
+    ],
+    [
+      "s",
+      "Each X<sub>i</sub> ~ Bin(n,p<sub>i</sub>); combine categories by adding their probabilities. All PMF counts k are integers; impossible values have probability 0."
+    ]
+  ]
+]
