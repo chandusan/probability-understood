@@ -1,518 +1,6395 @@
-[
-  [
-    [
-      "h",
-      "01  Data summaries"
-    ],
-    [
-      "e",
-      "\\bar x=\\frac{\\sum_i x_i}{n},\\quad s^2=\\frac{\\sum_i x_i^2-n\\bar x^2}{n-1},\\quad s=\\sqrt{s^2}"
-    ],
-    [
-      "p",
-      "<b>Sort first.</b> Median = middle value (average the middle two if n is even). IQR = Q<sub>3</sub> - Q<sub>1</sub>. Median/IQR resist outliers; mean/SD do not."
-    ],
-    [
-      "e",
-      "Y=a+bX:\\quad E[Y]=a+bE[X],\\quad \\mathrm{SD}(Y)=|b|\\mathrm{SD}(X)"
-    ],
-    [
-      "s",
-      "For nonlinear g, usually E[g(X)] ≠ g(E[X])."
-    ],
-    [
-      "s",
-      "Adding a constant leaves spread unchanged. Normal shape: 68%, 95%, 99.7% within 1, 2, 3 SD."
-    ],
-    [
-      "h",
-      "02  Events: translate before calculating"
-    ],
-    [
-      "e",
-      "P(A^c)=1-P(A),\\quad P(A\\setminus B)=P(A)-P(A\\cap B)"
-    ],
-    [
-      "e",
-      "(A\\cup B)^c=A^c\\cap B^c,\\quad(A\\cap B)^c=A^c\\cup B^c"
-    ],
-    [
-      "e",
-      "P(A\\cup B)=P(A)+P(B)-P(A\\cap B)"
-    ],
-    [
-      "s",
-      "<b>At least one</b> = 1 - none. If A is contained in B:"
-    ],
-    [
-      "e",
-      "A\\cap B=A,\\quad A\\cup B=B,\\quad P(B\\cup A^c)=1"
-    ],
-    [
-      "h",
-      "03  Counting: order? replacement?"
-    ],
-    [
-      "e",
-      "\\mathrm{Ordered:}\\ n^k\\ (\\mathrm{replace});\\quad (n)_k=\\frac{n!}{(n-k)!}\\ (\\mathrm{no})"
-    ],
-    [
-      "e",
-      "\\mathrm{Unordered:}\\ \\binom{n+k-1}{k}\\ (\\mathrm{replace});\\quad \\binom{n}{k}\\ (\\mathrm{no})"
-    ],
-    [
-      "e",
-      "\\binom{n}{k}=\\frac{n!}{k!(n-k)!};\\quad\\mathrm{repeated\\ objects:}\\ \\frac{n!}{\\prod_i n_i!}"
-    ],
-    [
-      "s",
-      "Multiply choices; add disjoint cases. <b>Equally likely only:</b> P(A) = favorable / total. Fair coins: 2<super>n</super> sequences, C(n,k) with k heads."
-    ],
-    [
-      "h",
-      "04  Inclusion-exclusion and collisions"
-    ],
-    [
-      "e",
-      "P(A\\cup B\\cup C)=\\sum P(A_i)-\\sum_{i<j}P(A_i\\cap A_j)+P(A\\cap B\\cap C)"
-    ],
-    [
-      "s",
-      "Add singles, subtract pairs, add triples, ... . For n independent uniform choices among d labels:"
-    ],
-    [
-      "e",
-      "P(\\mathrm{collision})=1-\\frac{(d)_n}{d^n}\\quad(n\\leq d)"
-    ],
-    [
-      "e",
-      "P(\\mathrm{all}\\ d\\ \\mathrm{seen})=\\sum_{j=0}^d(-1)^j\\binom{d}{j}\\left(1-\\frac{j}{d}\\right)^n"
-    ],
-    [
-      "h",
-      "05  Conditional probability and Bayes"
-    ],
-    [
-      "e",
-      "P(A\\mid B)=\\frac{P(A\\cap B)}{P(B)},\\quad P(A\\cap B)=P(A\\mid B)P(B)"
-    ],
-    [
-      "s",
-      "P(B) &gt; 0. Given B, restrict to B. Without replacement: update numerator and denominator after each draw."
-    ],
-    [
-      "e",
-      "P(E)=\\sum_i \\pi_i L_i,\\quad P(H_i\\mid E)=\\frac{\\pi_iL_i}{\\sum_j\\pi_jL_j}"
-    ],
-    [
-      "s",
-      "H<sub>i</sub> partition outcomes. Prior π<sub>i</sub> = P(H<sub>i</sub>); likelihood L<sub>i</sub> = P(E | H<sub>i</sub>); posterior = updated probability."
-    ],
-    [
-      "b",
-      "Repeated tests / same sent bit [both papers]"
-    ],
-    [
-      "s",
-      "π = P(H), a = P(+ | H), b = P(+ | H<super>c</super>). For m tests independent <b>given the same H</b>:"
-    ],
-    [
-      "e",
-      "P(m+)=\\pi a^m+(1-\\pi)b^m"
-    ],
-    [
-      "e",
-      "P(H\\mid m+)=\\frac{\\pi a^m}{\\pi a^m+(1-\\pi)b^m}"
-    ],
-    [
-      "s",
-      "<b>Mix after multiplying.</b> Do not square P(+). Sequential update: posterior becomes next prior."
-    ]
-  ],
-  [
-    [
-      "h",
-      "06  PMF, PDF and CDF [both papers]"
-    ],
-    [
-      "p",
-      "<b>Support first.</b> PMF: p ≥ 0, Σp = 1. PDF: f ≥ 0, integral = 1. Density height may exceed 1."
-    ],
-    [
-      "e",
-      "F(x)=P(X\\leq x)=\\sum_{u\\leq x}p(u)\\quad\\mathrm{or}\\quad\\int_{-\\infty}^{x}f(u)\\,du"
-    ],
-    [
-      "p",
-      "CDF: nondecreasing, right-continuous, limits 0 and 1. Below support F = 0; above support F = 1."
-    ],
-    [
-      "b",
-      "Endpoints matter when there are atoms"
-    ],
-    [
-      "e",
-      "F(a^-)=P(X<a),\\quad P(X=a)=F(a)-F(a^-)"
-    ],
-    [
-      "e",
-      "P(a<X\\leq b)=F(b)-F(a)"
-    ],
-    [
-      "e",
-      "P(a\\leq X\\leq b)=F(b)-F(a^-)"
-    ],
-    [
-      "e",
-      "P(a<X<b)=F(b^-)-F(a)"
-    ],
-    [
-      "e",
-      "P(a\\leq X<b)=F(b^-)-F(a^-)"
-    ],
-    [
-      "e",
-      "P(X>a)=1-F(a),\\quad P(X\\geq a)=1-F(a^-)"
-    ],
-    [
-      "s",
-      "Integers: p(k) = F(k) - F(k-1); P(X ≥ k) = 1 - F(k-1). CDF is flat between jumps."
-    ],
-    [
-      "p",
-      "<b>Continuous:</b> P(X = a) = 0; endpoints do not matter. f = F′ where differentiable. For mixed laws, the derivative misses atoms."
-    ],
-    [
-      "b",
-      "Piecewise CDF recipe"
-    ],
-    [
-      "p",
-      "Split at formula changes. Add <b>all prior area</b> to each new piece. Check joins and tails."
-    ],
-    [
-      "e",
-      "F(x)=F(c)+\\int_c^x f(u)\\,du\\quad\\mathrm{within\\ the\\ next\\ piece}"
-    ],
-    [
-      "s",
-      "Quantile q<sub>p</sub> = inf{x : F(x) ≥ p}; if continuous and strictly increasing, solve F(q<sub>p</sub>) = p. Median: p = 1/2."
-    ],
-    [
-      "h",
-      "07  Joint tables, marginals, conditioning"
-    ],
-    [
-      "e",
-      "\\sum_x\\sum_y p(x,y)=1,\\qquad p(x,y)\\geq0"
-    ],
-    [
-      "e",
-      "p_X(x)=\\sum_y p(x,y),\\quad p_Y(y)=\\sum_x p(x,y)"
-    ],
-    [
-      "e",
-      "p_{X\\mid Y}(x\\mid y)=\\frac{p(x,y)}{p_Y(y)}\\quad[p_Y(y)>0]"
-    ],
-    [
-      "p",
-      "<b>Tables (X rows, Y columns):</b> missing cell = margin - others. X = Y: sum diagonal. Given Y = y: column / column total; sums to 1."
-    ],
-    [
-      "e",
-      "P((X,Y)\\in D)=\\sum_{(x,y)\\in D}p(x,y)"
-    ],
-    [
-      "h",
-      "05 / 07  Independence checks"
-    ],
-    [
-      "e",
-      "A\\perp B\\Longleftrightarrow P(A\\cap B)=P(A)P(B)"
-    ],
-    [
-      "p",
-      "Pairwise: check every pair. <b>Mutual:</b> product rule for every subset, including triples. Disjoint positive-probability events are dependent."
-    ],
-    [
-      "e",
-      "X\\perp Y\\Longleftrightarrow p(x,y)=p_X(x)p_Y(y)\\quad\\mathrm{for\\ all}\\ (x,y)"
-    ],
-    [
-      "s",
-      "Discrete: one mismatch suffices. Conditional ≠ unconditional independence."
-    ],
-    [
-      "b",
-      "Conditional category counts"
-    ],
-    [
-      "e",
-      "X\\mid(Y=k)\\sim\\mathrm{Bin}\\!\\left(n-k,\\frac{p_X}{1-p_Y}\\right)"
-    ],
-    [
-      "s",
-      "n iid categorical trials; X,Y count distinct categories. Given k Y outcomes, renormalize remaining probabilities."
-    ]
-  ],
-  [
-    [
-      "h",
-      "08  Joint densities and integration"
-    ],
-    [
-      "e",
-      "\\iint_D f(x,y)\\,dA=1,\\quad P((X,Y)\\in R)=\\iint_{R\\cap D}f\\,dA"
-    ],
-    [
-      "s",
-      "For f = cg: c = 1/(integral of g over D). For cx + 1, integrate the <b>whole expression</b> and solve."
-    ],
-    [
-      "e",
-      "f_X(x)=\\int_{\\mathrm{allowed}\\ y} f(x,y)\\,dy,\\quad f_Y(y)=\\int_{\\mathrm{allowed}\\ x}f(x,y)\\,dx"
-    ],
-    [
-      "e",
-      "f_{X\\mid Y}(x\\mid y)=\\frac{f(x,y)}{f_Y(y)}\\quad[f_Y(y)>0]"
-    ],
-    [
-      "p",
-      "<b>Keep the requested variable; integrate out the other.</b> State support; zero elsewhere. Conditional density integrates to 1."
-    ],
-    [
-      "b",
-      "Sketch D, then choose slices [both papers]"
-    ],
-    [
-      "s",
-      "Inner variable moves, outer is fixed. Reverse bounds for the <b>same region</b>."
-    ],
-    [
-      "e",
-      "x,y\\geq0,\\ x+y\\leq1:\\quad\\int_0^1\\!\\int_0^{1-x}f\\,dy\\,dx=\\int_0^1\\!\\int_0^{1-y}f\\,dx\\,dy"
-    ],
-    [
-      "e",
-      "0\\leq y\\leq x\\leq1:\\quad\\int_0^1\\!\\int_0^x f\\,dy\\,dx=\\int_0^1\\!\\int_y^1 f\\,dx\\,dy"
-    ],
-    [
-      "s",
-      "If f depends only on x: inner y integral = f(x) × y-width. Uniform on D: c = 1/area(D), P(R) = area(R ∩ D)/area(D)."
-    ],
-    [
-      "e",
-      "X\\perp Y\\Longleftrightarrow f(x,y)=f_X(x)f_Y(y)\\quad\\mathrm{a.e.}"
-    ],
-    [
-      "s",
-      "Factorization includes support; a positive triangular density fails. <b>For jointly normal X,Y:</b>"
-    ],
-    [
-      "e",
-      "X_i\\sim N(\\mu_i,\\sigma_i^2),\\qquad \\rho=0\\Longleftrightarrow X\\perp Y"
-    ],
-    [
-      "e",
-      "Y\\mid X=x\\sim N\\!\\left(\\mu_Y+\\rho\\frac{\\sigma_Y}{\\sigma_X}(x-\\mu_X),\\;\\sigma_Y^2(1-\\rho^2)\\right)"
-    ],
-    [
-      "s",
-      "N(mean, variance). Zero correlation alone does not imply independence in general."
-    ],
-    [
-      "h",
-      "09  Expectations, moments and variance"
-    ],
-    [
-      "e",
-      "E[g(X)]=\\sum_x g(x)p(x)\\quad\\mathrm{or}\\quad\\int g(x)f(x)\\,dx"
-    ],
-    [
-      "e",
-      "E[g(X,Y)]=\\sum_{x,y}g(x,y)p(x,y)\\quad\\mathrm{or}\\quad\\iint g f\\,dA"
-    ],
-    [
-      "e",
-      "\\mu=E[X],\\quad\\mathrm{Var}(X)=E[X^2]-\\mu^2,\\quad\\sigma=\\sqrt{\\mathrm{Var}(X)}"
-    ],
-    [
-      "e",
-      "E[aX+bY+c]=aE[X]+bE[Y]+c"
-    ],
-    [
-      "s",
-      "Linearity needs no independence. If symmetric about m, E[X] = m (if finite)."
-    ],
-    [
-      "e",
-      "\\mathrm{Var}(aX+b)=a^2\\mathrm{Var}(X)"
-    ],
-    [
-      "e",
-      "\\mathrm{Cov}(X,Y)=E[XY]-E[X]E[Y],\\quad\\rho=\\frac{\\mathrm{Cov}(X,Y)}{\\sigma_X\\sigma_Y}"
-    ],
-    [
-      "e",
-      "\\mathrm{Var}(X+Y)=\\mathrm{Var}(X)+\\mathrm{Var}(Y)+2\\mathrm{Cov}(X,Y)"
-    ],
-    [
-      "s",
-      "Independent: E[XY] = E[X]E[Y], covariance = 0, variances add. E[X²]: square <b>values</b>, not probabilities."
-    ],
-    [
-      "e",
-      "\\mathrm{skew}=\\frac{E[(X-\\mu)^3]}{\\sigma^3},\\quad\\mathrm{excess\\ kurtosis}=\\frac{E[(X-\\mu)^4]}{\\sigma^4}-3"
-    ],
-    [
-      "h",
-      "Calculus used in these papers"
-    ],
-    [
-      "e",
-      "\\int x^r dx=\\frac{x^{r+1}}{r+1}+C\\ (r\\ne-1),\\quad\\int\\frac{dx}{x}=\\ln|x|+C"
-    ],
-    [
-      "e",
-      "\\int e^{ax}dx=\\frac{e^{ax}}{a}+C\\ (a\\ne0),\\quad\\int u\\,dv=uv-\\int v\\,du"
-    ],
-    [
-      "s",
-      "Substitute u = g(x), du = g′(x)dx; change limits too. At ∞, take a limit. ∫<sub>1</sub><super>∞</super>x<super>-r</super>dx converges iff r &gt; 1; then equals 1/(r-1)."
-    ]
-  ],
-  [
-    [
-      "h",
-      "10  MGF and CGF [2025 Q2, Q5]"
-    ],
-    [
-      "e",
-      "M_X(t)=E[e^{tX}]=\\sum_x p(x)e^{tx}\\quad\\mathrm{or}\\quad\\int e^{tx}f(x)\\,dx"
-    ],
-    [
-      "e",
-      "M(0)=1,\\quad M^{(k)}(0)=E[X^k]"
-    ],
-    [
-      "e",
-      "\\mu=M^{\\prime}(0),\\quad\\sigma^2=M^{\\prime\\prime}(0)-[M^{\\prime}(0)]^2"
-    ],
-    [
-      "e",
-      "M_{aX+b}(t)=e^{bt}M_X(at),\\quad M_{X+Y}(t)=M_X(t)M_Y(t)\\ (\\mathrm{indep.})"
-    ],
-    [
-      "s",
-      "Must be finite on an <b>open interval around 0</b>. Finite support always works. MGFs near 0 identify the law. Discrete e<super>tx</super> coefficient = P(X=x)."
-    ],
-    [
-      "s",
-      "<b>Heavy-tail test:</b> f = 2/x³ on x ≥ 1 has E[X²] = 2∫<sub>1</sub><super>∞</super>dx/x = ∞, so no MGF near 0. M(0) = 1 alone is insufficient."
-    ],
-    [
-      "e",
-      "K(t)=\\ln M(t),\\quad K^{\\prime}(0)=\\mu,\\quad K^{\\prime\\prime}(0)=\\sigma^2"
-    ],
-    [
-      "h",
-      "10  Recognize the model; q = 1 - p"
-    ],
-    [
-      "s",
-      "E = mean; V = variance. For geometric/NB: 0 &lt; p ≤ 1. Trial counts and population sizes are integers."
-    ],
-    [
-      "b",
-      "Bernoulli(p): one success indicator"
-    ],
-    [
-      "e",
-      "p_X(k)=p^kq^{1-k},\\ k=0,1;\\quad E=p,\\quad V=pq"
-    ],
-    [
-      "b",
-      "Binomial(n,p): successes in n iid trials"
-    ],
-    [
-      "e",
-      "p_X(k)=\\binom{n}{k}p^kq^{n-k},\\ 0\\leq k\\leq n;\\quad E=np,\\ V=npq"
-    ],
-    [
-      "e",
-      "M(t)=(q+pe^t)^n"
-    ],
-    [
-      "b",
-      "Geometric(p): trials through first success"
-    ],
-    [
-      "e",
-      "p_X(k)=pq^{k-1},\\ k\\geq1;\\quad E=1/p,\\quad V=q/p^2"
-    ],
-    [
-      "e",
-      "P(X>k)=q^k,\\quad M(t)=\\frac{pe^t}{1-qe^t}"
-    ],
-    [
-      "b",
-      "Negative binomial(r,p): trials through rth success"
-    ],
-    [
-      "e",
-      "p_X(k)=\\binom{k-1}{r-1}p^rq^{k-r},\\ k\\geq r;\\quad E=r/p,\\ V=rq/p^2"
-    ],
-    [
-      "s",
-      "Count trials <b>including final success</b>. MGFs need qe<super>t</super> &lt; 1; NB MGF = [geometric MGF]<super>r</super>."
-    ],
-    [
-      "b",
-      "Poisson(λ): count in an interval, λ = rate × length"
-    ],
-    [
-      "e",
-      "p_X(k)=e^{-\\lambda}\\frac{\\lambda^k}{k!},\\ k\\geq0;\\quad E=V=\\lambda"
-    ],
-    [
-      "e",
-      "M(t)=e^{\\lambda(e^t-1)};\\quad \\mathrm{Bin}(n,p)\\approx\\mathrm{Pois}(np)\\ (n\\ \\mathrm{large},p\\ \\mathrm{small})"
-    ],
-    [
-      "b",
-      "Hypergeometric(N,K,n): n draws, no replacement"
-    ],
-    [
-      "e",
-      "p_X(k)=\\frac{\\binom{K}{k}\\binom{N-K}{n-k}}{\\binom{N}{n}},\\quad E=n\\frac{K}{N}"
-    ],
-    [
-      "e",
-      "V=n\\frac{K}{N}\\left(1-\\frac{K}{N}\\right)\\frac{N-n}{N-1}\\quad(N>1)"
-    ],
-    [
-      "s",
-      "K successes in N objects; max(0,n-N+K) ≤ k ≤ min(n,K). Binomial approximation only if n/N is small."
-    ],
-    [
-      "b",
-      "Uniform: equal weights / constant density"
-    ],
-    [
-      "s",
-      "Integers a,...,b: m=b-a+1, P=1/m, E=(a+b)/2, V=(m²-1)/12. Continuous U(a,b): f=1/(b-a), same E, V=(b-a)²/12."
-    ],
-    [
-      "b",
-      "Multinomial: n iid trials, category probabilities pᵢ"
-    ],
-    [
-      "e",
-      "P(\\mathbf{X}=\\mathbf{k})=\\frac{n!}{\\prod_i k_i!}\\prod_i p_i^{k_i},\\quad\\sum_i k_i=n,\\ \\sum_i p_i=1"
-    ],
-    [
-      "s",
-      "Each X<sub>i</sub> ~ Bin(n,p<sub>i</sub>); combine categories by adding their probabilities. All PMF counts k are integers; impossible values have probability 0."
-    ]
+{
+  "version": 2,
+  "lessons": [
+    {
+      "number": 1,
+      "source_pdf": "01-data-summary.pdf",
+      "pages": [
+        {
+          "number": 1,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": []
+        },
+        {
+          "number": 2,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": []
+        },
+        {
+          "number": 3,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": [
+            [
+              350.0,
+              383.0,
+              610.0,
+              455.0
+            ]
+          ]
+        },
+        {
+          "number": 4,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": [
+            [
+              555.0,
+              225.0,
+              707.0,
+              251.0
+            ],
+            [
+              317,
+              278,
+              356,
+              301
+            ],
+            [
+              399.0,
+              311.0,
+              560.0,
+              385.0
+            ],
+            [
+              378.0,
+              426.0,
+              580.0,
+              499.0
+            ]
+          ]
+        },
+        {
+          "number": 5,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": [
+            [
+              65.0,
+              288.0,
+              298.0,
+              355.0
+            ],
+            [
+              394.0,
+              72.0,
+              868.0,
+              468.0
+            ]
+          ]
+        },
+        {
+          "number": 6,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": [
+            [
+              296.0,
+              283.0,
+              481.0,
+              309.0
+            ],
+            [
+              541,
+              310,
+              610,
+              333
+            ],
+            [
+              342.0,
+              350.0,
+              620.0,
+              460.0
+            ]
+          ]
+        },
+        {
+          "number": 7,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": [
+            [
+              365.0,
+              306.0,
+              595.0,
+              389.0
+            ]
+          ]
+        },
+        {
+          "number": 8,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": [
+            [
+              53.0,
+              64.0,
+              905.0,
+              524.0
+            ]
+          ]
+        },
+        {
+          "number": 9,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": [
+            [
+              301.0,
+              208.0,
+              659.0,
+              270.0
+            ],
+            [
+              450.0,
+              305.0,
+              511.0,
+              335.0
+            ],
+            [
+              387.0,
+              383.0,
+              575.0,
+              445.0
+            ],
+            [
+              450.0,
+              479.0,
+              511.0,
+              511.0
+            ]
+          ]
+        },
+        {
+          "number": 10,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": [
+            [
+              35.0,
+              63.0,
+              455.0,
+              292.0
+            ],
+            [
+              505.0,
+              63.0,
+              925.0,
+              292.0
+            ]
+          ]
+        },
+        {
+          "number": 11,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": [
+            [
+              547.0,
+              126.0,
+              844.0,
+              174.0
+            ]
+          ]
+        },
+        {
+          "number": 12,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": [
+            [
+              89.0,
+              326,
+              261.0,
+              375.0
+            ],
+            [
+              89.0,
+              376.0,
+              261.0,
+              430.0
+            ]
+          ]
+        },
+        {
+          "number": 13,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": []
+        },
+        {
+          "number": 14,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": []
+        },
+        {
+          "number": 15,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": [
+            [
+              198.0,
+              124.0,
+              365.0,
+              151.0
+            ],
+            [
+              580.0,
+              148.0,
+              783.0,
+              176.0
+            ],
+            [
+              80.0,
+              175.0,
+              909.0,
+              224.0
+            ],
+            [
+              398.0,
+              225.0,
+              558.0,
+              253.0
+            ],
+            [
+              78.0,
+              273.0,
+              864.0,
+              323.0
+            ],
+            [
+              53.0,
+              370.0,
+              900.0,
+              397.0
+            ],
+            [
+              405.0,
+              422.0,
+              552.36,
+              445.0
+            ],
+            [
+              405.0,
+              494.0,
+              551.42,
+              518.0
+            ]
+          ]
+        },
+        {
+          "number": 16,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": [
+            [
+              650.5,
+              107.0,
+              666.0,
+              138.0
+            ],
+            [
+              723.19,
+              213.941,
+              753.8,
+              231.822
+            ],
+            [
+              420.0,
+              230.0,
+              519.84,
+              269.0
+            ]
+          ]
+        },
+        {
+          "number": 17,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": [
+            [
+              729.0,
+              194.0,
+              914.0,
+              222.0
+            ],
+            [
+              590.0,
+              287.0,
+              696.0,
+              342.0
+            ],
+            [
+              444.0,
+              421.0,
+              548.0,
+              452.0
+            ]
+          ]
+        },
+        {
+          "number": 18,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": [
+            [
+              202.0,
+              204.0,
+              296.0,
+              220.0
+            ],
+            [
+              200.0,
+              308.0,
+              293.0,
+              324.0
+            ],
+            [
+              250.0,
+              413.0,
+              314.0,
+              429.0
+            ],
+            [
+              78.0,
+              428.0,
+              106.0,
+              445.0
+            ],
+            [
+              359.0,
+              132.0,
+              902.0,
+              407.0
+            ]
+          ]
+        },
+        {
+          "number": 19,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": [
+            [
+              269.0,
+              323.0,
+              386.0,
+              353.0
+            ]
+          ]
+        },
+        {
+          "number": 20,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": [
+            [
+              40.0,
+              495.0,
+              281.0,
+              524.0
+            ]
+          ]
+        },
+        {
+          "number": 21,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": []
+        },
+        {
+          "number": 22,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": []
+        },
+        {
+          "number": 23,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": [
+            [
+              382.0,
+              203.0,
+              598.0,
+              285.0
+            ],
+            [
+              74.0,
+              364.0,
+              880.0,
+              398.0
+            ],
+            [
+              699.0,
+              463.0,
+              784.0,
+              499.0
+            ]
+          ]
+        },
+        {
+          "number": 24,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": [
+            [
+              764.0,
+              431.0,
+              850.0,
+              482.0
+            ]
+          ]
+        },
+        {
+          "number": 25,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": [
+            [
+              45.0,
+              267.0,
+              915.0,
+              422.0
+            ]
+          ]
+        },
+        {
+          "number": 26,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": [
+            [
+              405.0,
+              262.0,
+              460.0,
+              296.0
+            ]
+          ]
+        },
+        {
+          "number": 27,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": [
+            [
+              778.0,
+              347.0,
+              866.0,
+              395.0
+            ]
+          ]
+        },
+        {
+          "number": 28,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": [
+            [
+              44.0,
+              190.0,
+              452.0,
+              452.0
+            ]
+          ]
+        },
+        {
+          "number": 29,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": [
+            [
+              44.0,
+              174.0,
+              474.0,
+              491.0
+            ],
+            [
+              507.0,
+              162.0,
+              934.0,
+              245.0
+            ]
+          ]
+        },
+        {
+          "number": 30,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": [
+            [
+              197.0,
+              482.0,
+              496.0,
+              516.0
+            ]
+          ]
+        },
+        {
+          "number": 31,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": []
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "source_pdf": "02-probability-part1.pdf",
+      "pages": [
+        {
+          "number": 1,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": []
+        },
+        {
+          "number": 2,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              672.0,
+              145.0,
+              708.0,
+              169.0
+            ],
+            [
+              69.0,
+              169.0,
+              116.0,
+              193.0
+            ],
+            [
+              168.0,
+              222.0,
+              284.0,
+              246.0
+            ],
+            [
+              68.0,
+              447.0,
+              370.0,
+              486.0
+            ]
+          ]
+        },
+        {
+          "number": 3,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              297.0,
+              145.0,
+              416.0,
+              170.0
+            ],
+            [
+              541.0,
+              173.0,
+              654.0,
+              198.0
+            ],
+            [
+              505.0,
+              346.0,
+              568.0,
+              371.0
+            ]
+          ]
+        },
+        {
+          "number": 4,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              181.0,
+              224.0,
+              342.0,
+              492.0
+            ]
+          ]
+        },
+        {
+          "number": 5,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              381.0,
+              294.0,
+              578.0,
+              333.0
+            ]
+          ]
+        },
+        {
+          "number": 6,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              16.0,
+              122.0,
+              690.0,
+              510
+            ]
+          ]
+        },
+        {
+          "number": 7,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              127.0,
+              319.0,
+              594.0,
+              523.0
+            ]
+          ]
+        },
+        {
+          "number": 8,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              58.0,
+              257.0,
+              693.0,
+              509
+            ]
+          ]
+        },
+        {
+          "number": 9,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": []
+        },
+        {
+          "number": 10,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              359.0,
+              116.0,
+              678.0,
+              425.0
+            ]
+          ]
+        },
+        {
+          "number": 11,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": []
+        },
+        {
+          "number": 12,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": []
+        },
+        {
+          "number": 13,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              143.0,
+              181.0,
+              383.0,
+              211.0
+            ],
+            [
+              268.0,
+              296.0,
+              445.37,
+              338.0
+            ]
+          ]
+        },
+        {
+          "number": 14,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              36.538,
+              111.681,
+              115.18,
+              140.972
+            ],
+            [
+              174.0,
+              139.21,
+              487.59,
+              174.0
+            ],
+            [
+              29.0,
+              287.0,
+              560.0,
+              403.0
+            ]
+          ]
+        },
+        {
+          "number": 15,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              58.0,
+              254.0,
+              694.0,
+              509
+            ]
+          ]
+        },
+        {
+          "number": 16,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              48.0,
+              145.0,
+              678.0,
+              343.0
+            ],
+            [
+              62.0,
+              380.0,
+              620.0,
+              429.0
+            ]
+          ]
+        },
+        {
+          "number": 17,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              40.0,
+              117.0,
+              497.0,
+              200.0
+            ],
+            [
+              40.0,
+              313.0,
+              670.0,
+              420.0
+            ]
+          ]
+        },
+        {
+          "number": 18,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              99.0,
+              271.0,
+              567.0,
+              509.0
+            ]
+          ]
+        },
+        {
+          "number": 19,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              427.13,
+              147.761,
+              484.976,
+              173.57
+            ],
+            [
+              190.0,
+              204.0,
+              252.0,
+              240.0
+            ],
+            [
+              68.0,
+              486.0,
+              203.0,
+              521.0
+            ]
+          ]
+        },
+        {
+          "number": 20,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              20.0,
+              298.0,
+              455.0,
+              344.0
+            ],
+            [
+              20.0,
+              344.0,
+              552.0,
+              391.0
+            ]
+          ]
+        },
+        {
+          "number": 21,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              415.0,
+              130.0,
+              485.0,
+              159.0
+            ],
+            [
+              380.0,
+              192.0,
+              485.0,
+              223.0
+            ],
+            [
+              34.0,
+              256.0,
+              424.0,
+              292.0
+            ]
+          ]
+        },
+        {
+          "number": 22,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              145.23,
+              120.101,
+              205.393,
+              145.91
+            ],
+            [
+              177.0,
+              176.0,
+              514.0,
+              207.0
+            ],
+            [
+              238.0,
+              207.0,
+              445.0,
+              335.0
+            ],
+            [
+              464.43,
+              350.802,
+              531.776,
+              380.082
+            ],
+            [
+              139.0,
+              435.0,
+              552.0,
+              513.0
+            ]
+          ]
+        },
+        {
+          "number": 23,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              379.0,
+              96.0,
+              474.0,
+              126.0
+            ],
+            [
+              195.0,
+              153.0,
+              541.43,
+              184.0
+            ],
+            [
+              202.0,
+              236.0,
+              291.0,
+              272.0
+            ],
+            [
+              66.0,
+              312.0,
+              379.0,
+              524.0
+            ]
+          ]
+        },
+        {
+          "number": 24,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              271.0,
+              154.0,
+              438.0,
+              187.0
+            ],
+            [
+              71.0,
+              215.0,
+              445.0,
+              259.0
+            ],
+            [
+              71.0,
+              282.0,
+              445.0,
+              326.0
+            ]
+          ]
+        },
+        {
+          "number": 25,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              71,
+              118,
+              164,
+              155
+            ],
+            [
+              149.0,
+              155.0,
+              574.0,
+              201.0
+            ],
+            [
+              139.0,
+              246.0,
+              560.0,
+              479.0
+            ]
+          ]
+        },
+        {
+          "number": 26,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": []
+        },
+        {
+          "number": 27,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              39.0,
+              147.0,
+              448.0,
+              230.0
+            ],
+            [
+              38.0,
+              230.0,
+              479.0,
+              278.0
+            ],
+            [
+              39.0,
+              279.0,
+              292.0,
+              319.0
+            ],
+            [
+              38.0,
+              321.0,
+              151.0,
+              464.0
+            ]
+          ]
+        },
+        {
+          "number": 28,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              78,
+              101,
+              688,
+              470
+            ],
+            [
+              78,
+              472,
+              630,
+              511
+            ]
+          ]
+        },
+        {
+          "number": 29,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              198.0,
+              76.0,
+              493.0,
+              141.0
+            ],
+            [
+              15.0,
+              146.0,
+              710.0,
+              299.0
+            ]
+          ]
+        },
+        {
+          "number": 30,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              190.0,
+              141.0,
+              408.0,
+              371.0
+            ]
+          ]
+        },
+        {
+          "number": 31,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              246.0,
+              164.0,
+              437.0,
+              225.0
+            ],
+            [
+              123.0,
+              225.0,
+              581.0,
+              455.0
+            ]
+          ]
+        },
+        {
+          "number": 32,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              201.0,
+              102.0,
+              504.0,
+              139.0
+            ],
+            [
+              20.0,
+              171.0,
+              298.0,
+              208.0
+            ],
+            [
+              335.0,
+              184.0,
+              681.0,
+              373.0
+            ],
+            [
+              20.0,
+              442.0,
+              666.0,
+              529.0
+            ]
+          ]
+        },
+        {
+          "number": 33,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              40.0,
+              106.0,
+              320.0,
+              288.0
+            ],
+            [
+              338.0,
+              208.0,
+              719.0,
+              404.0
+            ],
+            [
+              73.0,
+              365.0,
+              279.0,
+              411.0
+            ]
+          ]
+        },
+        {
+          "number": 34,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              152.0,
+              158.0,
+              575.0,
+              209.0
+            ]
+          ]
+        },
+        {
+          "number": 35,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": []
+        },
+        {
+          "number": 36,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              20.0,
+              0.0,
+              643.0,
+              194.0
+            ],
+            [
+              109.0,
+              200.0,
+              614.0,
+              511.0
+            ]
+          ]
+        },
+        {
+          "number": 37,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              20.0,
+              0.0,
+              686.0,
+              201.0
+            ],
+            [
+              109.0,
+              200.0,
+              615.0,
+              511.0
+            ]
+          ]
+        },
+        {
+          "number": 38,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              269.0,
+              270.0,
+              473.0,
+              364.0
+            ],
+            [
+              269.0,
+              444.0,
+              473.0,
+              534.0
+            ]
+          ]
+        },
+        {
+          "number": 39,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              39.0,
+              308.0,
+              282.0,
+              343.0
+            ],
+            [
+              39.0,
+              343.0,
+              169.0,
+              378.0
+            ],
+            [
+              39.0,
+              378.0,
+              474.45,
+              497.0
+            ]
+          ]
+        },
+        {
+          "number": 40,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              249.0,
+              148.0,
+              473.0,
+              188.0
+            ],
+            [
+              39.0,
+              184.0,
+              614.0,
+              278.0
+            ],
+            [
+              99.0,
+              370.0,
+              623.0,
+              440.0
+            ],
+            [
+              42.0,
+              477.0,
+              496.0,
+              506.0
+            ]
+          ]
+        },
+        {
+          "number": 41,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              31.0,
+              209.0,
+              465.0,
+              254.0
+            ],
+            [
+              31.0,
+              255.0,
+              564.0,
+              300.0
+            ],
+            [
+              31.0,
+              302.0,
+              246.0,
+              347.0
+            ]
+          ]
+        },
+        {
+          "number": 42,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              79.0,
+              129.0,
+              602.0,
+              406.0
+            ],
+            [
+              32.0,
+              407.0,
+              554.0,
+              442.0
+            ],
+            [
+              32.0,
+              442.0,
+              184.0,
+              483.0
+            ]
+          ]
+        },
+        {
+          "number": 43,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              38.0,
+              174.0,
+              500.0,
+              265.0
+            ],
+            [
+              38.0,
+              270.0,
+              642.0,
+              342.0
+            ],
+            [
+              141.0,
+              376.0,
+              607.0,
+              438.0
+            ],
+            [
+              200.0,
+              491.0,
+              386.0,
+              530.0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "source_pdf": "03-counting.pdf",
+      "pages": [
+        {
+          "number": 1,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": []
+        },
+        {
+          "number": 2,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              155.0,
+              212.0,
+              213.0,
+              241.0
+            ],
+            [
+              315.0,
+              241.0,
+              406.0,
+              267.0
+            ],
+            [
+              317.0,
+              323.0,
+              404.0,
+              349.0
+            ],
+            [
+              39.0,
+              375.0,
+              681.0,
+              430.0
+            ],
+            [
+              258.0,
+              443.0,
+              455.89,
+              525.0
+            ]
+          ]
+        },
+        {
+          "number": 3,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              443.0,
+              131.0,
+              543.0,
+              163.0
+            ],
+            [
+              310.0,
+              385.0,
+              454.0,
+              422.0
+            ]
+          ]
+        },
+        {
+          "number": 4,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              245.0,
+              119.0,
+              488.0,
+              154.0
+            ],
+            [
+              39.0,
+              149.0,
+              614.0,
+              244.0
+            ],
+            [
+              89.0,
+              326.0,
+              633.0,
+              405.0
+            ],
+            [
+              43.0,
+              442.0,
+              464.0,
+              471.0
+            ]
+          ]
+        },
+        {
+          "number": 5,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              31.0,
+              147.0,
+              585.0,
+              220.0
+            ],
+            [
+              31.0,
+              251.0,
+              196.0,
+              287.0
+            ],
+            [
+              257.0,
+              313.0,
+              456.0,
+              383.0
+            ],
+            [
+              203.0,
+              392.0,
+              507.0,
+              482.0
+            ]
+          ]
+        },
+        {
+          "number": 6,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              79.0,
+              129.0,
+              602.0,
+              406.0
+            ],
+            [
+              32.0,
+              407.0,
+              554.0,
+              442.0
+            ],
+            [
+              32.0,
+              442.0,
+              184.0,
+              483.0
+            ]
+          ]
+        },
+        {
+          "number": 7,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              42.0,
+              106.0,
+              590.0,
+              283.0
+            ]
+          ]
+        },
+        {
+          "number": 8,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              55.0,
+              130.0,
+              376.0,
+              159
+            ],
+            [
+              55.0,
+              165.0,
+              184.0,
+              208.0
+            ],
+            [
+              55.0,
+              371.0,
+              688.27,
+              438.0
+            ],
+            [
+              85.0,
+              438.0,
+              415.0,
+              510.0
+            ]
+          ]
+        },
+        {
+          "number": 9,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": []
+        },
+        {
+          "number": 10,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              23.0,
+              165.0,
+              395.0,
+              217.0
+            ],
+            [
+              23.0,
+              214.0,
+              615.0,
+              264.0
+            ],
+            [
+              23.0,
+              272.0,
+              378.0,
+              327.0
+            ],
+            [
+              23.0,
+              355.0,
+              640.0,
+              446.0
+            ]
+          ]
+        },
+        {
+          "number": 11,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              96.0,
+              158.0,
+              636.0,
+              376.0
+            ],
+            [
+              43.0,
+              380.6,
+              635.0,
+              466.0
+            ]
+          ]
+        },
+        {
+          "number": 12,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              33.0,
+              9.0,
+              596.0,
+              530.0
+            ]
+          ]
+        },
+        {
+          "number": 13,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              306.0,
+              463.0,
+              414.0,
+              497.0
+            ]
+          ]
+        },
+        {
+          "number": 14,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              65.0,
+              150.0,
+              645.0,
+              225.0
+            ],
+            [
+              65.0,
+              265.0,
+              668.0,
+              380.0
+            ],
+            [
+              41.0,
+              392.0,
+              655.0,
+              468.0
+            ]
+          ]
+        },
+        {
+          "number": 15,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              33.0,
+              0.0,
+              581.0,
+              530.0
+            ]
+          ]
+        },
+        {
+          "number": 16,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": []
+        },
+        {
+          "number": 17,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              478.0,
+              232.0,
+              558.0,
+              267.0
+            ],
+            [
+              466.0,
+              262.0,
+              581.0,
+              302.0
+            ],
+            [
+              461.0,
+              331.0,
+              616.0,
+              372.0
+            ],
+            [
+              462.0,
+              401.0,
+              547.0,
+              442.0
+            ],
+            [
+              66.0,
+              468.0,
+              494.0,
+              512.92
+            ],
+            [
+              535.0,
+              492.0,
+              674.0,
+              532.0
+            ]
+          ]
+        },
+        {
+          "number": 18,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              37.0,
+              76.0,
+              172.0,
+              114.0
+            ],
+            [
+              35.0,
+              198.0,
+              289.0,
+              235.0
+            ],
+            [
+              74.0,
+              302.0,
+              684.0,
+              484.0
+            ]
+          ]
+        },
+        {
+          "number": 19,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": []
+        },
+        {
+          "number": 20,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              121.0,
+              14.0,
+              601.0,
+              68.0
+            ],
+            [
+              478.0,
+              198.0,
+              558.0,
+              232.0
+            ],
+            [
+              466.0,
+              228.0,
+              581.0,
+              268.0
+            ],
+            [
+              461.0,
+              297.0,
+              616.0,
+              338.0
+            ],
+            [
+              77.0,
+              366.0,
+              464.0,
+              404.0
+            ],
+            [
+              67.0,
+              434.0,
+              653.0,
+              502.0
+            ]
+          ]
+        },
+        {
+          "number": 21,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              211.77,
+              142.418,
+              275.327,
+              170.748
+            ],
+            [
+              58.0,
+              391.0,
+              649.0,
+              464.0
+            ]
+          ]
+        },
+        {
+          "number": 22,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": []
+        },
+        {
+          "number": 23,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": []
+        },
+        {
+          "number": 24,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              331.29,
+              117.338,
+              409.293,
+              150.451
+            ]
+          ]
+        },
+        {
+          "number": 25,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              85.0,
+              106.0,
+              393.0,
+              134.0
+            ],
+            [
+              48.0,
+              254.0,
+              674.0,
+              316.0
+            ],
+            [
+              63.0,
+              317.0,
+              685.0,
+              510.0
+            ]
+          ]
+        },
+        {
+          "number": 26,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              574.0,
+              24.0,
+              621.0,
+              74.0
+            ],
+            [
+              168.0,
+              170.0,
+              336.0,
+              216.0
+            ],
+            [
+              579.22,
+              245.482,
+              601.0,
+              271.316
+            ],
+            [
+              225.0,
+              297.0,
+              496.0,
+              334.0
+            ],
+            [
+              88.901,
+              332.031,
+              160.3,
+              357.84
+            ],
+            [
+              497.89,
+              332.031,
+              519.7,
+              357.84
+            ],
+            [
+              540.0,
+              356.0,
+              576.0,
+              398.0
+            ],
+            [
+              258.0,
+              387.0,
+              462.0,
+              446.0
+            ],
+            [
+              253.68,
+              444.5,
+              275.5,
+              470.308
+            ],
+            [
+              215.0,
+              472.0,
+              511.0,
+              537.0
+            ]
+          ]
+        },
+        {
+          "number": 27,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              160.0,
+              104.0,
+              566.0,
+              257.0
+            ],
+            [
+              48.0,
+              407.0,
+              697.0,
+              460.0
+            ],
+            [
+              337.0,
+              455.0,
+              432.0,
+              499.0
+            ]
+          ]
+        },
+        {
+          "number": 28,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              70.0,
+              88.0,
+              567.0,
+              204.0
+            ],
+            [
+              143.0,
+              229.0,
+              625.0,
+              404.0
+            ]
+          ]
+        },
+        {
+          "number": 29,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              129.0,
+              181.0,
+              582.0,
+              242.0
+            ],
+            [
+              217.0,
+              272.0,
+              492.0,
+              354.0
+            ]
+          ]
+        },
+        {
+          "number": 30,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              35.0,
+              120.0,
+              633.0,
+              251.0
+            ],
+            [
+              40.0,
+              299.0,
+              620.0,
+              366.0
+            ],
+            [
+              77.0,
+              377.0,
+              604.0,
+              539.0
+            ]
+          ]
+        },
+        {
+          "number": 31,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              154.0,
+              27.0,
+              637.0,
+              128.0
+            ],
+            [
+              65.0,
+              134.0,
+              596.0,
+              296.0
+            ]
+          ]
+        },
+        {
+          "number": 32,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              55.0,
+              103.0,
+              488.0,
+              158.0
+            ],
+            [
+              258.0,
+              197.0,
+              425.0,
+              258.0
+            ],
+            [
+              55.0,
+              270.0,
+              362.0,
+              303.0
+            ],
+            [
+              325.0,
+              347.0,
+              358.0,
+              377.0
+            ],
+            [
+              55.0,
+              390.0,
+              587.0,
+              423.0
+            ],
+            [
+              292.0,
+              444.0,
+              450.0,
+              501.0
+            ]
+          ]
+        },
+        {
+          "number": 33,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              45.0,
+              97.0,
+              482.0,
+              153.0
+            ],
+            [
+              210.0,
+              198.0,
+              453.0,
+              253.0
+            ],
+            [
+              45.0,
+              265.0,
+              502.0,
+              298.0
+            ],
+            [
+              44.0,
+              342.0,
+              202.0,
+              374.0
+            ],
+            [
+              111.0,
+              404.0,
+              626.0,
+              531.0
+            ]
+          ]
+        },
+        {
+          "number": 34,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": []
+        },
+        {
+          "number": 35,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              77.0,
+              347.0,
+              621.0,
+              489.0
+            ]
+          ]
+        },
+        {
+          "number": 36,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": []
+        },
+        {
+          "number": 37,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              274.0,
+              229,
+              455.0,
+              286.0
+            ],
+            [
+              258.0,
+              356.0,
+              425.0,
+              413.0
+            ],
+            [
+              191.0,
+              451.0,
+              537.0,
+              513.0
+            ]
+          ]
+        },
+        {
+          "number": 38,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              42.0,
+              170.0,
+              288.0,
+              207.0
+            ],
+            [
+              130.0,
+              331.0,
+              556.0,
+              422.0
+            ]
+          ]
+        },
+        {
+          "number": 39,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              27.0,
+              37.0,
+              285.0,
+              74.0
+            ],
+            [
+              149.0,
+              134.0,
+              578.0,
+              191.0
+            ],
+            [
+              27.0,
+              183.0,
+              291.0,
+              221.0
+            ],
+            [
+              178.0,
+              280.0,
+              548.0,
+              338.0
+            ],
+            [
+              27.0,
+              329.0,
+              281.0,
+              367.0
+            ],
+            [
+              199.0,
+              454.0,
+              528.0,
+              519.0
+            ]
+          ]
+        },
+        {
+          "number": 40,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              28.0,
+              40.0,
+              298.0,
+              78.0
+            ],
+            [
+              213.0,
+              185.0,
+              506.0,
+              245.0
+            ],
+            [
+              28.0,
+              308.0,
+              266.0,
+              346.0
+            ],
+            [
+              294.0,
+              414.0,
+              397.0,
+              504.0
+            ]
+          ]
+        },
+        {
+          "number": 41,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              198.0,
+              407.0,
+              447.0,
+              499.0
+            ]
+          ]
+        },
+        {
+          "number": 42,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              30.0,
+              154.0,
+              396.0,
+              368.0
+            ]
+          ]
+        },
+        {
+          "number": 43,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              38.0,
+              117.0,
+              366.0,
+              195.0
+            ],
+            [
+              38.0,
+              249.0,
+              519.0,
+              308.0
+            ],
+            [
+              76.0,
+              311.0,
+              263.0,
+              338.0
+            ],
+            [
+              38.0,
+              401.0,
+              378.0,
+              468.0
+            ]
+          ]
+        },
+        {
+          "number": 44,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              28.0,
+              58.0,
+              684.0,
+              516.0
+            ]
+          ]
+        },
+        {
+          "number": 45,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              65.0,
+              54.0,
+              201.0,
+              84.0
+            ],
+            [
+              319.0,
+              194.0,
+              413.0,
+              242.0
+            ],
+            [
+              329.0,
+              263.0,
+              402.0,
+              307.0
+            ],
+            [
+              289.0,
+              347.5,
+              396.0,
+              396.0
+            ],
+            [
+              298.0,
+              417.0,
+              433.0,
+              469.0
+            ],
+            [
+              234.0,
+              508.0,
+              494.0,
+              533.0
+            ]
+          ]
+        },
+        {
+          "number": 46,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              70.0,
+              102.0,
+              295.0,
+              140.0
+            ],
+            [
+              188.0,
+              154.0,
+              661.0,
+              305.0
+            ],
+            [
+              42.0,
+              305.0,
+              612.0,
+              343.0
+            ]
+          ]
+        },
+        {
+          "number": 47,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              32.0,
+              40.0,
+              696.0,
+              275.0
+            ],
+            [
+              30.0,
+              308.0,
+              697.0,
+              514.0
+            ]
+          ]
+        },
+        {
+          "number": 48,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              23.0,
+              39.0,
+              578.0,
+              523.0
+            ]
+          ]
+        },
+        {
+          "number": 49,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              44.0,
+              15.0,
+              466.0,
+              111.0
+            ],
+            [
+              212.0,
+              140.0,
+              643.0,
+              207.0
+            ],
+            [
+              212.0,
+              237.0,
+              461.0,
+              276.0
+            ],
+            [
+              55.0,
+              285.0,
+              624.0,
+              327.0
+            ]
+          ]
+        },
+        {
+          "number": 50,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              25.0,
+              20.0,
+              441.0,
+              88.0
+            ],
+            [
+              212.0,
+              140.0,
+              609.0,
+              172.0
+            ],
+            [
+              343.0,
+              171.0,
+              485.0,
+              263.0
+            ],
+            [
+              55.0,
+              285.0,
+              599.0,
+              326.0
+            ]
+          ]
+        },
+        {
+          "number": 51,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              14.0,
+              76.0,
+              320.0,
+              306.0
+            ],
+            [
+              334.0,
+              274.0,
+              684.0,
+              518.0
+            ]
+          ]
+        },
+        {
+          "number": 52,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": []
+        },
+        {
+          "number": 53,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": []
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "source_pdf": "04-probability-part2.pdf",
+      "pages": [
+        {
+          "number": 1,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": []
+        },
+        {
+          "number": 2,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": []
+        },
+        {
+          "number": 3,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              24,
+              155,
+              698,
+              523
+            ]
+          ]
+        },
+        {
+          "number": 4,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              64,
+              302,
+              334,
+              326
+            ],
+            [
+              64,
+              408,
+              340,
+              455
+            ]
+          ]
+        },
+        {
+          "number": 5,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              35,
+              152,
+              635,
+              524
+            ]
+          ]
+        },
+        {
+          "number": 6,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              20,
+              116,
+              631,
+              274
+            ]
+          ]
+        },
+        {
+          "number": 7,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": []
+        },
+        {
+          "number": 8,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": []
+        },
+        {
+          "number": 9,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              25,
+              168,
+              704,
+              535
+            ]
+          ]
+        },
+        {
+          "number": 10,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              250,
+              258,
+              485,
+              340
+            ],
+            [
+              26,
+              355,
+              696,
+              518
+            ]
+          ]
+        },
+        {
+          "number": 11,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              36,
+              196,
+              706,
+              534
+            ]
+          ]
+        },
+        {
+          "number": 12,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              35,
+              73,
+              688,
+              490
+            ]
+          ]
+        },
+        {
+          "number": 13,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              35,
+              22,
+              664,
+              490
+            ]
+          ]
+        },
+        {
+          "number": 14,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              39,
+              184,
+              693,
+              434
+            ]
+          ]
+        },
+        {
+          "number": 15,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": []
+        },
+        {
+          "number": 16,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              307,
+              209,
+              403,
+              258
+            ],
+            [
+              301,
+              350,
+              404,
+              416
+            ],
+            [
+              304,
+              424,
+              389,
+              445
+            ]
+          ]
+        },
+        {
+          "number": 17,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              75,
+              139,
+              649,
+              253
+            ],
+            [
+              79,
+              334,
+              626,
+              433
+            ]
+          ]
+        },
+        {
+          "number": 18,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              13,
+              44,
+              698,
+              309
+            ],
+            [
+              293,
+              340,
+              637,
+              517
+            ]
+          ]
+        },
+        {
+          "number": 19,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              20,
+              26,
+              686,
+              501
+            ]
+          ]
+        },
+        {
+          "number": 20,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": []
+        },
+        {
+          "number": 21,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              176,
+              37,
+              595,
+              92
+            ],
+            [
+              34,
+              176,
+              652,
+              447
+            ]
+          ]
+        },
+        {
+          "number": 22,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              40,
+              216,
+              665,
+              413
+            ]
+          ]
+        },
+        {
+          "number": 23,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": []
+        },
+        {
+          "number": 24,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              5,
+              136,
+              715,
+              535
+            ]
+          ]
+        },
+        {
+          "number": 25,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              45,
+              160,
+              641,
+              358
+            ]
+          ]
+        },
+        {
+          "number": 26,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              39,
+              111,
+              685,
+              516
+            ]
+          ]
+        },
+        {
+          "number": 27,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              44,
+              156,
+              579,
+              308
+            ]
+          ]
+        },
+        {
+          "number": 28,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              50,
+              117,
+              650,
+              262
+            ],
+            [
+              49,
+              298,
+              645,
+              440
+            ]
+          ]
+        },
+        {
+          "number": 29,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              39,
+              61,
+              691,
+              500
+            ]
+          ]
+        },
+        {
+          "number": 30,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              30,
+              19,
+              703,
+              500
+            ]
+          ]
+        },
+        {
+          "number": 31,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              26,
+              226,
+              697,
+              468
+            ]
+          ]
+        },
+        {
+          "number": 32,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": []
+        },
+        {
+          "number": 33,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              29,
+              125,
+              677,
+              279
+            ],
+            [
+              28,
+              407,
+              164,
+              479
+            ]
+          ]
+        },
+        {
+          "number": 34,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              27,
+              84,
+              673,
+              521
+            ]
+          ]
+        },
+        {
+          "number": 35,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": []
+        },
+        {
+          "number": 36,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              59,
+              129,
+              685,
+              229
+            ],
+            [
+              59,
+              372,
+              280,
+              400
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "source_pdf": "05-probability-part3.pdf",
+      "pages": [
+        {
+          "number": 1,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              100,
+              312,
+              420,
+              425
+            ]
+          ]
+        },
+        {
+          "number": 2,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              43,
+              246,
+              689,
+              313
+            ],
+            [
+              43,
+              419,
+              649,
+              534
+            ]
+          ]
+        },
+        {
+          "number": 3,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": []
+        },
+        {
+          "number": 4,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              40,
+              274,
+              680,
+              365
+            ],
+            [
+              41,
+              378,
+              532,
+              497
+            ]
+          ]
+        },
+        {
+          "number": 5,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              40,
+              135,
+              703,
+              268
+            ],
+            [
+              2,
+              286,
+              715,
+              487
+            ]
+          ]
+        },
+        {
+          "number": 6,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              383,
+              340,
+              620,
+              519
+            ]
+          ]
+        },
+        {
+          "number": 7,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              224,
+              190,
+              470,
+              225
+            ],
+            [
+              30,
+              313,
+              657,
+              411
+            ]
+          ]
+        },
+        {
+          "number": 8,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              207,
+              115,
+              508,
+              212
+            ],
+            [
+              16,
+              238,
+              476,
+              492
+            ]
+          ]
+        },
+        {
+          "number": 9,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              118,
+              243,
+              579,
+              390
+            ]
+          ]
+        },
+        {
+          "number": 10,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              24,
+              80,
+              700,
+              254
+            ],
+            [
+              69,
+              323,
+              610,
+              429
+            ]
+          ]
+        },
+        {
+          "number": 11,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              37,
+              109,
+              659,
+              247
+            ]
+          ]
+        },
+        {
+          "number": 12,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              22,
+              127,
+              704,
+              240
+            ],
+            [
+              23,
+              263,
+              696,
+              389
+            ]
+          ]
+        },
+        {
+          "number": 13,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              40,
+              175,
+              695,
+              248
+            ],
+            [
+              40,
+              243,
+              262,
+              282
+            ]
+          ]
+        },
+        {
+          "number": 14,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              49,
+              97,
+              606,
+              302
+            ],
+            [
+              7,
+              367,
+              718,
+              506
+            ]
+          ]
+        },
+        {
+          "number": 15,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": []
+        },
+        {
+          "number": 16,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": []
+        },
+        {
+          "number": 17,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              24,
+              112,
+              465,
+              188
+            ],
+            [
+              24,
+              218,
+              700,
+              280
+            ],
+            [
+              198,
+              438,
+              545,
+              478
+            ]
+          ]
+        },
+        {
+          "number": 18,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              23,
+              116,
+              720,
+              531
+            ]
+          ]
+        },
+        {
+          "number": 19,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              27,
+              25,
+              648,
+              540
+            ]
+          ]
+        },
+        {
+          "number": 20,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": []
+        },
+        {
+          "number": 21,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              32,
+              277,
+              410,
+              487
+            ],
+            [
+              414,
+              202,
+              686,
+              435
+            ]
+          ]
+        },
+        {
+          "number": 22,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": []
+        },
+        {
+          "number": 23,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              28,
+              72,
+              705,
+              275
+            ],
+            [
+              174,
+              303,
+              599,
+              538
+            ]
+          ]
+        },
+        {
+          "number": 24,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              218,
+              270,
+              510,
+              352
+            ]
+          ]
+        },
+        {
+          "number": 25,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              176,
+              124,
+              535,
+              170
+            ],
+            [
+              180,
+              292,
+              536,
+              374
+            ]
+          ]
+        },
+        {
+          "number": 26,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              103,
+              163,
+              620,
+              205
+            ],
+            [
+              10,
+              296,
+              650,
+              444
+            ]
+          ]
+        },
+        {
+          "number": 27,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              50,
+              325,
+              686,
+              452
+            ]
+          ]
+        },
+        {
+          "number": 28,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              37,
+              71,
+              673,
+              374
+            ]
+          ]
+        },
+        {
+          "number": 29,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              31,
+              82,
+              694,
+              539
+            ]
+          ]
+        },
+        {
+          "number": 30,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              25,
+              115,
+              702,
+              313
+            ],
+            [
+              27,
+              348,
+              703,
+              492
+            ]
+          ]
+        },
+        {
+          "number": 31,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": []
+        },
+        {
+          "number": 32,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              16,
+              106,
+              705,
+              221
+            ],
+            [
+              16,
+              303,
+              543,
+              482
+            ]
+          ]
+        },
+        {
+          "number": 33,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              26,
+              25,
+              696,
+              476
+            ]
+          ]
+        },
+        {
+          "number": 34,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              17,
+              105,
+              705,
+              448
+            ]
+          ]
+        },
+        {
+          "number": 35,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              24,
+              105,
+              704,
+              294
+            ]
+          ]
+        },
+        {
+          "number": 36,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": []
+        },
+        {
+          "number": 37,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              0,
+              0,
+              720,
+              293
+            ],
+            [
+              232,
+              315,
+              688,
+              451
+            ]
+          ]
+        },
+        {
+          "number": 38,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": []
+        },
+        {
+          "number": 39,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              44,
+              112,
+              672,
+              292
+            ],
+            [
+              44,
+              432,
+              676,
+              520
+            ]
+          ]
+        },
+        {
+          "number": 40,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              41,
+              105,
+              709,
+              522
+            ]
+          ]
+        },
+        {
+          "number": 41,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              22,
+              100,
+              705,
+              540
+            ]
+          ]
+        },
+        {
+          "number": 42,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              17,
+              58,
+              705,
+              540
+            ]
+          ]
+        },
+        {
+          "number": 43,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              15,
+              105,
+              711,
+              540
+            ]
+          ]
+        },
+        {
+          "number": 44,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              26,
+              60,
+              637,
+              518
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "source_pdf": "06-random-variables.pdf",
+      "pages": [
+        {
+          "number": 1,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": []
+        },
+        {
+          "number": 2,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": []
+        },
+        {
+          "number": 3,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              21,
+              192,
+              558,
+              470
+            ]
+          ]
+        },
+        {
+          "number": 4,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              51,
+              174,
+              636,
+              209
+            ],
+            [
+              265,
+              275,
+              477,
+              419
+            ]
+          ]
+        },
+        {
+          "number": 5,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": []
+        },
+        {
+          "number": 6,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              44,
+              24,
+              685,
+              106
+            ],
+            [
+              238,
+              246,
+              482,
+              289
+            ],
+            [
+              39,
+              420,
+              607,
+              504
+            ]
+          ]
+        },
+        {
+          "number": 7,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              91,
+              160,
+              606,
+              526
+            ]
+          ]
+        },
+        {
+          "number": 8,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              24,
+              23,
+              651,
+              446
+            ]
+          ]
+        },
+        {
+          "number": 9,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              254,
+              55,
+              649,
+              466
+            ]
+          ]
+        },
+        {
+          "number": 10,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              31,
+              80,
+              682,
+              203
+            ],
+            [
+              31,
+              322,
+              669,
+              528
+            ]
+          ]
+        },
+        {
+          "number": 11,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              49,
+              95,
+              672,
+              445
+            ],
+            [
+              180,
+              452,
+              515,
+              502
+            ]
+          ]
+        },
+        {
+          "number": 12,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              264,
+              168,
+              474,
+              307
+            ],
+            [
+              44,
+              317,
+              656,
+              483
+            ]
+          ]
+        },
+        {
+          "number": 13,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              36,
+              75,
+              708,
+              448
+            ]
+          ]
+        },
+        {
+          "number": 14,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              43,
+              38,
+              713,
+              532
+            ]
+          ]
+        },
+        {
+          "number": 15,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              22,
+              14,
+              665,
+              371
+            ],
+            [
+              48,
+              370,
+              685,
+              535
+            ]
+          ]
+        },
+        {
+          "number": 16,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              65,
+              16,
+              647,
+              204
+            ],
+            [
+              73,
+              207,
+              643,
+              486
+            ]
+          ]
+        },
+        {
+          "number": 17,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              27,
+              148,
+              688,
+              506
+            ]
+          ]
+        },
+        {
+          "number": 18,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              24,
+              19,
+              703,
+              485
+            ]
+          ]
+        },
+        {
+          "number": 19,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              63,
+              24,
+              660,
+              451
+            ]
+          ]
+        },
+        {
+          "number": 20,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              184,
+              179,
+              517,
+              267
+            ],
+            [
+              201,
+              318,
+              480,
+              409
+            ]
+          ]
+        },
+        {
+          "number": 21,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              36,
+              83,
+              673,
+              530
+            ]
+          ]
+        },
+        {
+          "number": 22,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              203,
+              136,
+              542,
+              207
+            ],
+            [
+              51,
+              199,
+              150,
+              235
+            ]
+          ]
+        },
+        {
+          "number": 23,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              66,
+              126,
+              607,
+              300
+            ],
+            [
+              37,
+              299,
+              671,
+              488
+            ]
+          ]
+        },
+        {
+          "number": 24,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              95,
+              98,
+              601,
+              470
+            ]
+          ]
+        },
+        {
+          "number": 25,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              27,
+              47,
+              664,
+              536
+            ]
+          ]
+        },
+        {
+          "number": 26,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              26,
+              194,
+              705,
+              312
+            ],
+            [
+              26,
+              335,
+              686,
+              457
+            ]
+          ]
+        },
+        {
+          "number": 27,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              32,
+              107,
+              656,
+              530
+            ]
+          ]
+        },
+        {
+          "number": 28,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              66,
+              136,
+              558,
+              204
+            ],
+            [
+              38,
+              263,
+              579,
+              435
+            ]
+          ]
+        },
+        {
+          "number": 29,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              38,
+              22,
+              410,
+              64
+            ],
+            [
+              170,
+              151,
+              354,
+              193
+            ],
+            [
+              59,
+              249,
+              491,
+              409
+            ]
+          ]
+        },
+        {
+          "number": 30,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              39,
+              58,
+              606,
+              499
+            ]
+          ]
+        },
+        {
+          "number": 31,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              27,
+              44,
+              447,
+              157
+            ],
+            [
+              29,
+              187,
+              630,
+              465
+            ]
+          ]
+        },
+        {
+          "number": 32,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              40,
+              79,
+              604,
+              319
+            ],
+            [
+              265,
+              341,
+              574,
+              511
+            ]
+          ]
+        },
+        {
+          "number": 33,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              38,
+              202,
+              677,
+              468
+            ]
+          ]
+        },
+        {
+          "number": 34,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              43,
+              204,
+              643,
+              312
+            ]
+          ]
+        },
+        {
+          "number": 35,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              43,
+              204,
+              643,
+              312
+            ],
+            [
+              47,
+              328,
+              557,
+              464
+            ]
+          ]
+        },
+        {
+          "number": 36,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": []
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "source_pdf": "07-random-variables-part2.pdf",
+      "pages": [
+        {
+          "number": 1,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              114.0,
+              245.0,
+              596.0,
+              453.0
+            ],
+            [
+              12.0,
+              458.0,
+              702.0,
+              529.0
+            ]
+          ]
+        },
+        {
+          "number": 2,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              23.0,
+              58.0,
+              710.0,
+              467.0
+            ]
+          ]
+        },
+        {
+          "number": 3,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              25.0,
+              233.0,
+              458.0,
+              367.0
+            ],
+            [
+              26.0,
+              498.0,
+              457.0,
+              533.0
+            ],
+            [
+              467.0,
+              66.0,
+              676.5,
+              171
+            ],
+            [
+              462,
+              239.5,
+              671,
+              380
+            ],
+            [
+              473,
+              389,
+              682,
+              476.5
+            ]
+          ]
+        },
+        {
+          "number": 4,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              16.0,
+              103.0,
+              702.0,
+              162.14
+            ],
+            [
+              16.0,
+              169.0,
+              287.0,
+              243.0
+            ]
+          ]
+        },
+        {
+          "number": 5,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              1.0,
+              74.5,
+              720.0,
+              540.0
+            ]
+          ]
+        },
+        {
+          "number": 6,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              139,
+              230.4,
+              547.2,
+              479.5
+            ],
+            [
+              19,
+              479.8,
+              260,
+              509
+            ]
+          ]
+        },
+        {
+          "number": 7,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              128.0,
+              98.0,
+              604.0,
+              215.0
+            ],
+            [
+              16.0,
+              223.0,
+              364.0,
+              361.0
+            ]
+          ]
+        },
+        {
+          "number": 8,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": []
+        },
+        {
+          "number": 9,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              82.0,
+              112.0,
+              638.0,
+              458.0
+            ]
+          ]
+        },
+        {
+          "number": 10,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              30,
+              372,
+              699,
+              491
+            ]
+          ]
+        },
+        {
+          "number": 11,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              376,
+              88,
+              642,
+              118
+            ],
+            [
+              220,
+              204,
+              500,
+              291
+            ],
+            [
+              28.0,
+              343,
+              701.0,
+              522.0
+            ]
+          ]
+        },
+        {
+          "number": 12,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              33.0,
+              75.0,
+              693.0,
+              390.0
+            ]
+          ]
+        },
+        {
+          "number": 13,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              0.0,
+              0.0,
+              720.0,
+              423.2
+            ],
+            [
+              47.0,
+              455.0,
+              322.0,
+              512.0
+            ]
+          ]
+        },
+        {
+          "number": 14,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              36.0,
+              165.0,
+              660.0,
+              493.0
+            ]
+          ]
+        },
+        {
+          "number": 15,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              36.0,
+              101.0,
+              696.0,
+              486.0
+            ]
+          ]
+        },
+        {
+          "number": 16,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              73.0,
+              78.0,
+              662.0,
+              217.0
+            ],
+            [
+              27.0,
+              262.0,
+              707.0,
+              522.0
+            ]
+          ]
+        },
+        {
+          "number": 17,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              17.0,
+              73.0,
+              662.0,
+              294.0
+            ]
+          ]
+        },
+        {
+          "number": 18,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              21.0,
+              20.0,
+              715.0,
+              432.0
+            ]
+          ]
+        },
+        {
+          "number": 19,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              38.0,
+              165.0,
+              602.0,
+              248.21
+            ],
+            [
+              38.0,
+              328.0,
+              422.0,
+              381.0
+            ]
+          ]
+        },
+        {
+          "number": 20,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              22.0,
+              31.81,
+              716.0,
+              483.0
+            ]
+          ]
+        },
+        {
+          "number": 21,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              278,
+              182,
+              515,
+              216
+            ],
+            [
+              138.0,
+              241.0,
+              585.0,
+              325.0
+            ],
+            [
+              138.0,
+              369.0,
+              585.0,
+              466
+            ]
+          ]
+        },
+        {
+          "number": 22,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              27.0,
+              18.0,
+              701.0,
+              524.0
+            ]
+          ]
+        },
+        {
+          "number": 23,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              38.0,
+              122.23,
+              602.0,
+              201.0
+            ],
+            [
+              27.0,
+              244.0,
+              711.0,
+              453.0
+            ]
+          ]
+        },
+        {
+          "number": 24,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              40.0,
+              145.0,
+              689.0,
+              220.67
+            ],
+            [
+              91.0,
+              240.0,
+              576.0,
+              367.0
+            ]
+          ]
+        },
+        {
+          "number": 25,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              23.0,
+              153.0,
+              614.0,
+              407.0
+            ]
+          ]
+        },
+        {
+          "number": 26,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": []
+        },
+        {
+          "number": 27,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              94.0,
+              136.0,
+              437.0,
+              183.0
+            ],
+            [
+              28.0,
+              177,
+              638.0,
+              511.0
+            ]
+          ]
+        },
+        {
+          "number": 28,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": []
+        },
+        {
+          "number": 29,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              38.0,
+              122.23,
+              611.0,
+              200.0
+            ],
+            [
+              27.0,
+              217.47,
+              712.0,
+              453.0
+            ]
+          ]
+        },
+        {
+          "number": 30,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              17.0,
+              37.0,
+              712.0,
+              419.0
+            ]
+          ]
+        },
+        {
+          "number": 31,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              18.0,
+              52.31,
+              711.0,
+              387.0
+            ]
+          ]
+        },
+        {
+          "number": 32,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              29.0,
+              221.0,
+              685.0,
+              377.0
+            ],
+            [
+              103.0,
+              414.0,
+              604.0,
+              501.0
+            ]
+          ]
+        },
+        {
+          "number": 33,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              40.0,
+              145.89,
+              691.0,
+              223.0
+            ],
+            [
+              88.0,
+              244.0,
+              579.0,
+              369.0
+            ],
+            [
+              38.0,
+              380.94,
+              696.0,
+              430
+            ]
+          ]
+        },
+        {
+          "number": 34,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              40.0,
+              179.0,
+              702.0,
+              301
+            ],
+            [
+              128.0,
+              297.4,
+              699.0,
+              352
+            ],
+            [
+              38.0,
+              373.0,
+              707.0,
+              475.0
+            ]
+          ]
+        },
+        {
+          "number": 35,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              38.0,
+              93.0,
+              706.0,
+              522.0
+            ]
+          ]
+        },
+        {
+          "number": 36,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              38.0,
+              79,
+              698.0,
+              523.0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "source_pdf": "08-random-variables-part3.pdf",
+      "pages": [
+        {
+          "number": 1,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": []
+        },
+        {
+          "number": 2,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": [
+            [
+              58.0,
+              152.0,
+              574.0,
+              427.0
+            ],
+            [
+              590.0,
+              152.0,
+              915.0,
+              507.0
+            ]
+          ]
+        },
+        {
+          "number": 3,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": [
+            [
+              43,
+              154,
+              371,
+              184
+            ],
+            [
+              212,
+              268,
+              414,
+              336
+            ],
+            [
+              593,
+              120,
+              873,
+              451
+            ]
+          ]
+        },
+        {
+          "number": 4,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": [
+            [
+              79.0,
+              23.0,
+              892.0,
+              507.0
+            ]
+          ]
+        },
+        {
+          "number": 5,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": [
+            [
+              161.0,
+              81.0,
+              645.0,
+              527.0
+            ]
+          ]
+        },
+        {
+          "number": 6,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": [
+            [
+              162.0,
+              81.0,
+              660.0,
+              527.0
+            ]
+          ]
+        },
+        {
+          "number": 7,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": [
+            [
+              38.0,
+              37.0,
+              907.0,
+              522.0
+            ]
+          ]
+        },
+        {
+          "number": 8,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": [
+            [
+              161.0,
+              96.0,
+              789.0,
+              522.0
+            ]
+          ]
+        },
+        {
+          "number": 9,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": [
+            [
+              355.0,
+              110.02,
+              562.0,
+              207.0
+            ]
+          ]
+        },
+        {
+          "number": 10,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": []
+        },
+        {
+          "number": 11,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": [
+            [
+              48.0,
+              64.0,
+              793.0,
+              525.0
+            ]
+          ]
+        },
+        {
+          "number": 12,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": [
+            [
+              43.0,
+              61,
+              947.0,
+              531.0
+            ]
+          ]
+        },
+        {
+          "number": 13,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": [
+            [
+              162.0,
+              53.47,
+              782.0,
+              527.0
+            ]
+          ]
+        },
+        {
+          "number": 14,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": [
+            [
+              158.0,
+              115.79,
+              839.0,
+              527.0
+            ]
+          ]
+        },
+        {
+          "number": 15,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": [
+            [
+              156.0,
+              15,
+              820.0,
+              527.0
+            ]
+          ]
+        },
+        {
+          "number": 16,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": [
+            [
+              87,
+              18,
+              853.0,
+              538.3
+            ]
+          ]
+        },
+        {
+          "number": 17,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": [
+            [
+              156.0,
+              32.64,
+              854.0,
+              527.0
+            ]
+          ]
+        },
+        {
+          "number": 18,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": [
+            [
+              85.0,
+              130.0,
+              807.0,
+              531.0
+            ]
+          ]
+        },
+        {
+          "number": 19,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": []
+        },
+        {
+          "number": 20,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": [
+            [
+              36.0,
+              62.0,
+              931.0,
+              529.0
+            ]
+          ]
+        },
+        {
+          "number": 21,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": [
+            [
+              286.0,
+              100.42,
+              757.0,
+              181.86
+            ],
+            [
+              72.0,
+              264,
+              959.76,
+              359
+            ],
+            [
+              115.0,
+              363.0,
+              927.0,
+              537.0
+            ]
+          ]
+        },
+        {
+          "number": 22,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": [
+            [
+              45.0,
+              140.0,
+              657.0,
+              440.0
+            ]
+          ]
+        },
+        {
+          "number": 23,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": [
+            [
+              36.0,
+              143,
+              682.0,
+              368.0
+            ]
+          ]
+        },
+        {
+          "number": 24,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": [
+            [
+              141.0,
+              107.0,
+              797.0,
+              156.0
+            ],
+            [
+              139.0,
+              205.0,
+              893.0,
+              540.0
+            ]
+          ]
+        },
+        {
+          "number": 25,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": [
+            [
+              135.0,
+              108,
+              845.0,
+              522.0
+            ]
+          ]
+        },
+        {
+          "number": 26,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": [
+            [
+              126.0,
+              108,
+              852.0,
+              540.0
+            ]
+          ]
+        },
+        {
+          "number": 27,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": [
+            [
+              78.0,
+              121.13,
+              812.0,
+              196.0
+            ],
+            [
+              78.0,
+              234.0,
+              404.0,
+              398.0
+            ]
+          ]
+        },
+        {
+          "number": 28,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": [
+            [
+              141.0,
+              107.8,
+              866.0,
+              540.0
+            ]
+          ]
+        },
+        {
+          "number": 29,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": []
+        },
+        {
+          "number": 30,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": [
+            [
+              235.8,
+              173.0,
+              775.0,
+              270.0
+            ],
+            [
+              90.0,
+              296.0,
+              884.0,
+              408.61
+            ]
+          ]
+        },
+        {
+          "number": 31,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": [
+            [
+              120.0,
+              118.0,
+              838.0,
+              437.0
+            ]
+          ]
+        },
+        {
+          "number": 32,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": [
+            [
+              148.0,
+              28,
+              782.0,
+              176.0
+            ],
+            [
+              137.0,
+              227.0,
+              832.0,
+              373.0
+            ]
+          ]
+        },
+        {
+          "number": 33,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": [
+            [
+              268.0,
+              33.0,
+              652.0,
+              484.0
+            ]
+          ]
+        },
+        {
+          "number": 34,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": [
+            [
+              52.0,
+              105.0,
+              891.0,
+              217.0
+            ],
+            [
+              99.0,
+              244.0,
+              653.0,
+              334.0
+            ],
+            [
+              658.0,
+              206.0,
+              959.76,
+              401.0
+            ],
+            [
+              94.0,
+              393.0,
+              699.0,
+              483.0
+            ]
+          ]
+        },
+        {
+          "number": 35,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": [
+            [
+              49,
+              144.94,
+              922.0,
+              538.0
+            ]
+          ]
+        },
+        {
+          "number": 36,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": [
+            [
+              148.0,
+              24,
+              752.0,
+              467.0
+            ]
+          ]
+        },
+        {
+          "number": 37,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": [
+            [
+              158.0,
+              34.0,
+              734,
+              524.0
+            ]
+          ]
+        },
+        {
+          "number": 38,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": [
+            [
+              447.0,
+              276.0,
+              514.0,
+              322.0
+            ]
+          ]
+        },
+        {
+          "number": 39,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": [
+            [
+              141,
+              130,
+              789,
+              220
+            ],
+            [
+              176,
+              296,
+              763,
+              463
+            ]
+          ]
+        },
+        {
+          "number": 40,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": [
+            [
+              146.0,
+              118.71,
+              347.0,
+              169.0
+            ],
+            [
+              78.0,
+              159.06,
+              838.0,
+              453
+            ]
+          ]
+        },
+        {
+          "number": 41,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": [
+            [
+              221.0,
+              134.0,
+              408.0,
+              188.0
+            ],
+            [
+              243.0,
+              320.31,
+              749.0,
+              378.0
+            ]
+          ]
+        },
+        {
+          "number": 42,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": [
+            [
+              245.0,
+              397.0,
+              708.0,
+              496.0
+            ]
+          ]
+        },
+        {
+          "number": 43,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": [
+            [
+              149.0,
+              52.0,
+              605.0,
+              151.0
+            ],
+            [
+              143.0,
+              242.0,
+              819.0,
+              528.0
+            ]
+          ]
+        },
+        {
+          "number": 44,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": [
+            [
+              298.0,
+              124.0,
+              757.0,
+              308.0
+            ]
+          ]
+        },
+        {
+          "number": 45,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": [
+            [
+              162.0,
+              223.97,
+              562.0,
+              258
+            ],
+            [
+              162.0,
+              256.42,
+              818.0,
+              391.85
+            ],
+            [
+              175.0,
+              413.0,
+              834.0,
+              504.0
+            ]
+          ]
+        },
+        {
+          "number": 46,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": [
+            [
+              157.0,
+              15.0,
+              788.0,
+              537.0
+            ]
+          ]
+        },
+        {
+          "number": 47,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": [
+            [
+              157.0,
+              11.0,
+              788.0,
+              537.0
+            ]
+          ]
+        },
+        {
+          "number": 48,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": [
+            [
+              141.0,
+              166.21,
+              612.0,
+              211.0
+            ],
+            [
+              118.76,
+              265,
+              855.0,
+              377.0
+            ]
+          ]
+        },
+        {
+          "number": 49,
+          "width": 959.760009765625,
+          "height": 540.0,
+          "rects": [
+            [
+              223.0,
+              163.0,
+              542.0,
+              216.0
+            ],
+            [
+              146.0,
+              268.0,
+              795.0,
+              463.0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "source_pdf": "09-expectation.pdf",
+      "pages": [
+        {
+          "number": 1,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": []
+        },
+        {
+          "number": 2,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              158.0,
+              187.0,
+              546.0,
+              270.0
+            ],
+            [
+              208.0,
+              333.0,
+              462.0,
+              434.0
+            ]
+          ]
+        },
+        {
+          "number": 3,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              149.0,
+              246.95,
+              570.0,
+              537.0
+            ]
+          ]
+        },
+        {
+          "number": 4,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              32.0,
+              234.0,
+              696.0,
+              339.0
+            ],
+            [
+              42.0,
+              413,
+              662.0,
+              498.0
+            ]
+          ]
+        },
+        {
+          "number": 5,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              28.0,
+              92.0,
+              690.0,
+              188.0
+            ],
+            [
+              27.0,
+              186.0,
+              157.0,
+              223.19
+            ],
+            [
+              38.0,
+              305.0,
+              695.0,
+              502.0
+            ]
+          ]
+        },
+        {
+          "number": 6,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": []
+        },
+        {
+          "number": 7,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              156.0,
+              160.38,
+              582.0,
+              237.0
+            ],
+            [
+              38.0,
+              247.0,
+              297.0,
+              322.0
+            ]
+          ]
+        },
+        {
+          "number": 8,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              37.0,
+              93.0,
+              708.0,
+              540.0
+            ]
+          ]
+        },
+        {
+          "number": 9,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              37.0,
+              52.0,
+              630.0,
+              128.0
+            ]
+          ]
+        },
+        {
+          "number": 10,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              37.0,
+              49.0,
+              644.0,
+              132.0
+            ],
+            [
+              38.0,
+              170.0,
+              712.0,
+              540.0
+            ]
+          ]
+        },
+        {
+          "number": 11,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              10.0,
+              7.0,
+              527.0,
+              444.0
+            ]
+          ]
+        },
+        {
+          "number": 12,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              74.0,
+              256.0,
+              562.0,
+              307.0
+            ]
+          ]
+        },
+        {
+          "number": 13,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              197.0,
+              135.0,
+              552.0,
+              238.0
+            ],
+            [
+              32.0,
+              242.0,
+              713.0,
+              540.0
+            ]
+          ]
+        },
+        {
+          "number": 14,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": []
+        },
+        {
+          "number": 15,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              83.0,
+              187.0,
+              627.0,
+              271.0
+            ],
+            [
+              156.0,
+              332.0,
+              515.0,
+              435.0
+            ]
+          ]
+        },
+        {
+          "number": 16,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              27.0,
+              93.0,
+              697.0,
+              274.0
+            ]
+          ]
+        },
+        {
+          "number": 17,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              32.0,
+              91,
+              706.0,
+              533.0
+            ]
+          ]
+        },
+        {
+          "number": 18,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              193.0,
+              103,
+              552.0,
+              149.0
+            ],
+            [
+              30.0,
+              193.0,
+              178.0,
+              249.0
+            ]
+          ]
+        },
+        {
+          "number": 19,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              143.0,
+              105,
+              600.0,
+              184.0
+            ],
+            [
+              28.0,
+              194.0,
+              242.0,
+              251.0
+            ]
+          ]
+        },
+        {
+          "number": 20,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": []
+        },
+        {
+          "number": 21,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              97.43,
+              181,
+              582.0,
+              404.0
+            ],
+            [
+              264.5,
+              411,
+              406,
+              445.5
+            ]
+          ]
+        },
+        {
+          "number": 22,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              229.0,
+              109.0,
+              478.0,
+              194.0
+            ],
+            [
+              111.0,
+              208.0,
+              299.0,
+              254.0
+            ]
+          ]
+        },
+        {
+          "number": 23,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              79,
+              154,
+              654.0,
+              287.0
+            ],
+            [
+              58.0,
+              362.0,
+              648.0,
+              436.0
+            ]
+          ]
+        },
+        {
+          "number": 24,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              213.0,
+              158.0,
+              485.0,
+              216.0
+            ],
+            [
+              118.0,
+              216.0,
+              542.0,
+              294.0
+            ],
+            [
+              100,
+              341.7,
+              161,
+              376
+            ]
+          ]
+        },
+        {
+          "number": 25,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              263,
+              147,
+              454,
+              187
+            ],
+            [
+              351.5,
+              250,
+              406,
+              276
+            ],
+            [
+              185.5,
+              273.2,
+              240,
+              298
+            ]
+          ]
+        },
+        {
+          "number": 26,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              133.0,
+              74.0,
+              388.0,
+              158.0
+            ],
+            [
+              181.0,
+              379.0,
+              616.0,
+              457.0
+            ]
+          ]
+        },
+        {
+          "number": 27,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              58.0,
+              97.0,
+              667.0,
+              540.0
+            ]
+          ]
+        },
+        {
+          "number": 28,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              251.5,
+              158,
+              454,
+              198
+            ],
+            [
+              149,
+              433,
+              558,
+              500
+            ]
+          ]
+        },
+        {
+          "number": 29,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": []
+        },
+        {
+          "number": 30,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": []
+        },
+        {
+          "number": 31,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              114.0,
+              104.0,
+              609.0,
+              176.0
+            ],
+            [
+              38.0,
+              221.9,
+              455.0,
+              453.0
+            ]
+          ]
+        },
+        {
+          "number": 32,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              40.0,
+              57.0,
+              709.0,
+              540.0
+            ]
+          ]
+        },
+        {
+          "number": 33,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              159.0,
+              64.0,
+              467.0,
+              159.48
+            ],
+            [
+              71.0,
+              273.0,
+              632.0,
+              396.0
+            ]
+          ]
+        },
+        {
+          "number": 34,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              49.74,
+              100.0,
+              682.0,
+              499.0
+            ]
+          ]
+        },
+        {
+          "number": 35,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              35.0,
+              15.0,
+              692.0,
+              540.0
+            ]
+          ]
+        },
+        {
+          "number": 36,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              29.23,
+              242.94,
+              694.0,
+              465.41
+            ]
+          ]
+        },
+        {
+          "number": 37,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              37.0,
+              36.3,
+              662.0,
+              96.0
+            ],
+            [
+              28.0,
+              141.0,
+              661.0,
+              354.0
+            ]
+          ]
+        },
+        {
+          "number": 38,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              32.0,
+              16.0,
+              713.0,
+              423.0
+            ]
+          ]
+        },
+        {
+          "number": 39,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              46.0,
+              24.24,
+              434.0,
+              84.0
+            ],
+            [
+              66.0,
+              168.87,
+              597.0,
+              502.0
+            ]
+          ]
+        },
+        {
+          "number": 40,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              146.0,
+              105,
+              607.0,
+              180.0
+            ],
+            [
+              27.0,
+              190,
+              713.0,
+              540.0
+            ]
+          ]
+        },
+        {
+          "number": 41,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": []
+        },
+        {
+          "number": 42,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              42,
+              35,
+              652.0,
+              201.92
+            ],
+            [
+              55.0,
+              325.0,
+              651.0,
+              498.0
+            ]
+          ]
+        },
+        {
+          "number": 43,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              43.0,
+              76.0,
+              522.0,
+              119.0
+            ],
+            [
+              146.0,
+              113.26,
+              640.0,
+              207.0
+            ],
+            [
+              246.0,
+              279.0,
+              512.0,
+              334.0
+            ]
+          ]
+        },
+        {
+          "number": 44,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              43.0,
+              76.0,
+              528.0,
+              119.0
+            ],
+            [
+              35.0,
+              128,
+              665.0,
+              178
+            ],
+            [
+              233.0,
+              223.7,
+              481,
+              292
+            ],
+            [
+              233.0,
+              315.5,
+              517.0,
+              383
+            ],
+            [
+              35.0,
+              404,
+              680.0,
+              459.0
+            ],
+            [
+              256.0,
+              472.0,
+              519.0,
+              520.0
+            ]
+          ]
+        },
+        {
+          "number": 45,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              43.0,
+              68.0,
+              527.0,
+              114.0
+            ],
+            [
+              146.0,
+              112.0,
+              645.0,
+              196.0
+            ],
+            [
+              238.0,
+              278.0,
+              512.0,
+              337.0
+            ],
+            [
+              268.0,
+              353.0,
+              485.0,
+              405.0
+            ],
+            [
+              17.0,
+              402.0,
+              717.0,
+              518.0
+            ]
+          ]
+        },
+        {
+          "number": 46,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              32.0,
+              105.0,
+              572.0,
+              146.0
+            ],
+            [
+              171.0,
+              158.0,
+              581.0,
+              330.0
+            ],
+            [
+              32.0,
+              325.0,
+              652.0,
+              366.0
+            ]
+          ]
+        },
+        {
+          "number": 47,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": []
+        },
+        {
+          "number": 48,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              34.0,
+              70.0,
+              639.0,
+              179.0
+            ],
+            [
+              32.0,
+              178.0,
+              673.0,
+              271.0
+            ],
+            [
+              30.0,
+              288.0,
+              474.0,
+              397.0
+            ]
+          ]
+        },
+        {
+          "number": 49,
+          "width": 720.0,
+          "height": 540.0,
+          "rects": [
+            [
+              31.0,
+              108.0,
+              459.0,
+              151.0
+            ],
+            [
+              31.0,
+              147.48,
+              667.0,
+              190
+            ],
+            [
+              242.0,
+              195,
+              482.0,
+              257.0
+            ],
+            [
+              31.0,
+              251.0,
+              245.0,
+              289.0
+            ],
+            [
+              107.0,
+              313.0,
+              627.0,
+              388
+            ],
+            [
+              31.0,
+              389.0,
+              159.0,
+              423
+            ]
+          ]
+        }
+      ]
+    }
   ]
-]
+}
