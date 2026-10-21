@@ -86,7 +86,7 @@ def download_panel(prefix, on_cheat_sheet=False):
 <h2 id="download-title">Combined cheat sheet · Lessons 03–10 + calculus</h2>
 <p>Lessons 03–10, De Morgan’s laws and calculus in one compact sheet. Download the Letter PDF to print or the full-resolution PNG to zoom.</p>
 <div class="cheat-sheet-actions"><a class="cheat-sheet-button" href="{combined_pdf}" download="{COMBINED_PDF_NAME}">Download Letter PDF</a><a class="cheat-sheet-secondary" href="{combined}" download="{COMBINED_NAME}">Download PNG</a>{secondary}</div>
-<p class="cheat-sheet-print-note">PDF: one US Letter landscape page (11 × 8.5 in) · 3 mm margins · Print at 100% (actual size). PNG: {width:,} × {height:,} pixels · {size_mb:.1f} MB. Read down each column, then continue right.</p>
+<p class="cheat-sheet-print-note">PDF: one US Letter landscape page (11 × 8.5 in) · 2 mm margins · Print at 100% (actual size). PNG: {width:,} × {height:,} pixels · {size_mb:.1f} MB. Read down each column, then continue right.</p>
 {preview_html}
 <p class="cheat-sheet-legacy">Earlier reference: <a href="{pdf}" download="{PDF_NAME}">original slide formulas, PDFs 01–09 (one-page PDF)</a>.</p>
 </section>'''
