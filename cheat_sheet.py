@@ -75,11 +75,11 @@ def download_panel(prefix, on_cheat_sheet=False):
     secondary = (f'<a class="cheat-sheet-secondary" href="{combined}" target="_blank" rel="noopener">Open full-size image ↗</a>'
                  if on_cheat_sheet else
                  f'<a class="cheat-sheet-secondary" href="{prefix}cheat-sheet/index.html">View the cheat sheets →</a>')
-    preview_html = (f'<a class="cheat-sheet-preview" href="{combined}" target="_blank" rel="noopener" aria-label="Open the combined cheat sheet at full resolution"><img src="{preview}" width="{width}" height="{height}" alt="Overview of the combined lessons 01–10 and calculus cheat sheet, arranged in nine columns." loading="lazy" decoding="async"></a>'
+    preview_html = (f'<a class="cheat-sheet-preview" href="{combined}" target="_blank" rel="noopener" aria-label="Open the combined cheat sheet at full resolution"><img src="{preview}" width="{width}" height="{height}" alt="Overview of the combined lessons 01–10 and calculus cheat sheet, arranged in eight columns." loading="lazy" decoding="async"></a>'
                     if on_cheat_sheet else '')
     return f'''<section class="cheat-sheet-download" id="download" aria-labelledby="download-title">
 <h2 id="download-title">Combined cheat sheet · Lessons 01–10 + calculus</h2>
-<p>All eleven compact sheets in one image: key definitions, formulas and conditions in lesson order, followed by differentiation and integration. Worked examples have been removed to save space.</p>
+<p>Lessons 01–10 and calculus in one compact image. Definitions, formulas and conditions are grouped by topic, with repeated material consolidated and worked examples removed.</p>
 <div class="cheat-sheet-actions"><a class="cheat-sheet-button" href="{combined}" download="{COMBINED_NAME}">Download combined sheet (PNG)</a>{secondary}</div>
 <p class="cheat-sheet-print-note">{width:,} × {height:,} pixels · {size_mb:.1f} MB · Read down each column, then continue right. Open the full-size image to zoom into the formulas.</p>
 {preview_html}
