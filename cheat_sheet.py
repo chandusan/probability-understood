@@ -1,14 +1,22 @@
-"""Publish typed formulas from PDFs 01–09 and their one-page PDF."""
+"""Publish the combined study sheet and the earlier typed-formula reference."""
 import html
 import json
 import hashlib
+import struct
 from pathlib import Path
 
 PDF_NAME = 'probability-statistics-exam-cheat-sheet.pdf'
+COMBINED_NAME = 'all-lessons-and-calculus.png'
+PREVIEW_NAME = 'all-lessons-and-calculus-preview.jpg'
 PAGE_COUNTS = [31, 43, 53, 36, 44, 36, 36, 49, 49]
 
 
 def load_cheat_sheet(root, check_pdf=True):
+    combined = root / 'assets/downloads' / COMBINED_NAME
+    if not combined.is_file() or combined.read_bytes()[:8] != b'\x89PNG\r\n\x1a\n':
+        raise ValueError('Missing or invalid combined cheat-sheet PNG')
+    if not (root / 'assets/downloads' / PREVIEW_NAME).is_file():
+        raise ValueError('Missing combined cheat-sheet preview')
     pdf = root / 'assets/downloads' / PDF_NAME
     if check_pdf and (not pdf.is_file() or pdf.read_bytes()[:5] != b'%PDF-'):
         raise ValueError('Missing or invalid exam cheat-sheet PDF')
@@ -47,28 +55,42 @@ def load_cheat_sheet(root, check_pdf=True):
 
 
 def pdf_url(prefix):
-    pdf = Path(__file__).resolve().parent / 'assets/downloads' / PDF_NAME
-    version = hashlib.sha256(pdf.read_bytes()).hexdigest()[:12]
-    return f'{prefix}assets/downloads/{PDF_NAME}?v={version}'
+    return download_url(prefix, PDF_NAME)
+
+
+def download_url(prefix, name):
+    asset = Path(__file__).resolve().parent / 'assets/downloads' / name
+    version = hashlib.sha256(asset.read_bytes()).hexdigest()[:12]
+    return f'{prefix}assets/downloads/{name}?v={version}'
 
 
 def download_panel(prefix, on_cheat_sheet=False):
     pdf = pdf_url(prefix)
-    secondary = (f'<a class="cheat-sheet-secondary" href="{pdf}" target="_blank" rel="noopener">Open PDF to print ↗</a>'
+    combined = download_url(prefix, COMBINED_NAME)
+    preview = download_url(prefix, PREVIEW_NAME)
+    image = Path(__file__).resolve().parent / 'assets/downloads' / COMBINED_NAME
+    with image.open('rb') as stream:
+        width, height = struct.unpack('>II', stream.read(24)[16:24])
+    size_mb = image.stat().st_size / 1_000_000
+    secondary = (f'<a class="cheat-sheet-secondary" href="{combined}" target="_blank" rel="noopener">Open full-size image ↗</a>'
                  if on_cheat_sheet else
-                 f'<a class="cheat-sheet-secondary" href="{prefix}cheat-sheet/index.html">Read the cheat sheet →</a>')
-    title = 'Print the one-page sheet' if on_cheat_sheet else 'Formula sheet · PDFs 01–09'
+                 f'<a class="cheat-sheet-secondary" href="{prefix}cheat-sheet/index.html">View the cheat sheets →</a>')
+    preview_html = (f'<a class="cheat-sheet-preview" href="{combined}" target="_blank" rel="noopener" aria-label="Open the combined cheat sheet at full resolution"><img src="{preview}" width="{width}" height="{height}" alt="Overview of the combined lessons 01–10 and calculus cheat sheet, arranged in nine columns." loading="lazy" decoding="async"></a>'
+                    if on_cheat_sheet else '')
     return f'''<section class="cheat-sheet-download" id="download" aria-labelledby="download-title">
-<h2 id="download-title">{title}</h2>
-<p>Original formulas from PDFs 01–09, in the order they appear in the slides.</p>
-<div class="cheat-sheet-actions"><a class="cheat-sheet-button" href="{pdf}" download="{PDF_NAME}">Download PDF</a>{secondary}</div>
-<p class="cheat-sheet-print-note">1 page · A4 landscape · Very small text · Print at 100% / actual size</p>
+<h2 id="download-title">Combined cheat sheet · Lessons 01–10 + calculus</h2>
+<p>All eleven compact sheets in one image: key definitions, formulas and short examples in lesson order, followed by differentiation and integration.</p>
+<div class="cheat-sheet-actions"><a class="cheat-sheet-button" href="{combined}" download="{COMBINED_NAME}">Download combined sheet (PNG)</a>{secondary}</div>
+<p class="cheat-sheet-print-note">{width:,} × {height:,} pixels · {size_mb:.1f} MB · Read down each column, then continue right. Open the full-size image to zoom into the formulas.</p>
+{preview_html}
+<p class="cheat-sheet-legacy">Earlier reference: <a href="{pdf}" download="{PDF_NAME}">original slide formulas, PDFs 01–09 (one-page PDF)</a>.</p>
 </section>'''
 
 
 def build_cheat_sheet(out, content, chapter_navigation):
     sections, toc = [], []
     pdf = pdf_url('../')
+    combined = download_url('../', COMBINED_NAME)
     for lesson in content['lessons']:
         number = lesson['number']
         anchor, label = f'pdf-{number:02}', f'PDF {number:02}'
@@ -85,13 +107,13 @@ def build_cheat_sheet(out, content, chapter_navigation):
                 sections.append(f'<div class="formula-equation" data-formula-id="{number:02}-{p:02}-{i:03}">\\[{tex}\\]</div>')
             sections.append('</section>')
         sections.append('</section>')
-    navigation = '<a href="#download">Download &amp; print</a>' + ''.join(toc)
+    navigation = '<a href="#download">Download combined sheet</a><a href="#source-formulas">Earlier formula reference</a>' + ''.join(toc)
     page = f'''<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Original formulas from STAT 5701 PDFs 01–09, in slide order, with a one-page A4 PDF to download and print."><title>Exam cheat sheet — Probability, understood</title><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/site.css"><link rel="stylesheet" href="../assets/cheat-sheet.css?v=typed-formulas-3"><link rel="stylesheet" href="../assets/vendor/katex/katex.min.css"><script defer src="../assets/vendor/katex/katex.min.js"></script><script defer src="../assets/vendor/katex/contrib/auto-render.min.js"></script><script defer src="../assets/site.js"></script></head>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Download the combined STAT 5701 cheat sheet: lessons 01–10 plus differentiation and integration, with definitions, formulas and simple examples."><title>Exam cheat sheets — Probability, understood</title><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/site.css"><link rel="stylesheet" href="../assets/cheat-sheet.css?v=combined-sheet-1"><link rel="stylesheet" href="../assets/vendor/katex/katex.min.css"><script defer src="../assets/vendor/katex/katex.min.js"></script><script defer src="../assets/vendor/katex/contrib/auto-render.min.js"></script><script defer src="../assets/site.js"></script></head>
 <body class="cheat-sheet-page"><a class="skip" href="#lesson">Skip to the cheat sheet</a>
 <aside class="sidebar" aria-label="Cheat sheet navigation"><a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>Probability,<br>understood.</span></a><button class="nav-close" data-close-nav aria-label="Close navigation">×</button><p class="course-label">Your study companion</p>{chapter_navigation('../')}<p class="course-title">Exam cheat sheet</p><nav class="slide-nav reference-nav" aria-label="Cheat sheet topics">{navigation}</nav><div class="nav-footer"><a class="appendix-link" href="../exercises/index.html">Lesson exercises</a><a class="appendix-link" href="../midterms/index.html">Midterms · questions &amp; solutions</a><a class="appendix-link" href="../appendix/calculus.html">Calculus appendix</a></div></aside>
-<button class="scrim" data-close-nav aria-label="Close navigation"></button><div class="site-body"><header class="topbar"><button class="menu-button" aria-expanded="false" aria-label="Open cheat sheet navigation">☰ Menu</button><div class="breadcrumb"><strong>Exam cheat sheet</strong></div><div class="top-tools"><a href="{pdf}" download="{PDF_NAME}">Download PDF ↓</a></div></header><div class="reading-progress" aria-hidden="true"><i data-reading-progress></i></div>
-<div class="page-layout"><main class="lesson" id="lesson"><p class="eyebrow">Original slide formulas · PDFs 01–09</p><h1>Your formula sheet</h1><p class="lead">Cleanly typeset formulas from the original slides, in teaching order. Read them at a larger size below, or download the single-page printable sheet.</p>{download_panel('../', on_cheat_sheet=True)}<article class="prose cheat-sheet-content">{''.join(sections)}</article><footer class="footer"><p>STAT 5701 · Dobrin Marchev · PDFs 01–09 · All 377 source slides reviewed.</p><p>Original notation, conditions and calculations are preserved. The download contains the same typed formulas on one A4 landscape page.</p></footer></main><aside class="page-toc" aria-label="On this sheet"><p class="toc-label">On this sheet</p>{navigation}<a href="#lesson">Back to the top ↑</a></aside></div></div></body></html>'''
+<button class="scrim" data-close-nav aria-label="Close navigation"></button><div class="site-body"><header class="topbar"><button class="menu-button" aria-expanded="false" aria-label="Open cheat sheet navigation">☰ Menu</button><div class="breadcrumb"><strong>Exam cheat sheets</strong></div><div class="top-tools"><a href="{combined}" download="{COMBINED_NAME}">Download PNG ↓</a></div></header><div class="reading-progress" aria-hidden="true"><i data-reading-progress></i></div>
+<div class="page-layout"><main class="lesson" id="lesson"><p class="eyebrow">Lessons 01–10 · Calculus toolkit</p><h1>Your exam cheat sheets</h1><p class="lead">A compact reference with clear definitions, essential properties and simple examples. Download all ten lessons and the calculus toolkit together in one high-resolution image.</p>{download_panel('../', on_cheat_sheet=True)}<article class="prose cheat-sheet-content"><h2 id="source-formulas">Earlier reference · original slide formulas</h2><p>The archive below covers PDFs 01–09 in slide order. It matches the earlier one-page PDF, available above.</p>{''.join(sections)}</article><footer class="footer"><p>STAT 5701 · Dobrin Marchev · Personal study companion.</p><p>The original-formula archive covers all 377 source slides in PDFs 01–09 and preserves their notation and calculations.</p></footer></main><aside class="page-toc" aria-label="On this sheet"><p class="toc-label">On this sheet</p>{navigation}<a href="#lesson">Back to the top ↑</a></aside></div></div></body></html>'''
     folder = out / 'cheat-sheet'
     folder.mkdir(parents=True, exist_ok=True)
     (folder / 'index.html').write_text(page)
