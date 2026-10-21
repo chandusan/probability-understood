@@ -7,6 +7,7 @@ from pathlib import Path
 
 PDF_NAME = 'probability-statistics-exam-cheat-sheet.pdf'
 COMBINED_NAME = 'all-lessons-and-calculus.png'
+COMBINED_PDF_NAME = 'all-lessons-and-calculus-letter.pdf'
 PREVIEW_NAME = 'all-lessons-and-calculus-preview.jpg'
 PAGE_COUNTS = [31, 43, 53, 36, 44, 36, 36, 49, 49]
 
@@ -17,6 +18,9 @@ def load_cheat_sheet(root, check_pdf=True):
         raise ValueError('Missing or invalid combined cheat-sheet PNG')
     if not (root / 'assets/downloads' / PREVIEW_NAME).is_file():
         raise ValueError('Missing combined cheat-sheet preview')
+    combined_pdf = root / 'assets/downloads' / COMBINED_PDF_NAME
+    if check_pdf and (not combined_pdf.is_file() or combined_pdf.read_bytes()[:5] != b'%PDF-'):
+        raise ValueError('Missing or invalid combined Letter cheat-sheet PDF')
     pdf = root / 'assets/downloads' / PDF_NAME
     if check_pdf and (not pdf.is_file() or pdf.read_bytes()[:5] != b'%PDF-'):
         raise ValueError('Missing or invalid exam cheat-sheet PDF')
@@ -66,6 +70,7 @@ def download_url(prefix, name):
 
 def download_panel(prefix, on_cheat_sheet=False):
     pdf = pdf_url(prefix)
+    combined_pdf = download_url(prefix, COMBINED_PDF_NAME)
     combined = download_url(prefix, COMBINED_NAME)
     preview = download_url(prefix, PREVIEW_NAME)
     image = Path(__file__).resolve().parent / 'assets/downloads' / COMBINED_NAME
@@ -79,9 +84,9 @@ def download_panel(prefix, on_cheat_sheet=False):
                     if on_cheat_sheet else '')
     return f'''<section class="cheat-sheet-download" id="download" aria-labelledby="download-title">
 <h2 id="download-title">Combined cheat sheet · Lessons 03–10 + calculus</h2>
-<p>Lessons 03–10, De Morgan’s laws and calculus in one compact image. Definitions, formulas and conditions are grouped by topic, with repeated material consolidated and worked examples removed.</p>
-<div class="cheat-sheet-actions"><a class="cheat-sheet-button" href="{combined}" download="{COMBINED_NAME}">Download combined sheet (PNG)</a>{secondary}</div>
-<p class="cheat-sheet-print-note">{width:,} × {height:,} pixels · {size_mb:.1f} MB · Read down each column, then continue right. Open the full-size image to zoom into the formulas.</p>
+<p>Lessons 03–10, De Morgan’s laws and calculus in one compact sheet. Download the Letter PDF to print or the full-resolution PNG to zoom.</p>
+<div class="cheat-sheet-actions"><a class="cheat-sheet-button" href="{combined_pdf}" download="{COMBINED_PDF_NAME}">Download Letter PDF</a><a class="cheat-sheet-secondary" href="{combined}" download="{COMBINED_NAME}">Download PNG</a>{secondary}</div>
+<p class="cheat-sheet-print-note">PDF: one US Letter landscape page (11 × 8.5 in) · 3 mm margins · Print at 100% (actual size). PNG: {width:,} × {height:,} pixels · {size_mb:.1f} MB. Read down each column, then continue right.</p>
 {preview_html}
 <p class="cheat-sheet-legacy">Earlier reference: <a href="{pdf}" download="{PDF_NAME}">original slide formulas, PDFs 01–09 (one-page PDF)</a>.</p>
 </section>'''
@@ -91,6 +96,7 @@ def build_cheat_sheet(out, content, chapter_navigation):
     sections, toc = [], []
     pdf = pdf_url('../')
     combined = download_url('../', COMBINED_NAME)
+    combined_pdf = download_url('../', COMBINED_PDF_NAME)
     for lesson in content['lessons']:
         number = lesson['number']
         anchor, label = f'pdf-{number:02}', f'PDF {number:02}'
@@ -109,11 +115,11 @@ def build_cheat_sheet(out, content, chapter_navigation):
         sections.append('</section>')
     navigation = '<a href="#download">Download combined sheet</a><a href="#source-formulas">Earlier formula reference</a>' + ''.join(toc)
     page = f'''<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Download the compact STAT 5701 cheat sheet: lessons 03–10, De Morgan’s laws, differentiation and integration, with definitions, formulas and key conditions."><title>Exam cheat sheets — Probability, understood</title><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/site.css"><link rel="stylesheet" href="../assets/cheat-sheet.css?v=combined-sheet-1"><link rel="stylesheet" href="../assets/vendor/katex/katex.min.css"><script defer src="../assets/vendor/katex/katex.min.js"></script><script defer src="../assets/vendor/katex/contrib/auto-render.min.js"></script><script defer src="../assets/site.js"></script></head>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Download the compact STAT 5701 cheat sheet as a Letter PDF or PNG: lessons 03–10, De Morgan’s laws, differentiation and integration, with definitions, formulas and key conditions."><title>Exam cheat sheets — Probability, understood</title><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/site.css"><link rel="stylesheet" href="../assets/cheat-sheet.css?v=combined-sheet-1"><link rel="stylesheet" href="../assets/vendor/katex/katex.min.css"><script defer src="../assets/vendor/katex/katex.min.js"></script><script defer src="../assets/vendor/katex/contrib/auto-render.min.js"></script><script defer src="../assets/site.js"></script></head>
 <body class="cheat-sheet-page"><a class="skip" href="#lesson">Skip to the cheat sheet</a>
 <aside class="sidebar" aria-label="Cheat sheet navigation"><a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>Probability,<br>understood.</span></a><button class="nav-close" data-close-nav aria-label="Close navigation">×</button><p class="course-label">Your study companion</p>{chapter_navigation('../')}<p class="course-title">Exam cheat sheet</p><nav class="slide-nav reference-nav" aria-label="Cheat sheet topics">{navigation}</nav><div class="nav-footer"><a class="appendix-link" href="../exercises/index.html">Lesson exercises</a><a class="appendix-link" href="../midterms/index.html">Midterms · questions &amp; solutions</a><a class="appendix-link" href="../appendix/calculus.html">Calculus appendix</a></div></aside>
-<button class="scrim" data-close-nav aria-label="Close navigation"></button><div class="site-body"><header class="topbar"><button class="menu-button" aria-expanded="false" aria-label="Open cheat sheet navigation">☰ Menu</button><div class="breadcrumb"><strong>Exam cheat sheets</strong></div><div class="top-tools"><a href="{combined}" download="{COMBINED_NAME}">Download PNG ↓</a></div></header><div class="reading-progress" aria-hidden="true"><i data-reading-progress></i></div>
-<div class="page-layout"><main class="lesson" id="lesson"><p class="eyebrow">Lessons 03–10 · De Morgan’s laws · Calculus toolkit</p><h1>Your exam cheat sheets</h1><p class="lead">A compact reference with clear definitions, essential properties and formula tables. Download the selected lessons, De Morgan’s laws and the calculus toolkit together in one high-resolution image.</p>{download_panel('../', on_cheat_sheet=True)}<article class="prose cheat-sheet-content"><h2 id="source-formulas">Earlier reference · original slide formulas</h2><p>The archive below covers PDFs 01–09 in slide order. It matches the earlier one-page PDF, available above.</p>{''.join(sections)}</article><footer class="footer"><p>STAT 5701 · Dobrin Marchev · Personal study companion.</p><p>The original-formula archive covers all 377 source slides in PDFs 01–09 and preserves their notation and calculations.</p></footer></main><aside class="page-toc" aria-label="On this sheet"><p class="toc-label">On this sheet</p>{navigation}<a href="#lesson">Back to the top ↑</a></aside></div></div></body></html>'''
+<button class="scrim" data-close-nav aria-label="Close navigation"></button><div class="site-body"><header class="topbar"><button class="menu-button" aria-expanded="false" aria-label="Open cheat sheet navigation">☰ Menu</button><div class="breadcrumb"><strong>Exam cheat sheets</strong></div><div class="top-tools"><a href="{combined_pdf}" download="{COMBINED_PDF_NAME}">Download Letter PDF ↓</a></div></header><div class="reading-progress" aria-hidden="true"><i data-reading-progress></i></div>
+<div class="page-layout"><main class="lesson" id="lesson"><p class="eyebrow">Lessons 03–10 · De Morgan’s laws · Calculus toolkit</p><h1>Your exam cheat sheets</h1><p class="lead">A compact reference with essential properties and formula tables. Download the combined sheet as a one-page Letter PDF or a high-resolution PNG.</p>{download_panel('../', on_cheat_sheet=True)}<article class="prose cheat-sheet-content"><h2 id="source-formulas">Earlier reference · original slide formulas</h2><p>The archive below covers PDFs 01–09 in slide order. It matches the earlier one-page PDF, available above.</p>{''.join(sections)}</article><footer class="footer"><p>STAT 5701 · Dobrin Marchev · Personal study companion.</p><p>The original-formula archive covers all 377 source slides in PDFs 01–09 and preserves their notation and calculations.</p></footer></main><aside class="page-toc" aria-label="On this sheet"><p class="toc-label">On this sheet</p>{navigation}<a href="#lesson">Back to the top ↑</a></aside></div></div></body></html>'''
     folder = out / 'cheat-sheet'
     folder.mkdir(parents=True, exist_ok=True)
     (folder / 'index.html').write_text(page)
