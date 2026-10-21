@@ -14,8 +14,9 @@
 .formula-source-slide{background:#fff;border:1px solid var(--line);border-radius:8px;margin:16px 0;padding:16px 18px;scroll-margin-top:100px}
 .formula-source-slide h3{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:0 0 18px;font-size:14px}
 .formula-source-slide h3 a{font:normal 12px/1.5 var(--sans);white-space:nowrap}
-.formula-source-crop{position:relative;overflow:hidden;margin:12px 0;max-width:100%;background:#fff}
-.formula-source-crop img{position:absolute;max-width:none!important;height:auto!important;display:block;margin:0!important;border:0!important;border-radius:0!important}
+.formula-equation{max-width:100%;overflow-x:auto;overflow-y:hidden;padding:4px 2px}
+.formula-equation .katex-display{margin:8px 0;text-align:left}
+.formula-equation .katex-display>.katex{text-align:left}
 .cheat-sheet-page .reference-nav{flex:1}
 @media(max-width:740px){.cheat-sheet-download{padding:21px 20px}.cheat-sheet-download h2{font-size:26px}.cheat-sheet-actions{gap:14px}.cheat-sheet-topic h2{font-size:25px}.cheat-sheet-content{font-size:14px}}
-@media print{.cheat-sheet-download{display:none}.cheat-sheet-topic h2,.cheat-sheet-topic h3{break-after:avoid}.formula-source-crop{break-inside:avoid}}
+@media print{.cheat-sheet-download{display:none}.cheat-sheet-topic h2,.cheat-sheet-topic h3{break-after:avoid}.formula-equation{break-inside:avoid}}
